@@ -1,0 +1,72 @@
+<app-demo-card headerText="Bottom Sheet" #container>
+  <forge-button type="raised">
+    <button (click)="showConfirmBottomSheet()">Show confirm bottom sheet</button>
+  </forge-button>
+
+  <br />
+  <br />
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="showBackdrop" [(ngModel)]="showBackdrop" />
+      <label for="showBackdrop">Show Backdrop</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="backdropClose" [(ngModel)]="backdropClose" />
+      <label for="backdropClose">Backdrop close</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="escapeClose" [(ngModel)]="escapeClose" />
+      <label for="escapeClose">Escape close</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="fullscreen" [(ngModel)]="fullscreen" />
+      <label for="fullscreen">Fullscreen</label>
+    </forge-checkbox>
+  </div>
+
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="lazyload" [(ngModel)]="lazyload" />
+      <label for="lazyload">Lazy-load bottom sheet component</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="beforeCloseCallback" [(ngModel)]="beforeCloseCallback" />
+      <label for="beforeCloseCallback" slot="label">Return false from beforeCloseCallback (affects escape/backdrop-click)</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="beforeCloseSubscription" [(ngModel)]="beforeCloseSubscription" />
+      <label for="beforeCloseSubscription" slot="label">Prevent default in beforeClose subscription (affects escape/backdrop-click)</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="scrollable" [(ngModel)]="scrollable" />
+      <label for="scrollable" slot="label">Scrollable</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="add-class" [(ngModel)]="bottomSheetClass" />
+      <label for="add-class" slot="label">Custom bottom sheet class</label>
+    </forge-text-field>
+  </div>
+</app-demo-card>

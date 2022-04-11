@@ -1,0 +1,36 @@
+<app-demo-card headerText="Popup">
+  <forge-button type="raised">
+    <button #popup="forgePopup" [forgePopup]="popupTemplate" (click)="popupOpen(popup)" forgePopupClass="test-class" (forge-popup-open)="popupOpened()" (forge-popup-close)="popupClosed()">Show popup</button>
+  </forge-button>
+
+  <ng-template #popupTemplate>
+    <!-- The root node of the template can be the forge-popup element for granular control -->
+    <forge-popup animation-type="menu">
+      <div style="padding: 16px; display: flex; flex-direction: column;">
+        <div>Popup Content</div>
+        <br/>
+        <forge-text-field>
+          <label for="popup-text-field">Text Field</label>
+          <input type="text" id="popup-text-field" [(ngModel)]="popupTextValue" />
+        </forge-text-field>
+        <br/>
+        <forge-button type="unelevated">
+          <button (click)="popup.close()">Close</button>
+        </forge-button>
+      </div>
+    </forge-popup>
+
+    <!-- <div style="padding: 16px; display: flex; flex-direction: column;">
+      <div>Popup Content</div>
+      <br/>
+      <forge-text-field>
+        <label for="popup-text-field">Text Field</label>
+        <input type="text" id="popup-text-field" [(ngModel)]="popupTextValue" />
+      </forge-text-field>
+      <br/>
+      <forge-button type="unelevated">
+        <button (click)="popup.close()">Close</button>
+      </forge-button>
+    </div> -->
+  </ng-template>
+</app-demo-card>

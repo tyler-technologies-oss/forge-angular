@@ -1,0 +1,25 @@
+<app-demo-card headerText="Avatar">
+  <h4>Static Value</h4>
+  <forge-avatar text="Tom Brady"></forge-avatar>
+
+  <br/>
+
+  <h4>Dynamic Single Character Value</h4>
+  <div class="forge-flex-container--row">
+    <forge-avatar [text]="dynamicSingleValue" letter-count="1"></forge-avatar>
+    <forge-button>
+      <button (click)="changeSingleValue()">Change Value</button>
+    </forge-button>
+  </div>
+
+  <br/>
+
+  <h4>Dynamic Two Character Value</h4>
+  <div class="forge-flex-container--row">
+    <forge-avatar [text]="dynamicDoubleValue" letter-count="2" font-size="14"></forge-avatar>
+    <forge-button>
+      <button (click)="changeDoubleValue()">Change Value</button>
+    </forge-button>
+  </div>
+
+</app-demo-card>

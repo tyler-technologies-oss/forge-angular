@@ -1,0 +1,17 @@
+<app-demo-card headerText="Icon Button">
+  <forge-icon-button>
+    <button class="tyler-icons">code</button>
+  </forge-icon-button>
+  
+  <h2>Icon Button Toggle</h2>
+  <forge-icon-button toggle="true" [isOn]="isToggleOn" (forge-icon-button-change)="onToggleChanged($event)">
+    <button>
+      <i class="tyler-icons">favorite</i>
+      <i class="tyler-icons">favorite_outline</i>
+    </button>
+  </forge-icon-button>
+
+  <forge-button>
+    <button (click)="isToggleOn = !isToggleOn">Toggle via code</button>
+  </forge-button>
+</app-demo-card>

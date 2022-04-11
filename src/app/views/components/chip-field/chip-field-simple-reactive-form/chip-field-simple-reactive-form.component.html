@@ -1,0 +1,28 @@
+<h4>Chip field in reactive form</h4>
+<form [formGroup]="chipFieldForm" (ngSubmit)="onSubmit()" (keydown.enter)="$any($event).target.id !== 'simple-form-chip-field-input'">
+  <forge-chip-field (forge-chip-field-member-added)="addMember($event)" (forge-chip-field-member-removed)="deleteMember($event)" [invalid]="tokensFormArray.invalid" required>
+    <label slot="label" for="simple-form-chip-field-input">Tokens</label>
+    <ng-container *ngFor="let control of tokensFormArray.controls">
+      <forge-chip slot="member" type="field" dense (forge-chip-delete)="deleteMember($event)" [value]="control.value" [invalid]="tokensFormArray.invalid" [disabled]="tokensFormArray.disabled">
+        {{control.value}}
+      </forge-chip>
+    </ng-container>
+    <input type="text" id="simple-form-chip-field-input" [disabled]="tokensFormArray.disabled">
+    <div slot="helper-text" *ngIf="!tokensFormArray.invalid">
+      Tokens for stuff
+    </div>
+    <div slot="helper-text" *ngIf="tokensFormArray.invalid">
+      At least 2 tokens are required
+    </div>
+  </forge-chip-field>
+  <forge-button type="raised">
+    <button type="submit" [disabled]="chipFieldForm.invalid">Submit</button>
+  </forge-button>
+</form>
+<div style="margin-top:12px;">
+  {{chipFieldForm.value | json}}
+</div>
+<forge-checkbox>
+  <input type="checkbox" id="disable-simple-form-chk" (click)="disableForm($event)">
+  <label for="disable-simple-form-chk">Form disabled</label>
+</forge-checkbox>

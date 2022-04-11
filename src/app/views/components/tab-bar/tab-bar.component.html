@@ -1,0 +1,12 @@
+<app-demo-card headerText="Tab Bar">
+  <forge-tab-bar [activeTab]="selectedTab" (forge-tab-bar-activate)="selectedTab = $event.detail.index" underline>
+    <forge-tab>Tab 1</forge-tab>
+    <forge-tab>Tab 2</forge-tab>
+    <forge-tab>Tab 3</forge-tab>
+  </forge-tab-bar>
+  <div style="padding: 16px;">
+    <div *ngIf="selectedTab === 0">Content for tab one</div>
+    <div *ngIf="selectedTab === 1">Content for tab two</div>
+    <div *ngIf="selectedTab === 2">Content for tab three</div>
+  </div>
+</app-demo-card>

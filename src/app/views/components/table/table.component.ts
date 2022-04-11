@@ -1,0 +1,237 @@
+import { Component, OnInit, ApplicationRef, Renderer2, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {
+  IColumnConfiguration,
+  ITableSortEventData,
+  ITableRowClickEventData,
+  TextFieldComponentDelegate,
+  ITableFilterEventData,
+  SelectComponentDelegate,
+  IPaginatorChangeEvent,
+  ICON_BUTTON_CONSTANTS,
+  IMenuOption,
+  IconRegistry
+} from '@tylertech/forge';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { ToastService, DynamicComponentService, IDynamicComponentRef } from '@tylertech/forge-angular';
+import { TableCellMenuComponent } from './table-cell-menu.component';
+import { SortDirection } from '@tylertech/forge';
+import { ISortedItem } from '@tylertech/forge';
+import { delay } from 'rxjs/operators';
+import { tylIconSettings } from '@tylertech/tyler-icons/standard';
+
+interface IPlayer {
+  [key: string]: any;
+  Id: number;
+  Name: string;
+  Age: number;
+  Position: string;
+  FavoriteColor: string;
+}
+
+const players: IPlayer[] = [
+  { Id: 1, Name: 'Tom Brady', Age: 41, Position: 'QB', FavoriteColor: 'Red' },
+  { Id: 2, Name: 'Julian Edelman', Age: 32, Position: 'WR', FavoriteColor: 'Blue' },
+  { Id: 3, Name: 'Rob Gronkowski', Age: 29, Position: 'TE', FavoriteColor: 'Red' },
+  { Id: 4, Name: 'Chris Hogan', Age: 30, Position: 'WR', FavoriteColor: 'Blue' },
+  { Id: 5, Name: 'James White', Age: 26, Position: 'RB', FavoriteColor: 'Blue' }
+];
+
+@Component({
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
+})
+export class TableComponent implements OnInit, AfterViewInit {
+  @ViewChild('selectAllTemplate')
+  selectAllTemplate: ElementRef;
+
+  @ViewChild('selectAllTemplateTable')
+  selectAllTemplateTable: ElementRef;
+
+  public columnConfigurations: IColumnConfiguration[] = [
+    { header: 'Name', property: 'Name', sortable: true, initialSort: true },
+    { header: 'Age', property: 'Age', sortable: true },
+    { header: 'Position', property: 'Position', sortable: true }
+  ];
+  public advColumnConfigurations: IColumnConfiguration[] = [
+    { header: 'Name', property: 'Name', sortable: true, initialSort: true, filter: true, filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter name...' } }) },
+    { header: 'Age', property: 'Age', sortable: true, filter: true, filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter age...', type: 'number' }}) },
+    {
+      header: 'Position',
+      property: 'Position',
+      sortable: false,
+      filter: true,
+      transform: value => this._transformPosition(value),
+      filterDelegate: new SelectComponentDelegate({
+        props: {
+          placeholder: 'Filter position...',
+          options: [{ label: '', value: null }, ...players.map(p => ({ label: p.Position, value: p.Position }))],
+        },
+        options: {
+          style: { width: '164px' }
+        }
+      })
+    },
+    { sortable: false, template: index => this._createAdvMenuCell(index) },
+    { sortable: false, template: index => this._createVanillaNavCell(index) }
+  ];
+  public multiColumnSortConfigurations: IColumnConfiguration[] = [
+    { header: 'Name', property: 'Name', sortable: true, initialSort: { sortOrder: 1, direction: SortDirection.Descending, propertyName: 'Name' } },
+    { header: 'Age', property: 'Age', sortable: true },
+    { header: 'Position', property: 'Position', sortable: true },
+    { header: 'Favorite Color', property: 'FavoriteColor', sortable: true },
+  ];
+
+  public data$: BehaviorSubject<IPlayer[]>;
+  public totalCount = players.length;
+  private _dynamicComponentCache = new Map<string, IDynamicComponentRef<any>>();
+    public options: IMenuOption[] = [
+    { label: 'Action', value: 'action' },
+    { label: 'Action 2', value: 'action2' },
+    { label: 'Action 3', value: 'action3' },
+  ];
+
+  constructor(private _toastService: ToastService, private _dcs: DynamicComponentService, private _appRef: ApplicationRef, private _renderer: Renderer2) {
+    IconRegistry.define([tylIconSettings]);
+  }
+
+  public ngAfterViewInit(): void {
+    this.selectAllTemplateTable.nativeElement.selectAllTemplate =  () => of(this.selectAllTemplate.nativeElement).toPromise()
+  }
+
+  public ngOnInit(): void {
+    this.data$ = new BehaviorSubject(players.sort(this._sortByProperty('Name', 'DESC')));
+  }
+
+  public ngOnDestroy(): void {
+    // Make sure to destroy any dynamically created components, otherwise they will stay attached to the `ApplicationRef` and cause memory leaks
+    this._dynamicComponentCache.forEach(dcRef => dcRef.destroy());
+  }
+
+  public onSelect(evt: CustomEvent): void {
+    console.log('[table] forge-table-select:', evt.detail);
+  }
+
+  public onSelectAll(evt: CustomEvent): void {
+
+  }
+
+  public onTableSort(evt: CustomEvent<ITableSortEventData>): void {
+    const sortPropertyName = this.columnConfigurations[evt.detail.columnIndex].property!;
+    this.data$.next([...players.sort(this._sortByProperty(sortPropertyName, evt.detail.direction))]);
+  }
+
+  public onTableMultiSort(sortData: ISortedItem[]): void {
+    console.log(sortData);
+    this.data$.next([...players.sort(this._sortByMultiSortData(sortData))]);
+  }
+
+  private _sortByMultiSortData(sortData: ISortedItem[]): (a: IPlayer, b: IPlayer) => number {
+    return (a: IPlayer, b: IPlayer) => {
+      let i = 0;
+      let result = 0;
+      sortData = sortData.sort((d1: ISortedItem, d2: ISortedItem) => d1.sortOrder! - d2.sortOrder!);
+      while (i < sortData.length && result === 0) {
+        result = (sortData[i].direction === SortDirection.Ascending ? -1 : 1) *
+          (a[sortData[i].propertyName].toString() < b[sortData[i].propertyName].toString() ? -1 :
+            (a[sortData[i].propertyName].toString() > b[sortData[i].propertyName].toString() ? 1 : 0));
+        i++;
+      }
+      return result;
+    };
+  }
+
+  private _sortByProperty(propertyName: string, sortDirection: string): (a: IPlayer, b: IPlayer) => number {
+    return (a, b) => {
+      if (sortDirection === 'DESC') {
+        return a[propertyName].toString().localeCompare(b[propertyName]);
+      } else {
+        return b[propertyName].toString().localeCompare(a[propertyName]);
+      }
+    };
+  }
+
+  public onAdvFilter(evt: CustomEvent<ITableFilterEventData>): void {
+    console.log(evt.detail);
+  }
+
+  public onAdvRowClick(evt: CustomEvent<ITableRowClickEventData>): void {
+    this._toastService.show(`Clicked row: ${evt.detail.index}`);
+  }
+
+  public onAdvPageChange(evt: CustomEvent<IPaginatorChangeEvent>): void {
+    console.log(evt.detail);
+  }
+
+  /**
+   * This is an example for how to efficiently create and reuse dynamic Angular components within a table cell.
+   * @param index
+   */
+  private _createAdvMenuCell(index: number): HTMLElement {
+    // We first check the cache to see if we have already created this component
+    const key = `menu-cell-${index}`;
+    let dcRef = this._dynamicComponentCache.get(key);
+
+    // If we haven't already created this component, then create it now. Alternatively you could destroy and
+    // recreate the component here if you needed to but this is more efficient
+    if (!dcRef) {
+      // Create the dynamic component (note: this will attach the component to `ApplicationRef` by default)
+      dcRef = this._dcs.create(TableCellMenuComponent);
+      this._dynamicComponentCache.set(key, dcRef);
+
+      // Set any inputs if you want here...
+      dcRef.instance.iconName = 'more_vert';
+
+      // Subscribe to any outputs that you want here...
+      dcRef.instance.selected.subscribe((val: any) => this._handleAdvMenuSelection(index, val));
+    }
+
+    // Return the component element that will be placed in the table cell element
+    return dcRef.componentElement!;
+  }
+
+  /**
+   * This is an example of how to safely and imperatively create a cell template using the Angular DOM Renderer.
+   * @param index
+   */
+  private _createVanillaNavCell(index: number): HTMLElement {
+    const iconButton = this._renderer.createElement(ICON_BUTTON_CONSTANTS.elementName);
+    const button = this._renderer.createElement('button');
+    this._renderer.setAttribute(button, 'class', 'tyler-icons');
+    this._renderer.appendChild(button, this._renderer.createText('chevron_right'));
+    this._renderer.listen(button, 'click', () => this._handleAdvRowNav(index));
+    this._renderer.appendChild(iconButton, button);
+    return iconButton;
+  }
+
+  private _handleAdvRowNav(index: number): void {
+    this._toastService.show(`Advanced nav for row index: ${index}`);
+  }
+
+  private _handleAdvMenuSelection(index: number, value: any): void {
+    const player = players[index];
+    this._toastService.show({
+      duration: 3000,
+      message: `Advanced menu selection for index "${index}" with value "${value}" for player "${player.Name}"`
+    });
+  }
+
+  /**
+   * This simulates a "pipe" but for the table cell `transform` property.
+   * @param value
+   */
+  private _transformPosition(value: string): string {
+    switch (value) {
+      case 'QB':
+        return 'Quarterback';
+      case 'WR':
+        return 'Wide Receiver';
+      case 'TE':
+        return 'Tight End';
+      case 'RB':
+        return 'Running Back';
+      default:
+        return '';
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<app-demo-card headerText="Chips">
+  <div id="chips-choice">
+    <h4>Choice Chips</h4>
+    <forge-chip-set type="choice">
+      <forge-chip>Small</forge-chip>
+      <forge-chip selected>Medium</forge-chip>
+      <forge-chip>Large</forge-chip>
+    </forge-chip-set>
+  </div>
+
+  <div id="chips-choice-vertical">
+    <h4>Choice Chips (Vertical)</h4>
+    <forge-chip-set type="choice" orientation="vertical">
+      <forge-chip>Small</forge-chip>
+      <forge-chip selected>Medium</forge-chip>
+      <forge-chip>Large</forge-chip>
+    </forge-chip-set>
+  </div>
+
+  <div id="chips-filter">
+    <h4>Filter Chips</h4>
+    <h5>No leading icon</h5>
+    <forge-chip-set type="filter">
+      <forge-chip selected>Tops</forge-chip>
+      <forge-chip selected>Bottoms</forge-chip>
+      <forge-chip>Shoes</forge-chip>
+      <forge-chip>Accessories</forge-chip>
+    </forge-chip-set>
+  </div>
+
+  <div id="chips-filter-leading">
+    <h5>With leading icon</h5>
+    <forge-chip-set type="filter">
+      <forge-chip selected>
+        <i class="tyler-icons" slot="leading">face</i>
+        Alice
+      </forge-chip>
+      <forge-chip selected>
+        <i class="tyler-icons" slot="leading">face</i>
+        Bob
+      </forge-chip>
+      <forge-chip>
+        <i class="tyler-icons" slot="leading">face</i>
+        Charlie
+      </forge-chip>
+      <forge-chip>
+        <i class="tyler-icons" slot="leading">face</i>
+        Danielle
+      </forge-chip>
+    </forge-chip-set>
+  </div>
+
+  <div id="chips-action">
+    <h4>Action Chips</h4>
+    <forge-chip-set type="action" (forge-chip-select)="onActionChipSelected($event)">
+      <forge-chip value="calendar">
+        <i class="tyler-icons" slot="leading">event</i>
+        Add to calendar
+      </forge-chip>
+      <forge-chip value="bookmark">
+        <i class="tyler-icons" slot="leading">bookmark</i>
+        Bookmark
+      </forge-chip>
+      <forge-chip value="alarm">
+        <i class="tyler-icons" slot="leading">alarm</i>
+      </forge-chip>
+      <forge-chip value="directions">
+        <i class="tyler-icons" slot="leading">directions</i>
+        Get directions
+      </forge-chip>
+    </forge-chip-set>
+  </div>
+
+  <div id="chips-input">
+    <h4 class="forge-flex-container--row">
+      Input Chips 
+      <span>
+        <forge-icon-button>
+          <button class="tyler-icons" (click)="resetInputChips()">refresh</button>
+        </forge-icon-button>
+      </span>
+    </h4>
+    <forge-chip-set type="input">
+      <forge-chip *ngFor="let chip of inputChips$ | async" (forge-chip-delete)="onInputChipDeleted(chip)">
+        <i class="tyler-icons" slot="leading">{{chip.icon}}</i>
+        {{chip.text}}
+      </forge-chip>
+    </forge-chip-set>
+  </div>
+</app-demo-card>

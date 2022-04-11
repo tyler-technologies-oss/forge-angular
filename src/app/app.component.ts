@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'forge-angular';
+  public isDrawerOpen = true;
+
+  public onMenuClicked(): void {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
 }

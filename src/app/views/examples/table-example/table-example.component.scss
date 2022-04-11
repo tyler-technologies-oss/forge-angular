@@ -1,0 +1,37 @@
+@use '@material/theme/color-palette' as mdc-color-palette;
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.align-vert {
+  display: flex;
+  align-items: center;
+}
+
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 0;
+}
+
+.selection-header {
+  background-color: mdc-color-palette.$indigo-50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+
+  .journal-action-buttons {
+    forge-button:not(:first-child) {
+      margin-left: 16px;
+    }
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+}

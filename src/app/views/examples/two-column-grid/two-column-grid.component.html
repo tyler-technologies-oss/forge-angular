@@ -1,0 +1,78 @@
+<forge-card style="--forge-card-padding: 0;" class="container-card">
+  <forge-toolbar slot="header">
+    <i class="tyler-icons" slot="start">arrow_back</i>
+    <h3 class="forge-typography--headline5" slot="start">New package name</h3>
+    <forge-icon-button slot="end">
+      <button type="button" class="tyler-icons">delete</button>
+    </forge-icon-button>
+    <forge-icon-button slot="end">
+      <button type="button" class="tyler-icons">info_outlined</button>
+    </forge-icon-button>
+  </forge-toolbar>
+
+  <div class="container">
+    <forge-scaffold style="padding: 16px">
+      <div slot="body" class="form-inner">
+        <forge-text-field>
+          <input type="text" id="input-id" />
+          <label for="input-id">Document type</label>
+        </forge-text-field>
+
+        <forge-text-field>
+          <input type="text" id="input-id" />
+          <label for="input-id">Grantor</label>
+        </forge-text-field>
+
+        <forge-text-field>
+          <input type="text" id="input-id" />
+          <label for="input-id">Grantee</label>
+        </forge-text-field>
+
+        <forge-text-field>
+          <input type="text" id="input-id" />
+          <label for="input-id">Consideration amount</label>
+        </forge-text-field>
+      </div>
+
+      <forge-toolbar slot="footer" style="--forge-toolbar-border-bottom: none">
+        <p slot="center" class="forge-typography--body2"><span style="color: var(--mdc-theme-text-secondary-on-light)">Estimated
+            recording fees</span><br>Total</p>
+        <p slot="end" class="forge-typography--body2">
+          <span style="color: var(--mdc-theme-text-secondary-on-light)">$100</span>
+          <br>
+          $150
+        </p>
+      </forge-toolbar>
+
+    </forge-scaffold>
+
+    <forge-scaffold class="upload-container">
+      <forge-menu [options]="options" (forge-menu-select)="onMenuOptionSelected($event)" slot="body-right">
+        <forge-icon-button>
+          <button type="button" class="tyler-icons">more_vert</button>
+        </forge-icon-button>
+      </forge-menu>
+      <div slot="body" class="upload-inner">
+        <forge-file-picker>
+          <img slot="primary" height="150px" src="https://cdn.forge.tylertech.com/v1/images/spot/cloud-storage-spot.svg"
+            alt="" />
+          <span slot="secondary">Drag and drop items or click the button above to
+            manually add files.</span>
+          <forge-button type="outlined">
+            <button type="button">Select files</button>
+          </forge-button>
+          <span slot="helper-text"></span>
+        </forge-file-picker>
+      </div>
+    </forge-scaffold>
+  </div>
+
+  <forge-toolbar inverted slot="footer" class="footer">
+    <forge-button type="outlined" slot="end">
+      <button type="button">Save & add next</button>
+    </forge-button>
+    <forge-button type="raised" slot="end">
+      <button type="button">Checkout</button>
+    </forge-button>
+  </forge-toolbar>
+</forge-card>

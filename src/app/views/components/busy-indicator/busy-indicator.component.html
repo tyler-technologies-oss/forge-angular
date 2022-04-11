@@ -1,0 +1,53 @@
+<app-demo-card headerText="Busy Indicator">
+  <forge-button type="raised">
+    <button (click)="showBusyIndicator()">Show busy indicator</button>
+  </forge-button>
+
+  <div class="busy-indicator-host" #busyIndicatorHost>
+    <div class="forge-flex-container--col" style="align-items: flex-start;">
+      <forge-text-field>
+        <label for="busy-indicator-title-input">Title</label>
+        <input type="text" id="busy-indicator-title-input" [(ngModel)]="title" />
+      </forge-text-field>
+
+      <forge-text-field>
+        <label for="busy-indicator-message-input">Message</label>
+        <input type="text" id="busy-indicator-message-input" [(ngModel)]="message" />
+      </forge-text-field>
+
+      <div>
+        <forge-checkbox>
+          <input type="checkbox" id="busy-indicator-constrain" [(ngModel)]="constrain" />
+          <label for="busy-indicator-constrain">Constrain to Parent</label>
+        </forge-checkbox>
+      </div>
+
+      <div>
+        <forge-checkbox>
+          <input type="checkbox" id="busy-indicator-cancel" [(ngModel)]="cancel" />
+          <label for="busy-indicator-cancel">Show Cancel Button</label>
+        </forge-checkbox>
+      </div>
+
+      <div>
+        <forge-checkbox>
+          <input type="checkbox" id="busy-indicator-spinner" [(ngModel)]="spinner" />
+          <label for="busy-indicator-spinner">Show Spinner</label>
+        </forge-checkbox>
+      </div>
+
+      <div>
+        <forge-checkbox>
+          <input type="checkbox" id="busy-indicator-progress-bar" [(ngModel)]="progressBar" />
+          <label for="busy-indicator-progress-bar">Show Progress Bar</label>
+        </forge-checkbox>
+      </div>
+
+      <forge-select id="busy-indicator-progress-mode" label="Progress Bar Mode" [(ngModel)]="progressBarMode">
+        <forge-option value="indeterminate">Indeterminate</forge-option>
+        <forge-option value="determinate">Determinate</forge-option>
+        <forge-option value="buffer">Buffer</forge-option>
+      </forge-select>
+    </div>
+  </div>
+</app-demo-card>

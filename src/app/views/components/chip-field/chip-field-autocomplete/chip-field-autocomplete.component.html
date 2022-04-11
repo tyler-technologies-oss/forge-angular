@@ -1,0 +1,32 @@
+<h4>Chip field with autocomplete</h4>
+<forge-autocomplete multiple="true" [(ngModel)]="selectedStates" [filter]="filterListener">
+  <forge-chip-field (forge-chip-field-member-added)="selectState($event)" (forge-chip-field-member-removed)="deselectState($event)" [required]="isRequired" [invalid]="isInvalid">
+    <label slot="label" for="autocomplete-chip-field-input">Favorite states</label>
+    <ng-container *ngFor="let state of selectedStates">
+      <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [dense]="isDense" [invalid]="isInvalid" [disabled]="isDisabled">
+        <i class="tyler-icons" slot="leading">place</i>
+        {{state}}
+      </forge-chip>
+    </ng-container>
+    <input type="text" id="autocomplete-chip-field-input" aria-label="Choose State" [disabled]="isDisabled" />
+    <div slot="helper-text">Select your favorite states</div>
+  </forge-chip-field>
+</forge-autocomplete>
+<div>
+  <forge-checkbox>
+    <input type="checkbox" id="required-chk" [(ngModel)]="isRequired">
+    <label for="required-chk">Required</label>
+  </forge-checkbox>
+  <forge-checkbox>
+    <input type="checkbox" id="invalid-chk" [(ngModel)]="isInvalid">
+    <label for="invalid-chk">Invalid</label>
+  </forge-checkbox>
+  <forge-checkbox>
+    <input type="checkbox" id="disabled-chk" [(ngModel)]="isDisabled">
+    <label for="disabled-chk">Disabled</label>
+  </forge-checkbox>
+  <forge-checkbox>
+    <input type="checkbox" id="dense-chk" [(ngModel)]="isDense">
+    <label for="dense-chk">Dense</label>
+  </forge-checkbox>
+</div>

@@ -1,0 +1,13 @@
+<app-demo-card headerText="Slider">
+  <h4>Continuous: {{continuous.toFixed(2)}}</h4>
+  <forge-slider [value]="continuous" [(ngModel)]="continuous"></forge-slider>
+
+  <h4>Disabled</h4>
+  <forge-slider value="33" disabled="true"></forge-slider>
+
+  <h4>Discrete: {{discrete.toFixed(2)}}</h4>
+  <forge-slider type="discrete" [value]="discrete"  [(ngModel)]="discrete"></forge-slider>
+
+  <h4>Discrete with Tick Marks: {{discreteMarkers.toFixed(2)}}</h4>
+  <forge-slider type="discrete-markers" [value]="discreteMarkers" [(ngModel)]="discreteMarkers" step="10"></forge-slider>
+</app-demo-card>

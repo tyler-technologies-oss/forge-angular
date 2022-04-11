@@ -1,0 +1,55 @@
+<section>
+  <h4>Date range picker in reactive form</h4>
+  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+    <forge-date-range-picker
+      formControlName="dateRange"
+      [valueMode]="valueMode"
+    >
+      <forge-text-field [invalid]="dateRangeControl.invalid" required>
+        <input type="text" id="input-date-range-picker-01" autocomplete="off" placeholder="mm/dd/yyyy">
+        <input type="text" id="input-date-range-picker-02" autocomplete="off" placeholder="mm/dd/yyyy">
+        <label for="input-date-range-picker-01">Seven days</label>
+        <div slot="helper-text" *ngIf="!dateRangeControl.invalid">
+          Select seven days.
+        </div>
+        <div slot="helper-text" *ngIf="dateRangeControl.invalid">
+          Date range must contain exactly 7 days.
+        </div>
+      </forge-text-field>
+    </forge-date-range-picker>
+    <forge-button type="raised">
+      <button type="submit" [disabled]="demoForm.invalid">Submit</button>
+    </forge-button>
+  </form>
+</section>
+
+<section>
+  <forge-label-value>
+    <span slot="label">From date</span>
+    <span slot="value">{{ dateRangeControl.value.from || 'n/a' }}</span>
+  </forge-label-value>
+  <forge-label-value>
+    <span slot="label">To date</span>
+    <span slot="value">{{ dateRangeControl.value.to || 'n/a' }}</span>
+  </forge-label-value>
+  <forge-label-value>
+    <forge-tooltip position="top-left">note that the JSON conversion internally converts date object to iso-string format</forge-tooltip>
+    <span slot="label" class="form-value-label">
+      Form value
+      <i class="tyler-icons info-icon">info_outline</i>
+    </span>
+    <span slot="value">{{ demoForm.value | json }}</span>
+  </forge-label-value>
+</section>
+
+<section>
+  <forge-select label="Value mode" [(ngModel)]="valueMode">
+    <forge-option value="object">Object</forge-option>
+    <forge-option value="string">string</forge-option>
+    <forge-option value="iso-string">ISO string</forge-option>
+  </forge-select>
+  <forge-checkbox>
+    <input type="checkbox" id="disable-demo-form-chk" (click)="disableForm($event)">
+    <label for="disable-demo-form-chk">Disabled</label>
+  </forge-checkbox>
+</section>

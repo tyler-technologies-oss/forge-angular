@@ -1,0 +1,31 @@
+<h4>Chip field with autocomplete in reactive form</h4>
+<form [formGroup]="autocompleteForm" (ngSubmit)="onSubmit()" (keydown.enter)="$any($event).target.id !== 'autocomplete-chip-field-input'">
+  <forge-autocomplete multiple="true" [filter]="filterListener" formControlName="states">
+    <forge-chip-field (forge-chip-field-member-added)="selectState($event)" (forge-chip-field-member-removed)="deselectState($event)" [invalid]="statesControl.invalid" required>
+      <label slot="label" for="autocomplete-chip-field-input">Favorite states</label>
+      <ng-container *ngFor="let state of statesControl.value">
+        <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [invalid]="statesControl.invalid" [disabled]="statesControl.disabled" >
+          <i class="tyler-icons" slot="leading">place</i>
+          {{state}}
+        </forge-chip>
+      </ng-container>
+      <input type="text" id="autocomplete-chip-field-input" aria-label="Choose State" [disabled]="statesControl.disabled" />
+      <div slot="helper-text" *ngIf="!statesControl.invalid">
+        Select your favorite states
+      </div>
+      <div slot="helper-text" *ngIf="statesControl.invalid">
+        At least 2 states are required
+      </div>
+    </forge-chip-field>
+  </forge-autocomplete>
+  <forge-button type="raised">
+    <button type="submit" [disabled]="autocompleteForm.invalid">Submit</button>
+  </forge-button>
+</form>
+<div style="margin-top:12px;">
+  {{autocompleteForm.value | json}}
+</div>
+<forge-checkbox>
+  <input type="checkbox" id="disable-form-chk" (click)="disableForm($event)">
+  <label for="disable-form-chk">Form disabled</label>
+</forge-checkbox>

@@ -1,0 +1,12 @@
+<div class="app-dialog">
+  <h2 id="dialog-title" [ngClass]="{'moveable': moveable}" forge-dialog-move-target>{{title}}</h2>
+  <p id="dialog-desc">{{message}}</p>
+  <div style="display: flex; justify-content: flex-end;">
+    <forge-button>
+      <button (click)="onCancel()">CANCEL</button>
+    </forge-button>
+    <forge-button>
+      <button forge-dialog-focus (click)="onConfirm()">CONFIRM</button>
+    </forge-button>
+  </div>
+</div>

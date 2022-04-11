@@ -1,0 +1,84 @@
+<app-demo-card headerText="Quantity Field">
+  
+  <section>
+    <forge-quantity-field>
+      <label slot="label">Basic</label>
+      <forge-icon-button slot="decrement-button">
+        <button type="button" class="tyler-icons">remove_circle_outline</button>
+      </forge-icon-button>
+      <forge-text-field>
+        <input type="number" step="10" [(ngModel)]="value" min="0" max="100" />
+      </forge-text-field>
+      <forge-icon-button slot="increment-button">
+        <button type="button" class="tyler-icons">control_point</button>
+      </forge-icon-button>
+      <div slot="helper-text">This is helpful text</div>
+    </forge-quantity-field>
+  </section>
+
+  <section>
+    <forge-quantity-field>
+      <label slot="label">Disabled (value%20)</label>
+      <forge-icon-button slot="decrement-button">
+        <button type="button" class="tyler-icons">remove_circle_outline</button>
+      </forge-icon-button>
+      <forge-text-field>
+        <input type="number" step="10" [(ngModel)]="value" [disabled]="!!(value % 20)" min="0" max="100" />
+      </forge-text-field>
+      <forge-icon-button slot="increment-button">
+        <button type="button" class="tyler-icons">control_point</button>
+      </forge-icon-button>
+      <div slot="helper-text">This is helpful text</div>
+    </forge-quantity-field>
+  </section>
+
+  <section>
+    <forge-quantity-field [invalid]="value%20">
+      <label slot="label">Invalid (value%20)</label>
+      <forge-icon-button slot="decrement-button">
+        <button type="button" class="tyler-icons">remove_circle_outline</button>
+      </forge-icon-button>
+      <forge-text-field>
+        <input type="number" step="10" [(ngModel)]="value" min="0" max="100" />
+      </forge-text-field>
+      <forge-icon-button slot="increment-button">
+        <button type="button" class="tyler-icons">control_point</button>
+      </forge-icon-button>
+      <div slot="helper-text">This is helpful text</div>
+    </forge-quantity-field>
+  </section>
+
+  <section>
+    <forge-quantity-field [required]="value%20">
+      <label slot="label">Required (value%20)</label>
+      <forge-icon-button slot="decrement-button">
+        <button type="button" class="tyler-icons">remove_circle_outline</button>
+      </forge-icon-button>
+      <forge-text-field>
+        <input type="number" step="10" [(ngModel)]="value" min="0" max="100" />
+      </forge-text-field>
+      <forge-icon-button slot="increment-button">
+        <button type="button" class="tyler-icons">control_point</button>
+      </forge-icon-button>
+      <div slot="helper-text">This is helpful text</div>
+    </forge-quantity-field>
+  </section>
+
+  <section>
+    <forge-quantity-field>
+      <label slot="label">Roomy</label>
+      <forge-icon-button slot="decrement-button">
+        <button type="button" class="tyler-icons">remove_circle_outline</button>
+      </forge-icon-button>
+      <forge-text-field density="roomy">
+        <input type="number" step="10" [(ngModel)]="value" min="0" max="100" />
+      </forge-text-field>
+      <forge-icon-button slot="increment-button">
+        <button type="button" class="tyler-icons">control_point</button>
+      </forge-icon-button>
+      <div slot="helper-text">This is helpful text</div>
+    </forge-quantity-field>
+  </section>
+
+</app-demo-card>
+

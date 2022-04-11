@@ -1,0 +1,64 @@
+<app-demo-card headerText="Dialog" #container>
+  <forge-button type="raised">
+    <button (click)="showConfirmDialog()">Show confirm dialog</button>
+  </forge-button>
+
+  <br />
+  <br />
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="backdropClose" [(ngModel)]="backdropClose" />
+      <label for="backdropClose">Backdrop close</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="escapeClose" [(ngModel)]="escapeClose" />
+      <label for="escapeClose">Escape close</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="fullscreen" [(ngModel)]="fullscreen" />
+      <label for="fullscreen">Fullscreen</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="moveable" [(ngModel)]="moveable" />
+      <label for="moveable">Moveable</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="lazyload" [(ngModel)]="lazyload" />
+      <label for="lazyload">Lazy-load dialog component</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="beforeCloseCallback" [(ngModel)]="beforeCloseCallback" />
+      <label for="beforeCloseCallback" slot="label">beforeCloseCallback</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="beforeCloseSubscription" [(ngModel)]="beforeCloseSubscription" />
+      <label for="beforeCloseSubscription" slot="label">beforeClose subscription</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="add-class" [(ngModel)]="dialogClass" />
+      <label for="add-class" slot="label">Custom dialog class</label>
+    </forge-text-field>
+  </div>
+</app-demo-card>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "forge-angular": {
+    "forge-angular-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/forge-angular",
+            "outputPath": "dist/forge-angular-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "forge-angular:build:production"
+              "browserTarget": "forge-angular-demo:build:production"
             },
             "development": {
-              "browserTarget": "forge-angular:build:development"
+              "browserTarget": "forge-angular-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "forge-angular:build"
+            "browserTarget": "forge-angular-demo:build"
           }
         },
         "test": {
@@ -105,7 +105,38 @@
           }
         }
       }
+    },
+    "forge-angular": {
+      "projectType": "library",
+      "root": "projects/forge-angular",
+      "sourceRoot": "projects/forge-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/forge-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/forge-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/forge-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forge-angular/src/test.ts",
+            "tsConfig": "projects/forge-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/forge-angular/karma.conf.js"
+          }
+        }
+      }
     }
   },
-  "defaultProject": "forge-angular"
+  "defaultProject": "forge-angular-demo"
 }
