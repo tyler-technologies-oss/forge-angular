@@ -1,8 +1,10 @@
 {
-  "name": "forge-angular",
-  "version": "1.0.0-dev.0",
+  "name": "@tylertech/forge-angular",
+  "version": "2.0.0-rc.0",
   "repository": "tyler-technologies/forge-angular",
+  "license": "Apache-2.0",
   "scripts": {
+    "prepare": "husky install",
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build forge-angular --configuration production",
@@ -11,9 +13,9 @@
     "test": "ng test",
     "changelog": "auto changelog",
     "release": "auto shipit",
+    "postversion": "cd dist/forge-angular && npm version $npm_package_version --no-git-tag-version --no-commit-hooks --ignore-scripts",
     "analyze:bundle": "webpack-bundle-analyzer dist/forge-angular-demo/stats.json"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
     "@angular/common": "~13.3.0",
@@ -23,7 +25,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "@tylertech/forge": "^1.0.0-dev.2",
+    "@tylertech/forge": "^2.0.0-rc.0",
     "@tylertech/tyler-icons": "^1.12.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -34,14 +36,16 @@
     "@angular/cli": "~13.3.2",
     "@angular/compiler-cli": "~13.3.0",
     "@auto-it/conventional-commits": "^10.36.5",
-    "@auto-it/exec": "^10.36.5",
     "@auto-it/first-time-contributor": "^10.36.5",
     "@auto-it/npm": "^10.36.5",
     "@auto-it/pr-body-labels": "^10.36.5",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@tylertech-eslint/eslint-plugin": "^1.0.8",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "auto": "^10.36.5",
+    "husky": "^7.0.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -49,7 +53,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.0.0",
-    "sass": "~1.38.2",
     "typescript": "~4.6.3",
     "webpack-bundle-analyzer": "^4.5.0"
   }

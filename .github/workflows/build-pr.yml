@@ -1,0 +1,21 @@
+name: Build Pull Request
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**/*'
+      - '.eslintrc.json'
+      - 'auto.config.ts'
+      - 'angular.json'
+      - 'karma.conf.json'
+      - 'projects/**/*'
+      - 'src/**/*'
+
+jobs:
+  build:
+    name: Build
+    uses: tyler-technologies/forge-automation-shared/.github/workflows/wf-build-and-test.yml@v0.10.0
+    secrets:
+      ARTIFACTORY_TOKEN: ${{ secrets.FORGE_ARTIFACTORY_TOKEN }}
+      ARTIFACTORY_USERNAME: ${{ secrets.FORGE_ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_REGISTRY: ${{ secrets.FORGE_ARTIFACTORY_NPM_REGISTRY }}
