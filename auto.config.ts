@@ -11,7 +11,6 @@ export default function rc(): AutoRc {
     versionBranches: true,
     prereleaseBranches: ['dev', 'beta', 'rc', 'next'],
     author: 'GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>',
-    canary: { target: 'pr-body' },
     plugins: [
       ['npm', npmOptions],
       'conventional-commits',
