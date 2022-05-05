@@ -38,7 +38,6 @@
     "@auto-it/conventional-commits": "^10.36.5",
     "@auto-it/first-time-contributor": "^10.36.5",
     "@auto-it/npm": "^10.36.5",
-    "@auto-it/pr-body-labels": "^10.36.5",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@tylertech-eslint/eslint-plugin": "^1.0.8",
