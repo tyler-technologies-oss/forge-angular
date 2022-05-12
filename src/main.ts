@@ -14,8 +14,7 @@ import {
   defineListComponent,
   defineOpenIconComponent,
   defineScaffoldComponent,
-  defineTextFieldComponent,
-  VERSION as FORGE_VERSION
+  defineTextFieldComponent
 } from '@tylertech/forge';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
@@ -41,5 +40,3 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-
-console.log('[Forge version]', FORGE_VERSION);
