@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "npm run build && ng serve -o",
     "build": "ng build forge-angular --configuration production",
     "build:demo": "ng build --configuration production --stats-json",
     "watch": "ng build --watch --configuration development",
