@@ -7,14 +7,9 @@ import { BottomSheetInjector } from './bottom-sheet-injector';
 import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
 import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
 
-export interface IBottomSheetOptions {
-  showBackdrop?: boolean;
-  backdropClose?: boolean;
-  escapeClose?: boolean;
-  fullscreen?: boolean;
+export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>, 'attributes'> {
   bottomSheetClass?: string;
   attributes?: Map<string, string>;
-  beforeCloseCallback?: () => Promise<boolean> | boolean;
 }
 
 /**
@@ -48,27 +43,14 @@ export class BottomSheetService {
 
     // Configure the bottom sheet with the provided options
     if (options) {
-      if (options.showBackdrop !== undefined) {
-        bottomSheetElement.showBackdrop = options.showBackdrop;
+      const { bottomSheetClass, attributes, ...restOptions} = options;
+      if (bottomSheetClass) {
+        bottomSheetElement.classList.add(bottomSheetClass);
       }
-      if (options.backdropClose !== undefined) {
-        bottomSheetElement.backdropClose = options.backdropClose;
+      if (attributes) {
+        attributes.forEach((value, key) => bottomSheetElement.setAttribute(key, value));
       }
-      if (options.escapeClose !== undefined) {
-        bottomSheetElement.escapeClose = options.escapeClose;
-      }
-      if (options.fullscreen !== undefined) {
-        bottomSheetElement.fullscreen = options.fullscreen;
-      }
-      if (options.bottomSheetClass) {
-        bottomSheetElement.classList.add(options.bottomSheetClass);
-      }
-      if (options.attributes) {
-        options.attributes.forEach((value, key) => bottomSheetElement.setAttribute(key, value));
-      }
-      if (options.beforeCloseCallback) {
-        bottomSheetElement.beforeCloseCallback = options.beforeCloseCallback;
-      }
+      Object.assign(bottomSheetElement, restOptions);
     }
 
     // Create the ref that will allow the consumer to control the bottom sheet
