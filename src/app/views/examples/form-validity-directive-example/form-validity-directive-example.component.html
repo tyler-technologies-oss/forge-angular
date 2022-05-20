@@ -1,0 +1,26 @@
+<app-demo-card headerText="Form Field Directive Example">
+  <form [formGroup]="form" novalidate autocomplete="off">
+    <div class="forge-demo-form-field">
+      <forge-text-field forgeFormValidity [forgeFormControl]="form.controls['textField']">
+        <input type="text" formControlName="textField" />
+        <label>Text field</label>
+      </forge-text-field>
+    </div>
+    <div class="forge-demo-form-field">
+      <forge-select label="Select" forgeFormValidity [forgeFormControl]="form.controls['select']" formControlName="select">
+        <forge-option value="first">First</forge-option>
+        <forge-option value="second">Second</forge-option>
+        <forge-option value="third">Third</forge-option>
+      </forge-select>
+    </div>
+    <div class="forge-demo-form-field">
+      <forge-date-picker formControlName="dateField" masked>
+        <forge-text-field forgeFormValidity [forgeFormControl]="form.controls['dateField']">
+          <label>Date field</label>
+          <input type="text" />
+        </forge-text-field>
+      </forge-date-picker>
+    </div>
+  </form>
+  <pre>{{ form.status | json }}</pre>
+</app-demo-card>

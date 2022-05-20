@@ -10,6 +10,7 @@ export * from './lib/core';
 export * from './lib/date-picker';
 export * from './lib/date-range-picker';
 export * from './lib/dialog';
+export * from './lib/form-validity';
 export * from './lib/popup';
 export * from './lib/select';
 export * from './lib/slider';
