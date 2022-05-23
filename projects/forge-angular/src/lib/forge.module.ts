@@ -8,6 +8,7 @@ import { ForgeDatePickerModule } from './date-picker/date-picker.module';
 import { ForgePopupModule } from './popup/popup.module';
 import { ForgeSelectModule } from './select/select.module';
 import { ForgeSliderModule } from './slider/slider.module';
+import { ForgeSimpleDialogModule } from './simple-dialog';
 import { ForgeSwitchModule } from './switch';
 import { ForgeTimePickerModule } from './time-picker/time-picker.module';
 
@@ -20,6 +21,7 @@ import { ForgeTimePickerModule } from './time-picker/time-picker.module';
     ForgeDateRangePickerModule,
     ForgePopupModule,
     ForgeSelectModule,
+    ForgeSimpleDialogModule,
     ForgeSliderModule,
     ForgeSwitchModule,
     ForgeTimePickerModule
@@ -32,6 +34,7 @@ import { ForgeTimePickerModule } from './time-picker/time-picker.module';
     ForgeDateRangePickerModule,
     ForgePopupModule,
     ForgeSelectModule,
+    ForgeSimpleDialogModule,
     ForgeSliderModule,
     ForgeSwitchModule,
     ForgeTimePickerModule

@@ -12,6 +12,7 @@ export * from './lib/date-range-picker';
 export * from './lib/dialog';
 export * from './lib/popup';
 export * from './lib/select';
+export * from './lib/simple-dialog';
 export * from './lib/slider';
 export * from './lib/switch';
 export * from './lib/toast';

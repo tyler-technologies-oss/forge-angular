@@ -1,0 +1,28 @@
+.simple-dialog {
+  &--no-borders {
+    --forge-toolbar-border-bottom: none;
+
+    [slot=footer] {
+      &::part(root) {
+        border-top: none;
+      }
+    }
+  }
+
+  [slot=header] {
+    [slot=end] {
+      margin-right: -8px;
+    }
+  }
+
+  [slot=body] {
+    padding: 16px;
+    overflow: auto;
+  }
+
+  [slot=footer] {
+    forge-button {
+      margin-left: 16px;
+    }
+  }
+}

@@ -6,8 +6,10 @@
   "license": "Apache-2.0",
   "version": "0.0.0",
   "peerDependencies": {
+    "@angular/cdk": "^13.3.0",
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",
+    "@tylertech/angular-core": "^1.6.0",
     "@tylertech/forge": "^2.0.0-rc.0"
   },
   "dependencies": {
