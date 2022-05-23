@@ -82,6 +82,7 @@ export class SidenavComponent implements OnInit {
 
   public exampleMenuItems: IMenuItem[] = [
     { label: 'Expansion panel', value: '/example/expansion-panel' },
+    { label: 'Form validity directive', value: '/example/form-validity-directive' },
     { label: 'Reactive form', value: '/example/reactive-form' },
     { label: 'Table', value: '/example/table' },
     { label: 'Toolbar', value: '/example/toolbar-example' },
