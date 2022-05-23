@@ -8,15 +8,9 @@ import { DynamicComponentService } from '../core/dynamic-component/dynamic-compo
 import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
 import { ForgeSimpleDialogComponent, SimpleDialogConfig } from '../simple-dialog';
 
-export interface IDialogOptions {
-  backdropClose?: boolean;
-  escapeClose?: boolean;
-  fullscreen?: boolean;
-  moveable?: boolean;
-  moveTarget?: string;
+export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attributes'> {
   dialogClass?: string;
   attributes?: Map<string, string>;
-  beforeCloseCallback?: () => Promise<boolean> | boolean;
 }
 
 /**
@@ -47,30 +41,14 @@ export class DialogService {
 
     // Configure the dialog with the provided options
     if (options) {
-      if (options.backdropClose !== undefined) {
-        dialogElement.backdropClose = options.backdropClose;
+      const { dialogClass, attributes, ...restOptions} = options;
+      if (dialogClass) {
+        dialogElement.classList.add(dialogClass);
       }
-      if (options.escapeClose !== undefined) {
-        dialogElement.escapeClose = options.escapeClose;
+      if (attributes) {
+        attributes.forEach((value, key) => dialogElement.setAttribute(key, value));
       }
-      if (options.fullscreen !== undefined) {
-        dialogElement.fullscreen = options.fullscreen;
-      }
-      if (options.moveable) {
-        dialogElement.moveable = options.moveable;
-        if (options.moveTarget) {
-          dialogElement.moveTarget = options.moveTarget;
-        }
-      }
-      if (options.dialogClass) {
-        dialogElement.classList.add(options.dialogClass);
-      }
-      if (options.attributes) {
-        options.attributes.forEach((value, key) => dialogElement.setAttribute(key, value));
-      }
-      if (options.beforeCloseCallback !== undefined) {
-        dialogElement.beforeCloseCallback = options.beforeCloseCallback;
-      }
+      Object.assign(dialogElement, restOptions);
     }
 
     // Create the ref that will allow the consumer to control the dialog

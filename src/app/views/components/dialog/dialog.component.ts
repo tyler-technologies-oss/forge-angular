@@ -43,7 +43,7 @@ export class DialogComponent {
 
   public async showConfirmDialog(): Promise<void> {
 
-    const dialogOptions = <IDialogOptions>{
+    const dialogOptions: IDialogOptions = {
       backdropClose: this.backdropClose,
       escapeClose: this.escapeClose,
       fullscreen: this.fullscreen,
@@ -56,7 +56,8 @@ export class DialogComponent {
       beforeCloseCallback: () => {
         console.log('[beforeCloseCallback]');
         return !this.beforeCloseCallback;
-      }
+      },
+      closeCallback: () => console.log('closeCallback')
     };
 
     const dialogConfig = {
