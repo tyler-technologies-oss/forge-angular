@@ -6,6 +6,7 @@ import { DialogRef } from './dialog-ref';
 import { DialogInjector } from './dialog-injector';
 import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
 import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
+import { ForgeSimpleDialogComponent, SimpleDialogConfig } from '../simple-dialog';
 
 export interface IDialogOptions {
   backdropClose?: boolean;
@@ -101,6 +102,20 @@ export class DialogService {
     dialogElement.open = true;
 
     return dialogRef;
+  }
+
+  public showSimple<T = void>(config: SimpleDialogConfig, options?: IDialogOptions): Promise<T> {
+    const dialogConfig: DialogConfig<SimpleDialogConfig> = {
+      data: config
+    };
+    const dialogRef = this.show(ForgeSimpleDialogComponent, options, dialogConfig);
+
+    return new Promise(resolve => {
+      const sub = dialogRef.afterClosed.subscribe((result: T) => {
+        sub.unsubscribe();
+        resolve(result);
+      });
+    });
   }
 
   /**

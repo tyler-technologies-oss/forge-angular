@@ -61,4 +61,116 @@
       <label for="add-class" slot="label">Custom dialog class</label>
     </forge-text-field>
   </div>
+
+  <br />
+  <forge-divider></forge-divider>
+  <br />
+
+  <forge-button type="raised">
+    <button (click)="showSimpleDialog()">Show simple dialog</button>
+  </forge-button>
+
+  <br />
+  <br />
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="title" [(ngModel)]="title" />
+      <label for="title" slot="label">Title</label>
+    </forge-text-field>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <textarea type="text" id="message" [(ngModel)]="message"></textarea>
+      <label for="message" slot="label">Message</label>
+    </forge-text-field>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="confirm-label" [(ngModel)]="confirmButtonLabel" />
+      <label for="confirm-label" slot="label">Confirm button label</label>
+    </forge-text-field>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="confirm-handler" [(ngModel)]="confirmButtonHandler" />
+      <label for="confirm-handler" slot="label">Confirm handler</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="cancel-button" [(ngModel)]="cancelButton" />
+      <label for="cancel-button" slot="label">Cancel button</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="cancel-label" [(ngModel)]="cancelButtonLabel" />
+      <label for="cancel-label" slot="label">Cancel button label</label>
+    </forge-text-field>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="cancel-handler" [(ngModel)]="cancelButtonHandler" />
+      <label for="cancel-handler" slot="label">Cancel handler</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="toolbar-borders" [(ngModel)]="toolbarBorders" />
+      <label for="toolbar-borders" slot="label">Toolbar borders</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="prevent-dismiss" [(ngModel)]="preventDismiss" />
+      <label for="prevent-dismiss" slot="label">Prevent dismiss</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="dismiss-return-value" [(ngModel)]="dismissReturnValue" />
+      <label for="dismiss-return-value" slot="label">Dismiss return value</label>
+    </forge-text-field>
+  </div>
+
+  <div>
+    <forge-select label="Focus" [(ngModel)]="focus">
+      <forge-option value="auto">Auto</forge-option>
+      <forge-option value="dismiss-button">Dismiss button</forge-option>
+      <forge-option value="cancel-button">Cancel button</forge-option>
+      <forge-option value="confirm-button">Confirm button</forge-option>
+    </forge-select>
+  </div>
+
+  <div>
+    <forge-select label="Error mode" [(ngModel)]="errorMode">
+      <forge-option value="close">Close</forge-option>
+      <forge-option value="ignore">Ignore</forge-option>
+    </forge-select>
+  </div>
+
+  <div>
+    <forge-checkbox>
+      <input type="checkbox" id="alert" [(ngModel)]="alert" />
+      <label for="alert" slot="label">Alert dialog</label>
+    </forge-checkbox>
+  </div>
+
+  <div>
+    <forge-text-field>
+      <input type="text" id="id" [(ngModel)]="id" />
+      <label for="id" slot="label">ID</label>
+    </forge-text-field>
+  </div>
+
 </app-demo-card>
