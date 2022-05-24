@@ -1,0 +1,34 @@
+<app-demo-card headerText="Button Busy Example">
+  <forge-button type="raised">
+    <button type="button" [forgeButtonBusy]="busy" [forgeFixedWidth]="fixedWidth" (click)="onClick()">Demo button</button>
+  </forge-button>
+
+  <br />
+  <br />
+
+  <forge-icon-button>
+    <button type="button" aria-label="Demo button" [forgeButtonBusy]="iconBusy" (click)="onIconClick()">
+      <forge-icon name="fingerprint"></forge-icon>
+    </button>
+  </forge-icon-button>
+
+  <br />
+  <br />
+
+  <forge-button type="outlined">
+    <button type="button" [forgeButtonBusy]="cancelBusy" [forgeAutoDisable]="false" [forgeFixedWidth]="fixedWidth" [disabled]="cancelBusy || confirmBusy" (click)="onCancelClick()">Cancel</button>
+  </forge-button>
+  <forge-button type="raised" style="margin-left: 16px">
+    <button type="button" [forgeButtonBusy]="confirmBusy" [forgeAutoDisable]="false" [forgeFixedWidth]="fixedWidth" [disabled]="cancelBusy || confirmBusy" (click)="onConfirmClick()">Confirm</button>
+  </forge-button>
+
+  <br />
+  <br />
+  <forge-divider></forge-divider>
+  <br />
+
+  <forge-checkbox>
+    <input type="checkbox" [(ngModel)]="fixedWidth" />
+    <label>Fix button width</label>
+  </forge-checkbox>
+</app-demo-card>
