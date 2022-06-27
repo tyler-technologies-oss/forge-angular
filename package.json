@@ -1,7 +1,8 @@
 {
   "name": "@tylertech/forge-angular",
   "version": "2.0.0-rc.0",
-  "repository": "tyler-technologies/forge-angular",
+  "description": "Forge components adapter library for Angular",
+  "repository": "tyler-technologies-oss/forge-angular",
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "husky install",
@@ -25,7 +26,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "@tylertech/forge": "2.0.0-rc.2",
+    "@tylertech/forge": "^2.0.0",
     "@tylertech/tyler-icons": "^1.12.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -40,7 +41,7 @@
     "@auto-it/npm": "^10.36.5",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@tylertech-eslint/eslint-plugin": "^1.0.8",
+    "@tylertech-eslint/eslint-plugin": "^1.0.9",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "auto": "^10.36.5",
