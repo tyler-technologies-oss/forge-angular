@@ -12,10 +12,12 @@ on:
       - '.github/workflows/**/*'
       - '.eslintrc.json'
       - 'auto.config.ts'
+      - 'package.json'
       - 'angular.json'
       - 'karma.conf.json'
       - 'projects/**/*'
       - 'src/**/*'
+  workflow_dispatch:
 
 concurrency: build-release-${{ github.ref }}
 
@@ -44,31 +46,23 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Setup Node
         uses: actions/setup-node@v2
-        env:
-          ARTIFACTORY_TOKEN: "${{ secrets.FORGE_ARTIFACTORY_TOKEN }}"
-          ARTIFACTORY_USERNAME: "${{ secrets.FORGE_ARTIFACTORY_USERNAME }}"
         with:
           node-version: "14"
 
       - name: Install
         id: install
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.FORGE_ARTIFACTORY_TOKEN }}
-          ARTIFACTORY_TOKEN: "${{ secrets.FORGE_ARTIFACTORY_TOKEN }}"
-          ARTIFACTORY_USERNAME: "${{ secrets.FORGE_ARTIFACTORY_USERNAME }}"
-        run: npm ci
+        run: |
+          npm ci
 
       ## Determine if this is a release build or not, which will affect which dependent jobs run below
       - name: Detect Release Status
         id: detect-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.FORGE_ARTIFACTORY_TOKEN }}
-          ARTIFACTORY_TOKEN: "${{ secrets.FORGE_ARTIFACTORY_TOKEN }}"
-          ARTIFACTORY_USERNAME: "${{ secrets.FORGE_ARTIFACTORY_USERNAME }}"
+          NPM_TOKEN: ${{ secrets.FORGE_NPM_TOKEN }}
         run: |
           ## We use `auto version` to calculate whether this is a release build or not
           VERSION_RESULT=$(npx auto version)
@@ -88,6 +82,7 @@ jobs:
               - '.eslintrc.json'
               - 'auto.config.ts'
               - 'angular.json'
+              - 'package.json'
               - 'karma.conf.json'
               - 'projects/**'
               - 'src/**'
@@ -98,25 +93,21 @@ jobs:
   build:
     name: Build
     needs: wf-config
-    uses: tyler-technologies/forge-automation-shared/.github/workflows/wf-build-and-test.yml@v0.10.0
+    uses: tyler-technologies/forge-automation-shared/.github/workflows/wf-build-and-test.yml@v0.18.0
     if: ${{ needs.wf-config.outputs.is-release == 'false' && needs.wf-config.outputs.build-files-changed == 'true' }}
     with:
       BUILD_ENABLED: ${{ needs.wf-config.outputs.build-files-changed == 'true' }}
     secrets:
-      ARTIFACTORY_TOKEN: ${{ secrets.FORGE_ARTIFACTORY_TOKEN }}
-      ARTIFACTORY_USERNAME: ${{ secrets.FORGE_ARTIFACTORY_USERNAME }}
-      ARTIFACTORY_REGISTRY: ${{ secrets.FORGE_ARTIFACTORY_NPM_REGISTRY }}
+      NPM_TOKEN: ${{ secrets.FORGE_NPM_TOKEN }}
 
   build-and-release:
     name: Build and Release
     needs: wf-config
-    uses: tyler-technologies/forge-automation-shared/.github/workflows/wf-build-release.yml@v0.10.0
+    uses: tyler-technologies/forge-automation-shared/.github/workflows/wf-build-release.yml@v0.18.0
     if: ${{ needs.wf-config.outputs.is-release == 'true' }}
     with:
       PRODUCTION_RELEASE: true
     secrets:
-      GITHUB_APP_ID: ${{ secrets.TCP_AUTOMATION_APP_ID }}
-      GITHUB_APP_KEY: ${{ secrets.TCP_AUTOMATION_APP_KEY }}
-      ARTIFACTORY_TOKEN: ${{ secrets.FORGE_ARTIFACTORY_TOKEN }}
-      ARTIFACTORY_USERNAME: ${{ secrets.FORGE_ARTIFACTORY_USERNAME }}
-      ARTIFACTORY_REGISTRY: ${{ secrets.FORGE_ARTIFACTORY_NPM_REGISTRY }}
+      GITHUB_APP_ID: ${{ secrets.FORGE_AUTOBOT_ID }}
+      GITHUB_APP_KEY: ${{ secrets.FORGE_AUTOBOT_SECRET }}
+      NPM_TOKEN: ${{ secrets.FORGE_NPM_TOKEN }}
