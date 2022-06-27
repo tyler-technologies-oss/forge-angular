@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
-import { IDialogComponent, DIALOG_CONSTANTS } from '@tylertech/forge';
+import { IDialogComponent, DIALOG_CONSTANTS } from '@tylertech/forge/esm/dialog';
 import { DialogConfig } from './dialog-config';
 import { DialogRef } from './dialog-ref';
 import { DialogInjector } from './dialog-injector';

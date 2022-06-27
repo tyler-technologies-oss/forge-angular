@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBusyIndicatorComponent } from '@tylertech/forge';
+import { IBusyIndicatorComponent } from '@tylertech/forge/esm/busy-indicator';
 
 /**
  * Provides facilities for showing/hiding a busy indicator.

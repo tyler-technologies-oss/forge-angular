@@ -1,6 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { ElementRef } from '@angular/core';
-import { DIALOG_CONSTANTS, IDialogComponent } from '@tylertech/forge';
+import { DIALOG_CONSTANTS, IDialogComponent } from '@tylertech/forge/esm/dialog';
 
 export class DialogRef<T = any> {
   private readonly _elementRef: ElementRef<IDialogComponent>;

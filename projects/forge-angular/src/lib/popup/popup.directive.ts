@@ -1,6 +1,6 @@
 import { Directive, Input, ElementRef, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 import { OnDestroy, EmbeddedViewRef } from '@angular/core';
-import { POPUP_CONSTANTS, PopupPlacement, PopupComponent } from '@tylertech/forge';
+import { POPUP_CONSTANTS, PopupPlacement, PopupComponent } from '@tylertech/forge/esm/popup';
 
 /**
  * Allows for declaratively specifying an element that should display a Forge popup

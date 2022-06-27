@@ -1,5 +1,5 @@
 import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector, Renderer2, RendererFactory2, Type } from '@angular/core';
-import { IToastComponent, TOAST_CONSTANTS } from '@tylertech/forge';
+import { IToastComponent, TOAST_CONSTANTS } from '@tylertech/forge/esm/toast';
 import { ToastConfig } from './toast-config';
 import { ToastInjector } from './toast-injector';
 

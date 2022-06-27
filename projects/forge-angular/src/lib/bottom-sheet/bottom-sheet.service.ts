@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
-import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge';
+import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge/esm/bottom-sheet';
 import { BottomSheetConfig } from './bottom-sheet-config';
 import { BottomSheetRef } from './bottom-sheet-ref';
 import { BottomSheetInjector } from './bottom-sheet-injector';

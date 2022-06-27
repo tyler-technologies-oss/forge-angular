@@ -1,6 +1,6 @@
 import { Directive, ElementRef, forwardRef, HostListener, Renderer2, StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IDatePickerRange } from '@tylertech/forge';
+import { IDatePickerRange } from '@tylertech/forge/esm/date-range-picker';
 
 export const DATE_RANGE_PICKER_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,

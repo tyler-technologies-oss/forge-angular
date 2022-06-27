@@ -1,7 +1,7 @@
 import { ElementRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge';
+import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge/esm/bottom-sheet';
 
 export class BottomSheetRef<T = any> {
   private readonly _elementRef: ElementRef<IBottomSheetComponent>;
