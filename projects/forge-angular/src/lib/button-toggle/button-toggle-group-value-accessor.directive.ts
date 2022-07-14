@@ -13,7 +13,7 @@ export const BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR: StaticProvider = {
   providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR]
 })
 export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
-  @HostListener('forge-button-toggle-select', ['$event'])
+  @HostListener('forge-button-toggle-group-change', ['$event'])
   public buttonToggleSelect(event: CustomEvent) {
     this.change(event.detail);
   }
