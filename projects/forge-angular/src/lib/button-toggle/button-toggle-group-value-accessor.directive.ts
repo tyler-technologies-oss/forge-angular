@@ -13,12 +13,12 @@ export const BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR: StaticProvider = {
   providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR]
 })
 export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
-  @HostListener('forge-button-toggle-select', ['$event'])
-  public buttonToggleSelect(event: CustomEvent) {
+  @HostListener('forge-button-toggle-group-change', ['$event'])
+  public buttonToggleGroupChange(event: CustomEvent) {
     this.change(event.detail);
   }
 
-  @HostListener('blur', ['$event'])
+  @HostListener('focusout', ['$event'])
   public blur(event: Event) {
     this.onTouched();
   }
