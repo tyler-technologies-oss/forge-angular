@@ -1,3 +1,15 @@
+# v2.0.2 (Fri Jul 15 2022)
+
+#### 🐛 Bug Fix
+
+- fix(ButtonToggleGroupValueAccessor): fix to use correct event name from the group element for current value state [#10](https://github.com/tyler-technologies-oss/forge-angular/pull/10) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v2.0.1 (Fri Jul 08 2022)
 
 :tada: This release contains work from a new contributor! :tada:
