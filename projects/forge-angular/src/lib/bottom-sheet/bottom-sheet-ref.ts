@@ -13,13 +13,14 @@ export class BottomSheetRef<T = any> {
 
   constructor(instance: IBottomSheetComponent) {
     this._elementRef = new ElementRef(instance);
-    instance.addEventListener(BOTTOM_SHEET_CONSTANTS.events['BEFORE_CLOSE'], evt => this._beforeClose.next(evt as CustomEvent));
+    instance.addEventListener(BOTTOM_SHEET_CONSTANTS.events.BEFORE_CLOSE, evt => this._beforeClose.next(evt as CustomEvent));
   }
 
   public close(result?: any): void {
     this._afterClosed.next(result);
     this._afterClosed.complete();
     this._beforeClose.complete();
+    this.nativeElement.open = false;
   }
 
   public get nativeElement(): IBottomSheetComponent {

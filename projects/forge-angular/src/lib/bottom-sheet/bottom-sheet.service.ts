@@ -65,8 +65,11 @@ export class BottomSheetService {
 
     // Always destroy when the bottom sheet is closed
     const sub = bottomSheetRef.afterClosed.subscribe(() => {
-      this._destroy(bottomSheetElement, dcRef);
-      sub.unsubscribe();
+      // Wait for close animation (and related cleanup)
+      bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events['CLOSE'], () => {
+        this._destroy(bottomSheetElement, dcRef);
+        sub.unsubscribe();
+      });
     });
 
     // Listen for clicks on the backdrop to destroy the bottom sheet (if applicable)
