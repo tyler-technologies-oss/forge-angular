@@ -1,3 +1,15 @@
+# v2.0.3 (Fri Aug 12 2022)
+
+#### 🐛 Bug Fix
+
+- fix(bottom-sheet): wait for close animation [#11](https://github.com/tyler-technologies-oss/forge-angular/pull/11) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.0.2 (Fri Jul 15 2022)
 
 #### 🐛 Bug Fix
