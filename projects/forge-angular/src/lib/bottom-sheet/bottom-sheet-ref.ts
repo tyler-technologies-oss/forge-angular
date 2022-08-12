@@ -1,11 +1,11 @@
 import { ElementRef } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { AsyncSubject, Observable, Subject } from 'rxjs';
 
 import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge';
 
 export class BottomSheetRef<T = any> {
   private readonly _elementRef: ElementRef<IBottomSheetComponent>;
-  private readonly _afterClosed = new Subject<any>();
+  private readonly _afterClosed = new AsyncSubject<any>();
   public afterClosed: Observable<any> = this._afterClosed.asObservable();
   private readonly _beforeClose = new Subject<CustomEvent>();
   public beforeClose: Observable<CustomEvent> = this._beforeClose.asObservable();
@@ -20,7 +20,6 @@ export class BottomSheetRef<T = any> {
     this._afterClosed.next(result);
     this._afterClosed.complete();
     this._beforeClose.complete();
-    this.nativeElement.open = false;
   }
 
   public get nativeElement(): IBottomSheetComponent {

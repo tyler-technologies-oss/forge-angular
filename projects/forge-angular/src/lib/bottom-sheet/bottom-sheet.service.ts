@@ -64,36 +64,23 @@ export class BottomSheetService {
     bottomSheetRef.componentInstance = dcRef.componentRef.instance;
 
     // Always destroy when the bottom sheet is closed
-    const sub = bottomSheetRef.afterClosed.subscribe(() => {
-      // Wait for close animation (and related cleanup)
-      bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events['CLOSE'], () => {
-        this._destroy(bottomSheetElement, dcRef);
-        sub.unsubscribe();
-      });
-    });
+    bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, () => dcRef.destroy());
 
-    // Listen for clicks on the backdrop to destroy the bottom sheet (if applicable)
+    // Listen for close via escape/backdrop click if applicable to ensure observables complete.
+    const closeRef = () => bottomSheetRef.close();
     if (bottomSheetElement.backdropClose) {
-      bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events['CLOSE'], () => {
-        bottomSheetRef.close();
-        this._destroy(bottomSheetElement, dcRef);
-        sub.unsubscribe();
-      });
+      bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, closeRef);
     }
+
+    const sub = bottomSheetRef.afterClosed.subscribe(() => {
+      bottomSheetElement.removeEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, closeRef);
+      bottomSheetElement.open = false;
+      sub.unsubscribe();
+    });
 
     // Appends the bottom sheet element to the DOM
     bottomSheetElement.open = true;
 
     return bottomSheetRef;
-  }
-
-  /**
-   * Removes a bottom sheet from the DOM and destroys the component instance.
-   * @param bottomSheetInstance An instance of a Forge bottom sheet.
-   * @param ref A reference to the dynamic component.
-   */
-  private _destroy<T>(bottomSheetInstance: IBottomSheetComponent, ref: IDynamicComponentRef<T>): void {
-    bottomSheetInstance.open = false;
-    ref.destroy();
   }
 }
