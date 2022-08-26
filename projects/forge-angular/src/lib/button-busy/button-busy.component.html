@@ -1,0 +1,4 @@
+<ng-content *ngIf="!isBusy; else busyTemplate"></ng-content>
+<ng-template #busyTemplate>
+  <forge-circular-progress></forge-circular-progress>
+</ng-template>

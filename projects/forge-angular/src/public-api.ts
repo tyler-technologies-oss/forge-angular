@@ -4,6 +4,7 @@
 export * from './lib/autocomplete';
 export * from './lib/bottom-sheet';
 export * from './lib/busy-indicator';
+export * from './lib/button-busy';
 export * from './lib/button-toggle';
 export * from './lib/chip';
 export * from './lib/core';
