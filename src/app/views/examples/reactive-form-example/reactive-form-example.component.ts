@@ -8,7 +8,7 @@ import { IOption, IAutocompleteComponent } from '@tylertech/forge';
   styleUrls: ['./reactive-form-example.component.scss']
 })
 export class ReactiveFormExampleComponent implements OnInit {
-  @ViewChild('stateAutocomplete', { static: true })
+  @ViewChild('stateAutocomplete', { static: true, read: ElementRef })
   public stateAutocomplete: ElementRef;
 
   public shirtQuantityControl: FormControl;

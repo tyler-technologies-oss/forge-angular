@@ -12,7 +12,7 @@ export class TooltipComponent {
   public position = TOOLTIP_CONSTANTS.strings.DEFAULT_POSITION as PopupPlacement;
   public useBuilder = false;
 
-  @ViewChild('tooltip', { static: true })
+  @ViewChild('tooltip', { read: ElementRef, static: true })
   public tooltipRef: ElementRef;
 
   public onUseBuilderChanged(evt: Event): void {

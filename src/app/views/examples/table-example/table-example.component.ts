@@ -1,19 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { 
-  IColumnConfiguration,
-  ITableSelectEventData,
-  ITableComponent,
-  ITableSelectAllEventData,
-  IMenuOption,
-  IMenuSelectEventData
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  IColumnConfiguration, IMenuOption,
+  IMenuSelectEventData, ITableComponent,
+  ITableSelectAllEventData, ITableSelectEventData
 } from '@tylertech/forge';
 import { ItemManager } from '@tylertech/forge-core';
 import { BehaviorSubject } from 'rxjs';
 
-import { IJournal } from './types';
-import { JournalService } from './journal.service';
+import { DynamicComponentService, IDynamicComponentRef } from '@tylertech/forge-angular';
 import { getJournalColumnConfig } from './journal-table-utils';
-import { IDynamicComponentRef, DynamicComponentService } from '@tylertech/forge-angular';
+import { JournalService } from './journal.service';
+import { IJournal } from './types';
 
 @Component({
   selector: 'app-table-example',
@@ -21,7 +18,7 @@ import { IDynamicComponentRef, DynamicComponentService } from '@tylertech/forge-
   styleUrls: ['./table-example.component.scss']
 })
 export class TableExampleComponent implements OnInit {
-  @ViewChild('journalTable')
+  @ViewChild('journalTable', {read: ElementRef})
   public tableRef: ElementRef<ITableComponent>;
   private _columnConfigurations: IColumnConfiguration[] = getJournalColumnConfig(this);
   public columnConfigs$ = new BehaviorSubject<IColumnConfiguration[]>(this._columnConfigurations);
