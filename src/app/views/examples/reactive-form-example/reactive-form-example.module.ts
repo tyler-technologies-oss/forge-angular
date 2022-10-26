@@ -1,46 +1,13 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {
+  ForgeAutocompleteModule, ForgeChipModule, ForgeDatePickerModule, ForgeSelectModule, ForgeSliderModule, ForgeSwitchModule, ForgeTimePickerModule, ProxyComponentsModule
+} from '@tylertech/forge-angular';
 import { SharedModule } from '../../../shared/shared.module';
 import { ReactiveFormExampleRoutingModule } from './reactive-form-example-routing.module';
 import { ReactiveFormExampleComponent } from './reactive-form-example.component';
-import {
-  defineTextFieldComponent,
-  defineDatePickerComponent,
-  defineSelectComponent,
-  defineButtonComponent,
-  defineCheckboxComponent,
-  defineRadioComponent,
-  defineChipSetComponent,
-  defineChipComponent,
-  defineSliderComponent,
-  defineAutocompleteComponent,
-  defineTimePickerComponent,
-  defineQuantityFieldComponent
-} from '@tylertech/forge';
-import {
-  ForgeSelectModule,
-  ForgeDatePickerModule,
-  ForgeChipModule,
-  ForgeAutocompleteModule,
-  ForgeSliderModule,
-  ForgeTimePickerModule,
-  ForgeSwitchModule
-} from '@tylertech/forge-angular';
-
-defineTextFieldComponent();
-defineDatePickerComponent();
-defineSelectComponent();
-defineButtonComponent();
-defineCheckboxComponent();
-defineRadioComponent();
-defineChipSetComponent();
-defineChipComponent();
-defineSliderComponent();
-defineAutocompleteComponent();
-defineTimePickerComponent();
-defineQuantityFieldComponent();
 
 @NgModule({
   declarations: [ReactiveFormExampleComponent],
@@ -55,8 +22,8 @@ defineQuantityFieldComponent();
     ForgeDatePickerModule,
     ForgeChipModule,
     ForgeTimePickerModule,
-    ForgeSwitchModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeSwitchModule,
+    ProxyComponentsModule
+  ]
 })
 export class ReactiveFormExampleModule {}

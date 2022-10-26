@@ -1,17 +1,14 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { defineToastComponent, defineSelectComponent, defineTextFieldComponent, defineButtonComponent } from '@tylertech/forge';
-import { ForgeSelectModule } from '@tylertech/forge-angular';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { defineToastComponent } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeOptionModule, ForgeSelectModule, ForgeSliderProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { ToastRoutingModule } from './toast-routing.module';
 import { ToastComponent } from './toast.component';
 
 defineToastComponent();
-defineSelectComponent();
-defineTextFieldComponent();
-defineButtonComponent();
 
 @NgModule({
   declarations: [ToastComponent],
@@ -20,8 +17,12 @@ defineButtonComponent();
     ToastRoutingModule,
     FormsModule,
     SharedModule,
-    ForgeSelectModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeOptionModule,
+    ForgeSelectModule,
+    ForgeSliderProxyModule,
+    ForgeTextFieldModule
+  ]
 })
 export class ToastModule {}

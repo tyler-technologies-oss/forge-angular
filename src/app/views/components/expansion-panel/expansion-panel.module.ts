@@ -1,5 +1,6 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ForgeCardModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
 
 import { ExpansionPanelRoutingModule } from './expansion-panel-routing.module';
 import { ExpansionPanelComponent } from './expansion-panel.component';
@@ -10,8 +11,10 @@ import { SharedModule } from '../../../shared/shared.module';
   imports: [
     CommonModule,
     ExpansionPanelRoutingModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeCardModule,
+    ForgeExpansionPanelModule,
+    ForgeOpenIconModule
+  ]
 })
 export class ExpansionPanelModule {}

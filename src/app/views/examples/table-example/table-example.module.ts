@@ -1,32 +1,33 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { defineTableComponent, defineToolbarComponent, definePaginatorComponent, defineMenuComponent, defineBadgeComponent, defineDatePickerComponent, defineSelectComponent } from '@tylertech/forge';
+import { NgModule } from '@angular/core';
+import { ForgeBadgeModule, ForgeButtonModule, ForgeDatePickerModule, ForgeDividerModule, ForgeIconButtonModule, ForgeMenuModule, ForgePaginatorModule, ForgeSelectProxyModule, ForgeTableModule, ForgeToolbarModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 
-import { TableExampleRoutingModule } from './table-example-routing.module';
-import { TableExampleComponent } from './table-example.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { JournalService } from './journal.service';
 import { MonthShortPipe } from './month-short.pipe';
+import { TableExampleRoutingModule } from './table-example-routing.module';
+import { TableExampleComponent } from './table-example.component';
 import { TableMenuCellComponent } from './table-menu-cell/table-menu-cell.component';
-
-defineTableComponent();
-defineToolbarComponent();
-definePaginatorComponent();
-defineMenuComponent();
-defineBadgeComponent();
-defineDatePickerComponent();
-defineSelectComponent();
-
 @NgModule({
   declarations: [TableExampleComponent, MonthShortPipe, TableMenuCellComponent],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
-    TableExampleRoutingModule
+    TableExampleRoutingModule,
+    ForgeButtonModule,
+    ForgeDividerModule,
+    ForgeIconButtonModule,
+    ForgeTooltipModule,
+    ForgeTableModule,
+    ForgeToolbarModule,
+    ForgePaginatorModule,
+    ForgeMenuModule,
+    ForgeBadgeModule,
+    ForgeDatePickerModule,
+    ForgeSelectProxyModule
   ],
-  providers: [JournalService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [JournalService]
 })
 export class TableExampleModule { }

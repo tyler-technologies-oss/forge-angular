@@ -10,7 +10,7 @@ export class DateRangePickerSimpleComponent implements OnInit {
 
   public fromDate: string | Date;
   public toDate: string | Date;
-  public valueMode = 'object';
+  public valueMode: 'object' | 'string' | 'iso-string' = 'object';
   public isDisabled = false;
   
   constructor() { }

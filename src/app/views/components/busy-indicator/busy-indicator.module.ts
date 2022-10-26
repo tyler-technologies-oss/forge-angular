@@ -1,8 +1,8 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { defineBusyIndicatorComponent } from '@tylertech/forge';
-import { ForgeSelectModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { BusyIndicatorRoutingModule } from './busy-indicator-routing.module';
@@ -17,8 +17,12 @@ defineBusyIndicatorComponent();
     BusyIndicatorRoutingModule,
     FormsModule,
     SharedModule,
-    ForgeSelectModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeOptionModule,
+    ForgeSelectModule,
+    ForgeSelectProxyModule,
+    ForgeTextFieldModule
+  ]
 })
 export class BusyIndicatorModule { }

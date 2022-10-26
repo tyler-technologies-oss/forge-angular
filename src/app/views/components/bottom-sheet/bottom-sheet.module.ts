@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -7,6 +7,7 @@ import { BottomSheetComponent } from './bottom-sheet.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.component';
 import { defineBottomSheetComponent } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 defineBottomSheetComponent();
 
@@ -19,8 +20,10 @@ defineBottomSheetComponent();
     BottomSheetRoutingModule,
     CommonModule,
     FormsModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeTextFieldModule
+  ]
 })
 export class BottomSheetModule { }

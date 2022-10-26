@@ -1,21 +1,15 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ForgeAutocompleteModule, ForgeAutocompleteProxyModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeDividerModule } from '@tylertech/forge-angular';
 
-import { ChipFieldRoutingModule } from './chip-field-routing.module';
-import { ChipFieldComponent } from './chip-field.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../shared/shared.module';
-import { ForgeAutocompleteModule } from '@tylertech/forge-angular';
-import { defineAutocompleteComponent, defineChipComponent, defineChipFieldComponent } from '@tylertech/forge';
-import { ChipFieldSimpleComponent } from './chip-field-simple/chip-field-simple.component';
-import { ChipFieldSimpleReactiveFormComponent } from './chip-field-simple-reactive-form/chip-field-simple-reactive-form.component';
-import { ChipFieldAutocompleteComponent } from './chip-field-autocomplete/chip-field-autocomplete.component';
 import { ChipFieldAutocompleteReactiveFormComponent } from './chip-field-autocomplete-reactive-form/chip-field-autocomplete-reactive-form.component';
-
-defineAutocompleteComponent();
-defineChipComponent();
-defineChipFieldComponent();
-
+import { ChipFieldAutocompleteComponent } from './chip-field-autocomplete/chip-field-autocomplete.component';
+import { ChipFieldRoutingModule } from './chip-field-routing.module';
+import { ChipFieldSimpleReactiveFormComponent } from './chip-field-simple-reactive-form/chip-field-simple-reactive-form.component';
+import { ChipFieldSimpleComponent } from './chip-field-simple/chip-field-simple.component';
+import { ChipFieldComponent } from './chip-field.component';
 @NgModule({
   declarations: [
     ChipFieldComponent,
@@ -30,8 +24,13 @@ defineChipFieldComponent();
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    ForgeAutocompleteModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeAutocompleteModule,
+    ForgeAutocompleteProxyModule,
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeChipFieldModule,
+    ForgeChipProxyModule,
+    ForgeDividerModule
+  ]
 })
 export class ChipFieldModule { }

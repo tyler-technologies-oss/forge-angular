@@ -77,8 +77,8 @@
   <div class="table-container">
     <forge-table
       #journalTable
-      [columnConfigurations]="columnConfigs$ | async"
-      [data]="pagedData$ | async"
+      [columnConfigurations]="(columnConfigs$ | async) ?? []"
+      [data]="(pagedData$ | async) ?? []"
       [filter]="showFilter"
       (forge-table-select)="onTableRowSelected($event)"
       (forge-table-select-all)="onTableSelectAll($event)"

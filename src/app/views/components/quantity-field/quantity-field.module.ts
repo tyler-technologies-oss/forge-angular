@@ -1,5 +1,6 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ForgeIconButtonModule, ForgeQuantityFieldModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { QuantityFieldRoutingModule } from './quantity-field-routing.module';
 import { QuantityFieldComponent } from './quantity-field.component';
@@ -13,8 +14,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     QuantityFieldRoutingModule,
     SharedModule,
-    FormsModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    FormsModule,
+    ForgeIconButtonModule,
+    ForgeQuantityFieldModule,
+    ForgeTextFieldModule
+  ]
 })
 export class QuantityFieldModule { }

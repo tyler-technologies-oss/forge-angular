@@ -1,12 +1,10 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { defineMenuComponent } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeMenuModule } from '@tylertech/forge-angular';
 
 import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
 import { SharedModule } from '../../../shared/shared.module';
-
-defineMenuComponent();
 
 @NgModule({
   declarations: [
@@ -15,8 +13,9 @@ defineMenuComponent();
   imports: [
     CommonModule,
     MenuRoutingModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeButtonModule,
+    ForgeMenuModule
+  ]
 })
 export class MenuModule { }

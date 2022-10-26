@@ -1,16 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { defineStepperComponent, defineCheckboxComponent, defineSelectComponent } from '@tylertech/forge';
-import { ForgeSelectModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeStepModule, ForgeStepperModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { StepperRoutingModule } from './stepper-routing.module';
 import { StepperComponent } from './stepper.component';
-
-defineStepperComponent();
-defineCheckboxComponent();
-defineSelectComponent();
 
 @NgModule({
   declarations: [StepperComponent],
@@ -19,8 +14,13 @@ defineSelectComponent();
     StepperRoutingModule,
     FormsModule,
     SharedModule,
-    ForgeSelectModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeOptionModule,
+    ForgeSelectModule,
+    ForgeSelectProxyModule,
+    ForgeStepModule,
+    ForgeStepperModule
+  ]
 })
 export class StepperModule {}

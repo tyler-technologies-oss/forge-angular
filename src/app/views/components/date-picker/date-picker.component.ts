@@ -14,8 +14,8 @@ export class DatePickerComponent {
   public disableDayCallbackDate = new Date();
   public disableDaysOfWeekDate = new Date();
   public disabledDaysOfWeek: number[] = [];
-  public formatCb = (d: Date) => {
-    return d ? d.toISOString().split('T')[0] : null;
+  public formatCb = (d: Date | null) => {
+    return d ? d.toISOString().split('T')[0] : '';
   }
   public parseCb = (val: string) => {
     if (val) {

@@ -1,21 +1,21 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { defineChipSetComponent, defineChipComponent } from '@tylertech/forge';
+import { ForgeChipProxyModule, ForgeChipSetModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
 
 import { ChipsRoutingModule } from './chips-routing.module';
 import { ChipsComponent } from './chips.component';
 import { SharedModule } from '../../../shared/shared.module';
 
-defineChipSetComponent();
-defineChipComponent();
 
 @NgModule({
   declarations: [ChipsComponent],
   imports: [
     CommonModule,
     ChipsRoutingModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeChipProxyModule,
+    ForgeChipSetModule,
+    ForgeIconButtonModule
+  ]
 })
 export class ChipsModule { }
