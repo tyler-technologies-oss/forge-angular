@@ -16,10 +16,8 @@ import { StepperComponent } from './stepper.component';
     SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
-    ForgeOptionModule,
     ForgeSelectModule,
     ForgeSelectProxyModule,
-    ForgeStepModule,
     ForgeStepperModule
   ]
 })

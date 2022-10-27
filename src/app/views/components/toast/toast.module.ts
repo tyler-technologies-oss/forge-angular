@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { defineToastComponent } from '@tylertech/forge';
-import { ForgeButtonModule, ForgeCheckboxModule, ForgeOptionModule, ForgeSelectModule, ForgeSliderProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeSliderProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { ToastRoutingModule } from './toast-routing.module';
@@ -19,8 +19,8 @@ defineToastComponent();
     SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
-    ForgeOptionModule,
     ForgeSelectModule,
+    ForgeSelectProxyModule,
     ForgeSliderProxyModule,
     ForgeTextFieldModule
   ]

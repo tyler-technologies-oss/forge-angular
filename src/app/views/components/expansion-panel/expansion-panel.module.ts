@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForgeCardModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
+import { NgModule } from '@angular/core';
+import { ForgeCardModule, ForgeExpansionPanelModule } from '@tylertech/forge-angular';
 
+import { SharedModule } from '../../../shared/shared.module';
 import { ExpansionPanelRoutingModule } from './expansion-panel-routing.module';
 import { ExpansionPanelComponent } from './expansion-panel.component';
-import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [ExpansionPanelComponent],
@@ -13,8 +13,7 @@ import { SharedModule } from '../../../shared/shared.module';
     ExpansionPanelRoutingModule,
     SharedModule,
     ForgeCardModule,
-    ForgeExpansionPanelModule,
-    ForgeOpenIconModule
+    ForgeExpansionPanelModule
   ]
 })
 export class ExpansionPanelModule {}

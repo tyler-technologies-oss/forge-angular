@@ -19,7 +19,6 @@ defineAvatarComponent();
     SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
-    ForgeOptionModule,
     ForgeSelectModule,
     ForgeSelectProxyModule,
     ForgeTextFieldModule,
