@@ -7,7 +7,7 @@
       </h3>
       <forge-table select="true"
                  [columnConfigurations]="columnConfigurations"
-                 [data]="$any(data$ | async)"
+                 [data]="(data$ | async) ?? []"
                  select-key="Id"
                  (forge-table-select)="onSelect($event)"
                  (forge-table-select-all)="onSelectAll($event)"
@@ -24,7 +24,7 @@
       </h3>
       <forge-table select="true"
                  [columnConfigurations]="advColumnConfigurations"
-                 [data]="$any(data$ | async)"
+                 [data]="(data$ | async) ?? []"
                  allow-row-click="true"
                  filter="true"
                  select-key="Id"
@@ -36,7 +36,7 @@
                  (forge-table-sort)="onTableSort($any($event))">
       </forge-table>
       <div style="display: flex; justify-content: flex-end;">
-        <forge-paginator (change)="onAdvPageChange($any($event))" [total]="totalCount"></forge-paginator>
+        <forge-paginator (change)="onAdvPageChange($event)" [total]="totalCount"></forge-paginator>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
         </h3>
         <forge-table select="false"
                   [columnConfigurations]="multiColumnSortConfigurations"
-                  [data]="$any(data$ | async)"
+                  [data]="(data$ | async) ?? []"
                   select-key="Id"
                   [multiColumnSort]="true"
                   (forge-table-sort)="onTableMultiSort($any($event).detail)">
@@ -65,9 +65,9 @@
         <forge-table select="false" #selectAllTemplateTable
           [select]="true"
           [multiselect]="true"
-          [selectCheckboxAlignment]="$any('right')"
+          selectCheckboxAlignment="right"
           [columnConfigurations]="columnConfigurations"
-          [data]="$any(data$ | async)"
+          [data]="(data$ | async) ?? []"
           select-key="Id">
           <div #selectAllTemplate class="select-all-template">
             <forge-menu [options]="options">

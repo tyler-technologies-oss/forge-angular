@@ -16,7 +16,7 @@
     "release": "auto shipit",
     "postversion": "cd dist/forge-angular && npm version $npm_package_version --no-git-tag-version --no-commit-hooks --ignore-scripts",
     "analyze:bundle": "webpack-bundle-analyzer dist/forge-angular-demo/stats.json",
-    "generate-proxies": "ng generate @tylertech/forge-schematics:custom-elements --import-path '@tylertech/forge' --manifest='node_modules/@tylertech/forge/custom-elements.json' --out-dir='projects/forge-angular/src/lib' --out-dir-exclude-prefix='forge-' --interactive=false --modulePrefix=Forge"
+    "generate-proxies": "ng generate @tylertech/forge-schematics:custom-elements --import-path '@tylertech/forge' --manifest='node_modules/@tylertech/forge/custom-elements.json' --out-dir='projects/forge-angular/src/lib' --out-dir-exclude-prefix='forge-' --interactive=false --modulePrefix=Forge --use-define-function"
   },
   "dependencies": {
     "@angular/animations": "~13.3.0",
@@ -27,7 +27,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "@tylertech/forge": "^2.9.0",
+    "@tylertech/forge": "^2.10.1",
     "@tylertech/tyler-icons": "^1.12.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -43,7 +43,7 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@tylertech-eslint/eslint-plugin": "^1.0.9",
-    "@tylertech/forge-schematics": "^1.0.2",
+    "@tylertech/forge-schematics": "^1.1.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "auto": "^10.36.5",
