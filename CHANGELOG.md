@@ -1,3 +1,15 @@
+# v2.1.0 (Tue Nov 08 2022)
+
+#### 🚀 Enhancement
+
+- feat: generate proxy components for Forge custom elements [#13](https://github.com/tyler-technologies-oss/forge-angular/pull/13) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.0.3 (Fri Aug 12 2022)
 
 #### 🐛 Bug Fix
