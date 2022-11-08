@@ -42,10 +42,10 @@ const players: IPlayer[] = [
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  @ViewChild('selectAllTemplate')
+  @ViewChild('selectAllTemplate', { read: ElementRef })
   selectAllTemplate: ElementRef;
 
-  @ViewChild('selectAllTemplateTable')
+  @ViewChild('selectAllTemplateTable', { read: ElementRef })
   selectAllTemplateTable: ElementRef;
 
   public columnConfigurations: IColumnConfiguration[] = [

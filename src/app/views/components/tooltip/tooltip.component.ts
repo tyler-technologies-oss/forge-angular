@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { TOOLTIP_CONSTANTS, ITooltipComponent, IAvatarComponent } from '@tylertech/forge';
+import { TOOLTIP_CONSTANTS, ITooltipComponent, IAvatarComponent, PopupPlacement } from '@tylertech/forge';
 
 @Component({
   selector: 'app-tooltip',
@@ -9,10 +9,10 @@ import { TOOLTIP_CONSTANTS, ITooltipComponent, IAvatarComponent } from '@tylerte
 export class TooltipComponent {
   public text = 'Hey I\'m a useful tooltip!';
   public delay = TOOLTIP_CONSTANTS.numbers.DEFAULT_DELAY;
-  public position = TOOLTIP_CONSTANTS.strings.DEFAULT_POSITION;
+  public position = TOOLTIP_CONSTANTS.strings.DEFAULT_POSITION as PopupPlacement;
   public useBuilder = false;
 
-  @ViewChild('tooltip', { static: true })
+  @ViewChild('tooltip', { read: ElementRef, static: true })
   public tooltipRef: ElementRef;
 
   public onUseBuilderChanged(evt: Event): void {

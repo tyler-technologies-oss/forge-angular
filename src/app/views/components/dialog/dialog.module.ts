@@ -1,6 +1,7 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { defineDialogComponent, defineButtonComponent } from '@tylertech/forge';
+import { defineDialogComponent } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { DialogRoutingModule } from './dialog-routing.module';
@@ -9,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 defineDialogComponent();
-defineButtonComponent();
 
 @NgModule({
   declarations: [
@@ -20,8 +20,10 @@ defineButtonComponent();
     CommonModule,
     DialogRoutingModule,
     FormsModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeTextFieldModule
+  ]
 })
 export class DialogModule {}

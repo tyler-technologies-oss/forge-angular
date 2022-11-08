@@ -1,14 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { defineSelectComponent } from '@tylertech/forge';
-import { ForgeSelectModule } from '@tylertech/forge-angular';
+import { ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { SelectRoutingModule } from './select-routing.module';
 import { SelectComponent } from './select.component';
-
-defineSelectComponent();
 
 @NgModule({
   declarations: [SelectComponent],
@@ -17,8 +14,9 @@ defineSelectComponent();
     SelectRoutingModule,
     FormsModule,
     SharedModule,
-    ForgeSelectModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeOptionModule,
+    ForgeSelectModule,
+    ForgeSelectProxyModule,
+  ]
 })
 export class SelectModule {}

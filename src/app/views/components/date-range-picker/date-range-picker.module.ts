@@ -1,19 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DateRangePickerRoutingModule } from './date-range-picker-routing.module';
 import { DateRangePickerComponent } from './date-range-picker.component';
 import { SharedModule } from '../../../shared/shared.module';
-import { defineCheckboxComponent, defineDateRangePickerComponent, defineLabelValueComponent, defineSelectComponent } from '@tylertech/forge';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-range-picker-simple.component';
 import { DateRangePickerReactiveFormComponent } from './date-range-picker-reactive-form/date-range-picker-reactive-form.component';
-import { ForgeDateRangePickerModule, ForgeSelectModule } from '@tylertech/forge-angular';
-
-defineDateRangePickerComponent();
-defineLabelValueComponent();
-defineSelectComponent();
-defineCheckboxComponent();
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, ForgeDateRangePickerProxyModule, ForgeDividerModule, ForgeLabelValueModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 
 @NgModule({
   declarations: [
@@ -27,9 +21,17 @@ defineCheckboxComponent();
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeDateRangePickerModule,
+    ForgeDateRangePickerProxyModule,
+    ForgeDividerModule,
+    ForgeLabelValueModule,
+    ForgeOptionModule,
     ForgeSelectModule,
-    ForgeDateRangePickerModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeSelectProxyModule,
+    ForgeTextFieldModule,
+    ForgeTooltipModule
+  ]
 })
 export class DateRangePickerModule { }

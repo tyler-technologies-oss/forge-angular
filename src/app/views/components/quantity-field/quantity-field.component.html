@@ -33,7 +33,7 @@
   </section>
 
   <section>
-    <forge-quantity-field [invalid]="value%20">
+    <forge-quantity-field [invalid]="value%20 !== 0">
       <label slot="label">Invalid (value%20)</label>
       <forge-icon-button slot="decrement-button">
         <button type="button" class="tyler-icons">remove_circle_outline</button>
@@ -49,7 +49,7 @@
   </section>
 
   <section>
-    <forge-quantity-field [required]="value%20">
+    <forge-quantity-field [required]="value%20 !== 0">
       <label slot="label">Required (value%20)</label>
       <forge-icon-button slot="decrement-button">
         <button type="button" class="tyler-icons">remove_circle_outline</button>

@@ -1,16 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ForgePopupModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgePopupModule, ForgePopupProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { PopupRoutingModule } from './popup-routing.module';
 import { PopupComponent } from './popup.component';
-import { definePopupComponent, defineTextFieldComponent, defineButtonComponent } from '@tylertech/forge';
-
-definePopupComponent();
-defineTextFieldComponent();
-defineButtonComponent();
 
 @NgModule({
   declarations: [PopupComponent],
@@ -19,8 +14,10 @@ defineButtonComponent();
     PopupRoutingModule,
     FormsModule,
     SharedModule,
-    ForgePopupModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ForgeButtonModule,
+    ForgePopupModule,
+    ForgePopupProxyModule,
+    ForgeTextFieldModule
+  ]
 })
 export class PopupModule {}

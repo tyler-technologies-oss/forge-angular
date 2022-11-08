@@ -12,7 +12,7 @@ export class DateRangePickerReactiveFormComponent implements OnInit {
 
   public demoForm: FormGroup;
   public dateRangeControl: FormControl;
-  public valueMode = 'object';
+  public valueMode: 'object' | 'string' | 'iso-string' = 'object';
   public isDisabled = false;
 
   constructor(private _fb: FormBuilder) { }

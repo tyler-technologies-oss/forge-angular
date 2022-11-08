@@ -1,6 +1,7 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { defineIconButtonComponent } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { IconButtonRoutingModule } from './icon-button-routing.module';
@@ -13,8 +14,9 @@ defineIconButtonComponent();
   imports: [
     CommonModule,
     IconButtonRoutingModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeButtonModule,
+    ForgeIconButtonModule
+  ]
 })
 export class IconButtonModule {}

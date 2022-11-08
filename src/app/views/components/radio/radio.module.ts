@@ -1,13 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { defineRadioComponent } from '@tylertech/forge';
+import { ForgeRadioModule } from '@tylertech/forge-angular';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { RadioRoutingModule } from './radio-routing.module';
 import { RadioComponent } from './radio.component';
-
-defineRadioComponent();
 
 @NgModule({
   declarations: [RadioComponent],
@@ -15,8 +13,8 @@ defineRadioComponent();
     CommonModule,
     RadioRoutingModule,
     FormsModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeRadioModule
+  ]
 })
 export class RadioModule { }

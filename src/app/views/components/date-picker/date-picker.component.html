@@ -106,7 +106,7 @@
           <label for="custom-date">Date</label>
         </forge-text-field>
       </forge-date-picker>
-      <forge-select multiple label="Disable Days Of Week" value="object" style="min-width: 256px;" (change)="change($any($event).detail)">
+      <forge-select multiple label="Disable Days Of Week" value="object" style="min-width: 256px;" (change)="change($event.detail)">
         <forge-option value="0">Sundays</forge-option>
         <forge-option value="1">Mondays</forge-option>
         <forge-option value="2">Tuesdays</forge-option>

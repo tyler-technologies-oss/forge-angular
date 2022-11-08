@@ -1,6 +1,7 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { defineIconComponent, IconRegistry } from '@tylertech/forge';
+import { ForgeIconModule } from '@tylertech/forge-angular';
 import { tylIcon360, tylIconFace } from '@tylertech/tyler-icons/standard';
 import { tylIconActionLauncher } from '@tylertech/tyler-icons/custom';
 
@@ -28,8 +29,8 @@ setTimeout(() => {
   imports: [
     CommonModule,
     IconRoutingModule,
-    SharedModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    SharedModule,
+    ForgeIconModule
+  ]
 })
 export class IconModule { }
