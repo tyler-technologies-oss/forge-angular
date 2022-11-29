@@ -1,0 +1,20 @@
+forge-split-view {
+  height: 400px;
+}
+
+h2 {
+  margin-top: 48px;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: lavender;
+  
+  &--primary {
+    background-color: salmon;
+  }
+}

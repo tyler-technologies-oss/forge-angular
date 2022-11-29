@@ -1,0 +1,104 @@
+<app-demo-card headerText="Split view">
+  <h2 class="forge-typography--title">Scaffold</h2>
+  <forge-scaffold style="--forge-scaffold-height: 456px;">
+    <forge-app-bar slot="header" title-text="Scaffold - Split view"></forge-app-bar>
+    <div slot="body" style="background-color: var(--mdc-theme-background);">
+      <!-- Start panel -->
+      <forge-split-view auto-close aria="{ panel: 'name', more: 'sam' }" accessible-panel="name" accessible-more="sam">
+        <forge-split-view-panel min="256" max="400" size="256" position="start" accessible-label="Something cool">
+          <forge-drawer style="--forge-drawer-width: 100%;">
+            <aside>
+              <forge-list>
+                <forge-list-item>Option #1</forge-list-item>
+                <forge-list-item>Option #2</forge-list-item>
+                <forge-list-item>Option #3</forge-list-item>
+              </forge-list>
+            </aside>
+          </forge-drawer>
+        </forge-split-view-panel>
+
+        <!-- Center panel -->
+        <forge-split-view-panel>
+          <forge-card style="margin: 16px;">
+            <h3 class="forge-typography--title">Card header</h3>
+            <div>
+              <forge-label-value>
+                <span slot="label">Label</span>
+                <span slot="value">Value text</span>
+              </forge-label-value>
+              <forge-label-value>
+                <span slot="label">Label</span>
+                <span slot="value">Value text</span>
+              </forge-label-value>
+              <forge-label-value>
+                <span slot="label">Label</span>
+                <span slot="value">Value text</span>
+              </forge-label-value>
+            </div>
+          </forge-card>
+        </forge-split-view-panel>
+
+        <!-- End panel -->
+        <forge-split-view-panel max="400" position="end">
+          <div class="panel panel--primary">Content</div>
+        </forge-split-view-panel>
+      </forge-split-view>
+    </div>
+  </forge-scaffold>
+
+  <h2 class="forge-typography--title">Default</h2>
+  <forge-split-view>
+    <forge-split-view-panel>
+      <div class="panel">Panel 1</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel panel--primary">Panel 2</div>
+    </forge-split-view-panel>
+  </forge-split-view>
+
+  <h2 class="forge-typography--title">Leading panel</h2>
+  <forge-split-view>
+    <forge-split-view-panel position="start">
+      <div class="panel panel--primary">Panel 1</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel">Panel 2</div>
+    </forge-split-view-panel>
+  </forge-split-view>
+
+  <h2 class="forge-typography--title">Vertical</h2>
+  <forge-split-view orientation="vertical">
+    <forge-split-view-panel>
+      <div class="panel">Panel 1</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel panel--primary">Panel 2</div>
+    </forge-split-view-panel>
+  </forge-split-view>
+
+  <h2 class="forge-typography--title">Multiple panels split</h2>
+  <forge-split-view>
+    <forge-split-view-panel position="start">
+      <div class="panel panel--primary">Panel 1</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel">Panel 2</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel position="end">
+      <div class="panel panel--primary">Panel 3</div>
+    </forge-split-view-panel>
+  </forge-split-view>
+
+  <h2 class="forge-typography--title">Multiple panels stacked</h2>
+  <forge-split-view>
+    <forge-split-view-panel>
+      <div class="panel">Panel 1</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel panel--primary">Panel 2</div>
+    </forge-split-view-panel>
+    <forge-split-view-panel>
+      <div class="panel panel--primary">Panel 3</div>
+    </forge-split-view-panel>
+  </forge-split-view>
+</app-demo-card>
