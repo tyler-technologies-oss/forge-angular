@@ -1,3 +1,19 @@
+# v2.2.0 (Tue Nov 29 2022)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Alan Collins ([@Alanoll](https://github.com/Alanoll)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(peer-dependencies): allow Angular 15 [#14](https://github.com/tyler-technologies-oss/forge-angular/pull/14) ([@Alanoll](https://github.com/Alanoll))
+
+#### Authors: 1
+
+- Alan Collins ([@Alanoll](https://github.com/Alanoll))
+
+---
+
 # v2.1.0 (Tue Nov 08 2022)
 
 #### 🚀 Enhancement
