@@ -60,6 +60,8 @@ import { ForgeSelectProxyModule } from './select';
 import { ForgeSelectDropdownModule } from './select-dropdown';
 import { ForgeSkeletonModule } from './skeleton';
 import { ForgeSliderProxyModule } from './slider';
+import { ForgeSplitViewModule } from './split-view';
+import { ForgeSplitViewPanelModule } from './split-view-panel';
 import { ForgeStepModule } from './step';
 import { ForgeStepperModule } from './stepper';
 import { ForgeSwitchProxyModule } from './switch';
@@ -135,6 +137,8 @@ export const proxyModules = [
     ForgeSelectDropdownModule,
     ForgeSkeletonModule,
     ForgeSliderProxyModule,
+    ForgeSplitViewModule,
+    ForgeSplitViewPanelModule,
     ForgeStepModule,
     ForgeStepperModule,
     ForgeSwitchProxyModule,
