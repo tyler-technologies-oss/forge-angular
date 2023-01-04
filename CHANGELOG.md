@@ -1,3 +1,15 @@
+# v2.3.0 (Wed Jan 04 2023)
+
+#### 🚀 Enhancement
+
+- feat(split-view): generate proxy component and create demo [#16](https://github.com/tyler-technologies-oss/forge-angular/pull/16) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.2.0 (Tue Nov 29 2022)
 
 :tada: This release contains work from a new contributor! :tada:
