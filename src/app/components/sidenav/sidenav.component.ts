@@ -69,6 +69,7 @@ export class SidenavComponent implements OnInit {
     { label: 'Scaffold', value: '/component/scaffold' },
     { label: 'Select', value: '/component/select' },
     { label: 'Slider', value: '/component/slider' },
+    { label: 'Split View', value: '/component/split-view' },
     { label: 'Stepper', value: '/component/stepper' },
     { label: 'Switch', value: '/component/switch' },
     { label: 'Tab Bar', value: '/component/tab-bar' },

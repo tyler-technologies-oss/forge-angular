@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'scaffold', loadChildren: () => import('../../views/components/scaffold/scaffold.module').then(m => m.ScaffoldModule) },
   { path: 'select', loadChildren: () => import('../../views/components/select/select.module').then(m => m.SelectModule) },
   { path: 'slider', loadChildren: () => import('../../views/components/slider/slider.module').then(m => m.SliderModule) },
+  { path: 'split-view', loadChildren: () => import('../../views/components/split-view/split-view.module').then(m => m.SplitViewModule) },
   { path: 'stepper', loadChildren: () => import('../../views/components/stepper/stepper.module').then(m => m.StepperModule) },
   { path: 'switch', loadChildren: () => import('../../views/components/switch/switch.module').then(m => m.SwitchModule) },
   { path: 'tab-bar', loadChildren: () => import('../../views/components/tab-bar/tab-bar.module').then(m => m.TabBarModule) },
