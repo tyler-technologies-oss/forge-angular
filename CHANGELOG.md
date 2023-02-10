@@ -1,3 +1,15 @@
+# v2.3.1 (Fri Feb 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix: update list-item proxy for latest forge [#18](https://github.com/tyler-technologies-oss/forge-angular/pull/18) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.3.0 (Wed Jan 04 2023)
 
 #### 🚀 Enhancement
