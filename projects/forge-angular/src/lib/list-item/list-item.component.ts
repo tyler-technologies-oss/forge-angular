@@ -178,11 +178,6 @@ export class ListItemComponent {
 		return this.elementRef.nativeElement.wrap;
 	}
 
-
-	public initializedCallback(...args: Parameters<ListItemComponentCustomElement['initializedCallback']>): ReturnType<ListItemComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.initializedCallback(...args));
-	}
-
 	/** Sets focus to this list item. */
 	public focus(...args: Parameters<ListItemComponentCustomElement['focus']>): ReturnType<ListItemComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.focus(...args));
