@@ -1,3 +1,15 @@
+# v2.5.0 (Wed Mar 22 2023)
+
+#### 🚀 Enhancement
+
+- feat: define components in modules and services [#19](https://github.com/tyler-technologies-oss/forge-angular/pull/19) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.4.0 (Wed Feb 15 2023)
 
 :tada: This release contains work from a new contributor! :tada:
