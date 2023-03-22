@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBusyIndicatorComponent } from '@tylertech/forge';
+import { IBusyIndicatorComponent, defineBusyIndicatorComponent } from '@tylertech/forge';
 
 /**
  * Provides facilities for showing/hiding a busy indicator.
@@ -8,6 +8,10 @@ import { IBusyIndicatorComponent } from '@tylertech/forge';
   providedIn: 'root'
 })
 export class BusyIndicatorService {
+  constructor() {
+    defineBusyIndicatorComponent();
+  }
+
   /**
    * Shows a busy indicator in a parent element (or the body if not provided).
    * @param config The busy indicator component configuration.

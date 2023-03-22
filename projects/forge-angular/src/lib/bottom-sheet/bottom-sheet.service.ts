@@ -1,11 +1,9 @@
-import { Injectable, Injector } from '@angular/core';
-import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
-import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge';
-import { BottomSheetConfig } from './bottom-sheet-config';
-import { BottomSheetRef } from './bottom-sheet-ref';
-import { BottomSheetInjector } from './bottom-sheet-injector';
+import { ComponentFactory, Injectable, Injector, NgModuleRef, Type } from '@angular/core';
+import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent, defineBottomSheetComponent } from '@tylertech/forge';
 import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
-import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
+import { BottomSheetConfig } from './bottom-sheet-config';
+import { BottomSheetInjector } from './bottom-sheet-injector';
+import { BottomSheetRef } from './bottom-sheet-ref';
 
 export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>, 'attributes'> {
   bottomSheetClass?: string;
@@ -19,7 +17,9 @@ export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>
   providedIn: 'root'
 })
 export class BottomSheetService {
-  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {}
+  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
+    defineBottomSheetComponent();
+  }
 
   /**
    * Displays a components within a Forge bottom sheet instance.
