@@ -1,5 +1,5 @@
 import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector, Renderer2, RendererFactory2, Type } from '@angular/core';
-import { IToastComponent, TOAST_CONSTANTS } from '@tylertech/forge';
+import { IToastComponent, TOAST_CONSTANTS, defineToastComponent } from '@tylertech/forge';
 import { ToastConfig } from './toast-config';
 import { ToastInjector } from './toast-injector';
 
@@ -19,6 +19,7 @@ export class ToastService {
 
   constructor(private _rendererFactory: RendererFactory2, private componentFactoryResolver: ComponentFactoryResolver, private appRef: ApplicationRef, private injector: Injector) {
     this._renderer = this._rendererFactory.createRenderer(null, null);
+    defineToastComponent();
   }
 
   /**

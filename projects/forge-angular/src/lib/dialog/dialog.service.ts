@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
-import { IDialogComponent, DIALOG_CONSTANTS } from '@tylertech/forge';
+import { IDialogComponent, DIALOG_CONSTANTS, defineDialogComponent } from '@tylertech/forge';
 import { DialogConfig } from './dialog-config';
 import { DialogRef } from './dialog-ref';
 import { DialogInjector } from './dialog-injector';
@@ -19,7 +19,9 @@ export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attribu
   providedIn: 'root'
 })
 export class DialogService {
-  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {}
+  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
+    defineDialogComponent();
+  }
 
   /**
    * Displays a components within a Forge dialog instance.
