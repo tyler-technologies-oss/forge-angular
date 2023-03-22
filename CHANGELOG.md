@@ -1,3 +1,31 @@
+# v2.4.0 (Wed Feb 15 2023)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(media-observer): add types for all current media features ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 1
+
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
+# v2.3.1 (Fri Feb 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix: update list-item proxy for latest forge [#18](https://github.com/tyler-technologies-oss/forge-angular/pull/18) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.3.0 (Wed Jan 04 2023)
 
 #### 🚀 Enhancement
