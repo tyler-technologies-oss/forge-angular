@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn } from '@angular/forms';
 import { IDatePickerRange } from '@tylertech/forge';
 import { isDate } from '@tylertech/forge-core';
 
@@ -10,12 +10,12 @@ import { isDate } from '@tylertech/forge-core';
 })
 export class DateRangePickerReactiveFormComponent implements OnInit {
 
-  public demoForm: FormGroup;
-  public dateRangeControl: FormControl;
+  public demoForm: UntypedFormGroup;
+  public dateRangeControl: UntypedFormControl;
   public valueMode: 'object' | 'string' | 'iso-string' = 'object';
   public isDisabled = false;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: UntypedFormBuilder) { }
 
   public ngOnInit(): void {
     const initDateRange: IDatePickerRange = {
@@ -27,7 +27,7 @@ export class DateRangePickerReactiveFormComponent implements OnInit {
       dateRange: this._fb.control(initDateRange, [this._dateRangeIsSevenDaysValidator()])
     });
 
-    this.dateRangeControl = this.demoForm.get('dateRange') as FormControl;
+    this.dateRangeControl = this.demoForm.get('dateRange') as UntypedFormControl;
   }
 
   public onSubmit() {

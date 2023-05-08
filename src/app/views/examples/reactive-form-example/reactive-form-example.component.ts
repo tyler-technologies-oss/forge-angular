@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, UntypedFormControl } from '@angular/forms';
 import { IOption, IAutocompleteComponent } from '@tylertech/forge';
 
 @Component({
@@ -11,10 +11,10 @@ export class ReactiveFormExampleComponent implements OnInit {
   @ViewChild('stateAutocomplete', { static: true, read: ElementRef })
   public stateAutocomplete: ElementRef;
 
-  public shirtQuantityControl: FormControl;
-  public exampleForm: FormGroup;
+  public shirtQuantityControl: UntypedFormControl;
+  public exampleForm: UntypedFormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.exampleForm = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -31,7 +31,7 @@ export class ReactiveFormExampleComponent implements OnInit {
       agree: [false, Validators.required]
     });
 
-    this.shirtQuantityControl = this.exampleForm.get('shirtQuantity') as FormControl;
+    this.shirtQuantityControl = this.exampleForm.get('shirtQuantity') as UntypedFormControl;
   }
 
   public ngOnInit(): void {

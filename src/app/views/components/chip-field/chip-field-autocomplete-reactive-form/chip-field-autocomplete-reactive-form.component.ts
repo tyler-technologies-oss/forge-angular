@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IOption } from '@tylertech/forge';
 
 @Component({
@@ -9,8 +9,8 @@ import { IOption } from '@tylertech/forge';
 })
 export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
 
-  public autocompleteForm: FormGroup;
-  public statesControl: FormControl;
+  public autocompleteForm: UntypedFormGroup;
+  public statesControl: UntypedFormControl;
   public states: IOption[] = [
     { label: 'Alabama', value: 'AL' },
     { label: 'Alaska', value: 'AK' },
@@ -66,14 +66,14 @@ export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
 
   public filterListener = (filter: string) => this._onFilter(filter);
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: UntypedFormBuilder) { }
 
   public ngOnInit() {
     this.autocompleteForm = this._fb.group({
       states: this._fb.control([], [Validators.minLength(2), Validators.required]),
     });
 
-    this.statesControl = this.autocompleteForm.get('states') as FormControl;
+    this.statesControl = this.autocompleteForm.get('states') as UntypedFormControl;
 
     this._selectState('MI');
     this._selectState('WA');

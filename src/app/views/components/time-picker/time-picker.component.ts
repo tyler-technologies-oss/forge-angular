@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { mergeDateWithTime } from '@tylertech/forge';
 
 @Component({
@@ -10,9 +10,9 @@ import { mergeDateWithTime } from '@tylertech/forge';
 export class TimePickerComponent implements OnInit {
   public time: string = '23:40';
   public combinedDate: Date | null = new Date();
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: UntypedFormBuilder) {
     this.form = this._fb.group({
       time: ['17:34:13', Validators.required],
       date: [this.combinedDate, Validators.required]

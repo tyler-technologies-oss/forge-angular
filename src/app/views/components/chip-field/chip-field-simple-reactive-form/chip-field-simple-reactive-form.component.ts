@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chip-field-simple-reactive-form',
@@ -8,17 +8,17 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ChipFieldSimpleReactiveFormComponent implements OnInit {
 
-  public chipFieldForm: FormGroup;
-  public tokensFormArray: FormArray;
+  public chipFieldForm: UntypedFormGroup;
+  public tokensFormArray: UntypedFormArray;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: UntypedFormBuilder) { }
 
   public ngOnInit(): void {
     this.chipFieldForm = this._fb.group({
       tokens: this._fb.array([], [Validators.minLength(2), Validators.required]),
     });
 
-    this.tokensFormArray = this.chipFieldForm.get('tokens') as FormArray;
+    this.tokensFormArray = this.chipFieldForm.get('tokens') as UntypedFormArray;
 
     this._addMember('Token A');
     this._addMember('Token B');
