@@ -1,6 +1,6 @@
 import { Directive, ElementRef, forwardRef, HostListener, Renderer2, StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IDatePickerRange } from '@tylertech/forge';
+import { IDatePickerRange, IDateRangePickerChangeEventData } from '@tylertech/forge';
 
 export const DATE_RANGE_PICKER_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -14,17 +14,17 @@ export const DATE_RANGE_PICKER_VALUE_ACCESSOR: StaticProvider = {
 })
 export class DateRangePickerValueAccessor implements ControlValueAccessor {
   @HostListener('forge-date-range-picker-change', ['$event'])
-  public dateRangePickerChange(event: CustomEvent) {
+  public dateRangePickerChange(event: CustomEvent<IDateRangePickerChangeEventData>): void {
     this.change(event.detail);
   }
 
-  @HostListener('focusout', ['$event'])
-  public blur(event: Event) {
+  @HostListener('focusout')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => { };
-  public onTouched = () => { };
+  public onChange = (_: any): void => { };
+  public onTouched = (): void => { };
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 

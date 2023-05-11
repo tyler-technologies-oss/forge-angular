@@ -61,7 +61,7 @@ export class PopupDirective implements OnDestroy {
     this._contentRef = this._viewContainerRef.createEmbeddedView(this.forgePopup);
 
     if (this._contentRef.rootNodes[0] instanceof PopupComponent) {
-      // <forge-popup> element is supplied in the template 
+      // <forge-popup> element is supplied in the template
       this._popupElement = this._contentRef.rootNodes[0] as PopupComponent;
       this._popupElement.remove();
     } else {
@@ -73,12 +73,12 @@ export class PopupDirective implements OnDestroy {
       this._contentRef.rootNodes.forEach(node => this._popupElement?.appendChild(node));
 
       this._popupElement.placement = this.forgePopupPlacement;
-  
+
       // Add the custom class (if provided)
       if (this.forgePopupClass) {
         this._popupElement.classList.add(this.forgePopupClass);
       }
-  
+
       this._popupElement.static = this.static;
     }
 
@@ -101,7 +101,7 @@ export class PopupDirective implements OnDestroy {
     }
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.close();
   }
 }

@@ -15,17 +15,17 @@ export const SELECT_VALUE_ACCESSOR: StaticProvider = {
 })
 export class SelectValueAccessor implements ControlValueAccessor {
   @HostListener('change', ['$event'])
-  public selectChange(event: Event) {
+  public selectChange(event: Event): void {
     this.change((event.target as ISelectComponent).value);
   }
 
-  @HostListener('blur', ['$event'])
-  public blur(event: Event) {
+  @HostListener('blur')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 

@@ -15,17 +15,17 @@ export const TIME_PICKER_VALUE_ACCESSOR: StaticProvider = {
 })
 export class TimePickerValueAccessor implements ControlValueAccessor {
   @HostListener('forge-time-picker-change', ['$event'])
-  public timePickerChange(event: CustomEvent<string>) {
+  public timePickerChange(event: CustomEvent<string | null>): void {
     this.change(event.detail);
   }
 
-  @HostListener('focusout', ['$event'])
-  public blur(event: Event) {
+  @HostListener('focusout')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef<ITimePickerComponent>, private _renderer: Renderer2) {}
 
@@ -45,7 +45,7 @@ export class TimePickerValueAccessor implements ControlValueAccessor {
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
   }
 
-  public change(value: string | Date): void {
+  public change(value: string | null): void {
     this.onChange(value);
   }
 }

@@ -15,17 +15,17 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: StaticProvider = {
 })
 export class AutocompleteValueAccessor implements ControlValueAccessor {
   @HostListener('forge-autocomplete-change', ['$event'])
-  public autocompleteChange(event: CustomEvent) {
+  public autocompleteChange(event: CustomEvent): void {
     this.change(event.detail);
   }
 
-  @HostListener('focusout', ['$event'])
-  public blur(event: Event) {
+  @HostListener('focusout')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
   }

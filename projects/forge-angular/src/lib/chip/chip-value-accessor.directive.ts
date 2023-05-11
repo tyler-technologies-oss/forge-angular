@@ -1,7 +1,7 @@
 import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IChipComponent } from '@tylertech/forge';
+import { IChipComponent, IChipSelectEventData } from '@tylertech/forge';
 
 export const CHIP_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -15,17 +15,17 @@ export const CHIP_VALUE_ACCESSOR: StaticProvider = {
 })
 export class ChipValueAccessor implements ControlValueAccessor {
   @HostListener('forge-chip-select', ['$event'])
-  public chipSelect(event: CustomEvent) {
+  public chipSelect(event: CustomEvent<IChipSelectEventData>): void {
     this.change(event.detail.value);
   }
 
-  @HostListener('blur', ['$event'])
-  public blur(event: Event) {
+  @HostListener('blur')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef<IChipComponent>, private _renderer: Renderer2) {}
 

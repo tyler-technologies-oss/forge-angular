@@ -24,7 +24,7 @@ export class DialogService {
   }
 
   /**
-   * Displays a components within a Forge dialog instance.
+   * Displays a component within a Forge dialog instance.
    * @param component The component reference.
    * @param config The configuration to provide to the dynamic component as an injectable token.
    */

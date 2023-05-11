@@ -79,4 +79,3 @@ export * from './lib/view';
 export * from './lib/view-switcher';
 
 export * from './lib/forge.module';
-export * from './lib/proxy-components.module';

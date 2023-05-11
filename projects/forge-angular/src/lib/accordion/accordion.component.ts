@@ -4,7 +4,7 @@ import { AccordionComponent as AccordionComponentCustomElement, defineAccordionC
 
 /**
  * The custom element class behind the `<forge-accordion>` web component.
- * 
+ *
  * This component is intended to wrap and orchestrate child expansion panels
  * so that only one expansion panel is open at a time.
  */

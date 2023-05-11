@@ -5,7 +5,7 @@ export class BaseInjector implements Injector {
 
   public get(token: any, notFoundValue?: any): void {
     const value = this._additionalTokens.get(token);
-    if (value) { 
+    if (value) {
       return value;
     }
     return this._parentInjector.get<any>(token, notFoundValue);

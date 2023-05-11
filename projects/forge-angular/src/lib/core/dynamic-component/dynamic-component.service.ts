@@ -24,7 +24,7 @@ export class DynamicComponentService {
     const cfr = moduleRef ? moduleRef.componentFactoryResolver : this._cfr;
     const componentFactory = this._isComponentFactory(component) ? component : cfr.resolveComponentFactory(component);
     injector = injector || this._injector;
-    
+
     if (target instanceof ViewContainerRef) {
       const ref = target.createComponent(componentFactory, undefined, injector);
       return {
@@ -39,8 +39,8 @@ export class DynamicComponentService {
 
     const componentRef = componentFactory.create(injector);
     this._appRef.attachView(componentRef.hostView);
-    const componentElement = (<EmbeddedViewRef<any>>componentRef.hostView).rootNodes[0] as HTMLElement;
-    
+    const componentElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+
     if (target) {
       target.appendChild(componentElement);
     }

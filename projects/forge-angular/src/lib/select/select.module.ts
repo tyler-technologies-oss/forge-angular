@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 
 import { SelectValueAccessor } from './select-value-accessor.directive';
+import { ForgeSelectProxyModule } from './select-proxy.module';
 
 @NgModule({
   declarations: [
     SelectValueAccessor
   ],
   exports: [
-    SelectValueAccessor
+    SelectValueAccessor,
+    ForgeSelectProxyModule
   ]
 })
 export class ForgeSelectModule {}
