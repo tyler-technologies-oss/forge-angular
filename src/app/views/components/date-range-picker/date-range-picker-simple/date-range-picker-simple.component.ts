@@ -12,7 +12,7 @@ export class DateRangePickerSimpleComponent implements OnInit {
   public toDate: string | Date;
   public valueMode: 'object' | 'string' | 'iso-string' = 'object';
   public isDisabled = false;
-  
+
   constructor() { }
 
   public ngOnInit(): void {
@@ -20,16 +20,16 @@ export class DateRangePickerSimpleComponent implements OnInit {
     this.toDate = this._getDateWithDayOffset(5);
   }
 
-  public onChange($event: CustomEvent) {
+  public onChange($event: CustomEvent): void {
     this.fromDate = $event.detail.from;
     this.toDate = $event.detail.to;
   }
 
-  public onOpened() {
+  public onOpened(): void {
     console.log('Calendar opened');
   }
 
-  public onClosed() {
+  public onClosed(): void {
     console.log('Calendar closed');
   }
 

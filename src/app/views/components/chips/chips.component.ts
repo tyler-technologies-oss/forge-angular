@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { IChipSelectEventData } from '@tylertech/forge';
+import { IChipSelectEventData, IconRegistry } from '@tylertech/forge';
 import { ToastService } from '@tylertech/forge-angular';
+import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons/standard';
+import { BehaviorSubject } from 'rxjs';
 
 interface IChip {
   text: string;
@@ -23,7 +24,17 @@ const inputChipsSource: IChip[] = [
 export class ChipsComponent {
   public inputChips$ = new BehaviorSubject<IChip[]>([...inputChipsSource]);
 
-  constructor(private _toastService: ToastService) {}
+  constructor(private _toastService: ToastService) {
+    IconRegistry.define([
+      tylIconAlarm,
+      tylIconBookmark,
+      tylIconDirections,
+      tylIconEvent,
+      tylIconFace,
+      tylIconPlace,
+      tylIconRefresh
+    ]);
+  }
 
   public onInputChipDeleted(chip: IChip): void {
     const ary = this.inputChips$.value;

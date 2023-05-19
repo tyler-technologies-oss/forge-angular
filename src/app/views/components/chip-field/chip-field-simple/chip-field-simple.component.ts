@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IChipComponent, IChipDeleteEventData } from '@tylertech/forge';
 
 @Component({
   selector: 'app-chip-field-simple',
@@ -12,13 +13,13 @@ export class ChipFieldSimpleComponent {
     'test 2'
   ];
 
-  public addMember(event$: CustomEvent) {
+  public addMember(event$: CustomEvent<string>): void {
     const value = event$.detail;
     this.members.push(value);
   }
 
-  public deleteMember(event$: CustomEvent) {
-    const chipVal = event$.detail.value;
+  public deleteMember(event$: CustomEvent<HTMLElement | IChipDeleteEventData>): void {
+    const chipVal = (event$.detail as IChipComponent | IChipDeleteEventData).value;
     const index = this.members.findIndex(x => x === chipVal);
     if (index === -1) {
       return;

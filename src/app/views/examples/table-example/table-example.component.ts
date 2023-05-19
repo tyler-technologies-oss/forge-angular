@@ -2,7 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
-  ITableSelectAllEventData, ITableSelectEventData
+  ITableSelectAllEventData, ITableSelectEventData,
+  IconComponent
 } from '@tylertech/forge';
 import { ItemManager } from '@tylertech/forge-core';
 import { BehaviorSubject } from 'rxjs';
@@ -114,9 +115,8 @@ export class TableExampleComponent implements OnInit {
         value: index,
         leadingBuilder: () => {
           if (isSelected) {
-            const icon = document.createElement('i');
-            icon.classList.add('tyler-icons');
-            icon.textContent = 'check';
+            const icon = document.createElement('forge-icon') as IconComponent;
+            icon.name = 'check';
             return icon;
           }
           const div = document.createElement('div');

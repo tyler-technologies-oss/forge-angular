@@ -2,16 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ForgeBadgeModule, ForgeButtonModule, ForgeCardModule, ForgeDividerModule, ForgeLabelValueModule, ForgePaginatorModule, ForgeScaffoldModule, ForgeToolbarModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ToolbarExampleComponent } from './toolbar-example.component';
 import { ToolbarExampleRoutingModule } from './toolbar-example.routing-module';
-
 
 @NgModule({
   declarations: [ToolbarExampleComponent],
   imports: [
     CommonModule,
-    SharedModule,
     ToolbarExampleRoutingModule,
     ForgeBadgeModule,
     ForgeButtonModule,
@@ -20,7 +18,8 @@ import { ToolbarExampleRoutingModule } from './toolbar-example.routing-module';
     ForgeLabelValueModule,
     ForgePaginatorModule,
     ForgeScaffoldModule,
-    ForgeToolbarModule
+    ForgeToolbarModule,
+    DemoCardComponent
   ]
 })
 export class ToolbarExampleModule {}

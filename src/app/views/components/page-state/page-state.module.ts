@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgeButtonModule, ForgePageStateModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { PageStateRoutingModule } from './page-state-routing.module';
 import { PageStateComponent } from './page-state.component';
 
@@ -11,9 +11,9 @@ import { PageStateComponent } from './page-state.component';
   imports: [
     CommonModule,
     PageStateRoutingModule,
-    SharedModule,
     ForgeButtonModule,
-    ForgePageStateModule
+    ForgePageStateModule,
+    DemoCardComponent
   ]
 })
 export class PageStateModule {}

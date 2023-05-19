@@ -1,25 +1,23 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { IData } from './IData';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ExpansionPanelExamplesService {
-  constructor(
-    private http: HttpClient,
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  public getData() {
+  public getData(): Observable<IData[]> {
     return this.http.get<IData[]>('https://jsonplaceholder.typicode.com/users').pipe(
       catchError(this._handleError)
     );
   }
 
 
-  private _handleError(err: HttpErrorResponse) {
+  private _handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
     let errorMessage = '';
@@ -32,6 +30,6 @@ export class ExpansionPanelExamplesService {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);
-    return throwError(errorMessage);
+    return throwError(() => errorMessage);
   }
 }

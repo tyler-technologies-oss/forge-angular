@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOption, IconRegistry } from '@tylertech/forge';
+import { AutocompleteFilterCallback, IOption, IconRegistry } from '@tylertech/forge';
 import { tylIconArrowDropDown } from '@tylertech/tyler-icons/standard';
 
 @Component({
@@ -8,16 +8,16 @@ import { tylIconArrowDropDown } from '@tylertech/tyler-icons/standard';
   styleUrls: ['./autocomplete.component.scss']
 })
 export class AutocompleteComponent implements OnInit {
-  public selectedState: IOption;
-  public selectedStates: IOption[];
-  public filterListener = (filter: string) => this._onFilter(filter);
+  public selectedState?: IOption<string>;
+  public selectedStates: IOption<string>[] = [];
+  public filterListener: AutocompleteFilterCallback = filter => this._onFilter(filter);
 
   constructor() {
     IconRegistry.define(tylIconArrowDropDown);
   }
 
   public ngOnInit(): void {
-    this.selectedState = this.states.find(o => o.value === 'ME') as IOption;
+    this.selectedState = this.states.find(o => o.value === 'ME');
     this.selectedStates = this.states.filter(o => ['ME', 'NH', 'VT'].includes(o.value));
   }
 
@@ -25,9 +25,9 @@ export class AutocompleteComponent implements OnInit {
     return this.states.filter(state => state.label.toLowerCase().includes(filter.toLowerCase()));
   }
 
-  public states: IOption[] = [
-    { label: 'Alabama', value: 1 },
-    { label: 'Alaska', value: 2 },
+  public states: IOption<string>[] = [
+    { label: 'Alabama', value: 'AL' },
+    { label: 'Alaska', value: 'AK' },
     { label: 'Arizona', value: 'AZ' },
     { label: 'Arkansas', value: 'AR' },
     { label: 'California', value: 'CA' },

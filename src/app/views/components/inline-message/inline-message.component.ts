@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IconRegistry } from '@tylertech/forge';
+import { tylIconCake } from '@tylertech/tyler-icons/standard';
 
 @Component({
   selector: 'app-inline-message',
   templateUrl: './inline-message.component.html',
   styleUrls: ['./inline-message.component.scss']
 })
-export class InlineMessageComponent implements OnInit {
-
-  constructor() { }
-
-  public ngOnInit(): void {
+export class InlineMessageComponent {
+  constructor() {
+    IconRegistry.define(tylIconCake);
   }
-
 }

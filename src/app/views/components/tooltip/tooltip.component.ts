@@ -3,11 +3,10 @@ import { TOOLTIP_CONSTANTS, ITooltipComponent, IAvatarComponent, PopupPlacement 
 
 @Component({
   selector: 'app-tooltip',
-  templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss']
+  templateUrl: './tooltip.component.html'
 })
 export class TooltipComponent {
-  public text = 'Hey I\'m a useful tooltip!';
+  public text = `Hey I'm a useful tooltip!`;
   public delay = TOOLTIP_CONSTANTS.numbers.DEFAULT_DELAY;
   public position = TOOLTIP_CONSTANTS.strings.DEFAULT_POSITION as PopupPlacement;
   public useBuilder = false;

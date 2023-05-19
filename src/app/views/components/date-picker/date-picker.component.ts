@@ -14,10 +14,10 @@ export class DatePickerComponent {
   public disableDayCallbackDate = new Date();
   public disableDaysOfWeekDate = new Date();
   public disabledDaysOfWeek: number[] = [];
-  public formatCb = (d: Date | null) => {
+  public formatCb = (d: Date | null): string => {
     return d ? d.toISOString().split('T')[0] : '';
-  }
-  public parseCb = (val: string) => {
+  };
+  public parseCb = (val: string): Date | null => {
     if (val) {
       const split = val.split('-');
 
@@ -27,7 +27,7 @@ export class DatePickerComponent {
 
       const yyyy = +split[0];
       const mm = +split[1];
-      const dd = split[2].indexOf('T') ? +(split[2].split('T')[0]) : +split[2];
+      const dd = split[2].indexOf('T') ? +split[2].split('T')[0] : +split[2];
 
       if (!yyyy || isNaN(yyyy) || !mm || isNaN(mm) || !dd || isNaN(dd)) {
         return null;
@@ -37,13 +37,13 @@ export class DatePickerComponent {
     }
 
     return null;
-  }
+  };
 
-  public disableDayCallback = (date: Date) => {
-    return date.toLocaleDateString() === this.tomorrow.toLocaleDateString()
-  }
+  public disableDayCallback = (date: Date): boolean => {
+    return date.toLocaleDateString() === this.tomorrow.toLocaleDateString();
+  };
 
-  public change(change: number[]) {
+  public change(change: number[]): void {
     this.disabledDaysOfWeek = change;
   }
 }

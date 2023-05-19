@@ -3,8 +3,7 @@ import { IMenuOption } from '@tylertech/forge';
 
 @Component({
   selector: 'app-table-menu-cell',
-  templateUrl: './table-menu-cell.component.html',
-  styleUrls: ['./table-menu-cell.component.scss']
+  templateUrl: './table-menu-cell.component.html'
 })
 export class TableMenuCellComponent {
   @Input()

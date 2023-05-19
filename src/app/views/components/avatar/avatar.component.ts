@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent {
-
   public dynamicSingleValue = 'One';
   public dynamicDoubleValue = 'Two';
 
@@ -19,7 +18,7 @@ export class AvatarComponent {
   }
 
   private _generateRandomCharacters(length: number): string {
-    return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, length);
+    return Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, length - 1);
   }
 
 }

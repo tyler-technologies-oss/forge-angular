@@ -6,22 +6,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./view-switcher.component.scss'],
 })
 export class ViewSwitcherDemoComponent implements OnInit {
-  @Input() public user: any;
-  constructor() { }
+  @Input()
+  public user: any;
 
   public currentIndex = 0;
 
   public listItems = [
     { label: 'Account', icon: 'payment' },
-    { label: 'Past bills', icon: 'pageview' },
+    { label: 'Past bills', icon: 'pageview' }
   ];
 
   public ngOnInit(): void {
     console.log(this.user);
-
   }
 
-  public tabClicked(evt: number) {
+  public tabClicked(evt: number): void {
     this.currentIndex = evt;
   }
 }

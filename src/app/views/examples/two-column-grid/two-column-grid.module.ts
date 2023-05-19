@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ForgeBadgeModule, ForgeButtonModule, ForgeCardModule, ForgeFilePickerModule, ForgeIconButtonModule, ForgeMenuModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeToolbarModule } from '@tylertech/forge-angular';
+import { ForgeBadgeModule, ForgeButtonModule, ForgeCardModule, ForgeFilePickerModule, ForgeIconButtonModule, ForgeIconModule, ForgeMenuModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeToolbarModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { TwoColumnGridComponent } from './two-column-grid.component';
 import { TwoColumnGridRoutingModule } from './two-column-grid.routing-module';
 
@@ -10,7 +10,6 @@ import { TwoColumnGridRoutingModule } from './two-column-grid.routing-module';
   declarations: [TwoColumnGridComponent],
   imports: [
     CommonModule,
-    SharedModule,
     TwoColumnGridRoutingModule,
     ForgeBadgeModule,
     ForgeButtonModule,
@@ -20,7 +19,9 @@ import { TwoColumnGridRoutingModule } from './two-column-grid.routing-module';
     ForgeMenuModule,
     ForgeScaffoldModule,
     ForgeTextFieldModule,
-    ForgeToolbarModule
+    ForgeToolbarModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
 export class TwoColumnGridModule { }

@@ -8,5 +8,5 @@ export class ProgressSpinnerComponent {
   public progress = .5;
   public size = 72;
   public strokeWidth = 4;
-  public color: string = 'tertiary';
+  public color = 'tertiary';
 }

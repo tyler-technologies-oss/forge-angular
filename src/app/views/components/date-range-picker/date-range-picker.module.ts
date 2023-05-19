@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { DateRangePickerRoutingModule } from './date-range-picker-routing.module';
-import { DateRangePickerComponent } from './date-range-picker.component';
-import { SharedModule } from '../../../shared/shared.module';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-range-picker-simple.component';
+import { IconRegistry } from '@tylertech/forge';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, ForgeDateRangePickerProxyModule, ForgeDividerModule, ForgeIconModule, ForgeLabelValueModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule, ForgeTooltipModule } from '@tylertech/forge-angular';
+import { tylIconInfoOutline } from '@tylertech/tyler-icons/standard';
+
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { DateRangePickerReactiveFormComponent } from './date-range-picker-reactive-form/date-range-picker-reactive-form.component';
-import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, ForgeDateRangePickerProxyModule, ForgeDividerModule, ForgeLabelValueModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule, ForgeTooltipModule } from '@tylertech/forge-angular';
+import { DateRangePickerRoutingModule } from './date-range-picker-routing.module';
+import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-range-picker-simple.component';
+import { DateRangePickerComponent } from './date-range-picker.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,6 @@ import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, For
     DateRangePickerRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
     ForgeDateRangePickerModule,
@@ -31,7 +32,13 @@ import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, For
     ForgeSelectModule,
     ForgeSelectProxyModule,
     ForgeTextFieldModule,
-    ForgeTooltipModule
+    ForgeTooltipModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
-export class DateRangePickerModule { }
+export class DateRangePickerModule {
+  constructor() {
+    IconRegistry.define(tylIconInfoOutline);
+  }
+}

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'toolbar-example', loadChildren: () => import('../../views/examples/toolbar-example/toolbar-example.module').then(m => m.ToolbarExampleModule) },
   { path: 'two-column-grid', loadChildren: () => import('../../views/examples/two-column-grid/two-column-grid.module').then(m => m.TwoColumnGridModule) },
   { path: 'reactive-form', loadChildren: () => import('../../views/examples/reactive-form-example/reactive-form-example.module').then(m => m.ReactiveFormExampleModule) },
-  { path: 'table', loadChildren: () => import('../../views/examples/table-example/table-example.module').then(m => m.TableExampleModule) },
+  { path: 'table', loadChildren: () => import('../../views/examples/table-example/table-example.module').then(m => m.TableExampleModule) }
 ];
 
 @NgModule({

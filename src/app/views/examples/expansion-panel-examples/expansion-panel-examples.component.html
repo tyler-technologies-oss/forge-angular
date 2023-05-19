@@ -2,7 +2,7 @@
   <!-- <forge-card style="margin-bottom: 16px;" has-padding="false">
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px;">
       <forge-text-field style="flex: 1; margin-right: 16px;">
-        <i class="tyler-icons" slot="leading">search</i>
+        <forge-icon slot="leading" name=search></forge-icon>
         <input type="text" id="input-leading-01" />
         <label for="input-leading-01" slot="label">First Name</label>
       </forge-text-field>
@@ -13,34 +13,43 @@
   </forge-card> -->
   <forge-card
     outlined="true"
-    *ngFor="let d of data"
+    *ngFor="let datum of data"
     has-padding="false"
     [ngClass]="{'container-outline-demo ' : showFlexboxOutlines}"
   >
     <div class="card-detail__container">
       <div class="card-detail__container__left" [ngClass]="{'flex-item-demo ' : showFlexboxOutlines}">
         <forge-open-icon #openIcon style="margin-left: 16px;" id="open-icon" (click)="openIcon.open = !openIcon.open; expansionPanel.open = !expansionPanel.open"></forge-open-icon>
-        <div class="forge-typography--subtitle1-secondary">{{ d.name }}</div>
+        <div class="forge-typography--subtitle1-secondary">{{ datum.name }}</div>
         <div class="forge-typography--subtitle1-secondary" style="margin: 0 8px;"> | </div>
         <div class="forge-typography--subtitle1"> Tax due: $19.18</div>
       </div>
 
       <div class="card-detail__container__right" [ngClass]="{'flex-item-demo ' : showFlexboxOutlines}">
         <forge-icon-button>
-          <button type="button" aria-label="Share this search result" class="tyler-icons">share</button>
+          <button type="button" aria-label="Share this search result">
+            <forge-icon name="share"></forge-icon>
+          </button>
+          <forge-tooltip>Share</forge-tooltip>
         </forge-icon-button>
         <forge-icon-button>
-          <button type="button" aria-label="Download this search result" class="tyler-icons">get_app</button>
+          <button type="button" aria-label="Download this search result">
+            <forge-icon name="get_app"></forge-icon>
+          </button>
+          <forge-tooltip>Download</forge-tooltip>
         </forge-icon-button>
         <forge-icon-button>
-          <button type="button" aria-label="Additional actions" class="tyler-icons">more_vert</button>
+          <button type="button" aria-label="Additional actions">
+            <forge-icon name="more_vert"></forge-icon>
+          </button>
+          <forge-tooltip>More</forge-tooltip>
         </forge-icon-button>
       </div>
     </div>
 
     <forge-expansion-panel open="false" #expansionPanel>
       <div>
-        <ev-view-switcher [user]="d"></ev-view-switcher>
+        <ev-view-switcher [user]="datum"></ev-view-switcher>
       </div>
     </forge-expansion-panel>
   </forge-card>

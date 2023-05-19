@@ -18,10 +18,9 @@
   align-items: center;
   border: 1px dashed var(--forge-theme-border-color);
   transition: border-color 200ms linear, background-color 200ms linear;
-  
+
   &:hover {
     cursor: pointer;
-    border-width: 2px;
     border-color: deeppink;
     background-color: rgba(255, 20, 147, 0.12);
   }

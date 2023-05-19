@@ -13,9 +13,9 @@ export class SelectComponent {
 
   public beforeValueChange: SelectBeforeValueChangeCallback<string> = value => {
     return value !== 'fruit';
-  }
+  };
 
   public beforeValueChangeMultiple: SelectBeforeValueChangeCallback<string> = value => {
     return !value.includes('fruit');
-  }
+  };
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ForgeSliderModule, ForgeSliderProxyModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { SliderRoutingModule } from './slider-routing.module';
 import { SliderComponent } from './slider.component';
 
@@ -13,10 +13,10 @@ import { SliderComponent } from './slider.component';
   imports: [
     CommonModule,
     SliderRoutingModule,
-    SharedModule,
     FormsModule,
     ForgeSliderModule,
-    ForgeSliderProxyModule
+    ForgeSliderProxyModule,
+    DemoCardComponent
   ]
 })
 export class SliderModule { }

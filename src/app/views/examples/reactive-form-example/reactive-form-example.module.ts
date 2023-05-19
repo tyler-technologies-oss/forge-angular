@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { IconRegistry } from '@tylertech/forge';
 import {
-  ForgeAutocompleteModule, ForgeChipModule, ForgeDatePickerModule, ForgeSelectModule, ForgeSliderModule, ForgeSwitchModule, ForgeTimePickerModule, ProxyComponentsModule
+  ForgeAutocompleteModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipModule, ForgeChipSetModule, ForgeDatePickerModule, ForgeIconButtonModule, ForgeIconModule, ForgeQuantityFieldModule, ForgeRadioModule, ForgeSelectModule, ForgeSliderModule, ForgeSwitchModule, ForgeTextFieldModule, ForgeTimePickerModule
 } from '@tylertech/forge-angular';
-import { SharedModule } from '../../../shared/shared.module';
+import { tylIconAddCircleOutline, tylIconRemoveCircleOutline } from '@tylertech/tyler-icons/standard';
+
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ReactiveFormExampleRoutingModule } from './reactive-form-example-routing.module';
 import { ReactiveFormExampleComponent } from './reactive-form-example.component';
 
@@ -13,17 +15,31 @@ import { ReactiveFormExampleComponent } from './reactive-form-example.component'
   declarations: [ReactiveFormExampleComponent],
   imports: [
     CommonModule,
-    SharedModule,
     ReactiveFormsModule,
     ReactiveFormExampleRoutingModule,
     ForgeAutocompleteModule,
-    ForgeSliderModule,
-    ForgeSelectModule,
-    ForgeDatePickerModule,
+    ForgeButtonModule,
+    ForgeCheckboxModule,
+    ForgeChipSetModule,
     ForgeChipModule,
-    ForgeTimePickerModule,
+    ForgeDatePickerModule,
+    ForgeIconButtonModule,
+    ForgeQuantityFieldModule,
+    ForgeRadioModule,
+    ForgeSelectModule,
+    ForgeSliderModule,
     ForgeSwitchModule,
-    ProxyComponentsModule
+    ForgeTextFieldModule,
+    ForgeTimePickerModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
-export class ReactiveFormExampleModule {}
+export class ReactiveFormExampleModule {
+  constructor() {
+    IconRegistry.define([
+      tylIconAddCircleOutline,
+      tylIconRemoveCircleOutline
+    ]);
+  }
+}

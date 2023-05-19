@@ -8,16 +8,16 @@ import { PopupDirective } from '@tylertech/forge-angular';
 export class PopupComponent {
   public popupTextValue = 'Popup text field';
 
-  public popupOpen(popupDirective: PopupDirective) {
+  public popupOpen(popupDirective: PopupDirective): void {
     console.log('popup wants to open');
     popupDirective.open();
   }
 
-  public popupOpened() {
+  public popupOpened(): void {
     console.log('popup opened.');
   }
 
-  public popupClosed() {
-    console.log('popup closed.')
+  public popupClosed(): void {
+    console.log('popup closed.');
   }
 }

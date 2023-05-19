@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ForgeTabBarModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { TabBarRoutingModule } from './tab-bar-routing.module';
 import { TabBarComponent } from './tab-bar.component';
 
@@ -12,8 +12,8 @@ import { TabBarComponent } from './tab-bar.component';
   imports: [
     CommonModule,
     TabBarRoutingModule,
-    SharedModule,
-    ForgeTabBarModule
+    ForgeTabBarModule,
+    DemoCardComponent
   ]
 })
 export class TabBarModule { }

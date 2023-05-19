@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { defineIconButtonComponent } from '@tylertech/forge';
 import { ForgeButtonModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { IconButtonRoutingModule } from './icon-button-routing.module';
 import { IconButtonComponent } from './icon-button.component';
 
@@ -14,9 +14,9 @@ defineIconButtonComponent();
   imports: [
     CommonModule,
     IconButtonRoutingModule,
-    SharedModule,
     ForgeButtonModule,
-    ForgeIconButtonModule
+    ForgeIconButtonModule,
+    DemoCardComponent
   ]
 })
 export class IconButtonModule {}

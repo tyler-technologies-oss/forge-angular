@@ -67,7 +67,7 @@ export class BottomSheetService {
     bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, () => dcRef.destroy());
 
     // Listen for close via escape/backdrop click if applicable to ensure observables complete.
-    const closeRef = () => bottomSheetRef.close();
+    const closeRef = (): void => bottomSheetRef.close();
     if (bottomSheetElement.backdropClose) {
       bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, closeRef);
     }

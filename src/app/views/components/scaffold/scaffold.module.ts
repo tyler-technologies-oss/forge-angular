@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ForgeScaffoldModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ScaffoldRoutingModule } from './scaffold-routing.module';
 import { ScaffoldComponent } from './scaffold.component';
 
@@ -13,8 +13,8 @@ import { ScaffoldComponent } from './scaffold.component';
   imports: [
     CommonModule,
     ScaffoldRoutingModule,
-    SharedModule,
-    ForgeScaffoldModule
+    ForgeScaffoldModule,
+    DemoCardComponent
   ]
 })
 export class ScaffoldModule {}

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn } from '@angular/forms';
 import { IDatePickerRange } from '@tylertech/forge';
 import { isDate } from '@tylertech/forge-core';
+
+interface DemoForm {
+  dateRange: FormControl<IDatePickerRange>;
+}
 
 @Component({
   selector: 'app-date-range-picker-reactive-form',
@@ -10,12 +14,10 @@ import { isDate } from '@tylertech/forge-core';
 })
 export class DateRangePickerReactiveFormComponent implements OnInit {
 
-  public demoForm: UntypedFormGroup;
-  public dateRangeControl: UntypedFormControl;
+  public demoForm: FormGroup<DemoForm>;
+  public dateRangeControl: FormControl<IDatePickerRange>;
   public valueMode: 'object' | 'string' | 'iso-string' = 'object';
   public isDisabled = false;
-
-  constructor(private _fb: UntypedFormBuilder) { }
 
   public ngOnInit(): void {
     const initDateRange: IDatePickerRange = {
@@ -23,19 +25,19 @@ export class DateRangePickerReactiveFormComponent implements OnInit {
       to: this._getDateWithDayOffset(7)
     };
 
-    this.demoForm = this._fb.group({
-      dateRange: this._fb.control(initDateRange, [this._dateRangeIsSevenDaysValidator()])
+    this.demoForm = new FormGroup<DemoForm>({
+      dateRange: new FormControl(initDateRange, {nonNullable: true, validators: [this._dateRangeIsSevenDaysValidator()]})
     });
 
-    this.dateRangeControl = this.demoForm.get('dateRange') as UntypedFormControl;
+    this.dateRangeControl = this.demoForm.controls.dateRange;
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     const formJson = JSON.stringify(this.demoForm.value);
     alert(`submitted form: ${formJson}`);
   }
 
-  public disableForm($event: MouseEvent) {
+  public disableForm($event: MouseEvent): void {
     const isDisabled = ($event.target as HTMLInputElement).checked;
     if (isDisabled) {
       this.demoForm.disable();

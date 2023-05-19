@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MediaObserver } from './shared/media-observer';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,6 @@ import { MediaObserver } from './shared/media-observer';
 })
 export class AppComponent {
   public isDrawerOpen = true;
-
-  constructor() {
-    const prefersColorScheme = MediaObserver.observe('orientation');
-    console.log(prefersColorScheme.value);
-    prefersColorScheme.subscribe(value => console.log(value));
-  }
 
   public onMenuClicked(): void {
     this.isDrawerOpen = !this.isDrawerOpen;

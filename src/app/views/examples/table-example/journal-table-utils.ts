@@ -1,14 +1,15 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { 
-  IColumnConfiguration,
-  TextFieldComponentDelegate,
-  ICON_BUTTON_CONSTANTS,
-  IIconButtonComponent,
+import {
   BADGE_CONSTANTS,
-  IBadgeComponent,
   CellAlign,
   DatePickerComponentDelegate,
-  SelectComponentDelegate
+  IBadgeComponent,
+  ICON_BUTTON_CONSTANTS,
+  IColumnConfiguration,
+  IIconButtonComponent,
+  IconComponent,
+  SelectComponentDelegate,
+  TextFieldComponentDelegate
 } from '@tylertech/forge';
 
 import { MonthShortPipe } from './month-short.pipe';
@@ -21,7 +22,7 @@ export interface IJournalColumnConfiguration extends IColumnConfiguration {
 
 export function getJournalColumnConfig(instance: TableExampleComponent): IJournalColumnConfiguration[] {
   return [
-    { 
+    {
       key: 'number',
       header: 'Number',
       property: 'number',
@@ -32,22 +33,22 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       resizable: true,
       filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter number...' }})
     },
-    { 
+    {
       key: 'year',
-      header: 'Year', 
-      property: 'year', 
+      header: 'Year',
+      property: 'year',
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
       sortable: true,
-      filter: true, 
-      filterDelegate: new TextFieldComponentDelegate({ options: { type: 'number', placeholder: 'Filter year...' }}) 
+      filter: true,
+      filterDelegate: new TextFieldComponentDelegate({ options: { type: 'number', placeholder: 'Filter year...' }})
     },
-    { 
-      key: 'month', 
-      header: 'Month', 
-      property: 'month', 
+    {
+      key: 'month',
+      header: 'Month',
+      property: 'month',
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
-      transform: value => MonthShortPipe.prototype.transform(value), 
-      sortable: true, 
+      transform: value => MonthShortPipe.prototype.transform(value),
+      sortable: true,
       filter: true,
       filterDelegate: new SelectComponentDelegate({
         props: {
@@ -64,14 +65,14 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
             { label: 'September', value: 9 },
             { label: 'October', value: 10 },
             { label: 'November', value: 11 },
-            { label: 'December', value: 12 },
+            { label: 'December', value: 12 }
           ]
         }
       })
     },
-    { 
-      key: 'effective-date', 
-      header: 'Effective date', 
+    {
+      key: 'effective-date',
+      header: 'Effective date',
       property: 'effectiveDate',
       headerCellStyle: { minWidth: instance.showFilter ? '150px' : 'auto' },
       transform: value => DatePipe.prototype.transform(value, 'MM/dd/yyyy', '', navigator.language),
@@ -84,9 +85,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
         }
       })
     },
-    { 
-      key: 'source', 
-      header: 'Source', 
+    {
+      key: 'source',
+      header: 'Source',
       property: 'source',
       filter: true,
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
@@ -102,9 +103,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
         }
       })
     },
-    { 
+    {
       key: 'status',
-      header: 'Status', 
+      header: 'Status',
       property: 'status',
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
       template: index => {
@@ -128,25 +129,25 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
         }
       })
     },
-    { 
+    {
       key: 'entered-by',
-      header: 'Entered by', 
+      header: 'Entered by',
       property: 'enteredBy',
       headerCellStyle: { minWidth: instance.showFilter ? '150px' : 'auto' },
       filter: true,
       filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter entered by...' }})
     },
-    { 
+    {
       key: 'description',
-      header: 'Description', 
+      header: 'Description',
       property: 'description',
       headerCellStyle: { minWidth: instance.showFilter ? '154px' : 'auto' },
       filter: true,
       filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter description...' }})
     },
-    { 
+    {
       key: 'total-debits',
-      header: 'Total debits', 
+      header: 'Total debits',
       property: 'debits',
       align: CellAlign.Right,
       transform: value => DecimalPipe.prototype.transform(value, '1.2-2', navigator.language),
@@ -154,9 +155,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       filter: true,
       filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter debits...', type: 'number' }})
     },
-    { 
+    {
       key: 'total-credits',
-      header: 'Total credits', 
+      header: 'Total credits',
       property: 'credits',
       align: CellAlign.Right,
       transform: value => DecimalPipe.prototype.transform(value, '1.2-2', navigator.language),
@@ -164,9 +165,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       filter: true,
       filterDelegate: new TextFieldComponentDelegate({ options: { placeholder: 'Filter credits...', type: 'number' }})
     },
-    { 
+    {
       key: 'attachments',
-      header: 'Attachments', 
+      header: 'Attachments',
       width: 48,
       align: CellAlign.Center,
       filter: true,
@@ -185,8 +186,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
         if (rowData.attachments) {
           const iconButton = document.createElement(ICON_BUTTON_CONSTANTS.elementName) as IIconButtonComponent;
           const button = document.createElement('button');
-          button.classList.add('tyler-icons');
-          button.textContent = 'attach_file';
+          const icon = document.createElement('forge-icon') as IconComponent;
+          icon.name = 'attach_file';
+          button.appendChild(icon);
           iconButton.appendChild(button);
           button.addEventListener('click', () => instance.onRowAttachments(index));
           return iconButton;
@@ -227,8 +229,9 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       template: index => {
         const iconButton = document.createElement(ICON_BUTTON_CONSTANTS.elementName) as IIconButtonComponent;
         const button = document.createElement('button');
-        button.classList.add('tyler-icons');
-        button.textContent = 'chevron_right';
+        const icon = document.createElement('forge-icon') as IconComponent;
+        icon.name = 'chevron_right';
+        button.appendChild(icon);
         iconButton.appendChild(button);
         iconButton.addEventListener('click', () => instance.onRowNavigate(index));
         return iconButton;
