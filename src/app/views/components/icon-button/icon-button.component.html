@@ -1,13 +1,13 @@
 <app-demo-card headerText="Icon Button">
   <forge-icon-button>
-    <button>
+   <button type="button">
       <forge-icon name="code"></forge-icon>
     </button>
   </forge-icon-button>
 
   <h2>Icon Button Toggle</h2>
   <forge-icon-button toggle="true" [isOn]="isToggleOn" (forge-icon-button-change)="onToggleChanged($event)">
-    <button>
+    <button type="button">
       <forge-icon name="favorite"></forge-icon>
       <forge-icon name="favorite_border"></forge-icon>
     </button>

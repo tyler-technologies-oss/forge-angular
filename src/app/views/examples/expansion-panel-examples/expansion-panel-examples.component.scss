@@ -1,6 +1,10 @@
 @use '@material/theme/color-palette' as mdc-color-palette;
 @use '@tylertech/forge/styles/theme/theme-values';
 
+:host {
+  --forge-card-padding: 0;
+}
+
 .forge-expansion-demo {
   &__container {
     max-width: 960px;

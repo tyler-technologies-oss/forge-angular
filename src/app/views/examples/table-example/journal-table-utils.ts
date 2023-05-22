@@ -1,12 +1,14 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import {
   BADGE_CONSTANTS,
+  BadgeComponentDelegate,
   CellAlign,
   DatePickerComponentDelegate,
   IBadgeComponent,
   ICON_BUTTON_CONSTANTS,
   IColumnConfiguration,
   IIconButtonComponent,
+  IconButtonComponentDelegate,
   IconComponent,
   SelectComponentDelegate,
   TextFieldComponentDelegate
@@ -15,6 +17,7 @@ import {
 import { MonthShortPipe } from './month-short.pipe';
 import { TableExampleComponent } from './table-example.component';
 import { TableMenuCellComponent } from './table-menu-cell/table-menu-cell.component';
+import { IJournal } from './types';
 
 export interface IJournalColumnConfiguration extends IColumnConfiguration {
   key: string;
@@ -108,12 +111,16 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       header: 'Status',
       property: 'status',
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
-      template: index => {
-        const rowData = instance.currentPageData[index];
-        const badge = document.createElement(BADGE_CONSTANTS.elementName) as IBadgeComponent;
-        badge.textContent = getBadgeStatusText(rowData.status);
-        badge.setAttribute(BADGE_CONSTANTS.attributes.THEME, getBadgeTheme(rowData.status));
-        return badge;
+      template: (index, div, data: IJournal) => {
+        const badgeDelegate = new BadgeComponentDelegate({
+          options: {
+            attributes: {
+              theme: getBadgeTheme(data.status)
+            },
+            children: data.status.toString()
+          }
+        });
+        return badgeDelegate.element;
       },
       filter: true,
       filterDelegate: new SelectComponentDelegate({
@@ -184,14 +191,16 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       template: index => {
         const rowData = instance.currentPageData[index];
         if (rowData.attachments) {
-          const iconButton = document.createElement(ICON_BUTTON_CONSTANTS.elementName) as IIconButtonComponent;
-          const button = document.createElement('button');
-          const icon = document.createElement('forge-icon') as IconComponent;
-          icon.name = 'attach_file';
-          button.appendChild(icon);
-          iconButton.appendChild(button);
-          button.addEventListener('click', () => instance.onRowAttachments(index));
-          return iconButton;
+          const iconButtonDelegate = new IconButtonComponentDelegate({
+            options: {
+              iconName: 'attach_file',
+              iconType: 'component',
+              tooltip: 'View attachments'
+            }
+          });
+          iconButtonDelegate.element.firstElementChild?.addEventListener('click', () => instance.onRowAttachments(index));
+          iconButtonDelegate.element.firstElementChild?.setAttribute('aria-label', 'View attachments');
+          return iconButtonDelegate.element;
         }
         return undefined as any;
       }
@@ -227,14 +236,16 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       width: 48,
       align: CellAlign.Center,
       template: index => {
-        const iconButton = document.createElement(ICON_BUTTON_CONSTANTS.elementName) as IIconButtonComponent;
-        const button = document.createElement('button');
-        const icon = document.createElement('forge-icon') as IconComponent;
-        icon.name = 'chevron_right';
-        button.appendChild(icon);
-        iconButton.appendChild(button);
-        iconButton.addEventListener('click', () => instance.onRowNavigate(index));
-        return iconButton;
+        const iconButtonDelegate = new IconButtonComponentDelegate({
+          options: {
+            iconName: 'chevron_right',
+            iconType: 'component',
+            tooltip: 'View details'
+          }
+        });
+        iconButtonDelegate.element.firstElementChild?.addEventListener('click', () => instance.onRowNavigate(index));
+        iconButtonDelegate.element.firstElementChild?.setAttribute('aria-label', 'View details');
+        return iconButtonDelegate.element;
       }
     }
   ];

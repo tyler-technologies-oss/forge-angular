@@ -1,6 +1,7 @@
 import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {
   ICON_BUTTON_CONSTANTS,
+  ICON_CONSTANTS,
   IColumnConfiguration,
   IMenuOption,
   IPaginatorChangeEvent,
@@ -8,13 +9,15 @@ import {
   ITableFilterEventData,
   ITableRowClickEventData,
   ITableSortEventData,
+  IconButtonComponentDelegate,
   IconRegistry,
   SelectComponentDelegate,
   SortDirection,
+  TOOLTIP_CONSTANTS,
   TextFieldComponentDelegate
 } from '@tylertech/forge';
 import { DynamicComponentService, IDynamicComponentRef, ToastService } from '@tylertech/forge-angular';
-import { tylIconSettings } from '@tylertech/tyler-icons/standard';
+import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
 import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
 
@@ -91,7 +94,10 @@ export class TableComponent implements OnInit, AfterViewInit {
   ];
 
   constructor(private _toastService: ToastService, private _dcs: DynamicComponentService, private _appRef: ApplicationRef, private _renderer: Renderer2) {
-    IconRegistry.define([tylIconSettings]);
+    IconRegistry.define([
+      tylIconChevronRight,
+      tylIconSettings
+    ]);
   }
 
   public ngAfterViewInit(): void {
@@ -199,10 +205,17 @@ export class TableComponent implements OnInit, AfterViewInit {
   private _createVanillaNavCell(index: number): HTMLElement {
     const iconButton = this._renderer.createElement(ICON_BUTTON_CONSTANTS.elementName);
     const button = this._renderer.createElement('button');
-    this._renderer.setAttribute(button, 'class', 'tyler-icons');
-    this._renderer.appendChild(button, this._renderer.createText('chevron_right'));
+    const icon = this._renderer.createElement(ICON_CONSTANTS.elementName);
+    const tooltip = this._renderer.createElement(TOOLTIP_CONSTANTS.elementName);
+
+    this._renderer.appendChild(tooltip, this._renderer.createText('View details'));
+    this._renderer.setAttribute(icon, 'name', 'chevron_right');
+    this._renderer.setAttribute(button, 'aria-label', 'View details');
+    this._renderer.setAttribute(button, 'type', 'button');
     this._renderer.listen(button, 'click', () => this._handleAdvRowNav(index));
+    this._renderer.appendChild(button, icon);
     this._renderer.appendChild(iconButton, button);
+    this._renderer.appendChild(iconButton, tooltip);
     return iconButton;
   }
 

@@ -3,7 +3,8 @@ import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
   ITableSelectAllEventData, ITableSelectEventData,
-  IconComponent
+  IconComponent,
+  IconComponentDelegate
 } from '@tylertech/forge';
 import { ItemManager } from '@tylertech/forge-core';
 import { BehaviorSubject } from 'rxjs';
@@ -115,9 +116,12 @@ export class TableExampleComponent implements OnInit {
         value: index,
         leadingBuilder: () => {
           if (isSelected) {
-            const icon = document.createElement('forge-icon') as IconComponent;
-            icon.name = 'check';
-            return icon;
+            const iconDelegate = new IconComponentDelegate({
+              props: {
+                name: 'check'
+              }
+            });
+            return iconDelegate.element;
           }
           const div = document.createElement('div');
           div.style.height = '24px';
