@@ -1,0 +1,8 @@
+plugins:
+  - - npm
+    - setRcToken: false
+      publishFolder: "dist/forge-angular"
+  - conventional-commits
+  - released
+  - first-time-contributor
+author: GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>
