@@ -1,7 +1,7 @@
 plugins:
   - - npm
     - setRcToken: false
-      publishFolder: "dist/forge-angular"
+      publishFolder: "dist/forge-angular/"
   - conventional-commits
   - released
   - first-time-contributor
