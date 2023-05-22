@@ -84,13 +84,17 @@
       <forge-quantity-field [invalid]="shirtQuantityControl.invalid" required>
         <label slot="label">Shirts</label>
         <forge-icon-button slot="decrement-button">
-          <button type="button" class="tyler-icons">remove_circle_outline</button>
+          <button type="button">
+            <forge-icon name="remove_circle_outline"></forge-icon>
+          </button>
         </forge-icon-button>
         <forge-text-field>
           <input type="number" style="text-align: center; width: 64px;" step="1" min="0" max="100" formControlName="shirtQuantity" />
         </forge-text-field>
         <forge-icon-button slot="increment-button">
-          <button type="button" class="tyler-icons">control_point</button>
+          <button type="button">
+            <forge-icon name="add_circle_outline"></forge-icon>
+          </button>
         </forge-icon-button>
         <div slot="helper-text" *ngIf="!shirtQuantityControl.invalid">Number of shirts</div>
         <div slot="helper-text" *ngIf="shirtQuantityControl.invalid">Number of shirts must be 1 or greater</div>

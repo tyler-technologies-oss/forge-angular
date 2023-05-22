@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IOption } from '@tylertech/forge';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
 
 @Component({
   selector: 'app-chip-field-autocomplete-reactive-form',
@@ -9,9 +9,9 @@ import { IOption } from '@tylertech/forge';
 })
 export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
 
-  public autocompleteForm: FormGroup;
-  public statesControl: FormControl;
-  public states: IOption[] = [
+  public autocompleteForm: FormGroup<{ states: FormControl<string[]> }>;
+  public statesControl: FormControl<string[]>;
+  public states: IOption<string>[] = [
     { label: 'Alabama', value: 'AL' },
     { label: 'Alaska', value: 'AK' },
     { label: 'Arizona', value: 'AZ' },
@@ -64,13 +64,11 @@ export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
     { label: 'Wyoming', value: 'WY' }
   ];
 
-  public filterListener = (filter: string) => this._onFilter(filter);
+  public filterListener: AutocompleteFilterCallback = (filter) => this._onFilter(filter);
 
-  constructor(private _fb: FormBuilder) { }
-
-  public ngOnInit() {
-    this.autocompleteForm = this._fb.group({
-      states: this._fb.control([], [Validators.minLength(2), Validators.required]),
+  public ngOnInit(): void {
+    this.autocompleteForm = new FormGroup({
+      states: new FormControl<string[]>([], { nonNullable: true, validators: [Validators.minLength(2), Validators.required] })
     });
 
     this.statesControl = this.autocompleteForm.get('states') as FormControl;
@@ -79,9 +77,9 @@ export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
     this._selectState('WA');
   }
 
-  public deselectState(event$: CustomEvent) {
-    const value = event$.detail.value;
-    const newStatesArray = [ ...this.statesControl.value ] as string[];
+  public deselectState(event$: CustomEvent<HTMLElement | IChipDeleteEventData>): void {
+    const value = (event$.detail as IChipComponent | IChipDeleteEventData).value;
+    const newStatesArray = [ ...this.statesControl.value ];
     const index = newStatesArray.findIndex(x => x === value);
     if (index === -1) {
       return;
@@ -91,17 +89,17 @@ export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
     this.statesControl.setValue(newStatesArray);
   }
 
-  public selectState(event$: CustomEvent) {
+  public selectState(event$: CustomEvent<string>): void {
     this._selectState(event$.detail);
   }
 
-  private _selectState(value: string) {
+  private _selectState(value: string): void {
     const safeValue = value.trim().toUpperCase();
     if (!this._valueIsAllowed(safeValue)) {
       return;
     }
 
-    const newArray = this.statesControl.value as string[];
+    const newArray = this.statesControl.value;
     newArray.push(safeValue);
     this.statesControl.setValue(newArray);
   }
@@ -110,19 +108,19 @@ export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
     return this.states.filter(state => state.label.toLowerCase().includes(filter.toLowerCase()));
   }
 
-  private _valueIsAllowed(value: string) {
+  private _valueIsAllowed(value: string): boolean {
     const safeValue = value.toUpperCase().trim();
     const matchesDataSet = this.states.findIndex(s => s.value === safeValue) > -1;
     const isAlreadySelected = this.statesControl.value.includes(safeValue);
     return matchesDataSet && !isAlreadySelected;
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     const formJson = JSON.stringify(this.autocompleteForm.value);
     alert(`Form submitted: ${formJson}`);
   }
 
-  public disableForm($event: MouseEvent) {
+  public disableForm($event: MouseEvent): void {
     const isDisabled = ($event.target as HTMLInputElement).checked;
     if (isDisabled) {
       this.autocompleteForm.disable();

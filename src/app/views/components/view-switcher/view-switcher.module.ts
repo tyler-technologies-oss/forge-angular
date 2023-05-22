@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ForgeButtonModule, ForgeTabBarModule, ForgeViewSwitcherModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ViewSwitcherRoutingModule } from './view-switcher-routing.module';
 import { ViewSwitcherComponent } from './view-switcher.component';
 
@@ -10,11 +10,11 @@ import { ViewSwitcherComponent } from './view-switcher.component';
   declarations: [ViewSwitcherComponent],
   imports: [
     CommonModule,
-    SharedModule,
     ViewSwitcherRoutingModule,
     ForgeButtonModule,
     ForgeTabBarModule,
-    ForgeViewSwitcherModule
+    ForgeViewSwitcherModule,
+    DemoCardComponent
   ]
 })
 export class ViewSwitcherModule { }

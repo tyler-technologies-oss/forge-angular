@@ -26,14 +26,14 @@ export class StepperComponent {
     this.selectedStepIndex = evt.detail;
   }
 
-  public addStep() {
+  public addStep(): void {
     const steps = this.steps.map(s => ({...s}));
      steps.push({label: (this.steps.length + 1).toString() + ' Step', completed: Math.round(Math.random()) === 0});
      this.steps = steps;
      this.selectedStepIndex = this.selectedStepIndex;
   }
 
-  public removeStep() {
+  public removeStep(): void {
     this.steps = this.steps.slice(0, this.steps.length - 1);
   }
 }

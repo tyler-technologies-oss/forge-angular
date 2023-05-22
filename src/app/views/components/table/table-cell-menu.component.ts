@@ -1,8 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { defineIconButtonComponent, defineMenuComponent, IMenuOption } from '@tylertech/forge';
-
-defineMenuComponent();
-defineIconButtonComponent();
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IMenuOption } from '@tylertech/forge';
 
 @Component({
   selector: 'app-table-cell-menu',
@@ -18,7 +15,7 @@ export class TableCellMenuComponent {
   public options: IMenuOption[] = [
     { label: 'Delete', value: 'delete' },
     { label: 'Edit', value: 'edit' },
-    { label: 'Details', value: 'details' } 
+    { label: 'Details', value: 'details' }
   ];
 
   public onMenuOptionSelected(value: any): void {

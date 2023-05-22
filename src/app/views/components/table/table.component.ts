@@ -1,23 +1,25 @@
-import { Component, OnInit, ApplicationRef, Renderer2, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {
-  IColumnConfiguration,
-  ITableSortEventData,
-  ITableRowClickEventData,
-  TextFieldComponentDelegate,
-  ITableFilterEventData,
-  SelectComponentDelegate,
-  IPaginatorChangeEvent,
   ICON_BUTTON_CONSTANTS,
+  ICON_CONSTANTS,
+  IColumnConfiguration,
   IMenuOption,
-  IconRegistry
+  IPaginatorChangeEvent,
+  ISortedItem,
+  ITableFilterEventData,
+  ITableRowClickEventData,
+  ITableSortEventData,
+  IconButtonComponentDelegate,
+  IconRegistry,
+  SelectComponentDelegate,
+  SortDirection,
+  TOOLTIP_CONSTANTS,
+  TextFieldComponentDelegate
 } from '@tylertech/forge';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { ToastService, DynamicComponentService, IDynamicComponentRef } from '@tylertech/forge-angular';
+import { DynamicComponentService, IDynamicComponentRef, ToastService } from '@tylertech/forge-angular';
+import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
+import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
-import { SortDirection } from '@tylertech/forge';
-import { ISortedItem } from '@tylertech/forge';
-import { delay } from 'rxjs/operators';
-import { tylIconSettings } from '@tylertech/tyler-icons/standard';
 
 interface IPlayer {
   [key: string]: any;
@@ -43,10 +45,10 @@ const players: IPlayer[] = [
 })
 export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild('selectAllTemplate', { read: ElementRef })
-  selectAllTemplate: ElementRef;
+  public selectAllTemplate: ElementRef;
 
   @ViewChild('selectAllTemplateTable', { read: ElementRef })
-  selectAllTemplateTable: ElementRef;
+  public selectAllTemplateTable: ElementRef;
 
   public columnConfigurations: IColumnConfiguration[] = [
     { header: 'Name', property: 'Name', sortable: true, initialSort: true },
@@ -65,7 +67,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       filterDelegate: new SelectComponentDelegate({
         props: {
           placeholder: 'Filter position...',
-          options: [{ label: '', value: null }, ...players.map(p => ({ label: p.Position, value: p.Position }))],
+          options: [{ label: '', value: null }, ...players.map(p => ({ label: p.Position, value: p.Position }))]
         },
         options: {
           style: { width: '164px' }
@@ -79,7 +81,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     { header: 'Name', property: 'Name', sortable: true, initialSort: { sortOrder: 1, direction: SortDirection.Descending, propertyName: 'Name' } },
     { header: 'Age', property: 'Age', sortable: true },
     { header: 'Position', property: 'Position', sortable: true },
-    { header: 'Favorite Color', property: 'FavoriteColor', sortable: true },
+    { header: 'Favorite Color', property: 'FavoriteColor', sortable: true }
   ];
 
   public data$: BehaviorSubject<IPlayer[]>;
@@ -88,15 +90,18 @@ export class TableComponent implements OnInit, AfterViewInit {
     public options: IMenuOption[] = [
     { label: 'Action', value: 'action' },
     { label: 'Action 2', value: 'action2' },
-    { label: 'Action 3', value: 'action3' },
+    { label: 'Action 3', value: 'action3' }
   ];
 
   constructor(private _toastService: ToastService, private _dcs: DynamicComponentService, private _appRef: ApplicationRef, private _renderer: Renderer2) {
-    IconRegistry.define([tylIconSettings]);
+    IconRegistry.define([
+      tylIconChevronRight,
+      tylIconSettings
+    ]);
   }
 
   public ngAfterViewInit(): void {
-    this.selectAllTemplateTable.nativeElement.selectAllTemplate =  () => of(this.selectAllTemplate.nativeElement).toPromise()
+    this.selectAllTemplateTable.nativeElement.selectAllTemplate =  () => firstValueFrom(of(this.selectAllTemplate.nativeElement));
   }
 
   public ngOnInit(): void {
@@ -117,6 +122,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   public onTableSort(evt: CustomEvent<ITableSortEventData>): void {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const sortPropertyName = this.columnConfigurations[evt.detail.columnIndex].property!;
     this.data$.next([...players.sort(this._sortByProperty(sortPropertyName, evt.detail.direction))]);
   }
@@ -130,11 +136,12 @@ export class TableComponent implements OnInit, AfterViewInit {
     return (a: IPlayer, b: IPlayer) => {
       let i = 0;
       let result = 0;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       sortData = sortData.sort((d1: ISortedItem, d2: ISortedItem) => d1.sortOrder! - d2.sortOrder!);
       while (i < sortData.length && result === 0) {
         result = (sortData[i].direction === SortDirection.Ascending ? -1 : 1) *
           (a[sortData[i].propertyName].toString() < b[sortData[i].propertyName].toString() ? -1 :
-            (a[sortData[i].propertyName].toString() > b[sortData[i].propertyName].toString() ? 1 : 0));
+            a[sortData[i].propertyName].toString() > b[sortData[i].propertyName].toString() ? 1 : 0);
         i++;
       }
       return result;
@@ -187,6 +194,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     }
 
     // Return the component element that will be placed in the table cell element
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return dcRef.componentElement!;
   }
 
@@ -197,10 +205,17 @@ export class TableComponent implements OnInit, AfterViewInit {
   private _createVanillaNavCell(index: number): HTMLElement {
     const iconButton = this._renderer.createElement(ICON_BUTTON_CONSTANTS.elementName);
     const button = this._renderer.createElement('button');
-    this._renderer.setAttribute(button, 'class', 'tyler-icons');
-    this._renderer.appendChild(button, this._renderer.createText('chevron_right'));
+    const icon = this._renderer.createElement(ICON_CONSTANTS.elementName);
+    const tooltip = this._renderer.createElement(TOOLTIP_CONSTANTS.elementName);
+
+    this._renderer.appendChild(tooltip, this._renderer.createText('View details'));
+    this._renderer.setAttribute(icon, 'name', 'chevron_right');
+    this._renderer.setAttribute(button, 'aria-label', 'View details');
+    this._renderer.setAttribute(button, 'type', 'button');
     this._renderer.listen(button, 'click', () => this._handleAdvRowNav(index));
+    this._renderer.appendChild(button, icon);
     this._renderer.appendChild(iconButton, button);
+    this._renderer.appendChild(iconButton, tooltip);
     return iconButton;
   }
 

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { defineFloatingActionButtonComponent } from '@tylertech/forge';
-import { ForgeFloatingActionButtonModule } from '@tylertech/forge-angular';
+import { ForgeFloatingActionButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { FloatingActionButtonRoutingModule } from './floating-action-button-routing.module';
 import { FloatingActionButtonComponent } from './floating-action-button.component';
 
@@ -14,8 +14,9 @@ defineFloatingActionButtonComponent();
   imports: [
     CommonModule,
     FloatingActionButtonRoutingModule,
-    SharedModule,
-    ForgeFloatingActionButtonModule
+    ForgeFloatingActionButtonModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
 export class FloatingActionButtonModule {}

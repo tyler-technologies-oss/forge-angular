@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { defineBusyIndicatorComponent } from '@tylertech/forge';
 import { ForgeButtonModule, ForgeCheckboxModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { BusyIndicatorRoutingModule } from './busy-indicator-routing.module';
 import { BusyIndicatorComponent } from './busy-indicator.component';
 
@@ -16,13 +16,13 @@ defineBusyIndicatorComponent();
     CommonModule,
     BusyIndicatorRoutingModule,
     FormsModule,
-    SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
     ForgeOptionModule,
     ForgeSelectModule,
     ForgeSelectProxyModule,
-    ForgeTextFieldModule
+    ForgeTextFieldModule,
+    DemoCardComponent
   ]
 })
 export class BusyIndicatorModule { }

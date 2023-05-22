@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ForgeAutocompleteModule, ForgeAutocompleteProxyModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeDividerModule } from '@tylertech/forge-angular';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
+import { IconRegistry } from '@tylertech/forge';
+import { ForgeAutocompleteModule, ForgeAutocompleteProxyModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeDividerModule, ForgeIconModule } from '@tylertech/forge-angular';
+import { tylIconPlace } from '@tylertech/tyler-icons/standard';
+
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ChipFieldAutocompleteReactiveFormComponent } from './chip-field-autocomplete-reactive-form/chip-field-autocomplete-reactive-form.component';
 import { ChipFieldAutocompleteComponent } from './chip-field-autocomplete/chip-field-autocomplete.component';
 import { ChipFieldRoutingModule } from './chip-field-routing.module';
 import { ChipFieldSimpleReactiveFormComponent } from './chip-field-simple-reactive-form/chip-field-simple-reactive-form.component';
 import { ChipFieldSimpleComponent } from './chip-field-simple/chip-field-simple.component';
 import { ChipFieldComponent } from './chip-field.component';
+
 @NgModule({
   declarations: [
     ChipFieldComponent,
@@ -21,7 +24,6 @@ import { ChipFieldComponent } from './chip-field.component';
   imports: [
     CommonModule,
     ChipFieldRoutingModule,
-    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     ForgeAutocompleteModule,
@@ -30,7 +32,13 @@ import { ChipFieldComponent } from './chip-field.component';
     ForgeCheckboxModule,
     ForgeChipFieldModule,
     ForgeChipProxyModule,
-    ForgeDividerModule
+    ForgeDividerModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
-export class ChipFieldModule { }
+export class ChipFieldModule {
+  constructor() {
+    IconRegistry.define(tylIconPlace);
+  }
+}

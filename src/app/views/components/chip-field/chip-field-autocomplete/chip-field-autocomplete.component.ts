@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IOption } from '@tylertech/forge';
+import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
 
 @Component({
   selector: 'app-chip-field-autocomplete',
@@ -12,7 +12,7 @@ export class ChipFieldAutocompleteComponent {
   public isInvalid = false;
   public isDisabled = false;
   public isDense = true;
-  public states: IOption[] = [
+  public states: IOption<string>[] = [
     { label: 'Alabama', value: 'AL' },
     { label: 'Alaska', value: 'AK' },
     { label: 'Arizona', value: 'AZ' },
@@ -70,10 +70,10 @@ export class ChipFieldAutocompleteComponent {
     'WY'
   ];
 
-  public filterListener = (filter: string) => this._onFilter(filter);
+  public filterListener: AutocompleteFilterCallback = (filter) => this._onFilter(filter);
 
-  public deselectState(event$: CustomEvent) {
-    const value = event$.detail.value;
+  public deselectState(event$: CustomEvent<HTMLElement | IChipDeleteEventData>): void {
+    const value = (event$.detail as IChipComponent | IChipDeleteEventData).value;
     const newStatesArray = [ ...this.selectedStates ];
     const index = newStatesArray.findIndex(x => x === value);
     if (index === -1) {
@@ -84,7 +84,7 @@ export class ChipFieldAutocompleteComponent {
     this.selectedStates = newStatesArray;
   }
 
-  public selectState(event$: CustomEvent) {
+  public selectState(event$: CustomEvent<string>): void {
     const value = event$.detail.trim().toUpperCase();
     if (!this._valueIsAllowed(value)) {
       return;
@@ -93,11 +93,11 @@ export class ChipFieldAutocompleteComponent {
     this.selectedStates.push(value);
   }
 
-  private _onFilter(filter: string): IOption[] {
+  private _onFilter(filter: string): IOption<string>[] {
     return this.states.filter(state => state.label.toLowerCase().includes(filter.toLowerCase()));
   }
 
-  private _valueIsAllowed(value: string) {
+  private _valueIsAllowed(value: string): boolean {
     const safeValue = value.toUpperCase().trim();
     const matchesDataSet = this.states.findIndex(s => s.value === safeValue) > -1;
     const isAlreadySelected = this.selectedStates.includes(safeValue);

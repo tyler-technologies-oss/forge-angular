@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { SelectRoutingModule } from './select-routing.module';
 import { SelectComponent } from './select.component';
 
@@ -13,10 +13,10 @@ import { SelectComponent } from './select.component';
     CommonModule,
     SelectRoutingModule,
     FormsModule,
-    SharedModule,
     ForgeOptionModule,
     ForgeSelectModule,
     ForgeSelectProxyModule,
+    DemoCardComponent
   ]
 })
 export class SelectModule {}

@@ -13,8 +13,7 @@ import { ForgeButtonModule } from '@tylertech/forge-angular';
   ]
 })
 export class LazyBottomSheetModule {
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-  }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   public resolveComponent(): ComponentFactory<LazyBottomSheetComponent> {
     return this.componentFactoryResolver.resolveComponentFactory(LazyBottomSheetComponent);

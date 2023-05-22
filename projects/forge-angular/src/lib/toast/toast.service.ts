@@ -51,9 +51,11 @@ export class ToastService {
     }
 
     Object.assign(toastElement, restConfig);
-    
+
     if (config.actionText && typeof config.actionHandler === 'function') {
+      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       this._renderer.listen(toastElement, TOAST_CONSTANTS.events.ACTION, () => (config as IToastConfig).actionHandler!());
+      /* eslint-enable @typescript-eslint/no-non-null-assertion */
     }
 
     this._renderer.appendChild(document.body, toastElement);

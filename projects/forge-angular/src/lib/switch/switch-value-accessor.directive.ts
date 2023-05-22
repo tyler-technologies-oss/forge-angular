@@ -14,17 +14,17 @@ export const SWITCH_VALUE_ACCESSOR: StaticProvider = {
 })
 export class SwitchValueAccessor implements ControlValueAccessor {
   @HostListener('forge-switch-select', ['$event'])
-  public switchChange(evt: CustomEvent<boolean>) {
+  public switchChange(evt: CustomEvent<boolean>): void {
     this.change(evt.detail);
   }
 
-  @HostListener('blur', ['$event'])
-  public blur(evt: Event) {
+  @HostListener('blur')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 

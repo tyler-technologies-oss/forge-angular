@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { IconRegistry } from '@tylertech/forge';
 import { ForgeCheckboxModule, ForgeIconButtonModule, ForgeIconModule, ForgeMenuModule, ForgePaginatorModule, ForgeTableModule } from '@tylertech/forge-angular';
+import { tylIconDelete, tylIconDetails, tylIconEdit, tylIconMoreVert } from '@tylertech/tyler-icons/standard';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { TableCellMenuComponent } from './table-cell-menu.component';
 import { TableRoutingModule } from './table-routing.module';
 import { TableComponent } from './table.component';
@@ -15,13 +17,17 @@ import { TableComponent } from './table.component';
   imports: [
     CommonModule,
     TableRoutingModule,
-    SharedModule,
     ForgeCheckboxModule,
     ForgeIconButtonModule,
     ForgeIconModule,
     ForgeMenuModule,
     ForgePaginatorModule,
-    ForgeTableModule
+    ForgeTableModule,
+    DemoCardComponent
   ]
 })
-export class TableModule { }
+export class TableModule {
+  constructor() {
+    IconRegistry.define(tylIconMoreVert);
+  }
+}

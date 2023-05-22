@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ForgeAccordionModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { AccordionRoutingModule } from './accordion-routing.module';
 import { AccordionComponent } from './accordion.component';
 
@@ -11,8 +11,8 @@ import { AccordionComponent } from './accordion.component';
   imports: [
     CommonModule,
     AccordionRoutingModule,
-    SharedModule,
-    ForgeAccordionModule
+    ForgeAccordionModule,
+    DemoCardComponent
   ]
 })
 export class AccordionModule {}

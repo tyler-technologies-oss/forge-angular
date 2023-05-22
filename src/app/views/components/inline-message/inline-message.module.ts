@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ForgeInlineMessageModule } from '@tylertech/forge-angular';
+import { ForgeIconModule, ForgeInlineMessageModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from 'src/app/shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { InlineMessageRoutingModule } from './inline-message-routing.module';
 import { InlineMessageComponent } from './inline-message.component';
 
@@ -11,8 +11,9 @@ import { InlineMessageComponent } from './inline-message.component';
   imports: [
     CommonModule,
     InlineMessageRoutingModule,
-    SharedModule,
-    ForgeInlineMessageModule
+    ForgeInlineMessageModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
 export class InlineMessageModule { }

@@ -5,7 +5,7 @@
       <label slot="label" for="autocomplete-chip-field-input">Favorite states</label>
       <ng-container *ngFor="let state of statesControl.value">
         <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [invalid]="statesControl.invalid" [disabled]="statesControl.disabled" >
-          <i class="tyler-icons" slot="leading">place</i>
+          <forge-icon slot="leading" name="place"></forge-icon>
           {{state}}
         </forge-chip>
       </ng-container>

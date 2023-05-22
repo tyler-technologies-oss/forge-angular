@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgeButtonModule, ForgeMenuModule } from '@tylertech/forge-angular';
 
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
-import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +13,9 @@ import { SharedModule } from '../../../shared/shared.module';
   imports: [
     CommonModule,
     MenuRoutingModule,
-    SharedModule,
     ForgeButtonModule,
-    ForgeMenuModule
+    ForgeMenuModule,
+    DemoCardComponent
   ]
 })
 export class MenuModule { }

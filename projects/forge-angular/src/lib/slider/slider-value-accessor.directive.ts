@@ -1,6 +1,7 @@
 import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ISliderChangeEventData, ISliderInputEventData } from '@tylertech/forge';
 
 export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -14,22 +15,22 @@ export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
 })
 export class SliderValueAccessor implements ControlValueAccessor {
   @HostListener('forge-slider-change', ['$event'])
-  public sliderChange(event: CustomEvent) {
+  public sliderChange(event: CustomEvent<ISliderChangeEventData>): void {
     this.change(event.detail.value);
   }
 
   @HostListener('forge-slider-input', ['$event'])
-  public sliderInput(event: CustomEvent) {
+  public sliderInput(event: CustomEvent<ISliderInputEventData>): void {
     this.change(event.detail.value);
   }
 
-  @HostListener('blur', ['$event'])
-  public blur(event: Event) {
+  @HostListener('blur')
+  public blur(): void {
     this.onTouched();
   }
 
-  public onChange = (_: any) => {};
-  public onTouched = () => {};
+  public onChange = (_: any): void => {};
+  public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
@@ -49,7 +50,7 @@ export class SliderValueAccessor implements ControlValueAccessor {
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
   }
 
-  public change(value: number): void {
+  public change(value: number | undefined): void {
     this.onChange(value);
   }
 

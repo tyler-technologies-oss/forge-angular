@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForgeIconButtonModule, ForgeQuantityFieldModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
+import { ForgeIconButtonModule, ForgeIconModule, ForgeQuantityFieldModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
 
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { QuantityFieldRoutingModule } from './quantity-field-routing.module';
 import { QuantityFieldComponent } from './quantity-field.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +13,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     QuantityFieldRoutingModule,
-    SharedModule,
     FormsModule,
     ForgeIconButtonModule,
     ForgeQuantityFieldModule,
-    ForgeTextFieldModule
+    ForgeTextFieldModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
 export class QuantityFieldModule { }

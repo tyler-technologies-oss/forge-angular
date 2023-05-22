@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { defineToastComponent } from '@tylertech/forge';
 import { ForgeButtonModule, ForgeCheckboxModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeSliderProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ToastRoutingModule } from './toast-routing.module';
 import { ToastComponent } from './toast.component';
 
@@ -16,13 +16,13 @@ defineToastComponent();
     CommonModule,
     ToastRoutingModule,
     FormsModule,
-    SharedModule,
     ForgeButtonModule,
     ForgeCheckboxModule,
     ForgeSelectModule,
     ForgeSelectProxyModule,
     ForgeSliderProxyModule,
-    ForgeTextFieldModule
+    ForgeTextFieldModule,
+    DemoCardComponent
   ]
 })
 export class ToastModule {}

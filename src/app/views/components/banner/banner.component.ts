@@ -1,31 +1,33 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
+import { IconRegistry } from '@tylertech/forge';
+import { tylIconAddAlert } from '@tylertech/tyler-icons/standard';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
 })
-export class BannerComponent implements OnInit {
-  public isDismissed: boolean = false;
+export class BannerComponent {
+  public isDismissed = false;
 
-  constructor(public cdRef: ChangeDetectorRef) { }
+  constructor() {
+    IconRegistry.define(tylIconAddAlert);
+  }
 
-  public ngOnInit(): void { }
-
-  public openAlert() {
+  public openAlert(): void {
     alert('Some more info...');
     this.dismissBanner();
   }
 
-  public toggleBanner() {
+  public toggleBanner(): void {
     this.isDismissed = !this.isDismissed;
   }
 
-  public dismissBanner() {
+  public dismissBanner(): void {
     this.isDismissed = true;
   }
 
-  public undismissBanner() {
+  public undismissBanner(): void {
     this.isDismissed = false;
   }
 }

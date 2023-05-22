@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { IChipComponent, IChipDeleteEventData } from '@tylertech/forge';
+
+type TokenForm = FormControl<string>;
+
+interface DemoForm {
+  tokens: FormArray<TokenForm>;
+}
 
 @Component({
   selector: 'app-chip-field-simple-reactive-form',
@@ -8,32 +15,30 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ChipFieldSimpleReactiveFormComponent implements OnInit {
 
-  public chipFieldForm: FormGroup;
-  public tokensFormArray: FormArray;
-
-  constructor(private _fb: FormBuilder) { }
+  public chipFieldForm: FormGroup<DemoForm>;
+  public tokensFormArray: FormArray<TokenForm>;
 
   public ngOnInit(): void {
-    this.chipFieldForm = this._fb.group({
-      tokens: this._fb.array([], [Validators.minLength(2), Validators.required]),
+    this.chipFieldForm = new FormGroup<DemoForm>({
+      tokens: new FormArray<TokenForm>([], [Validators.minLength(2), Validators.required])
     });
 
-    this.tokensFormArray = this.chipFieldForm.get('tokens') as FormArray;
+    this.tokensFormArray = this.chipFieldForm.controls.tokens;
 
     this._addMember('Token A');
     this._addMember('Token B');
   }
 
-  public addMember(event$: CustomEvent) {
+  public addMember(event$: CustomEvent): void {
     this._addMember(event$.detail);
   }
 
-  private _addMember(value: string) {
-    this.tokensFormArray.push(this._fb.control(value));
+  private _addMember(value: string): void {
+    this.tokensFormArray.push(new FormControl(value, { nonNullable: true }));
   }
 
-  public deleteMember(event$: CustomEvent) {
-    const chipVal = event$.detail.value;
+  public deleteMember(event$: CustomEvent<HTMLElement | IChipDeleteEventData>): void {
+    const chipVal = (event$.detail as IChipComponent | IChipDeleteEventData).value;
     const index = this.tokensFormArray.controls.findIndex(c => c.value === chipVal);
     if (index === -1) {
       return;
@@ -42,12 +47,12 @@ export class ChipFieldSimpleReactiveFormComponent implements OnInit {
     this.tokensFormArray.removeAt(index);
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     const formJson = JSON.stringify(this.chipFieldForm.value);
     alert(`Form submitted: ${formJson}`);
   }
 
-  public disableForm($event: Event) {
+  public disableForm($event: Event): void {
     const isDisabled = ($event.target as HTMLInputElement).checked;
     if (isDisabled) {
       this.chipFieldForm.disable();

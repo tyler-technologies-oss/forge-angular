@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgePaginatorModule } from '@tylertech/forge-angular';
 
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { PaginatorRoutingModule } from './paginator-routing.module';
 import { PaginatorComponent } from './paginator.component';
-import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [PaginatorComponent],
   imports: [
     CommonModule,
     PaginatorRoutingModule,
-    SharedModule,
-    ForgePaginatorModule
+    ForgePaginatorModule,
+    DemoCardComponent
   ]
 })
 export class PaginatorModule {}

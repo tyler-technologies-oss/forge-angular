@@ -4,7 +4,7 @@
     The following example demonstrates a complex usage of the Forge table component to showcase many of its features,
     while also demonstrating a realistic design for an actual Tyler application.
   </p>
-  
+
   <p class="forge-typography--subtitle1">
     The design for the following example can be found
     <a href="https://tylertech.invisionapp.com/share/7TWPBF5B2E5#/screens" target="_blank" rel="noopener noreferrer">here</a>.
@@ -17,13 +17,15 @@
     <div class="align-vert">
       <forge-menu [options]="availableColumns" (forge-menu-select)="onToggleColumnVisibility($event)">
         <forge-icon-button style="color: var(--mdc-theme-text-secondary-on-background); margin-right: 8px;">
-          <button type="button" class="tyler-icons">view_column</button>
+          <button type="button">
+            <forge-icon name="view_column"></forge-icon>
+          </button>
           <forge-tooltip position="bottom">Customize columns</forge-tooltip>
         </forge-icon-button>
       </forge-menu>
       <forge-button type="outlined" (click)="onToggleFilters()">
         <button type="button">
-          <i class="tyler-icons">filter_list</i>
+          <forge-icon name="filter_list"></forge-icon>
           {{showFilter ? 'Cancel filter' : 'Filter'}}
         </button>
       </forge-button>
@@ -37,37 +39,37 @@
     <div class="journal-action-buttons">
       <forge-button>
         <button type="button">
-          <i class="tyler-icons">import_export</i>
+          <forge-icon name="import_export"></forge-icon>
           <span>Export</span>
         </button>
       </forge-button>
       <forge-button>
         <button type="button">
-          <i class="tyler-icons">note_add</i>
+          <forge-icon name="note_add"></forge-icon>
           <span>Post</span>
         </button>
       </forge-button>
       <forge-button>
         <button type="button">
-          <i class="tyler-icons">print</i>
+          <forge-icon name="print"></forge-icon>
           <span>Print</span>
         </button>
       </forge-button>
       <forge-button>
         <button type="button">
-          <i class="tyler-icons">compare_arrows</i>
+          <forge-icon name="compare_arrows"></forge-icon>
           <span>Release</span>
         </button>
       </forge-button>
       <forge-button>
         <button type="button">
-          <i class="tyler-icons">not_interested</i>
+          <forge-icon name="not_interested"></forge-icon>
           <span>Void</span>
         </button>
       </forge-button>
       <forge-button (click)="clearSelections()">
         <button type="button">
-          <i class="tyler-icons">close</i>
+          <forge-icon name="close"></forge-icon>
           <span>Cancel</span>
         </button>
       </forge-button>

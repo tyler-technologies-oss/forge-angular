@@ -1,6 +1,22 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
-import { IOption, IAutocompleteComponent } from '@tylertech/forge';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IAutocompleteComponent, IOption } from '@tylertech/forge';
+
+interface DemoForm {
+  firstName: FormControl<string>;
+  lastName: FormControl<string>;
+  email: FormControl<string>;
+  send: FormControl<boolean>;
+  dob: FormControl<Date | null>;
+  tob: FormControl<Date | null>;
+  gender: FormControl<'male' | 'female'>;
+  state: FormControl<string | null>;
+  country: FormControl<string>;
+  favoriteNumber: FormControl<number>;
+  shirtSize: FormControl<'xs' | 's' | 'm' | 'l' | 'xl'>;
+  shirtQuantity: FormControl<number>;
+  agree: FormControl<boolean>;
+}
 
 @Component({
   selector: 'app-form',
@@ -11,43 +27,43 @@ export class ReactiveFormExampleComponent implements OnInit {
   @ViewChild('stateAutocomplete', { static: true, read: ElementRef })
   public stateAutocomplete: ElementRef;
 
-  public shirtQuantityControl: FormControl;
-  public exampleForm: FormGroup;
+  public exampleForm: FormGroup<DemoForm>;
+  public shirtQuantityControl: FormControl<number>;
 
-  constructor(private _formBuilder: FormBuilder) {
-    this.exampleForm = this._formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      send: [true],
-      dob: [null, Validators.required],
-      tob: [null, Validators.required],
-      gender: ['male', Validators.required],
-      state: [null, Validators.required],
-      country: [null, Validators.required],
-      favoriteNumber: [0, Validators.required],
-      shirtSize: ['m', Validators.required],
-      shirtQuantity: [1, Validators.min(1)],
-      agree: [false, Validators.required]
+  constructor() {
+    this.exampleForm = new FormGroup<DemoForm>({
+      firstName: new FormControl('', { nonNullable: true, validators: Validators.required}),
+      lastName: new FormControl('', { nonNullable: true, validators: Validators.required}),
+      email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
+      send: new FormControl(true, { nonNullable: true }),
+      dob: new FormControl(null, Validators.required),
+      tob: new FormControl(null, Validators.required),
+      gender: new FormControl('male', { nonNullable: true, validators: Validators.required}),
+      state: new FormControl(null, Validators.required),
+      country: new FormControl('', { nonNullable: true, validators: Validators.required }),
+      favoriteNumber: new FormControl(0, { nonNullable: true, validators: Validators.required }),
+      shirtSize: new FormControl('m', { nonNullable: true, validators: Validators.required }),
+      shirtQuantity: new FormControl(1, { nonNullable: true, validators: Validators.min(1) }),
+      agree: new FormControl(false, { nonNullable: true, validators: Validators.required })
     });
 
-    this.shirtQuantityControl = this.exampleForm.get('shirtQuantity') as FormControl;
+    this.shirtQuantityControl = this.exampleForm.controls.shirtQuantity;
   }
 
   public ngOnInit(): void {
-    (<IAutocompleteComponent>this.stateAutocomplete.nativeElement).filter = filter => this._onFilterStates(filter);
+    (this.stateAutocomplete.nativeElement as IAutocompleteComponent).filter = filter => this._onFilterStates(filter);
   }
 
   private _onFilterStates(filter: string): IOption[] {
     return this.states.filter(state => state.label.toLowerCase().includes(filter.toLowerCase()));
   }
 
-  public get shirtSize(): AbstractControl {
-    return this.exampleForm.get('shirtSize') as AbstractControl;
+  public get shirtSize(): FormControl<'xs' | 's' | 'm' | 'l' | 'xl'> {
+    return this.exampleForm.controls.shirtSize;
   }
 
-  public get favoriteNumber(): AbstractControl {
-    return this.exampleForm.get('favoriteNumber') as AbstractControl;
+  public get favoriteNumber(): FormControl<number> {
+    return this.exampleForm.controls.favoriteNumber;
   }
 
   public onSubmit(): void {
@@ -58,23 +74,10 @@ export class ReactiveFormExampleComponent implements OnInit {
   }
 
   public onReset(): void {
-    this.exampleForm.reset({
-      firstName: '',
-      lastName: '',
-      email: '',
-      send: true,
-      dob: '',
-      gender: 'male',
-      state: null,
-      country: '',
-      favoriteNumber: 0,
-      shirtSize: 'm',
-      shirtQuantity: 1,
-      agree: false
-    });
+    this.exampleForm.reset();
   }
 
-  public states: IOption[] = [
+  public states: IOption<string>[] = [
     { label: 'Alabama', value: 'AL' },
     { label: 'Alaska', value: 'AK' },
     { label: 'Arizona', value: 'AZ' },

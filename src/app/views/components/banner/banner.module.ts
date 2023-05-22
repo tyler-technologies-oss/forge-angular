@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ForgeBannerModule, ForgeButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
 import { BannerRoutingModule } from './banner-routing.module';
 import { BannerComponent } from './banner.component';
-import { SharedModule } from '../../../shared/shared.module';
-import { ForgeBannerModule, ForgeButtonModule } from '@tylertech/forge-angular';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 
 
 @NgModule({
@@ -12,9 +12,10 @@ import { ForgeBannerModule, ForgeButtonModule } from '@tylertech/forge-angular';
   imports: [
     CommonModule,
     BannerRoutingModule,
-    SharedModule,
     ForgeBannerModule,
-    ForgeButtonModule
+    ForgeButtonModule,
+    ForgeIconModule,
+    DemoCardComponent
   ],
 })
 export class BannerModule { }

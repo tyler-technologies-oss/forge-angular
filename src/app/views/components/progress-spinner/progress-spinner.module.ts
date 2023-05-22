@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ForgeCircularProgressModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule } from '@tylertech/forge-angular';
 
-import { SharedModule } from '../../../shared/shared.module';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ProgressSpinnerRoutingModule } from './progress-spinner-routing.module';
 import { ProgressSpinnerComponent } from './progress-spinner.component';
 
@@ -13,11 +13,11 @@ import { ProgressSpinnerComponent } from './progress-spinner.component';
     CommonModule,
     ProgressSpinnerRoutingModule,
     FormsModule,
-    SharedModule,
     ForgeCircularProgressModule,
     ForgeOptionModule,
     ForgeSelectModule,
-    ForgeSelectProxyModule
+    ForgeSelectProxyModule,
+    DemoCardComponent
   ]
 })
 export class ProgressSpinnerModule {}

@@ -8,7 +8,6 @@ interface IFeedbackData {
   details: string;
 }
 
-
 const data: IFeedbackData[] = [
   {
     title: 'Great presentation',

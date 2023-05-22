@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForgeChipProxyModule, ForgeChipSetModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
+import { ForgeChipProxyModule, ForgeChipSetModule, ForgeIconButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ChipsRoutingModule } from './chips-routing.module';
 import { ChipsComponent } from './chips.component';
-import { SharedModule } from '../../../shared/shared.module';
-
 
 @NgModule({
   declarations: [ChipsComponent],
   imports: [
     CommonModule,
     ChipsRoutingModule,
-    SharedModule,
     ForgeChipProxyModule,
     ForgeChipSetModule,
-    ForgeIconButtonModule
+    ForgeIconButtonModule,
+    ForgeIconModule,
+    DemoCardComponent
   ]
 })
 export class ChipsModule { }

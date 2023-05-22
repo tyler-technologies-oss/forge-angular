@@ -2,11 +2,9 @@
 
 <forge-scaffold>
   <div slot="body-header">
-
-<forge-tab-bar underline [activeTab]="currentIndex" (forge-tab-bar-activate)="tabClicked($event.detail.index)" layout-mode="clustered">
-  <forge-tab *ngFor="let item of listItems; let i = index;">{{ item.label }}</forge-tab>
-</forge-tab-bar>
-
+    <forge-tab-bar underline [activeTab]="currentIndex" (forge-tab-bar-activate)="tabClicked($event.detail.index)" layout-mode="clustered">
+      <forge-tab *ngFor="let item of listItems; let i = index;">{{ item.label }}</forge-tab>
+    </forge-tab-bar>
   </div>
   <div slot="body" style="padding: 32px;">
     <forge-view-switcher [index]="currentIndex" animation-type="slide">
@@ -31,7 +29,7 @@
       </forge-view>
       <forge-view>
         <forge-page-state>
-          <img src="https://cdn.forge.tylertech.com/v1/images/spot/bill-pay-spot.svg" alt="" slot="graphic" />
+          <img src="https://cdn.forge.tylertech.com/v1/images/spot/bill-pay-spot.svg" alt="A document with a money sign marked with a checkmark" slot="graphic" />
           <div slot="title">No past bills!</div>
         </forge-page-state>
       </forge-view>

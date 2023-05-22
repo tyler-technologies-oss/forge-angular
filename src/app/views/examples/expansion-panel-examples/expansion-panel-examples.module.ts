@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { IconRegistry } from '@tylertech/forge';
+import { ForgeCardModule, ForgeCheckboxModule, ForgeExpansionPanelModule, ForgeIconButtonModule, ForgeIconModule, ForgeLabelValueModule, ForgePageStateModule, ForgeScaffoldModule, ForgeTabBarModule, ForgeToolbarModule, ForgeTooltipModule, ForgeViewSwitcherModule } from '@tylertech/forge-angular';
+import { tylIconGetApp, tylIconMoreVert, tylIconSearch, tylIconShare } from '@tylertech/tyler-icons/standard';
 
 // Modules
-import { CommonModule } from '@angular/common';
-import { ForgeCardModule, ForgeCheckboxModule, ForgeExpansionPanelModule, ForgeIconButtonModule, ForgeLabelValueModule, ForgePageStateModule, ForgeScaffoldModule, ForgeTabBarModule, ForgeToolbarModule, ForgeViewSwitcherModule } from '@tylertech/forge-angular';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { DemoCardComponent } from 'src/app/shared/components/demo-card/demo-card.component';
 import { ViewSwitcherDemoComponent } from './components/view-switcher/view-switcher.component';
 import { ExpansionPanelExamplesRoutingModule } from './expansion-panel-examples-routing.module';
 import { ExpansionPanelExamplesComponent } from './expansion-panel-examples.component';
@@ -12,7 +14,6 @@ import { ExpansionPanelExamplesComponent } from './expansion-panel-examples.comp
   declarations: [ExpansionPanelExamplesComponent, ViewSwitcherDemoComponent],
   imports: [
     ExpansionPanelExamplesRoutingModule,
-    SharedModule,
     CommonModule,
     ForgeCardModule,
     ForgeCheckboxModule,
@@ -23,7 +24,19 @@ import { ExpansionPanelExamplesComponent } from './expansion-panel-examples.comp
     ForgeScaffoldModule,
     ForgeTabBarModule,
     ForgeToolbarModule,
-    ForgeViewSwitcherModule
+    ForgeViewSwitcherModule,
+    ForgeIconModule,
+    ForgeTooltipModule,
+    DemoCardComponent
   ]
 })
-export class ExpansionPanelExamplesModule {}
+export class ExpansionPanelExamplesModule {
+  constructor() {
+    IconRegistry.define([
+      tylIconGetApp,
+      tylIconMoreVert,
+      tylIconSearch,
+      tylIconShare
+    ]);
+  }
+}
