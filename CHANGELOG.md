@@ -1,3 +1,18 @@
+# v3.0.0 (Mon May 22 2023)
+
+#### 💥 Breaking Change
+
+- chore: use trailing slash on publish directory path [#25](https://github.com/tyler-technologies-oss/forge-angular/pull/25) ([@DRiFTy17](https://github.com/DRiFTy17))
+- chore: remove node 14 support [#24](https://github.com/tyler-technologies-oss/forge-angular/pull/24) ([@DRiFTy17](https://github.com/DRiFTy17))
+- feat: update to Angular 16 [#23](https://github.com/tyler-technologies-oss/forge-angular/pull/23) ([@samrichardsontylertech](https://github.com/samrichardsontylertech) [@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 2
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v2.5.0 (Wed Mar 22 2023)
 
 #### 🚀 Enhancement
