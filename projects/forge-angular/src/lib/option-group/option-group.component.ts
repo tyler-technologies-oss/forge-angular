@@ -22,6 +22,54 @@ export class OptionGroupComponent {
 		return this.elementRef.nativeElement.label;
 	}
 
+	/** The child options of this group. */
+	@Input()
+	public set options(value: OptionGroupComponentCustomElement['options']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.options = value;
+		});
+	}
+
+	public get options(): OptionGroupComponentCustomElement['options'] {
+		return this.elementRef.nativeElement.options;
+	}
+
+	/** The builder function for the group content. */
+	@Input()
+	public set builder(value: OptionGroupComponentCustomElement['builder']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.builder = value;
+		});
+	}
+
+	public get builder(): OptionGroupComponentCustomElement['builder'] {
+		return this.elementRef.nativeElement.builder;
+	}
+
+	/** Gets/sets the optional group value. */
+	@Input()
+	public set value(value: OptionGroupComponentCustomElement['value']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.value = value;
+		});
+	}
+
+	public get value(): OptionGroupComponentCustomElement['value'] {
+		return this.elementRef.nativeElement.value;
+	}
+
+	/** The text content for the group. */
+	@Input()
+	public set text(value: OptionGroupComponentCustomElement['text']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.text = value;
+		});
+	}
+
+	public get text(): OptionGroupComponentCustomElement['text'] {
+		return this.elementRef.nativeElement.text;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<OptionGroupComponentCustomElement>,

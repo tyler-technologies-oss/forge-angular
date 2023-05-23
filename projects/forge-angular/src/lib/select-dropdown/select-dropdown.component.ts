@@ -166,7 +166,7 @@ export class SelectDropdownComponent {
 		return this.elementRef.nativeElement.popupClasses;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupHeaderBuilder(value: SelectDropdownComponentCustomElement['popupHeaderBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -178,7 +178,7 @@ export class SelectDropdownComponent {
 		return this.elementRef.nativeElement.popupHeaderBuilder;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupFooterBuilder(value: SelectDropdownComponentCustomElement['popupFooterBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -236,6 +236,33 @@ export class SelectDropdownComponent {
 
 	public get observeScrollThreshold(): SelectDropdownComponentCustomElement['observeScrollThreshold'] {
 		return this.elementRef.nativeElement.observeScrollThreshold;
+	}
+
+	/** Gets/sets whether the popup width will be constrained to a max width of the viewport width (default: `100vw`). */
+	@Input()
+	public set constrainPopupWidth(value: SelectDropdownComponentCustomElement['constrainPopupWidth'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.constrainPopupWidth = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get constrainPopupWidth(): SelectDropdownComponentCustomElement['constrainPopupWidth'] {
+		return this.elementRef.nativeElement.constrainPopupWidth;
+	}
+
+	/**
+	 * Gets/sets whether the options will wrap their text or not.
+	 * This only applies if `constrainPopupWidth` is `true`, if there is an explicit width set via CSS.
+	 */
+	@Input()
+	public set wrapOptionText(value: SelectDropdownComponentCustomElement['wrapOptionText'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.wrapOptionText = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get wrapOptionText(): SelectDropdownComponentCustomElement['wrapOptionText'] {
+		return this.elementRef.nativeElement.wrapOptionText;
 	}
 
 

@@ -36,6 +36,18 @@ export class PopupComponent {
 
 
 	@Input()
+	public set fallbackPlacements(value: PopupComponentCustomElement['fallbackPlacements']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.fallbackPlacements = value;
+		});
+	}
+
+	public get fallbackPlacements(): PopupComponentCustomElement['fallbackPlacements'] {
+		return this.elementRef.nativeElement.fallbackPlacements;
+	}
+
+
+	@Input()
 	public set open(value: PopupComponentCustomElement['open'] | string) {
 		this.zone.runOutsideAngular(() => {
 			this.elementRef.nativeElement.open = value != null && `${value}` !== 'false';

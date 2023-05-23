@@ -99,6 +99,11 @@ export class ChipComponent {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.focus(...args));
 	}
 
+
+	public tryFocusDelete(...args: Parameters<ChipComponentCustomElement['tryFocusDelete']>): ReturnType<ChipComponentCustomElement['tryFocusDelete']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.tryFocusDelete(...args));
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<ChipComponentCustomElement>,
