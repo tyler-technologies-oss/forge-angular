@@ -3,7 +3,7 @@ import { INpmConfig } from '@auto-it/npm';
 
 const npmOptions: INpmConfig = {
   setRcToken: false,
-  publishFolder: 'dist/forge-angular'
+  publishFolder: 'dist/forge-angular/'
 };
 
 export default function rc(): AutoRc {
