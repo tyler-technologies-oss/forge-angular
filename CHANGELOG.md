@@ -1,3 +1,15 @@
+# v3.1.0 (Tue May 23 2023)
+
+#### 🚀 Enhancement
+
+- feat(stack): regenerated proxies [#26](https://github.com/tyler-technologies-oss/forge-angular/pull/26) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.0.0 (Mon May 22 2023)
 
 #### 💥 Breaking Change
