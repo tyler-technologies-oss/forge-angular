@@ -70,6 +70,18 @@ export class MenuComponent {
 		return this.elementRef.nativeElement.placement;
 	}
 
+	/** Gets/sets the fallback menu placement for overriding the default of any side. */
+	@Input()
+	public set fallbackPlacements(value: MenuComponentCustomElement['fallbackPlacements']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.fallbackPlacements = value;
+		});
+	}
+
+	public get fallbackPlacements(): MenuComponentCustomElement['fallbackPlacements'] {
+		return this.elementRef.nativeElement.fallbackPlacements;
+	}
+
 	/** Gets/sets dense state of the list options used in the menu popup. */
 	@Input()
 	public set dense(value: MenuComponentCustomElement['dense'] | string) {
@@ -118,7 +130,7 @@ export class MenuComponent {
 		return this.elementRef.nativeElement.mode;
 	}
 
-	/** Sets the position adustment on the internal popup element. */
+	/** Sets the position adjustment on the internal popup element. */
 	@Input()
 	public set popupOffset(value: MenuComponentCustomElement['popupOffset']) {
 		this.zone.runOutsideAngular(() => {
@@ -166,7 +178,7 @@ export class MenuComponent {
 		return this.elementRef.nativeElement.popupClasses;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupHeaderBuilder(value: MenuComponentCustomElement['popupHeaderBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -178,7 +190,7 @@ export class MenuComponent {
 		return this.elementRef.nativeElement.popupHeaderBuilder;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupFooterBuilder(value: MenuComponentCustomElement['popupFooterBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -238,9 +250,41 @@ export class MenuComponent {
 		return this.elementRef.nativeElement.observeScrollThreshold;
 	}
 
+	/** Gets/sets whether the popup width will be constrained to a max width of the viewport width (default: `100vw`). */
+	@Input()
+	public set constrainPopupWidth(value: MenuComponentCustomElement['constrainPopupWidth'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.constrainPopupWidth = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get constrainPopupWidth(): MenuComponentCustomElement['constrainPopupWidth'] {
+		return this.elementRef.nativeElement.constrainPopupWidth;
+	}
+
+	/**
+	 * Gets/sets whether the options will wrap their text or not.
+	 * This only applies if `constrainPopupWidth` is `true`, if there is an explicit width set via CSS.
+	 */
+	@Input()
+	public set wrapOptionText(value: MenuComponentCustomElement['wrapOptionText'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.wrapOptionText = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get wrapOptionText(): MenuComponentCustomElement['wrapOptionText'] {
+		return this.elementRef.nativeElement.wrapOptionText;
+	}
+
 	/** Force propagates the key event from another element this component. */
 	public propagateKeyEvent(...args: Parameters<MenuComponentCustomElement['propagateKeyEvent']>): ReturnType<MenuComponentCustomElement['propagateKeyEvent']> {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.propagateKeyEvent(...args));
+	}
+
+
+	public activateFirstOption(...args: Parameters<MenuComponentCustomElement['activateFirstOption']>): ReturnType<MenuComponentCustomElement['activateFirstOption']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.activateFirstOption(...args));
 	}
 
 	constructor(

@@ -94,6 +94,22 @@ export class AutocompleteComponent {
 		return this.elementRef.nativeElement.popupTarget;
 	}
 
+	/**
+	 * Gets/sets the filter text.
+	 * 
+	 * Setting the filter text only applies when allowUnmatched is enabled.
+	 */
+	@Input()
+	public set filterText(value: AutocompleteComponentCustomElement['filterText']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.filterText = value;
+		});
+	}
+
+	public get filterText(): AutocompleteComponentCustomElement['filterText'] {
+		return this.elementRef.nativeElement.filterText;
+	}
+
 	/** Sets the option builder callback that will be executed when building the option list in the dropdown. */
 	@Input()
 	public set optionBuilder(value: AutocompleteComponentCustomElement['optionBuilder']) {
@@ -202,7 +218,7 @@ export class AutocompleteComponent {
 		return this.elementRef.nativeElement.popupClasses;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupHeaderBuilder(value: AutocompleteComponentCustomElement['popupHeaderBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -214,7 +230,7 @@ export class AutocompleteComponent {
 		return this.elementRef.nativeElement.popupHeaderBuilder;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupFooterBuilder(value: AutocompleteComponentCustomElement['popupFooterBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -272,6 +288,33 @@ export class AutocompleteComponent {
 
 	public get observeScrollThreshold(): AutocompleteComponentCustomElement['observeScrollThreshold'] {
 		return this.elementRef.nativeElement.observeScrollThreshold;
+	}
+
+	/** Gets/sets whether the popup width will be constrained to a max width of the viewport width (default: `100vw`). */
+	@Input()
+	public set constrainPopupWidth(value: AutocompleteComponentCustomElement['constrainPopupWidth'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.constrainPopupWidth = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get constrainPopupWidth(): AutocompleteComponentCustomElement['constrainPopupWidth'] {
+		return this.elementRef.nativeElement.constrainPopupWidth;
+	}
+
+	/**
+	 * Gets/sets whether the options will wrap their text or not.
+	 * This only applies if `constrainPopupWidth` is `true`, if there is an explicit width set via CSS.
+	 */
+	@Input()
+	public set wrapOptionText(value: AutocompleteComponentCustomElement['wrapOptionText'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.wrapOptionText = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get wrapOptionText(): AutocompleteComponentCustomElement['wrapOptionText'] {
+		return this.elementRef.nativeElement.wrapOptionText;
 	}
 
 	/** Adds options to the dropdown while it is open. Has no effect if the dropdown is closed. */

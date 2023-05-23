@@ -75,6 +75,7 @@ import { ForgeToolbarModule } from './toolbar';
 import { ForgeTooltipModule } from './tooltip';
 import { ForgeViewModule } from './view';
 import { ForgeViewSwitcherModule } from './view-switcher';
+import { ForgeStackModule } from './stack/stack.module';
 
 @NgModule({
   exports: [
@@ -140,6 +141,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeSliderModule,
     ForgeSplitViewModule,
     ForgeSplitViewPanelModule,
+    ForgeStackModule,
     ForgeStepModule,
     ForgeStepperModule,
     ForgeSwitchModule,

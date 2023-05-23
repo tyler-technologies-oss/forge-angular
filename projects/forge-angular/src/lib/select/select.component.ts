@@ -226,7 +226,7 @@ export class SelectComponent {
 		return this.elementRef.nativeElement.popupClasses;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupHeaderBuilder(value: SelectComponentCustomElement['popupHeaderBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -238,7 +238,7 @@ export class SelectComponent {
 		return this.elementRef.nativeElement.popupHeaderBuilder;
 	}
 
-	/** Gets/sets the list of classes to apply to the popup element. */
+	/** Gets/sets the callback function for generating header content within the popup. */
 	@Input()
 	public set popupFooterBuilder(value: SelectComponentCustomElement['popupFooterBuilder']) {
 		this.zone.runOutsideAngular(() => {
@@ -296,6 +296,33 @@ export class SelectComponent {
 
 	public get observeScrollThreshold(): SelectComponentCustomElement['observeScrollThreshold'] {
 		return this.elementRef.nativeElement.observeScrollThreshold;
+	}
+
+	/** Gets/sets whether the popup width will be constrained to a max width of the viewport width (default: `100vw`). */
+	@Input()
+	public set constrainPopupWidth(value: SelectComponentCustomElement['constrainPopupWidth'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.constrainPopupWidth = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get constrainPopupWidth(): SelectComponentCustomElement['constrainPopupWidth'] {
+		return this.elementRef.nativeElement.constrainPopupWidth;
+	}
+
+	/**
+	 * Gets/sets whether the options will wrap their text or not.
+	 * This only applies if `constrainPopupWidth` is `true`, if there is an explicit width set via CSS.
+	 */
+	@Input()
+	public set wrapOptionText(value: SelectComponentCustomElement['wrapOptionText'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.wrapOptionText = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get wrapOptionText(): SelectComponentCustomElement['wrapOptionText'] {
+		return this.elementRef.nativeElement.wrapOptionText;
 	}
 
 
