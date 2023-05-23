@@ -96,6 +96,18 @@ export class ProfileCardComponent {
 
 
 	@Input()
+	public set avatarIcon(value: ProfileCardComponentCustomElement['avatarIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.avatarIcon = value;
+		});
+	}
+
+	public get avatarIcon(): ProfileCardComponentCustomElement['avatarIcon'] {
+		return this.elementRef.nativeElement.avatarIcon;
+	}
+
+
+	@Input()
 	public set avatarImageUrl(value: ProfileCardComponentCustomElement['avatarImageUrl']) {
 		this.zone.runOutsideAngular(() => {
 			this.elementRef.nativeElement.avatarImageUrl = value;
