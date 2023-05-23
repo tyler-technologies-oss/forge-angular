@@ -64,6 +64,7 @@ export * from './lib/skeleton';
 export * from './lib/slider';
 export * from './lib/split-view';
 export * from './lib/split-view-panel';
+export * from './lib/stack';
 export * from './lib/step';
 export * from './lib/stepper';
 export * from './lib/switch';

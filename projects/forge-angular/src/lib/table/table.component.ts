@@ -277,6 +277,11 @@ export class TableComponent {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.showColumn(...args));
 	}
 
+	/** Determines if a column at the given index is hidden or not. */
+	public isColumnHidden(...args: Parameters<TableComponentCustomElement['isColumnHidden']>): ReturnType<TableComponentCustomElement['isColumnHidden']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.isColumnHidden(...args));
+	}
+
 	/** Returns the selected row instances. */
 	public getSelectedRows(...args: Parameters<TableComponentCustomElement['getSelectedRows']>): ReturnType<TableComponentCustomElement['getSelectedRows']> {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.getSelectedRows(...args));

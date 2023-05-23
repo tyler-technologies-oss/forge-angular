@@ -62,6 +62,7 @@ import { ForgeSkeletonModule } from './skeleton';
 import { ForgeSliderProxyModule } from './slider';
 import { ForgeSplitViewModule } from './split-view';
 import { ForgeSplitViewPanelModule } from './split-view-panel';
+import { ForgeStackModule } from './stack';
 import { ForgeStepModule } from './step';
 import { ForgeStepperModule } from './stepper';
 import { ForgeSwitchProxyModule } from './switch';
@@ -139,6 +140,7 @@ export const proxyModules = [
     ForgeSliderProxyModule,
     ForgeSplitViewModule,
     ForgeSplitViewPanelModule,
+    ForgeStackModule,
     ForgeStepModule,
     ForgeStepperModule,
     ForgeSwitchProxyModule,

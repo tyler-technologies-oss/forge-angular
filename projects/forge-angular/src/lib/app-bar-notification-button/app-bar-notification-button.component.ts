@@ -48,6 +48,18 @@ export class AppBarNotificationButtonComponent {
 
 
 	@Input()
+	public set icon(value: AppBarNotificationButtonComponentCustomElement['icon']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.icon = value;
+		});
+	}
+
+	public get icon(): AppBarNotificationButtonComponentCustomElement['icon'] {
+		return this.elementRef.nativeElement.icon;
+	}
+
+
+	@Input()
 	public set showBadge(value: AppBarNotificationButtonComponentCustomElement['showBadge'] | string) {
 		this.zone.runOutsideAngular(() => {
 			this.elementRef.nativeElement.showBadge = value != null && `${value}` !== 'false';

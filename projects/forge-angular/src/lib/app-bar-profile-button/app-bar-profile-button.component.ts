@@ -72,6 +72,18 @@ export class AppBarProfileButtonComponent {
 
 
 	@Input()
+	public set avatarIcon(value: AppBarProfileButtonComponentCustomElement['avatarIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.avatarIcon = value;
+		});
+	}
+
+	public get avatarIcon(): AppBarProfileButtonComponentCustomElement['avatarIcon'] {
+		return this.elementRef.nativeElement.avatarIcon;
+	}
+
+
+	@Input()
 	public set signOutButton(value: AppBarProfileButtonComponentCustomElement['signOutButton'] | string) {
 		this.zone.runOutsideAngular(() => {
 			this.elementRef.nativeElement.signOutButton = value != null && `${value}` !== 'false';
