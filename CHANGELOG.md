@@ -1,3 +1,24 @@
+# v2.6.0 (Tue May 23 2023)
+
+#### 🚀 Enhancement
+
+- feat: updated workflows [#27](https://github.com/tyler-technologies-oss/forge-angular/pull/27) ([@DRiFTy17](https://github.com/DRiFTy17))
+- feat: regenerate proxies ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### 🐛 Bug Fix
+
+- fix: publish ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### ⚠️ Pushed to `main`
+
+- chore: update workflows ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v2.5.0 (Wed Mar 22 2023)
 
 #### 🚀 Enhancement
