@@ -17,6 +17,8 @@
 - chore: use trailing slash on publish directory path [#25](https://github.com/tyler-technologies-oss/forge-angular/pull/25) ([@DRiFTy17](https://github.com/DRiFTy17))
 - chore: remove node 14 support [#24](https://github.com/tyler-technologies-oss/forge-angular/pull/24) ([@DRiFTy17](https://github.com/DRiFTy17))
 - feat: update to Angular 16 [#23](https://github.com/tyler-technologies-oss/forge-angular/pull/23) ([@samrichardsontylertech](https://github.com/samrichardsontylertech) [@DRiFTy17](https://github.com/DRiFTy17))
+- `ProxyComponentsModule` has been removed -- proxy components are now exported from individual component modules and `ForgeModule`
+- `ViewChild` defaults to reading component instances instead of `ElementRef`s from selected Forge components
 
 #### Authors: 2
 
