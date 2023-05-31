@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { ListValueAccessor } from 'projects/forge-angular/src/lib/list/list-value-accessor.directive';
 import { ForgeListProxyModule } from './list-proxy.module';
+import { ListValueAccessor } from './list-value-accessor.directive';
 
 @NgModule({
 	declarations: [
