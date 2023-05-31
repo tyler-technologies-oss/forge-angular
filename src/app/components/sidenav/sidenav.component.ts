@@ -1,8 +1,8 @@
-import { Component, Input, ViewChild, ElementRef, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IExpansionPanelComponent, IconRegistry } from '@tylertech/forge';
-import { tylIconHome, tylIconSettingsInputComponent, tylIconSettings } from '@tylertech/tyler-icons/standard';
+import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 
 IconRegistry.define([
   tylIconHome,
@@ -59,6 +59,7 @@ export class SidenavComponent implements OnInit {
     { label: 'Icon Button', value: '/component/icon-button' },
     { label: 'Inline Message', value: '/component/inline-message' },
     { label: 'Linear Progress', value: '/component/linear-progress' },
+    { label: 'List', value: '/component/list' },
     { label: 'Menu', value: '/component/menu' },
     { label: 'Page State', value: '/component/page-state' },
     { label: 'Paginator', value: '/component/paginator' },

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IconRegistry } from '@tylertech/forge';
 import {
-  ForgeAutocompleteModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipModule, ForgeChipSetModule, ForgeDatePickerModule, ForgeIconButtonModule, ForgeIconModule, ForgeQuantityFieldModule, ForgeRadioModule, ForgeSelectModule, ForgeSliderModule, ForgeSwitchModule, ForgeTextFieldModule, ForgeTimePickerModule
+  ForgeAutocompleteModule, ForgeButtonModule, ForgeCheckboxModule, ForgeChipModule, ForgeChipSetModule, ForgeDatePickerModule, ForgeIconButtonModule, ForgeIconModule, ForgeListModule, ForgeQuantityFieldModule, ForgeRadioModule, ForgeSelectModule, ForgeSliderModule, ForgeSwitchModule, ForgeTextFieldModule, ForgeTimePickerModule
 } from '@tylertech/forge-angular';
 import { tylIconAddCircleOutline, tylIconRemoveCircleOutline } from '@tylertech/tyler-icons/standard';
 
@@ -32,6 +32,7 @@ import { ReactiveFormExampleComponent } from './reactive-form-example.component'
     ForgeTextFieldModule,
     ForgeTimePickerModule,
     ForgeIconModule,
+    ForgeListModule,
     DemoCardComponent
   ]
 })
