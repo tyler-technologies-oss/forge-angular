@@ -67,20 +67,20 @@ export class ListValueAccessor implements ControlValueAccessor {
     this.onTouched();
   }
 
-  public onChange = (_: any): void => {};
+  public onChange = (_: unknown | unknown[]): void => {};
   public onTouched = (): void => {};
 
   constructor(private _elementRef: ElementRef<IListComponent>, private _renderer: Renderer2) { }
 
-  public writeValue(value: any): void {
+  public writeValue(value: unknown | unknown[]): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'selectedValue', value);
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: (_: unknown | unknown[]) => void): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -92,7 +92,7 @@ export class ListValueAccessor implements ControlValueAccessor {
     });
   }
 
-  public change(value: any | any[]): void {
+  public change(value: unknown | unknown[]): void {
     this.onChange(value);
   }
 }
