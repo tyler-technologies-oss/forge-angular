@@ -15,8 +15,8 @@ export const LIST_VALUE_ACCESSOR: StaticProvider = {
 export class ListValueAccessor implements ControlValueAccessor {
   @HostListener('forge-list-item-select', ['$event'])
   public listItemSelect(event: CustomEvent<IListItemSelectEventData>): void {
-    const { detail: { value } } =  event;
-    let listValue: any[] = this._elementRef.nativeElement.selectedValue;
+    const { detail: { value } } = event;
+    let listValue: unknown[] = this._elementRef.nativeElement.selectedValue;
 
     //
     // Determine control mode: Checkbox or Radio
@@ -24,17 +24,17 @@ export class ListValueAccessor implements ControlValueAccessor {
     const htmlTargetElement = event.target as HTMLElement;
     const matchedInput = htmlTargetElement.querySelector(LIST_ITEM_CONSTANTS.selectors.CHECKBOX_RADIO_SELECTOR);
     let isCheckbox = true;
-    if(matchedInput) {
+    if (matchedInput) {
       const inputElement = matchedInput as HTMLInputElement;
-      if(inputElement.type === 'checkbox') {
+      if (inputElement.type === 'checkbox') {
         isCheckbox = true;
       }
-      else if(inputElement.type === 'radio') {
+      else if (inputElement.type === 'radio') {
         isCheckbox = false;
       }
     }
 
-    if(isCheckbox) {
+    if (isCheckbox) {
       //
       // We're only performing reference checks here since the value is
       // coming from the list-item control, and we're comparing it to
@@ -49,7 +49,7 @@ export class ListValueAccessor implements ControlValueAccessor {
       }
     }
     else {
-      if(listValue.includes(value)) {
+      if (listValue.includes(value)) {
         listValue.splice(listValue.indexOf(value), 1);
       } else {
         listValue = [value]; // Radioboxes can only have a single value
