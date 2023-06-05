@@ -13,9 +13,9 @@ export const LIST_VALUE_ACCESSOR: StaticProvider = {
   providers: [LIST_VALUE_ACCESSOR]
 })
 export class ListValueAccessor implements ControlValueAccessor {
-  /** Controls the multiple selection mode. */
-  @Input('forgeListMultiple')
-  public multiple = true;
+  /** Controls the single selection mode. */
+  @Input('forgeListSingle')
+  public single = false;
 
   /**
    * Responds to individual list item selections and synchronizes the list state based on
@@ -28,7 +28,7 @@ export class ListValueAccessor implements ControlValueAccessor {
     if (listValue.includes(value)) {
       listValue.splice(listValue.indexOf(value), 1);
     } else {
-      const isSingle = !this.multiple || this._containsRadioButton(target as HTMLElement);
+      const isSingle = this.single || this._containsRadioButton(target as HTMLElement);
       listValue = isSingle ? [value] : [...listValue, value];
     }
 
