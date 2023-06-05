@@ -106,6 +106,26 @@
         <label for="agree">Do you agree to the terms of service?</label>
       </forge-checkbox>
     </div>
+    <div class="forge-demo-form-field">
+      <forge-list formControlName="checkedListItems">
+        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
+          {{item.label}}
+          <forge-checkbox slot="trailing">
+            <input type="checkbox" />
+          </forge-checkbox>
+        </forge-list-item>
+      </forge-list>
+    </div>
+    <div class="forge-demo-form-field">
+      <forge-list formControlName="radioListItem" role="radiogroup">
+        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
+          {{item.label}}
+          <forge-radio slot="trailing">
+            <input type="radio" name="listRadioGroup" />
+          </forge-radio>
+        </forge-list-item>
+      </forge-list>
+    </div>
     <div class="forge-form-field">
       <forge-button style="margin-right: 8px;">
         <button (click)="onReset()" [disabled]="!exampleForm.dirty">Reset</button>

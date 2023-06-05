@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { ComponentDemoComponent } from './component-demo.component';
 
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'icon-button', loadChildren: () => import('../../views/components/icon-button/icon-button.module').then(m => m.IconButtonModule) },
   { path: 'inline-message', loadChildren: () => import('../../views/components/inline-message/inline-message.module').then(m => m.InlineMessageModule) },
   { path: 'linear-progress', loadChildren: () => import('../../views/components/linear-progress/linear-progress.module').then(m => m.LinearProgressModule) },
+  { path: 'list', loadChildren: () => import('../../views/components/list/list.module').then(m => m.ListModule) },
   { path: 'menu', loadChildren: () => import('../../views/components/menu/menu.module').then(m => m.MenuModule) },
   { path: 'paginator', loadChildren: () => import('../../views/components/paginator/paginator.module').then(m => m.PaginatorModule) },
   { path: 'popup', loadChildren: () => import('../../views/components/popup/popup.module').then(m => m.PopupModule) },

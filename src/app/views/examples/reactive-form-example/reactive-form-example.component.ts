@@ -16,6 +16,8 @@ interface DemoForm {
   shirtSize: FormControl<'xs' | 's' | 'm' | 'l' | 'xl'>;
   shirtQuantity: FormControl<number>;
   agree: FormControl<boolean>;
+  checkedListItems: FormControl<number[]>;
+  radioListItem: FormControl<number[]>;
 }
 
 @Component({
@@ -44,7 +46,9 @@ export class ReactiveFormExampleComponent implements OnInit {
       favoriteNumber: new FormControl(0, { nonNullable: true, validators: Validators.required }),
       shirtSize: new FormControl('m', { nonNullable: true, validators: Validators.required }),
       shirtQuantity: new FormControl(1, { nonNullable: true, validators: Validators.min(1) }),
-      agree: new FormControl(false, { nonNullable: true, validators: Validators.required })
+      agree: new FormControl(false, { nonNullable: true, validators: Validators.required }),
+      checkedListItems: new FormControl([], { nonNullable: true }),
+      radioListItem: new FormControl([], { nonNullable: true })
     });
 
     this.shirtQuantityControl = this.exampleForm.controls.shirtQuantity;
@@ -128,6 +132,25 @@ export class ReactiveFormExampleComponent implements OnInit {
     { label: 'West Virginia', value: 'WV' },
     { label: 'Wisconsin', value: 'WI' },
     { label: 'Wyoming', value: 'WY' }
+  ];
+
+  public listItems = [
+    {
+      label: 'List Item One',
+      value: 1
+    },
+    {
+      label: 'List Item Two',
+      value: 2
+    },
+    {
+      label: 'List Item Three',
+      value: 3
+    },
+    {
+      label: 'List Item Four',
+      value: 4
+    }
   ];
 
   public isInvalid(name: string): boolean {
