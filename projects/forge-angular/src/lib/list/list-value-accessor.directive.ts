@@ -18,7 +18,7 @@ export class ListValueAccessor implements ControlValueAccessor {
   public multiple = true;
 
   /**
-   * This method responds to individual list item selections and synchronizes the list state based on
+   * Responds to individual list item selections and synchronizes the list state based on
    * whether single or multiple selections are allowed.
    */
   @HostListener('forge-list-item-select', ['$event'])
@@ -36,7 +36,7 @@ export class ListValueAccessor implements ControlValueAccessor {
     this.change(listValue);
   }
 
-  @HostListener('blur', ['$event'])
+  @HostListener('blur')
   public blur(): void {
     this.onTouched();
   }
