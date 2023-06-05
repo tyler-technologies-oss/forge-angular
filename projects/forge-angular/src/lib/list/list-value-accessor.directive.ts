@@ -1,6 +1,6 @@
-import { Directive, ElementRef, forwardRef, HostListener, Renderer2, StaticProvider } from '@angular/core';
+import { Directive, ElementRef, forwardRef, HostListener, Input, Renderer2, StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IListComponent, IListItemComponent, IListItemSelectEventData, LIST_ITEM_CONSTANTS } from '@tylertech/forge';
+import { IListComponent, IListItemSelectEventData, LIST_ITEM_CONSTANTS } from '@tylertech/forge';
 
 export const LIST_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -9,61 +9,35 @@ export const LIST_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: `forge-list[formControlName],forge-list[formControl],forge-list[ngModel]`,
+  selector: 'forge-list[formControlName],forge-list[formControl],forge-list[ngModel]',
   providers: [LIST_VALUE_ACCESSOR]
 })
 export class ListValueAccessor implements ControlValueAccessor {
+  /** Controls the multiple selection mode. */
+  @Input('forgeListMultiple')
+  public multiple = true;
+
+  /**
+   * This method responds to individual list item selections and synchronizes the list state based on
+   * whether single or multiple selections are allowed.
+   */
   @HostListener('forge-list-item-select', ['$event'])
-  public listItemSelect(event: CustomEvent<IListItemSelectEventData>): void {
-    const { detail: { value } } = event;
-    let listValue: unknown[] = this._elementRef.nativeElement.selectedValue;
-
-    //
-    // Determine control mode: Checkbox or Radio
-    //
-    const htmlTargetElement = event.target as HTMLElement;
-    const matchedInput = htmlTargetElement.querySelector(LIST_ITEM_CONSTANTS.selectors.CHECKBOX_RADIO_SELECTOR);
-    let isCheckbox = true;
-    if (matchedInput) {
-      const inputElement = matchedInput as HTMLInputElement;
-      if (inputElement.type === 'checkbox') {
-        isCheckbox = true;
-      }
-      else if (inputElement.type === 'radio') {
-        isCheckbox = false;
-      }
+  public listItemSelect({ target, detail: { value }}: CustomEvent<IListItemSelectEventData>): void {
+    let listValue: unknown[] = [...this._elementRef.nativeElement.selectedValue];
+    
+    if (listValue.includes(value)) {
+      listValue.splice(listValue.indexOf(value), 1);
+    } else {
+      const isSingle = !this.multiple || this._containsRadioButton(target as HTMLElement);
+      listValue = isSingle ? [value] : [...listValue, value];
     }
 
-    if (isCheckbox) {
-      //
-      // We're only performing reference checks here since the value is
-      // coming from the list-item control, and we're comparing it to
-      // the list control's selectedValue. Internally, selectedValue is performing
-      // reference checks as well. If this change, this check will also need
-      // to be changed to match.
-      //
-      if (listValue.includes(value)) {
-        listValue.splice(listValue.indexOf(value), 1);
-      } else {
-        listValue = [...listValue, value];
-      }
-    }
-    else {
-      if (listValue.includes(value)) {
-        listValue.splice(listValue.indexOf(value), 1);
-      } else {
-        listValue = [value]; // Radioboxes can only have a single value
-      }
-    }
-
-    // Update the component state
     this.writeValue(listValue);
-
     this.change(listValue);
   }
 
   @HostListener('blur', ['$event'])
-  public blur(event: Event): void {
+  public blur(): void {
     this.onTouched();
   }
 
@@ -85,8 +59,7 @@ export class ListValueAccessor implements ControlValueAccessor {
   }
 
   public setDisabledState(isDisabled: boolean): void {
-    const listItems = Array.from(this._elementRef.nativeElement.querySelectorAll(LIST_ITEM_CONSTANTS.elementName)) as IListItemComponent[];
-
+    const listItems = this._elementRef.nativeElement.querySelectorAll('forge-list-item');
     listItems.forEach((listItem) => {
       this._renderer.setProperty(listItem, 'disabled', isDisabled);
     });
@@ -94,5 +67,10 @@ export class ListValueAccessor implements ControlValueAccessor {
 
   public change(value: unknown | unknown[]): void {
     this.onChange(value);
+  }
+
+  private _containsRadioButton(target: HTMLElement): boolean {
+    const el = target.querySelector(LIST_ITEM_CONSTANTS.selectors.CHECKBOX_RADIO_SELECTOR) as HTMLInputElement | null;
+    return el?.type === 'radio';
   }
 }
