@@ -1,3 +1,25 @@
+# v3.2.0 (Mon Jun 05 2023)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Alan Collins ([@Alanoll](https://github.com/Alanoll)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(list): Add a ControlValueAccessor for the forge-list component [#29](https://github.com/tyler-technologies-oss/forge-angular/pull/29) ([@Alanoll](https://github.com/Alanoll) [@DRiFTy17](https://github.com/DRiFTy17))
+
+#### 📝 Documentation
+
+- docs: update changelog with breaking changes related to proxy components [#28](https://github.com/tyler-technologies-oss/forge-angular/pull/28) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 3
+
+- Alan Collins ([@Alanoll](https://github.com/Alanoll))
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v3.1.0 (Tue May 23 2023)
 
 #### 🚀 Enhancement
