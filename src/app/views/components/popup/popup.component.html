@@ -3,6 +3,10 @@
     <button #popup="forgePopup" [forgePopup]="popupTemplate" (click)="popupOpen(popup)" forgePopupClass="test-class" (forge-popup-open)="popupOpened()" (forge-popup-close)="popupClosed()">Show popup</button>
   </forge-button>
 
+  <forge-button type="raised" style="margin-left: 16px;">
+    <button #targetButton (click)="showPopupViaService(targetButton)">Show popup using service</button>
+  </forge-button>
+
   <ng-template #popupTemplate>
     <!-- The root node of the template can be the forge-popup element for granular control -->
     <forge-popup animation-type="menu">
