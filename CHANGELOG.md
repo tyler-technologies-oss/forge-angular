@@ -1,3 +1,15 @@
+# v3.3.0 (Mon Aug 28 2023)
+
+#### 🚀 Enhancement
+
+- feat(popup-service): dynamically render component in forge-popup [#30](https://github.com/tyler-technologies-oss/forge-angular/pull/30) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v3.2.0 (Mon Jun 05 2023)
 
 :tada: This release contains work from a new contributor! :tada:
