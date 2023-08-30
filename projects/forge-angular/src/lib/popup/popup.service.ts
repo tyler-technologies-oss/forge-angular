@@ -73,8 +73,7 @@ export class PopupService {
       sub.unsubscribe();
     });
 
-    // Event is dispatched on the target element, not the popup itself
-    options.targetElement.addEventListener(POPUP_CONSTANTS.events.CLOSE, () => {
+    popupElement.addEventListener(POPUP_CONSTANTS.events.CLOSE, () => {
       popupRef.close();
       this._destroy(popupElement, dcRef);
       sub.unsubscribe();
