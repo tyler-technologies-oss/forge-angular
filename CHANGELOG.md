@@ -1,3 +1,15 @@
+# v3.3.1 (Wed Aug 30 2023)
+
+#### 🐛 Bug Fix
+
+- fix(popup-service): handle close event from popup itself [#31](https://github.com/tyler-technologies-oss/forge-angular/pull/31) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v3.3.0 (Mon Aug 28 2023)
 
 #### 🚀 Enhancement
