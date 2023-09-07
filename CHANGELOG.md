@@ -1,3 +1,15 @@
+# v2.7.1 (Thu Sep 07 2023)
+
+#### 🐛 Bug Fix
+
+- fix(popup-service) detect changes to fix initial position (2.x) [#34](https://github.com/tyler-technologies-oss/forge-angular/pull/34) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v2.7.0 (Wed Aug 30 2023)
 
 #### 🚀 Enhancement
