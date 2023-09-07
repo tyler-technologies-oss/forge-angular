@@ -1,3 +1,39 @@
+# v3.0.0 (Thu Sep 07 2023)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Alan Collins ([@Alanoll](https://github.com/Alanoll)), for all your work!
+
+#### 💥 Breaking Change
+
+- chore: use trailing slash on publish directory path [#25](https://github.com/tyler-technologies-oss/forge-angular/pull/25) ([@DRiFTy17](https://github.com/DRiFTy17))
+- chore: remove node 14 support [#24](https://github.com/tyler-technologies-oss/forge-angular/pull/24) ([@DRiFTy17](https://github.com/DRiFTy17))
+- feat: update to Angular 16 [#23](https://github.com/tyler-technologies-oss/forge-angular/pull/23) ([@samrichardsontylertech](https://github.com/samrichardsontylertech) [@DRiFTy17](https://github.com/DRiFTy17))
+
+#### 🚀 Enhancement
+
+- feat(popup-service): dynamically render component in forge-popup [#30](https://github.com/tyler-technologies-oss/forge-angular/pull/30) ([@MikeMatusz](https://github.com/MikeMatusz))
+- feat(list): Add a ControlValueAccessor for the forge-list component [#29](https://github.com/tyler-technologies-oss/forge-angular/pull/29) ([@Alanoll](https://github.com/Alanoll) [@DRiFTy17](https://github.com/DRiFTy17))
+- feat(stack): regenerated proxies [#26](https://github.com/tyler-technologies-oss/forge-angular/pull/26) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### 🐛 Bug Fix
+
+- fix(popup-service): detect changes to fix initial position [#33](https://github.com/tyler-technologies-oss/forge-angular/pull/33) ([@MikeMatusz](https://github.com/MikeMatusz))
+- fix(popup-service): handle close event from popup itself [#31](https://github.com/tyler-technologies-oss/forge-angular/pull/31) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### 📝 Documentation
+
+- docs: update changelog with breaking changes related to proxy components [#28](https://github.com/tyler-technologies-oss/forge-angular/pull/28) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 4
+
+- Alan Collins ([@Alanoll](https://github.com/Alanoll))
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v3.3.1 (Wed Aug 30 2023)
 
 #### 🐛 Bug Fix
