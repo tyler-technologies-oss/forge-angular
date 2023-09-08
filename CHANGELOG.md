@@ -1,3 +1,17 @@
+# v3.3.2 (Fri Sep 08 2023)
+
+#### 🐛 Bug Fix
+
+- fix(popup-service): update comment [#35](https://github.com/tyler-technologies-oss/forge-angular/pull/35) ([@DRiFTy17](https://github.com/DRiFTy17))
+- fix(popup-service): detect changes to fix initial position [#33](https://github.com/tyler-technologies-oss/forge-angular/pull/33) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 2
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v3.0.0 (Thu Sep 07 2023)
 
 :tada: This release contains work from a new contributor! :tada:
