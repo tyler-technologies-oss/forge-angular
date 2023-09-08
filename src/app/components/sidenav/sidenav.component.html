@@ -1,11 +1,11 @@
 <ng-container *ngIf="isSmallViewPort; else largeViewPort">
-  <forge-modal-drawer (window:resize)="adjustDrawer()" (forge-drawer-close)="closeSidenav()" type="modal" open="false" [open]="open">
+  <forge-modal-drawer (window:resize)="adjustDrawer()" (forge-modal-drawer-close)="closeSidenav()" type="modal" open="false" [open]="open">
     <ng-container *ngTemplateOutlet="sidenavContent"></ng-container>
   </forge-modal-drawer>
 </ng-container>
 
 <ng-template #largeViewPort>
-  <forge-drawer (window:resize)="adjustDrawer()" (forge-drawer-close)="closeSidenav()" [open]="open">
+  <forge-drawer (window:resize)="adjustDrawer()" [open]="open">
     <ng-container *ngTemplateOutlet="sidenavContent"></ng-container>
   </forge-drawer>
 </ng-template>

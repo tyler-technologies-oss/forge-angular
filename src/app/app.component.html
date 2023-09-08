@@ -1,6 +1,6 @@
 <forge-scaffold>
   <app-header slot="header" (menuClicked)="onMenuClicked()"></app-header>
-  <app-sidenav slot="body-left" [open]="isDrawerOpen"></app-sidenav>
+  <app-sidenav slot="body-left" [open]="isDrawerOpen" (onClose)="isDrawerOpen = false"></app-sidenav>
   <div class="app-content" slot="body">
     <router-outlet></router-outlet>
   </div>

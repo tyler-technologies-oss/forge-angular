@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IExpansionPanelComponent, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
@@ -33,6 +33,8 @@ export class SidenavComponent implements OnInit {
   public open: boolean;
   public drawerType: string;
   public isSmallViewPort: boolean;
+
+  @Output() public onClose = new EventEmitter();
 
   @HostListener('window:resize')
   public onResize() {
@@ -108,6 +110,7 @@ export class SidenavComponent implements OnInit {
 
   public closeSidenav() {
     this.open = false;
+    this.onClose.emit();
   }
 
   public adjustDrawer() {
