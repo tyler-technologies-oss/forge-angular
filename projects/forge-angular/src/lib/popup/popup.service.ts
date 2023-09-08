@@ -79,7 +79,7 @@ export class PopupService {
       sub.unsubscribe();
     });
     
-    // Force initial change detection so component size can affect initial positioning.
+    // Force initial change detection so component size can affect initial positioning
     dcRef.componentRef.changeDetectorRef.detectChanges();
 
     // Appends the popup element to the DOM
