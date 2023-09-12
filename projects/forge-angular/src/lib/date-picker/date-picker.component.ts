@@ -262,6 +262,18 @@ export class DatePickerComponent {
 		return this.elementRef.nativeElement.yearRange;
 	}
 
+	/** Sets the locale to use. */
+	@Input()
+	public set locale(value: DatePickerComponentCustomElement['locale']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.locale = value;
+		});
+	}
+
+	public get locale(): DatePickerComponentCustomElement['locale'] {
+		return this.elementRef.nativeElement.locale;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<DatePickerComponentCustomElement>,
