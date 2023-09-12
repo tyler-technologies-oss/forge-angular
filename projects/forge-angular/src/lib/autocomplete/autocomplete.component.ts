@@ -70,6 +70,18 @@ export class AutocompleteComponent {
 		return this.elementRef.nativeElement.filterOnFocus;
 	}
 
+	/** Gets/sets whether the first option in the dropdown will be focused automatically when opened or not. */
+	@Input()
+	public set filterFocusFirst(value: AutocompleteComponentCustomElement['filterFocusFirst'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.filterFocusFirst = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get filterFocusFirst(): AutocompleteComponentCustomElement['filterFocusFirst'] {
+		return this.elementRef.nativeElement.filterFocusFirst;
+	}
+
 	/** Controls whether unmatched text entered by the user will stay visible an option in the dropdown is not found. */
 	@Input()
 	public set allowUnmatched(value: AutocompleteComponentCustomElement['allowUnmatched'] | string) {
