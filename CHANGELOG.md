@@ -1,3 +1,15 @@
+# v3.3.3 (Tue Sep 12 2023)
+
+#### 🐛 Bug Fix
+
+- fix(proxies): regenerate proxy components to bring in missing props [#37](https://github.com/tyler-technologies-oss/forge-angular/pull/37) ([@Alex-Oxthorn](https://github.com/Alex-Oxthorn))
+
+#### Authors: 1
+
+- Alex Oxthorn ([@Alex-Oxthorn](https://github.com/Alex-Oxthorn))
+
+---
+
 # v3.3.2 (Fri Sep 08 2023)
 
 #### 🐛 Bug Fix
