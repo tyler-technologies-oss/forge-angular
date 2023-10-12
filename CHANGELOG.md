@@ -1,3 +1,15 @@
+# v2.7.3 (Thu Oct 12 2023)
+
+#### 🐛 Bug Fix
+
+- fix(autocomplete-value-accessor): fix to allow for setting disabled state of the autocomplete <input> element via reactive form controls [#40](https://github.com/tyler-technologies-oss/forge-angular/pull/40) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v2.7.2 (Tue Sep 12 2023)
 
 #### 🐛 Bug Fix
