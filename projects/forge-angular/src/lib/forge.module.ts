@@ -15,6 +15,7 @@ import { ForgeBannerModule } from './banner';
 import { ForgeBottomSheetModule } from './bottom-sheet';
 import { ForgeBusyIndicatorModule } from './busy-indicator';
 import { ForgeButtonModule } from './button';
+import { ForgeButtonAreaModule } from './button-area';
 import { ForgeButtonToggleGroupModule } from './button-toggle-group';
 import { ForgeButtonToggleModule } from './button-toggle/button-toggle.module';
 import { ForgeCalendarModule } from './calendar';
@@ -62,6 +63,7 @@ import { ForgeSkeletonModule } from './skeleton';
 import { ForgeSliderModule } from './slider/slider.module';
 import { ForgeSplitViewModule } from './split-view';
 import { ForgeSplitViewPanelModule } from './split-view-panel';
+import { ForgeStackModule } from './stack/stack.module';
 import { ForgeStepModule } from './step';
 import { ForgeStepperModule } from './stepper';
 import { ForgeSwitchModule } from './switch';
@@ -75,7 +77,6 @@ import { ForgeToolbarModule } from './toolbar';
 import { ForgeTooltipModule } from './tooltip';
 import { ForgeViewModule } from './view';
 import { ForgeViewSwitcherModule } from './view-switcher';
-import { ForgeStackModule } from './stack/stack.module';
 
 @NgModule({
   exports: [
@@ -94,6 +95,7 @@ import { ForgeStackModule } from './stack/stack.module';
     ForgeBottomSheetModule,
     ForgeBusyIndicatorModule,
     ForgeButtonModule,
+    ForgeButtonAreaModule,
     ForgeButtonToggleModule,
     ForgeButtonToggleGroupModule,
     ForgeCalendarModule,
@@ -154,7 +156,7 @@ import { ForgeStackModule } from './stack/stack.module';
     ForgeToolbarModule,
     ForgeTooltipModule,
     ForgeViewModule,
-    ForgeViewSwitcherModule
-  ]
+    ForgeViewSwitcherModule,
+  ],
 })
 export class ForgeModule {}
