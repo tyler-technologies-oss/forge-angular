@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { PaginatorComponent as PaginatorComponentCustomElement, definePaginatorComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-paginator>` component. */
+/**  */
 @Component({
   selector: 'forge-paginator',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -34,6 +34,18 @@ export class OptionComponent {
 		return this.elementRef.nativeElement.label;
 	}
 
+	/** Gets/sets the secondary label of this option. */
+	@Input()
+	public set secondaryLabel(value: OptionComponentCustomElement['secondaryLabel']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.secondaryLabel = value;
+		});
+	}
+
+	public get secondaryLabel(): OptionComponentCustomElement['secondaryLabel'] {
+		return this.elementRef.nativeElement.secondaryLabel;
+	}
+
 	/** Gets/sets the disabled status of this option. */
 	@Input()
 	public set disabled(value: OptionComponentCustomElement['disabled'] | string) {
@@ -106,6 +118,18 @@ export class OptionComponent {
 		return this.elementRef.nativeElement.leadingIconType;
 	}
 
+	/** Gets/sets properties on leading icon component. */
+	@Input()
+	public set leadingIconComponentProps(value: OptionComponentCustomElement['leadingIconComponentProps']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.leadingIconComponentProps = value;
+		});
+	}
+
+	public get leadingIconComponentProps(): OptionComponentCustomElement['leadingIconComponentProps'] {
+		return this.elementRef.nativeElement.leadingIconComponentProps;
+	}
+
 	/** Gets/sets the trailing icon of this option. */
 	@Input()
 	public set trailingIcon(value: OptionComponentCustomElement['trailingIcon']) {
@@ -140,6 +164,18 @@ export class OptionComponent {
 
 	public get trailingIconType(): OptionComponentCustomElement['trailingIconType'] {
 		return this.elementRef.nativeElement.trailingIconType;
+	}
+
+	/** Gets/sets properties on trailing icon component. */
+	@Input()
+	public set trailingIconComponentProps(value: OptionComponentCustomElement['trailingIconComponentProps']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.trailingIconComponentProps = value;
+		});
+	}
+
+	public get trailingIconComponentProps(): OptionComponentCustomElement['trailingIconComponentProps'] {
+		return this.elementRef.nativeElement.trailingIconComponentProps;
 	}
 
 	/** Gets/sets the leading builder of this option. */

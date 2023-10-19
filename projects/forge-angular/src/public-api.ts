@@ -16,6 +16,7 @@ export * from './lib/banner';
 export * from './lib/bottom-sheet';
 export * from './lib/busy-indicator';
 export * from './lib/button';
+export * from './lib/button-area';
 export * from './lib/button-toggle';
 export * from './lib/button-toggle-group';
 export * from './lib/calendar';

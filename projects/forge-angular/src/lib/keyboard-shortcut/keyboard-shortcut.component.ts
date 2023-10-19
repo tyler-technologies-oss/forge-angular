@@ -118,6 +118,18 @@ export class KeyboardShortcutComponent {
 		return this.elementRef.nativeElement.disabled;
 	}
 
+	/** Gets/sets whether the activation callback. */
+	@Input()
+	public set activateCallback(value: KeyboardShortcutComponentCustomElement['activateCallback']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.activateCallback = value;
+		});
+	}
+
+	public get activateCallback(): KeyboardShortcutComponentCustomElement['activateCallback'] {
+		return this.elementRef.nativeElement.activateCallback;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<KeyboardShortcutComponentCustomElement>,
