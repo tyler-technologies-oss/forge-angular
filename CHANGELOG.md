@@ -1,3 +1,15 @@
+# v3.4.0 (Thu Oct 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(button-area): add button area proxy [#41](https://github.com/tyler-technologies-oss/forge-angular/pull/41) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 1
+
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v3.3.4 (Thu Oct 12 2023)
 
 #### 🐛 Bug Fix
