@@ -24,7 +24,7 @@ from its own Angular module to allow for opting in to include only specific comp
 
 | `@tylertech/forge-angular`  | Angular              | Forge
 | ----------------------------| ---------------------| --------
-| `^3.0.0`                    | `^16.0.0`            | `^2.0.0`
+| `^3.0.0`                    | `>=16.0.0 < 18.0.0`  | `^2.0.0`
 | `^2.0.0`                    | `>=13.3.0 < 16.0.0`  | `^2.0.0`
 
 ## Getting started
