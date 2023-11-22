@@ -1,3 +1,15 @@
+# v3.4.1 (Wed Nov 22 2023)
+
+#### 🐛 Bug Fix
+
+- fix: allow use with angular v17 [#42](https://github.com/tyler-technologies-oss/forge-angular/pull/42) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 1
+
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v3.4.0 (Thu Oct 19 2023)
 
 #### 🚀 Enhancement
