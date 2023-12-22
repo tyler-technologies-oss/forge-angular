@@ -1,3 +1,15 @@
+# v3.5.0 (Fri Dec 22 2023)
+
+#### 🚀 Enhancement
+
+- feat: regenerated proxy components with latest changes [#43](https://github.com/tyler-technologies-oss/forge-angular/pull/43) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.4.1 (Wed Nov 22 2023)
 
 #### 🐛 Bug Fix
