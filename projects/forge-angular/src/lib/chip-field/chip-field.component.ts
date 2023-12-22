@@ -10,6 +10,18 @@ import { ChipFieldComponent as ChipFieldComponentCustomElement, defineChipFieldC
 })
 export class ChipFieldComponent {
 
+	/** Controls whether or not the value should be set onBlur */
+	@Input()
+	public set addOnBlur(value: ChipFieldComponentCustomElement['addOnBlur'] | string) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.addOnBlur = value != null && `${value}` !== 'false';
+		});
+	}
+
+	public get addOnBlur(): ChipFieldComponentCustomElement['addOnBlur'] {
+		return this.elementRef.nativeElement.addOnBlur;
+	}
+
 	/** Controls the density type. */
 	@Input()
 	public set density(value: ChipFieldComponentCustomElement['density']) {
