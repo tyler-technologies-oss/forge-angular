@@ -142,6 +142,23 @@ export class PaginatorComponent {
 		return this.elementRef.nativeElement.alignment;
 	}
 
+
+	@Input()
+	public set rangeLabelCallback(value: PaginatorComponentCustomElement['rangeLabelCallback']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.rangeLabelCallback = value;
+		});
+	}
+
+	public get rangeLabelCallback(): PaginatorComponentCustomElement['rangeLabelCallback'] {
+		return this.elementRef.nativeElement.rangeLabelCallback;
+	}
+
+
+	public focus(...args: Parameters<PaginatorComponentCustomElement['focus']>): ReturnType<PaginatorComponentCustomElement['focus']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.focus(...args));
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<PaginatorComponentCustomElement>,
