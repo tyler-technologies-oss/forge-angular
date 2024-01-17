@@ -31,12 +31,7 @@ export class DialogService implements OnDestroy {
    * @param component The component reference.
    * @param config The configuration to provide to the dynamic component as an injectable token.
    */
-  public show<T, K>(
-    component: Type<T>,
-    options?: IDialogOptions,
-    config?: DialogConfig,
-    moduleRef?: NgModuleRef<K>
-  ): DialogRef<T> {
+  public show<T, K>(component: Type<T> | ComponentFactory<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>): DialogRef<T> {
     const dialogRef = this._showDialog(component, options, config, moduleRef);
     this._dialogRefs.push(dialogRef);
     dialogRef.afterClosed.pipe(take(1), takeUntil(this._unsubscribe$)).subscribe(() => this._removeDialogRef(dialogRef));
@@ -121,19 +116,8 @@ export class DialogService implements OnDestroy {
     this._closeAllDialogs(result);
   }
 
-  private _closeAllDialogs(result: boolean, recursiveExecutionCount = 0): void {
-    if (recursiveExecutionCount > 2) {
-      throw new Error('Could not close all dialogs. Reason: Too many nested dialogs.');
-    }
-
+  private _closeAllDialogs(result: boolean): void {
     this._dialogRefs.forEach((ref) => ref.close(result));
-    console.table(this._dialogRefs);
-
-    // This is here to close any dialogs that open as a result of other dialogs closing
-    // e.g. A dirty dialog opening when a dirty form dialog closes.
-    if (this._dialogRefs.length > 0) {
-      this._closeAllDialogs(result, ++recursiveExecutionCount);
-    }
   }
 
   private _removeDialogRef(ref: DialogRef): void {
