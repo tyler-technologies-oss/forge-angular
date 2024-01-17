@@ -109,7 +109,7 @@ export class DialogService implements OnDestroy {
   }
 
   /**
-   * Closes all dialogs. Will close up to 2 nested dialogs.
+   * Closes all dialogs.
    * @param result The result of closing the dialogs. Default is false.
    */
   public closeAllDialogs(result = false): void {
