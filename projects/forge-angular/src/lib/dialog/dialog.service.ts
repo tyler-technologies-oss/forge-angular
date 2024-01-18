@@ -20,7 +20,8 @@ export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attribu
   providedIn: 'root'
 })
 export class DialogService implements OnDestroy {
-  private _dialogRefs: DialogRef[] = [];
+  
+  private _openDialogRefs: DialogRef[] = [];
   private _unsubscribe$ = new Subject();
   constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
     defineDialogComponent();
@@ -33,7 +34,7 @@ export class DialogService implements OnDestroy {
    */
   public show<T, K>(component: Type<T> | ComponentFactory<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>): DialogRef<T> {
     const dialogRef = this._showDialog(component, options, config, moduleRef);
-    this._dialogRefs.push(dialogRef);
+    this._openDialogRefs.push(dialogRef);
     dialogRef.afterClosed.pipe(take(1), takeUntil(this._unsubscribe$)).subscribe(() => this._removeDialogRef(dialogRef));
     return dialogRef;
   }
@@ -116,16 +117,27 @@ export class DialogService implements OnDestroy {
     this._closeAllDialogs(result);
   }
 
-  private _closeAllDialogs(result: boolean): void {
-    this._dialogRefs.forEach((ref) => ref.close(result));
+  private _closeAllDialogs(result: boolean, recursiveExecutionCount = 0): void {
+    if (recursiveExecutionCount > 2) {
+      throw new Error('Could not close all dialogs. Reason: Too many nested dialogs.');
+    }
+
+    this._openDialogRefs.forEach((ref) => ref.close(result));
+    console.table(this._openDialogRefs);
+
+    // This is here to close any dialogs that open as a result of other dialogs closing
+    // e.g. A dirty dialog opening when a dirty form dialog closes.
+    if (this._openDialogRefs.length > 0) {
+      this._closeAllDialogs(result, ++recursiveExecutionCount);
+    }
   }
 
   private _removeDialogRef(ref: DialogRef): void {
-    const index = this._dialogRefs.findIndex((dlgRef) => ref === dlgRef);
+    const index = this._openDialogRefs.findIndex((dlgRef) => ref === dlgRef);
     if (index < 0) {
       return;
     }
 
-    this._dialogRefs.splice(index, 1);
+    this._openDialogRefs.splice(index, 1);
   }
 }
