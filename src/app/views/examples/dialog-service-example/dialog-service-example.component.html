@@ -1,0 +1,37 @@
+<app-demo-card headerText="Dialog Service Example" [fullWidth]="true">
+
+  <p class="forge-typography--subtitle1">
+    The Dialog service will keep track of dialogs that have been opened.  
+    When the dialog is closed, the service will destroy the reference.
+  </p>
+
+  <p class="forge-typography--subtitle1">
+    From the service, all dialogs can be closed by calling <code>closeAllDialogs()</code>.
+  </p>
+
+  <h2>Example Use:</h2>
+
+  <p class="forge-typography--subtitle1">
+    If your application includes a session idle monitoring service, the dialog service can be invoked to close all active dialogs when the idle service logs out the user. 
+    This ensures that there is no inadvertent access due to an open dialog when the session terminates.
+  </p>
+ 
+  <forge-divider></forge-divider>
+
+  <div style="display: flex; align-items: center; justify-content: space-around;">
+    <div  style="display: flex; flex-direction: column; align-items: start; justify-content: space-around;">
+      <forge-text-field>
+        <label for="input-id">Set timeout</label>
+        <input  [(ngModel)]="counter"  type="number" value="{{counter}}"/>
+      </forge-text-field>
+      <forge-checkbox>
+        <input type="checkbox" id="backdropClose" [(ngModel)]="result" />
+        <label for="backdropClose">Close result: {{result}}</label>
+      </forge-checkbox>
+    </div>
+    <forge-button type="raised">
+      <button (click)="showDialog()">Open dialog</button>
+    </forge-button>
+  </div>
+
+</app-demo-card>
