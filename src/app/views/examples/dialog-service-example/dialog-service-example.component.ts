@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DialogService, IDialogOptions, ToastService } from '@tylertech/forge-angular';
 import { DialogComponent } from './dialog/dialog.component';
-import { FormControl } from '@angular/forms';
 import { take } from 'rxjs';
 
 @Component({
@@ -25,8 +24,6 @@ export class DialogServiceExampleComponent {
     const dialogOptions: IDialogOptions = {
       backdropClose: false,
       escapeClose: false,
-      // fullscreen: this.fullscreen,
-      moveable: true,
       attributes: new Map([
         ['aria-labelledby', 'dialog-title'],
         ['aria-describedby', 'dialog-desc']
