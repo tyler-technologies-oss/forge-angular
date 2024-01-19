@@ -117,6 +117,7 @@ export class DialogService implements OnDestroy {
     this._closeAllDialogs(result);
   }
 
+  // While multiple dialogs is an anti-UX pattern, this is a minimal safeguard to protect against dirty dialogs
   private _closeAllDialogs(result: boolean, recursiveExecutionCount = 0): void {
     if (recursiveExecutionCount > 2) {
       throw new Error('Could not close all dialogs. Reason: Too many nested dialogs.');
