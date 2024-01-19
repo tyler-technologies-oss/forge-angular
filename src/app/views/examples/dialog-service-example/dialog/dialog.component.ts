@@ -8,20 +8,19 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent {
-  private counter: number;
   public counter$: Observable<number>;
 
   constructor(public dialogConfig: DialogConfig) {
-    this.counter = dialogConfig.data.counter;
+    let localCounter = dialogConfig.data.counter;
     
     this.counter$ = new Observable(observer => {
       const interval = setInterval(() => {
-        observer.next(this.counter);
-        if (this.counter === 0) {
+        observer.next(localCounter);
+        if (localCounter === 0) {
           clearInterval(interval);
           observer.complete();
         }
-        this.counter--;
+        localCounter--;
       }, 1000);
     });
   }

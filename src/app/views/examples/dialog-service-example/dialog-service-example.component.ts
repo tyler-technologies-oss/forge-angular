@@ -54,7 +54,7 @@ export class DialogServiceExampleComponent {
 
     const interval = setInterval(() => {
       localCounter--;
-      if (localCounter === 0) {
+      if (localCounter < 0) {
         clearInterval(interval);
         console.log('closing all dialog');
         this._dialogService.closeAllDialogs(this.result);
