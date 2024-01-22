@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DialogService, IDialogOptions, ToastService } from '@tylertech/forge-angular';
 import { DialogComponent } from './dialog/dialog.component';
 import { take } from 'rxjs';
+import { CountDownDialogComponent } from './count-down-dialog/count-down-dialog.component';
 
 @Component({
   selector: 'app-dialog-service-example',
@@ -9,7 +10,6 @@ import { take } from 'rxjs';
   styleUrls: ['./dialog-service-example.component.scss']
 })
 export class DialogServiceExampleComponent {
-  public counter = 3;
   public result = false;
 
 
@@ -19,8 +19,14 @@ export class DialogServiceExampleComponent {
     ) {}
 
   public async showDialog(): Promise<void> {
-    let localCounter = this.counter;
+    this._dialogService.show(DialogComponent);
 
+    setTimeout(() => {
+      this._openCountDownDialog();
+    }, 2000);
+  }
+
+  private _openCountDownDialog(): void {
     const dialogOptions: IDialogOptions = {
       backdropClose: false,
       escapeClose: false,
@@ -30,25 +36,26 @@ export class DialogServiceExampleComponent {
       ]),
       closeCallback: () => console.log('closeCallback')
     };
-
+    
     const dialogConfig = {
       data: {
-        counter: 3
+        counter: 5
       }
     };
-
-    const dialogRef = this._dialogService.show(
-      DialogComponent,
+    
+    const countDownDialogRef = this._dialogService.show(
+      CountDownDialogComponent,
       dialogOptions,
       dialogConfig
-    );
-    console.log('Native Forge dialog instance', dialogRef.nativeElement);
-    console.log('[DialogRef] Angular componentInstance', dialogRef.componentInstance);
+      );
+    console.log('Native Forge dialog instance', countDownDialogRef.nativeElement);
+    console.log('[DialogRef] Angular componentInstance', countDownDialogRef.componentInstance);
 
-    dialogRef.afterClosed.pipe(take(1)).subscribe(result => {
+    countDownDialogRef.afterClosed.pipe(take(1)).subscribe(result => {
       this._toastService.show(`Dialog closed with result: ${result}`);
     });
-
+    
+    let localCounter = 5;
     const interval = setInterval(() => {
       localCounter--;
       if (localCounter < 0) {
@@ -57,6 +64,6 @@ export class DialogServiceExampleComponent {
         this._dialogService.closeAllDialogs(this.result);
       }
     }, 1000);
-
   }
 }
+

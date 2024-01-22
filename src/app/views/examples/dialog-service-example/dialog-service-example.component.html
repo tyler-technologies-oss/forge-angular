@@ -19,16 +19,10 @@
   <forge-divider></forge-divider>
 
   <div style="display: flex; align-items: center; justify-content: space-around;">
-    <div  style="display: flex; flex-direction: column; align-items: start; justify-content: space-around;">
-      <forge-text-field>
-        <label for="input-id">Set timeout</label>
-        <input  [(ngModel)]="counter"  type="number" value="{{counter}}"/>
-      </forge-text-field>
       <forge-checkbox>
         <input type="checkbox" id="backdropClose" [(ngModel)]="result" />
         <label for="backdropClose">Close result: {{result}}</label>
       </forge-checkbox>
-    </div>
     <forge-button type="raised">
       <button (click)="showDialog()">Open dialog</button>
     </forge-button>
