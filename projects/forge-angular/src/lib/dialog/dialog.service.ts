@@ -9,6 +9,8 @@ import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-componen
 import { Subject, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+const MAX_NESTED_DIALOGS = 2;
+
 export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attributes'> {
   dialogClass?: string;
   attributes?: Map<string, string>;
@@ -21,6 +23,7 @@ export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attribu
   providedIn: 'root'
 })
 export class DialogService {
+  
   private _openDialogRefs: DialogRef[] = [];
   private _destroyRef: DestroyRef = inject(DestroyRef);
   constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
@@ -114,7 +117,7 @@ export class DialogService {
 
   // While multiple dialogs is an anti-UX pattern, this is a minimal safeguard to protect against dirty dialogs
   private _closeAllDialogs(result: boolean, recursiveExecutionCount = 0): void {
-    if (recursiveExecutionCount > 2) {
+    if (recursiveExecutionCount > MAX_NESTED_DIALOGS) {
       throw new Error('Could not close all dialogs. Reason: Too many nested dialogs.');
     }
 
