@@ -1,4 +1,4 @@
-import { Injectable, Injector, OnDestroy } from '@angular/core';
+import { DestroyRef, Injectable, Injector, inject } from '@angular/core';
 import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
 import { IDialogComponent, DIALOG_CONSTANTS, defineDialogComponent } from '@tylertech/forge';
 import { DialogConfig } from './dialog-config';
@@ -6,7 +6,8 @@ import { DialogRef } from './dialog-ref';
 import { DialogInjector } from './dialog-injector';
 import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
 import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
-import { Subject, take, takeUntil } from 'rxjs';
+import { Subject, take } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attributes'> {
   dialogClass?: string;
@@ -19,10 +20,9 @@ export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attribu
 @Injectable({
   providedIn: 'root'
 })
-export class DialogService implements OnDestroy {
-  
+export class DialogService {
   private _openDialogRefs: DialogRef[] = [];
-  private _unsubscribe$ = new Subject();
+  private _destroyRef: DestroyRef = inject(DestroyRef);
   constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
     defineDialogComponent();
   }
@@ -35,7 +35,7 @@ export class DialogService implements OnDestroy {
   public show<T, K>(component: Type<T> | ComponentFactory<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>): DialogRef<T> {
     const dialogRef = this._showDialog(component, options, config, moduleRef);
     this._openDialogRefs.push(dialogRef);
-    dialogRef.afterClosed.pipe(take(1), takeUntil(this._unsubscribe$)).subscribe(() => this._removeDialogRef(dialogRef));
+    dialogRef.afterClosed.pipe(take(1), takeUntilDestroyed(this._destroyRef)).subscribe(() => this._removeDialogRef(dialogRef));
     return dialogRef;
   }
 
@@ -104,11 +104,6 @@ export class DialogService implements OnDestroy {
     ref.destroy();
   }
 
-  public ngOnDestroy(): void {
-    this._unsubscribe$.next(null);
-    this._unsubscribe$.complete();
-  }
-
   /**
    * Closes all dialogs.
    * @param result The result of closing the dialogs. Default is false.
@@ -124,7 +119,6 @@ export class DialogService implements OnDestroy {
     }
 
     this._openDialogRefs.forEach((ref) => ref.close(result));
-    console.table(this._openDialogRefs);
 
     // This is here to close any dialogs that open as a result of other dialogs closing
     // e.g. A dirty dialog opening when a dirty form dialog closes.
