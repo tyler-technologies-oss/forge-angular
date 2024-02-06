@@ -85,11 +85,12 @@ export class SidenavComponent implements OnInit {
   ];
 
   public exampleMenuItems: IMenuItem[] = [
+    { label: 'Dialog Service', value: '/example/dialog-service' },
     { label: 'Expansion panel', value: '/example/expansion-panel' },
     { label: 'Reactive form', value: '/example/reactive-form' },
     { label: 'Table', value: '/example/table' },
     { label: 'Toolbar', value: '/example/toolbar-example' },
-    { label: 'Two column layout', value: '/example/two-column-grid' },
+    { label: 'Two column layout', value: '/example/two-column-grid' }
   ];
 
   constructor(private _router: Router, private _location: Location, private _cd: ChangeDetectorRef) {

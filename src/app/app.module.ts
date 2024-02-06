@@ -23,7 +23,7 @@ import { HomeComponent } from './views/home/home.component';
     AppComponent,
     HomeComponent,
     SidenavComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, DemoCardComponent, ForgeModule],
   providers: [],
