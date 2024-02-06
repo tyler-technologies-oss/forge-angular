@@ -1,3 +1,19 @@
+# v3.6.0 (Tue Feb 06 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Scott Shirley ([@ScottTylerTech](https://github.com/ScottTylerTech)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat: enhance dialog service to manage open dialog refs [#46](https://github.com/tyler-technologies-oss/forge-angular/pull/46) ([@ScottTylerTech](https://github.com/ScottTylerTech))
+
+#### Authors: 1
+
+- Scott Shirley ([@ScottTylerTech](https://github.com/ScottTylerTech))
+
+---
+
 # v3.5.0 (Fri Dec 22 2023)
 
 #### 🚀 Enhancement
