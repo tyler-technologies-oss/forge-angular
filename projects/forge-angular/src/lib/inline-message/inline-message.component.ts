@@ -10,6 +10,9 @@ import { InlineMessageComponent as InlineMessageComponentCustomElement, defineIn
 })
 export class InlineMessageComponent {
 
+	/** The forge-inline-message element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<InlineMessageComponentCustomElement>,

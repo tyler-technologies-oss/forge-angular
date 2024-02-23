@@ -10,6 +10,9 @@ import { ScaffoldComponent as ScaffoldComponentCustomElement, defineScaffoldComp
 })
 export class ScaffoldComponent {
 
+	/** The forge-scaffold element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<ScaffoldComponentCustomElement>,

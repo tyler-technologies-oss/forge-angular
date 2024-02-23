@@ -15,21 +15,23 @@ import { AccordionComponent as AccordionComponentCustomElement, defineAccordionC
 })
 export class AccordionComponent {
 
+	/** The forge-accordion element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	/** Gets/sets the selector to use for finding the child expansion panels. Defaults to searching the direct children for `<forge-expansion-panel>` elements. */
 	@Input()
 	public set panelSelector(value: AccordionComponentCustomElement['panelSelector']) {
 		this.zone.runOutsideAngular(() => {
-			this.elementRef.nativeElement.panelSelector = value;
+			this.nativeElement.panelSelector = value;
 		});
 	}
-
 	public get panelSelector(): AccordionComponentCustomElement['panelSelector'] {
-		return this.elementRef.nativeElement.panelSelector;
+		return this.nativeElement.panelSelector;
 	}
 
 
 	public initializedCallback(...args: Parameters<AccordionComponentCustomElement['initializedCallback']>): ReturnType<AccordionComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.initializedCallback(...args));
+		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	constructor(

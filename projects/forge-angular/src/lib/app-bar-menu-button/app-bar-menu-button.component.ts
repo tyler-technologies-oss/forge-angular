@@ -10,9 +10,12 @@ import { AppBarMenuButtonComponent as AppBarMenuButtonComponentCustomElement, de
 })
 export class AppBarMenuButtonComponent {
 
+	/** The forge-app-bar-menu-button element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 
 	public initializedCallback(...args: Parameters<AppBarMenuButtonComponentCustomElement['initializedCallback']>): ReturnType<AppBarMenuButtonComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.initializedCallback(...args));
+		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	constructor(

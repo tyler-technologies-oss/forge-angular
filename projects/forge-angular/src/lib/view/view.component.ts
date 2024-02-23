@@ -10,6 +10,9 @@ import { ViewComponent as ViewComponentCustomElement, defineViewComponent } from
 })
 export class ViewComponent {
 
+	/** The forge-view element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<ViewComponentCustomElement>,

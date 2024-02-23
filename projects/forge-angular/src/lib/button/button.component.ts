@@ -10,6 +10,9 @@ import { ButtonComponent as ButtonComponentCustomElement, defineButtonComponent 
 })
 export class ButtonComponent {
 
+	/** The forge-button element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	/**
 	 * Sets the type of button decoration.
 	 * Possible values are: raised, elevated, outlined, and dense.
@@ -18,12 +21,11 @@ export class ButtonComponent {
 	@Input()
 	public set type(value: ButtonComponentCustomElement['type']) {
 		this.zone.runOutsideAngular(() => {
-			this.elementRef.nativeElement.type = value;
+			this.nativeElement.type = value;
 		});
 	}
-
 	public get type(): ButtonComponentCustomElement['type'] {
-		return this.elementRef.nativeElement.type;
+		return this.nativeElement.type;
 	}
 
 	constructor(
