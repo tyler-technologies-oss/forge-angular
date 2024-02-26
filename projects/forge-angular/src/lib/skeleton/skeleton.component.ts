@@ -10,6 +10,9 @@ import { SkeletonComponent as SkeletonComponentCustomElement, defineSkeletonComp
 })
 export class SkeletonComponent {
 
+	/** The forge-skeleton element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<SkeletonComponentCustomElement>,

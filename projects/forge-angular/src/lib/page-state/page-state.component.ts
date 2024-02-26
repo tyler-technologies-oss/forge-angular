@@ -10,6 +10,9 @@ import { PageStateComponent as PageStateComponentCustomElement, definePageStateC
 })
 export class PageStateComponent {
 
+	/** The forge-page-state element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<PageStateComponentCustomElement>,

@@ -10,6 +10,9 @@ import { DividerComponent as DividerComponentCustomElement, defineDividerCompone
 })
 export class DividerComponent {
 
+	/** The forge-divider element. */
+	public readonly nativeElement = this.elementRef.nativeElement;
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<DividerComponentCustomElement>,
