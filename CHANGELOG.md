@@ -1,3 +1,20 @@
+# v3.7.0 (Mon Feb 26 2024)
+
+#### 🚀 Enhancement
+
+- feat: no inputs on proxies for readonly props, expose native element [#48](https://github.com/tyler-technologies-oss/forge-angular/pull/48) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### 🐛 Bug Fix
+
+- fix: upgrade Auto to fix release [#47](https://github.com/tyler-technologies-oss/forge-angular/pull/47) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 2
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v3.6.0 (Tue Feb 06 2024)
 
 :tada: This release contains work from a new contributor! :tada:
