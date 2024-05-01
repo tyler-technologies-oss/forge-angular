@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ButtonToggleComponent as ButtonToggleComponentCustomElement, defineButtonToggleComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-button-toggle>` custom element. */
+/**  */
 @Component({
   selector: 'forge-button-toggle',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ButtonToggleComponent {
 	/** The forge-button-toggle element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The value of the button toggle. */
 	@Input()
 	public set value(value: ButtonToggleComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class ButtonToggleComponent {
 		return this.nativeElement.value;
 	}
 
-
+	/** Whether or not the button is selected. */
 	@Input({ transform: booleanAttribute })
 	public set selected(value: ButtonToggleComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class ButtonToggleComponent {
 		return this.nativeElement.selected;
 	}
 
-
+	/** Whether or not the button is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: ButtonToggleComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,25 +46,25 @@ export class ButtonToggleComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** Whether or not the button is readonly. */
 	@Input({ transform: booleanAttribute })
-	public set dense(value: ButtonToggleComponentCustomElement['dense']) {
+	public set readonly(value: ButtonToggleComponentCustomElement['readonly']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.dense = value;
+			this.nativeElement.readonly = value;
 		});
 	}
-	public get dense(): ButtonToggleComponentCustomElement['dense'] {
-		return this.nativeElement.dense;
-	}
-
-
-	public initializedCallback(...args: Parameters<ButtonToggleComponentCustomElement['initializedCallback']>): ReturnType<ButtonToggleComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	public get readonly(): ButtonToggleComponentCustomElement['readonly'] {
+		return this.nativeElement.readonly;
 	}
 
 
 	public focus(...args: Parameters<ButtonToggleComponentCustomElement['focus']>): ReturnType<ButtonToggleComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
+	}
+
+
+	public click(...args: Parameters<ButtonToggleComponentCustomElement['click']>): ReturnType<ButtonToggleComponentCustomElement['click']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
 	}
 
 	constructor(

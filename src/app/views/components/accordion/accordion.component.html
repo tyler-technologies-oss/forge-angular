@@ -1,34 +1,52 @@
 <app-demo-card headerText="Accordion">
   <forge-accordion>
-    <forge-expansion-panel class="forge-task-card">
-      <div slot="header" class="forge-task-card__header">
-        <div class="forge-task-card__header-content">
-          <div class="forge-task-card__header-label">Panel One</div>
-          <div class="forge-task-card__header-description">Panel one description</div>
+    <forge-expansion-panel id="expansion-panel-1">
+      <forge-button-area slot="header" id="expansion-panel-button-area-1">
+        <button slot="button" id="expansion-panel-button-1" aria-labelledby="expansion-panel-heading-1" aria-controls="expansion-panel-content" aria-expanded="false"></button>
+        <div class="flex-wrapper">
+          <div class="forge-typography--subheading2">Panel one</div>
+          <forge-open-icon></forge-open-icon>
         </div>
-        <forge-open-icon></forge-open-icon>
+      </forge-button-area>
+      <div role="group" class="expansion-panel-content" id="expansion-panel-content-1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
       </div>
-      <div class="forge-task-card__content">Content for panel one.</div>
     </forge-expansion-panel>
-    <forge-expansion-panel class="forge-task-card">
-      <div slot="header" class="forge-task-card__header">
-        <div class="forge-task-card__header-content">
-          <div class="forge-task-card__header-label">Panel Two</div>
-          <div class="forge-task-card__header-description">Panel two description</div>
+
+    <forge-divider></forge-divider>
+
+    <forge-expansion-panel id="expansion-panel-2">
+      <forge-button-area slot="header" id="expansion-panel-button-area-2">
+        <button slot="button" id="expansion-panel-button-2" aria-labelledby="expansion-panel-heading-2" aria-controls="expansion-panel-content" aria-expanded="false"></button>
+        <div class="flex-wrapper">
+          <div class="forge-typography--subheading2">Panel one</div>
+          <forge-open-icon></forge-open-icon>
         </div>
-        <forge-open-icon></forge-open-icon>
+      </forge-button-area>
+      <div role="group" class="expansion-panel-content" id="expansion-panel-content-2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
       </div>
-      <div class="forge-task-card__content">Content for panel two.</div>
     </forge-expansion-panel>
-    <forge-expansion-panel class="forge-task-card">
-      <div slot="header" class="forge-task-card__header">
-        <div class="forge-task-card__header-content">
-          <div class="forge-task-card__header-label">Panel Three</div>
-          <div class="forge-task-card__header-description">Panel three description</div>
+
+    <forge-divider></forge-divider>
+
+    <forge-expansion-panel id="expansion-panel-3">
+      <forge-button-area slot="header" id="expansion-panel-button-area-3">
+        <button slot="button" id="expansion-panel-button-3" aria-labelledby="expansion-panel-heading-1" aria-controls="expansion-panel-content" aria-expanded="false"></button>
+        <div class="flex-wrapper">
+          <div class="forge-typography--subheading2">Panel one</div>
+          <forge-open-icon></forge-open-icon>
         </div>
-        <forge-open-icon></forge-open-icon>
+      </forge-button-area>
+      <div role="group" class="expansion-panel-content" id="expansion-panel-content-3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum repudiandae eius libero, deleniti adipisci quas dolorum obcaecati dolore ipsa voluptatum itaque at beatae in ad nobis nihil recusandae velit expedita.</p>
       </div>
-      <div class="forge-task-card__content">Content for panel three.</div>
     </forge-expansion-panel>
   </forge-accordion>
 </app-demo-card>

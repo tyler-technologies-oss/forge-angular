@@ -7,37 +7,41 @@ import { ForgeAppBarMenuButtonModule } from './app-bar-menu-button';
 import { ForgeAppBarNotificationButtonModule } from './app-bar-notification-button';
 import { ForgeAppBarProfileButtonModule } from './app-bar-profile-button';
 import { ForgeAppBarSearchModule } from './app-bar-search';
-import { ForgeAutocompleteModule } from './autocomplete/autocomplete.module';
+import { ForgeAutocompleteModule } from './autocomplete';
 import { ForgeAvatarModule } from './avatar';
 import { ForgeBackdropModule } from './backdrop';
 import { ForgeBadgeModule } from './badge';
 import { ForgeBannerModule } from './banner';
 import { ForgeBottomSheetModule } from './bottom-sheet';
-import { ForgeBusyIndicatorModule } from './busy-indicator';
 import { ForgeButtonModule } from './button';
 import { ForgeButtonAreaModule } from './button-area';
 import { ForgeButtonToggleGroupModule } from './button-toggle-group';
-import { ForgeButtonToggleModule } from './button-toggle/button-toggle.module';
+import { ForgeButtonToggleModule } from './button-toggle';
 import { ForgeCalendarModule } from './calendar';
 import { ForgeCardModule } from './card';
 import { ForgeCheckboxModule } from './checkbox';
 import { ForgeChipFieldModule } from './chip-field';
 import { ForgeChipSetModule } from './chip-set';
-import { ForgeChipModule } from './chip/chip.module';
+import { ForgeChipModule } from './chip';
 import { ForgeCircularProgressModule } from './circular-progress';
 import { ForgeColorPickerModule } from './color-picker';
-import { ForgeDatePickerModule } from './date-picker/date-picker.module';
-import { ForgeDateRangePickerModule } from './date-range-picker/date-range-picker.module';
+import { ForgeDatePickerModule } from './date-picker';
+import { ForgeDateRangePickerModule } from './date-range-picker';
+import { ForgeDeprecatedButtonModule } from './deprecated-button';
+import { ForgeDeprecatedIconButtonModule } from './deprecated-icon-button';
 import { ForgeDialogModule } from './dialog';
 import { ForgeDividerModule } from './divider';
 import { ForgeDrawerModule } from './drawer';
 import { ForgeExpansionPanelModule } from './expansion-panel';
 import { ForgeFloatingActionButtonModule } from './fab';
+import { ForgeFieldModule } from './field';
 import { ForgeFilePickerModule } from './file-picker';
+import { ForgeFocusIndicatorModule } from './focus-indicator';
 import { ForgeIconModule } from './icon';
 import { ForgeIconButtonModule } from './icon-button';
 import { ForgeInlineMessageModule } from './inline-message';
 import { ForgeKeyboardShortcutModule } from './keyboard-shortcut';
+import { ForgeLabelModule } from './label';
 import { ForgeLabelValueModule } from './label-value';
 import { ForgeLinearProgressModule } from './linear-progress';
 import { ForgeListModule } from './list';
@@ -48,22 +52,23 @@ import { ForgeModalDrawerModule } from './modal-drawer';
 import { ForgeOpenIconModule } from './open-icon';
 import { ForgeOptionModule } from './option';
 import { ForgeOptionGroupModule } from './option-group';
+import { ForgeOverlayModule } from './overlay';
 import { ForgePageStateModule } from './page-state';
 import { ForgePaginatorModule } from './paginator';
-import { ForgePopupModule } from './popup/popup.module';
-import { ForgeProductIconModule } from './product-icon';
+import { ForgePopoverModule } from './popover';
 import { ForgeProfileCardModule } from './profile-card';
-import { ForgeQuantityFieldModule } from './quantity-field';
 import { ForgeRadioModule } from './radio';
-import { ForgeRippleModule } from './ripple';
+import { ForgeRadioGroupModule } from './radio-group';
 import { ForgeScaffoldModule } from './scaffold';
 import { ForgeSelectDropdownModule } from './select-dropdown';
-import { ForgeSelectModule } from './select/select.module';
+import { ForgeSelectModule } from './select';
 import { ForgeSkeletonModule } from './skeleton';
-import { ForgeSliderModule } from './slider/slider.module';
+import { ForgeSliderModule } from './slider';
+import { ForgeSplitButtonModule } from './split-button';
 import { ForgeSplitViewModule } from './split-view';
 import { ForgeSplitViewPanelModule } from './split-view-panel';
-import { ForgeStackModule } from './stack/stack.module';
+import { ForgeStackModule } from './stack';
+import { ForgeStateLayerModule } from './state-layer';
 import { ForgeStepModule } from './step';
 import { ForgeStepperModule } from './stepper';
 import { ForgeSwitchModule } from './switch';
@@ -71,7 +76,7 @@ import { ForgeTabModule } from './tab';
 import { ForgeTabBarModule } from './tab-bar';
 import { ForgeTableModule } from './table';
 import { ForgeTextFieldModule } from './text-field';
-import { ForgeTimePickerModule } from './time-picker/time-picker.module';
+import { ForgeTimePickerModule } from './time-picker';
 import { ForgeToastModule } from './toast';
 import { ForgeToolbarModule } from './toolbar';
 import { ForgeTooltipModule } from './tooltip';
@@ -93,7 +98,6 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeBadgeModule,
     ForgeBannerModule,
     ForgeBottomSheetModule,
-    ForgeBusyIndicatorModule,
     ForgeButtonModule,
     ForgeButtonAreaModule,
     ForgeButtonToggleModule,
@@ -108,16 +112,21 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeColorPickerModule,
     ForgeDatePickerModule,
     ForgeDateRangePickerModule,
+    ForgeDeprecatedButtonModule,
+    ForgeDeprecatedIconButtonModule,
     ForgeDialogModule,
     ForgeDividerModule,
     ForgeDrawerModule,
     ForgeExpansionPanelModule,
     ForgeFloatingActionButtonModule,
+    ForgeFieldModule,
     ForgeFilePickerModule,
+    ForgeFocusIndicatorModule,
     ForgeIconModule,
     ForgeIconButtonModule,
     ForgeInlineMessageModule,
     ForgeKeyboardShortcutModule,
+    ForgeLabelModule,
     ForgeLabelValueModule,
     ForgeLinearProgressModule,
     ForgeListModule,
@@ -128,22 +137,23 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeOpenIconModule,
     ForgeOptionModule,
     ForgeOptionGroupModule,
+    ForgeOverlayModule,
     ForgePageStateModule,
     ForgePaginatorModule,
-    ForgePopupModule,
-    ForgeProductIconModule,
+    ForgePopoverModule,
     ForgeProfileCardModule,
-    ForgeQuantityFieldModule,
     ForgeRadioModule,
-    ForgeRippleModule,
+    ForgeRadioGroupModule,
     ForgeScaffoldModule,
     ForgeSelectModule,
     ForgeSelectDropdownModule,
     ForgeSkeletonModule,
     ForgeSliderModule,
+    ForgeSplitButtonModule,
     ForgeSplitViewModule,
     ForgeSplitViewPanelModule,
     ForgeStackModule,
+    ForgeStateLayerModule,
     ForgeStepModule,
     ForgeStepperModule,
     ForgeSwitchModule,
@@ -156,7 +166,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeToolbarModule,
     ForgeTooltipModule,
     ForgeViewModule,
-    ForgeViewSwitcherModule,
-  ],
+    ForgeViewSwitcherModule
+  ]
 })
 export class ForgeModule {}

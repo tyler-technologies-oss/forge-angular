@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { DatePickerComponent as DatePickerComponentCustomElement, defineDatePickerComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-date-picker>` element. */
+/**  */
 @Component({
   selector: 'forge-date-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,

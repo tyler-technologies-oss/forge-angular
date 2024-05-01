@@ -13,13 +13,7 @@ export class CalendarComponent {
 	/** The forge-calendar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** readonly */
-	@Input()
-	public set activeDate(value: CalendarComponentCustomElement['activeDate']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.activeDate = value;
-		});
-	}
+
 	public get activeDate(): CalendarComponentCustomElement['activeDate'] {
 		return this.nativeElement.activeDate;
 	}

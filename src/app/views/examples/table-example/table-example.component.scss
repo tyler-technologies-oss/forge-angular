@@ -1,4 +1,6 @@
-@use '@material/theme/color-palette' as mdc-color-palette;
+::ng-deep {
+  @import '@tylertech/forge/dist/table/forge-table';
+}
 
 .table-header {
   display: flex;
@@ -19,7 +21,7 @@
 }
 
 .selection-header {
-  background-color: mdc-color-palette.$indigo-50;
+  background-color: var(--forge-theme-primary-container-low);
   display: flex;
   align-items: center;
   justify-content: space-between;

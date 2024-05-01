@@ -1,13 +1,8 @@
-<forge-app-bar title-text="Forge Angular Adapter" (forge-app-bar-search)="onSearch($any($event))">
+<forge-app-bar title-text="Forge Angular Adapter" href="/" (forge-app-bar-search-input)="onSearch($event)">
   <forge-app-bar-menu-button slot="start" (click)="onMenuClicked()"></forge-app-bar-menu-button>
-  <forge-icon slot="logo" name="tyler_talking_t_logo" style="font-size: 3rem; height: auto; width: auto;"></forge-icon>
-  <forge-app-bar-search slot="center">
-    <input type="text" placeholder="Search..." />
-  </forge-app-bar-search>
-  <forge-icon-button slot="end">
-    <button type="button" (click)="toggleTheme()">
-      <forge-icon [name]="themeSwitcherIcon"></forge-icon>
-    </button>
+  <forge-icon slot="logo" name="tyler_talking_t_logo"></forge-icon>
+  <forge-icon-button slot="end" (click)="toggleTheme()">
+    <forge-icon [name]="themeSwitcherIcon"></forge-icon>
   </forge-icon-button>
-  <div slot="profile">v12.x</div>
+  <forge-tooltip type="label" placement="left" slot="end">Toggle theme</forge-tooltip>
 </forge-app-bar>

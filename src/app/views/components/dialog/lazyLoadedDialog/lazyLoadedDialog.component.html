@@ -1,12 +1,10 @@
-<div class="app-dialog">
-  <h2 id="dialog-title" [ngClass]="{'moveable': moveable}" forge-dialog-move-target>{{title}}</h2>
-  <p id="dialog-desc">{{message}}<br />This content was lazy-loaded.</p>
-  <div style="display: flex; justify-content: flex-end;">
-    <forge-button>
-      <button (click)="onCancel()">Cancel</button>
-    </forge-button>
-    <forge-button>
-      <button forge-dialog-focus (click)="onConfirm()">Confirm</button>
-    </forge-button>
-  </div>
-</div>
+<forge-scaffold>
+  <forge-toolbar slot="header" no-border>
+    <h2 slot="start" id="dialog-title" class="forge-typography--heading4">{{title}}</h2>
+  </forge-toolbar>
+  <p slot="body" class="body" id="dialog-desc">{{message}}<br/>This content was lazy-loaded.</p>
+  <forge-toolbar slot="footer" no-border>
+    <forge-button slot="end" autofocus (click)="onCancel()">Cancel</forge-button>
+    <forge-button slot="end" variant="raised" (click)="onConfirm()">Confirm</forge-button>
+  </forge-toolbar>
+</forge-scaffold>

@@ -189,11 +189,6 @@ export class OptionComponent {
 		return this.nativeElement.trailingBuilder;
 	}
 
-
-	public initializedCallback(...args: Parameters<OptionComponentCustomElement['initializedCallback']>): ReturnType<OptionComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
-	}
-
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<OptionComponentCustomElement>,

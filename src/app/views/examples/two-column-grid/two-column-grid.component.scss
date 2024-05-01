@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container-card {
   max-width: 1024px;
   min-height: 300px;
@@ -21,8 +25,8 @@
     }
 
     .upload-container {
-      padding: 16px;
-      border-top: 1px solid var(--mdc-theme-border-color);
+      padding: var(--forge-spacing-medium);
+      border-top: 1px solid var(--forge-theme-outline);
 
       forge-file-picker {
         --forge-file-picker-width: 100%;
@@ -30,7 +34,7 @@
 
       @media (min-width: 1303px) {
         padding: 0;
-        border-left: 1px solid var(--mdc-theme-border-color);
+        border-left: 1px solid var(--forge-theme-outline);
         border-top: none;
 
         forge-file-picker {
@@ -44,6 +48,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         @media (min-width: 1303px) {
           max-width: 300px;
         }

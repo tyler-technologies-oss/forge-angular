@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ButtonToggleGroupComponent as ButtonToggleGroupComponentCustomElement, defineButtonToggleGroupComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-button-toggle-group>` custom element. */
+/**  */
 @Component({
   selector: 'forge-button-toggle-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ButtonToggleGroupComponent {
 	/** The forge-button-toggle-group element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The value of the selected button toggle(s). */
 	@Input()
 	public set value(value: ButtonToggleGroupComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,18 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.value;
 	}
 
+	/** Whether or not the group should be outlined. */
+	@Input({ transform: booleanAttribute })
+	public set outlined(value: ButtonToggleGroupComponentCustomElement['outlined']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.outlined = value;
+		});
+	}
+	public get outlined(): ButtonToggleGroupComponentCustomElement['outlined'] {
+		return this.nativeElement.outlined;
+	}
 
+	/** Whether or not the group should allow multiple selections. */
 	@Input({ transform: booleanAttribute })
 	public set multiple(value: ButtonToggleGroupComponentCustomElement['multiple']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +46,7 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.multiple;
 	}
 
-
+	/** Whether or not the group should require a selection once a button has been toggled on. */
 	@Input({ transform: booleanAttribute })
 	public set mandatory(value: ButtonToggleGroupComponentCustomElement['mandatory']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +57,7 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.mandatory;
 	}
 
-
+	/** Whether or not the group should be displayed vertically. */
 	@Input({ transform: booleanAttribute })
 	public set vertical(value: ButtonToggleGroupComponentCustomElement['vertical']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +68,7 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.vertical;
 	}
 
-
+	/** Whether or not the group should stretch to fill the available width. */
 	@Input({ transform: booleanAttribute })
 	public set stretch(value: ButtonToggleGroupComponentCustomElement['stretch']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +79,7 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.stretch;
 	}
 
-
+	/** Whether or not the group should be dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ButtonToggleGroupComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +90,7 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.dense;
 	}
 
-
+	/** Whether or not the group should be disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: ButtonToggleGroupComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -91,19 +102,36 @@ export class ButtonToggleGroupComponent {
 	}
 
 
-	@Input()
-	public set options(value: ButtonToggleGroupComponentCustomElement['options']) {
+	@Input({ transform: booleanAttribute })
+	public set required(value: ButtonToggleGroupComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.options = value;
+			this.nativeElement.required = value;
 		});
 	}
-	public get options(): ButtonToggleGroupComponentCustomElement['options'] {
-		return this.nativeElement.options;
+	public get required(): ButtonToggleGroupComponentCustomElement['required'] {
+		return this.nativeElement.required;
 	}
 
+	/** Whether or not the group should be readonly. */
+	@Input({ transform: booleanAttribute })
+	public set readonly(value: ButtonToggleGroupComponentCustomElement['readonly']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.readonly = value;
+		});
+	}
+	public get readonly(): ButtonToggleGroupComponentCustomElement['readonly'] {
+		return this.nativeElement.readonly;
+	}
 
-	public initializedCallback(...args: Parameters<ButtonToggleGroupComponentCustomElement['initializedCallback']>): ReturnType<ButtonToggleGroupComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** The theme to use for the group. */
+	@Input()
+	public set theme(value: ButtonToggleGroupComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): ButtonToggleGroupComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
 	}
 
 	constructor(

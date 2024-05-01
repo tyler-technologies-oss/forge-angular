@@ -14,6 +14,7 @@
         "forge-expansion-panel": ["forge-open-icon"],
         "forge-icon-button": ["forge-icon"],
         "forge-list": ["forge-list-item"],
+        "forge-radio-group": ["forge-radio"],
         "forge-select": ["forge-option"],
         "forge-split-view": ["forge-split-view-panel"],
         "forge-stepper": ["forge-step"],

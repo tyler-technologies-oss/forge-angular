@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ButtonAreaComponent as ButtonAreaComponentCustomElement, defineButtonAreaComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-button-area>` element. */
+/**  */
 @Component({
   selector: 'forge-button-area',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ButtonAreaComponent {
 	/** The forge-button-area element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls whether the component and associated button element are disabled. */
+	/** Sets whether the button area and slotted button are disabled. Setting this on one will also set it on the other. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: ButtonAreaComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {

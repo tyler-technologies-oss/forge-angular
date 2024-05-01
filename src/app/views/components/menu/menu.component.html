@@ -1,8 +1,6 @@
 <app-demo-card headerText="Menu">
   <forge-menu [options]="options" (forge-menu-select)="onMenuOptionSelected($event)">
-    <forge-button type="raised">
-      <button type="button">Show menu</button>
-    </forge-button>
+    <forge-button variant="raised">Show menu</forge-button>
   </forge-menu>
   <p class="forge-typography--body1">
     Last selected value: <b>{{lastSelectedValue}}</b>

@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { DialogComponent as DialogComponentCustomElement, defineDialogComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-dialog>` custom element. */
+/**  */
 @Component({
   selector: 'forge-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,29 +13,7 @@ export class DialogComponent {
 	/** The forge-dialog element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls whether clicking the backdrop closes the dialog or not. Default is true. */
-	@Input({ transform: booleanAttribute })
-	public set backdropClose(value: DialogComponentCustomElement['backdropClose']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.backdropClose = value;
-		});
-	}
-	public get backdropClose(): DialogComponentCustomElement['backdropClose'] {
-		return this.nativeElement.backdropClose;
-	}
-
-	/** Controls whether pressing the escape key closes the dialog or not. Default is true. */
-	@Input({ transform: booleanAttribute })
-	public set escapeClose(value: DialogComponentCustomElement['escapeClose']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.escapeClose = value;
-		});
-	}
-	public get escapeClose(): DialogComponentCustomElement['escapeClose'] {
-		return this.nativeElement.escapeClose;
-	}
-
-	/** Controls whether the dialog is open or not. Default is false. */
+	/** Indicates whether the dialog is open. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: DialogComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +24,62 @@ export class DialogComponent {
 		return this.nativeElement.open;
 	}
 
-	/** Controls whether the dialog is full screen or not. Default is false. */
+	/** The mode of the dialog. Default is 'modal'. */
+	@Input()
+	public set mode(value: DialogComponentCustomElement['mode']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.mode = value;
+		});
+	}
+	public get mode(): DialogComponentCustomElement['mode'] {
+		return this.nativeElement.mode;
+	}
+
+	/** The type of the dialog. Default is 'dialog'. */
+	@Input()
+	public set type(value: DialogComponentCustomElement['type']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.type = value;
+		});
+	}
+	public get type(): DialogComponentCustomElement['type'] {
+		return this.nativeElement.type;
+	}
+
+	/** The animation type of the dialog. */
+	@Input()
+	public set animationType(value: DialogComponentCustomElement['animationType']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.animationType = value;
+		});
+	}
+	public get animationType(): DialogComponentCustomElement['animationType'] {
+		return this.nativeElement.animationType;
+	}
+
+	/** The preset design that the dialog will apply. */
+	@Input()
+	public set preset(value: DialogComponentCustomElement['preset']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.preset = value;
+		});
+	}
+	public get preset(): DialogComponentCustomElement['preset'] {
+		return this.nativeElement.preset;
+	}
+
+	/** Indicates whether the dialog is dismissible via escape and backdrop click or not. */
+	@Input({ transform: booleanAttribute })
+	public set persistent(value: DialogComponentCustomElement['persistent']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.persistent = value;
+		});
+	}
+	public get persistent(): DialogComponentCustomElement['persistent'] {
+		return this.nativeElement.persistent;
+	}
+
+	/** Indicates whether the dialog is fullscreen or not. */
 	@Input({ transform: booleanAttribute })
 	public set fullscreen(value: DialogComponentCustomElement['fullscreen']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,73 +90,29 @@ export class DialogComponent {
 		return this.nativeElement.fullscreen;
 	}
 
-	/** The function to call when the dialog wants to open. */
+	/** The selector of the element that triggers the dialog. */
 	@Input()
-	public set openCallback(value: DialogComponentCustomElement['openCallback']) {
+	public set trigger(value: DialogComponentCustomElement['trigger']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.openCallback = value;
+			this.nativeElement.trigger = value;
 		});
 	}
-	public get openCallback(): DialogComponentCustomElement['openCallback'] {
-		return this.nativeElement.openCallback;
+	public get trigger(): DialogComponentCustomElement['trigger'] {
+		return this.nativeElement.trigger;
 	}
 
-	/** the function to call when the dialog wants to close. */
+	/** The element that triggers the dialog. */
 	@Input()
-	public set closeCallback(value: DialogComponentCustomElement['closeCallback']) {
+	public set triggerElement(value: DialogComponentCustomElement['triggerElement']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.closeCallback = value;
+			this.nativeElement.triggerElement = value;
 		});
 	}
-	public get closeCallback(): DialogComponentCustomElement['closeCallback'] {
-		return this.nativeElement.closeCallback;
+	public get triggerElement(): DialogComponentCustomElement['triggerElement'] {
+		return this.nativeElement.triggerElement;
 	}
 
-	/** the function to call when the dialog wants to close. */
-	@Input()
-	public set beforeCloseCallback(value: DialogComponentCustomElement['beforeCloseCallback']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.beforeCloseCallback = value;
-		});
-	}
-	public get beforeCloseCallback(): DialogComponentCustomElement['beforeCloseCallback'] {
-		return this.nativeElement.beforeCloseCallback;
-	}
-
-	/** Gets/sets the position type when using custom positioning values. Default is 'absolute'. */
-	@Input()
-	public set positionType(value: DialogComponentCustomElement['positionType']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.positionType = value;
-		});
-	}
-	public get positionType(): DialogComponentCustomElement['positionType'] {
-		return this.nativeElement.positionType;
-	}
-
-	/** Controls the horizontal position of the dialog surface. */
-	@Input()
-	public set positionX(value: DialogComponentCustomElement['positionX']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.positionX = value;
-		});
-	}
-	public get positionX(): DialogComponentCustomElement['positionX'] {
-		return this.nativeElement.positionX;
-	}
-
-	/** Controls the vertical position of the dialog surface. */
-	@Input()
-	public set positionY(value: DialogComponentCustomElement['positionY']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.positionY = value;
-		});
-	}
-	public get positionY(): DialogComponentCustomElement['positionY'] {
-		return this.nativeElement.positionY;
-	}
-
-	/** Gets/sets whether the dialog surface can be moved or not. */
+	/** Indicates whether the dialog is moveable or not. */
 	@Input({ transform: booleanAttribute })
 	public set moveable(value: DialogComponentCustomElement['moveable']) {
 		this.zone.runOutsideAngular(() => {
@@ -134,25 +123,47 @@ export class DialogComponent {
 		return this.nativeElement.moveable;
 	}
 
-	/** Gets/sets the selector used to target the element that is used as the drag target. */
+	/** Controls whether the dialog is rendered relative to the viewport its nearest containing block. */
 	@Input()
-	public set moveTarget(value: DialogComponentCustomElement['moveTarget']) {
+	public set positionStrategy(value: DialogComponentCustomElement['positionStrategy']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.moveTarget = value;
+			this.nativeElement.positionStrategy = value;
 		});
 	}
-	public get moveTarget(): DialogComponentCustomElement['moveTarget'] {
-		return this.nativeElement.moveTarget;
+	public get positionStrategy(): DialogComponentCustomElement['positionStrategy'] {
+		return this.nativeElement.positionStrategy;
+	}
+
+	/** Controls the block and/or inline size of the dialog. Defaults to the size of the content it contains. */
+	@Input()
+	public set sizeStrategy(value: DialogComponentCustomElement['sizeStrategy']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.sizeStrategy = value;
+		});
+	}
+	public get sizeStrategy(): DialogComponentCustomElement['sizeStrategy'] {
+		return this.nativeElement.sizeStrategy;
+	}
+
+	/** The placement of the dialog. Defaults to center. */
+	@Input()
+	public set placement(value: DialogComponentCustomElement['placement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.placement = value;
+		});
+	}
+	public get placement(): DialogComponentCustomElement['placement'] {
+		return this.nativeElement.placement;
 	}
 
 
-	public initializeMoveTarget(...args: Parameters<DialogComponentCustomElement['initializeMoveTarget']>): ReturnType<DialogComponentCustomElement['initializeMoveTarget']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializeMoveTarget(...args));
+	public show(...args: Parameters<DialogComponentCustomElement['show']>): ReturnType<DialogComponentCustomElement['show']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
 	}
 
 
-	public resetPosition(...args: Parameters<DialogComponentCustomElement['resetPosition']>): ReturnType<DialogComponentCustomElement['resetPosition']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.resetPosition(...args));
+	public hide(...args: Parameters<DialogComponentCustomElement['hide']>): ReturnType<DialogComponentCustomElement['hide']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.hide(...args));
 	}
 
 	constructor(

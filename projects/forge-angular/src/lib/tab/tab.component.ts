@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { TabComponent as TabComponentCustomElement, defineTabComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-tab>` custom element. */
+/**  */
 @Component({
   selector: 'forge-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class TabComponent {
 	/** The forge-tab element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The disabled state of the tab. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TabComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,56 +24,59 @@ export class TabComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** The selected state of the tab. */
 	@Input({ transform: booleanAttribute })
-	public set active(value: TabComponentCustomElement['active']) {
+	public set selected(value: TabComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.active = value;
+			this.nativeElement.selected = value;
 		});
 	}
-	public get active(): TabComponentCustomElement['active'] {
-		return this.nativeElement.active;
+	public get selected(): TabComponentCustomElement['selected'] {
+		return this.nativeElement.selected;
 	}
 
-
+	/** Controls whether the tab is vertical or horizontal. */
 	@Input({ transform: booleanAttribute })
-	public set stretch(value: TabComponentCustomElement['stretch']) {
+	public set vertical(value: TabComponentCustomElement['vertical']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.stretch = value;
+			this.nativeElement.vertical = value;
 		});
 	}
-	public get stretch(): TabComponentCustomElement['stretch'] {
-		return this.nativeElement.stretch;
+	public get vertical(): TabComponentCustomElement['vertical'] {
+		return this.nativeElement.vertical;
 	}
 
-
-	public activate(...args: Parameters<TabComponentCustomElement['activate']>): ReturnType<TabComponentCustomElement['activate']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.activate(...args));
+	/** Controls whether the tab is taller to allow for slotted leading/trailing elements. */
+	@Input({ transform: booleanAttribute })
+	public set stacked(value: TabComponentCustomElement['stacked']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.stacked = value;
+		});
+	}
+	public get stacked(): TabComponentCustomElement['stacked'] {
+		return this.nativeElement.stacked;
 	}
 
-
-	public deactivate(...args: Parameters<TabComponentCustomElement['deactivate']>): ReturnType<TabComponentCustomElement['deactivate']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.deactivate(...args));
+	/** Controls whether the tab is styled as secondary tab navigation. */
+	@Input({ transform: booleanAttribute })
+	public set secondary(value: TabComponentCustomElement['secondary']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.secondary = value;
+		});
+	}
+	public get secondary(): TabComponentCustomElement['secondary'] {
+		return this.nativeElement.secondary;
 	}
 
-
-	public computeIndicatorBounds(...args: Parameters<TabComponentCustomElement['computeIndicatorBounds']>): ReturnType<TabComponentCustomElement['computeIndicatorBounds']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.computeIndicatorBounds(...args));
+	/** Controls whether the tab indicator is rendered on the opposite side of the tab. */
+	@Input({ transform: booleanAttribute })
+	public set inverted(value: TabComponentCustomElement['inverted']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.inverted = value;
+		});
 	}
-
-
-	public computeDimensions(...args: Parameters<TabComponentCustomElement['computeDimensions']>): ReturnType<TabComponentCustomElement['computeDimensions']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.computeDimensions(...args));
-	}
-
-
-	public focus(...args: Parameters<TabComponentCustomElement['focus']>): ReturnType<TabComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
-	}
-
-
-	public setTabIndex(...args: Parameters<TabComponentCustomElement['setTabIndex']>): ReturnType<TabComponentCustomElement['setTabIndex']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.setTabIndex(...args));
+	public get inverted(): TabComponentCustomElement['inverted'] {
+		return this.nativeElement.inverted;
 	}
 
 	constructor(

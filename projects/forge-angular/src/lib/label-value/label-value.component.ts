@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { LabelValueComponent as LabelValueComponentCustomElement, defineLabelValueComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-label-value>` custom element. */
+/**  */
 @Component({
   selector: 'forge-label-value',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class LabelValueComponent {
 	/** The forge-label-value element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets the empty state. */
+	/** If true, the value will be displayed in an alternative emphasized style. */
 	@Input({ transform: booleanAttribute })
 	public set empty(value: LabelValueComponentCustomElement['empty']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class LabelValueComponent {
 		return this.nativeElement.empty;
 	}
 
-	/** Gets/sets the wrap-content attribute. */
+	/** If true, the value will be truncated with an ellipsis if it overflows its container. */
 	@Input({ transform: booleanAttribute })
 	public set ellipsis(value: LabelValueComponentCustomElement['ellipsis']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,26 +35,26 @@ export class LabelValueComponent {
 		return this.nativeElement.ellipsis;
 	}
 
-	/** Controls the density type. */
-	@Input()
-	public set density(value: LabelValueComponentCustomElement['density']) {
+	/** If true, the label and value will be displayed on the same line. */
+	@Input({ transform: booleanAttribute })
+	public set inline(value: LabelValueComponentCustomElement['inline']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.density = value;
+			this.nativeElement.inline = value;
 		});
 	}
-	public get density(): LabelValueComponentCustomElement['density'] {
-		return this.nativeElement.density;
+	public get inline(): LabelValueComponentCustomElement['inline'] {
+		return this.nativeElement.inline;
 	}
 
-	/** Gets/sets the alignment. */
-	@Input()
-	public set align(value: LabelValueComponentCustomElement['align']) {
+
+	@Input({ transform: booleanAttribute })
+	public set dense(value: LabelValueComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.align = value;
+			this.nativeElement.dense = value;
 		});
 	}
-	public get align(): LabelValueComponentCustomElement['align'] {
-		return this.nativeElement.align;
+	public get dense(): LabelValueComponentCustomElement['dense'] {
+		return this.nativeElement.dense;
 	}
 
 	constructor(

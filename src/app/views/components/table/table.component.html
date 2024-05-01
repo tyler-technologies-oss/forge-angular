@@ -1,8 +1,8 @@
 <app-demo-card headerText="Table">
   <div class="layout-grid">
     <div class="layout-grid">
-      <h2 class="forge-typography--title">Basic</h2>
-      <h3 class="forge-typography--subtitle1">
+      <h2 class="forge-typography--subheading4">Basic</h2>
+      <h3 class="forge-typography--subheading2">
         This is a basic usage of the table in a common, read-only scenario.
       </h3>
       <forge-table select="true"
@@ -18,8 +18,8 @@
     <br />
 
     <div class="layout-grid">
-      <h2 class="forge-typography--title">Advanced</h2>
-      <h3 class="forge-typography--subtitle1">
+      <h2 class="forge-typography--subheading4">Advanced</h2>
+      <h3 class="forge-typography--subheading2">
         This is an advanced usage of the table to showcase more of its features.
       </h3>
       <forge-table select="true"
@@ -42,8 +42,8 @@
 
     <div class="layout-grid">
       <div class="layout-grid">
-        <h2 class="forge-typography--title">Multi Column Sorting</h2>
-        <h3 class="forge-typography--subtitle1">
+        <h2 class="forge-typography--subheading4">Multi Column Sorting</h2>
+        <h3 class="forge-typography--subheading2">
           This is a basic usage of the table in a common, read-only scenario with multiple sorting columns
         </h3>
         <forge-table select="false"
@@ -58,8 +58,8 @@
 
     <div class="layout-grid">
       <div class="layout-grid">
-        <h2 class="forge-typography--title">Select All Template</h2>
-        <h3 class="forge-typography--subtitle1">
+        <h2 class="forge-typography--subheading4">Select All Template</h2>
+        <h3 class="forge-typography--subheading2">
           This is an advanced usage where the select all checkbox cell is a custom template
         </h3>
         <forge-table select="false" #selectAllTemplateTable
@@ -71,15 +71,11 @@
           select-key="Id">
           <div #selectAllTemplate class="select-all-template">
             <forge-menu [options]="options">
-              <forge-icon-button >
-                <button type="button">
-                  <forge-icon name="settings"></forge-icon>
-                </button>
+              <forge-icon-button aria-label="Settings">
+                <forge-icon name="settings"></forge-icon>
               </forge-icon-button>
             </forge-menu>
-            <forge-checkbox>
-              <input type="checkbox" />
-            </forge-checkbox>
+            <forge-checkbox aria-label="Select all"></forge-checkbox>
           </div>
         </forge-table>
       </div>

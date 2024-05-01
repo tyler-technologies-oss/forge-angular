@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ExpansionPanelComponent as ExpansionPanelComponentCustomElement, defineExpansionPanelComponent } from '@tylertech/forge';
 
-/** A web component that encapsulates the functionality of expanding/collapsing content when clicked. */
+/**  */
 @Component({
   selector: 'forge-expansion-panel',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ExpansionPanelComponent {
 	/** The forge-expansion-panel element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls the open state of the panel. */
+	/** Whether the panel is open or closed. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: ExpansionPanelComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,40 +24,7 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.open;
 	}
 
-	/**
-	 * Sets the function to call when the panel wants to open.
-	 * The function must return a promise which can be resolved to
-	 * open the panel or rejected which cancels the panel open.
-	 */
-	@Input()
-	public set openCallback(value: ExpansionPanelComponentCustomElement['openCallback']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.openCallback = value;
-		});
-	}
-	public get openCallback(): ExpansionPanelComponentCustomElement['openCallback'] {
-		return this.nativeElement.openCallback;
-	}
-
-	/**
-	 * Sets the function to call when the panel wants to close.
-	 * The function must return a promise which can be resolved to
-	 * close the panel or rejected which cancels the panel close.
-	 */
-	@Input()
-	public set closeCallback(value: ExpansionPanelComponentCustomElement['closeCallback']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.closeCallback = value;
-		});
-	}
-	public get closeCallback(): ExpansionPanelComponentCustomElement['closeCallback'] {
-		return this.nativeElement.closeCallback;
-	}
-
-	/**
-	 * Sets the orientation of the panel expansion.
-	 * Valid values are 'vertical' (default) or 'horizontal'.
-	 */
+	/** The orientation of the panel. */
 	@Input()
 	public set orientation(value: ExpansionPanelComponentCustomElement['orientation']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,30 +35,20 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.orientation;
 	}
 
-	/** Gets/sets if animations are used in the expand/collapse transition. */
-	@Input({ transform: booleanAttribute })
-	public set useAnimations(value: ExpansionPanelComponentCustomElement['useAnimations']) {
+	/** The type of animation to use when opening/closing the panel. */
+	@Input()
+	public set animationType(value: ExpansionPanelComponentCustomElement['animationType']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.useAnimations = value;
+			this.nativeElement.animationType = value;
 		});
 	}
-	public get useAnimations(): ExpansionPanelComponentCustomElement['useAnimations'] {
-		return this.nativeElement.useAnimations;
+	public get animationType(): ExpansionPanelComponentCustomElement['animationType'] {
+		return this.nativeElement.animationType;
 	}
 
 
-	public initializedCallback(...args: Parameters<ExpansionPanelComponentCustomElement['initializedCallback']>): ReturnType<ExpansionPanelComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
-	}
-
-	/** Toggles the collapsed state. */
 	public toggle(...args: Parameters<ExpansionPanelComponentCustomElement['toggle']>): ReturnType<ExpansionPanelComponentCustomElement['toggle']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.toggle(...args));
-	}
-
-	/** Forces the expansion panel to expand/collapse without transition animations. */
-	public setOpenImmediate(...args: Parameters<ExpansionPanelComponentCustomElement['setOpenImmediate']>): ReturnType<ExpansionPanelComponentCustomElement['setOpenImmediate']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.setOpenImmediate(...args));
 	}
 
 	constructor(

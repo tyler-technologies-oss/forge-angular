@@ -125,17 +125,6 @@ export class PaginatorComponent {
 
 
 	@Input()
-	public set alignment(value: PaginatorComponentCustomElement['alignment']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.alignment = value;
-		});
-	}
-	public get alignment(): PaginatorComponentCustomElement['alignment'] {
-		return this.nativeElement.alignment;
-	}
-
-
-	@Input()
 	public set rangeLabelCallback(value: PaginatorComponentCustomElement['rangeLabelCallback']) {
 		this.zone.runOutsideAngular(() => {
 			this.nativeElement.rangeLabelCallback = value;

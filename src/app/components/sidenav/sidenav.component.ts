@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IExpansionPanelComponent, IconRegistry } from '@tylertech/forge';
+import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 
 IconRegistry.define([
@@ -37,8 +37,8 @@ export class SidenavComponent implements OnInit {
   @Output() public onClose = new EventEmitter();
 
   @HostListener('window:resize')
-  public onResize() {
-    this.handleDrawer();
+  public onResize(): void {
+    this.updateViewportSize();
   }
 
   public componentMenuItems: IMenuItem[] = [
@@ -47,11 +47,11 @@ export class SidenavComponent implements OnInit {
     { label: 'Avatar', value: '/component/avatar' },
     { label: 'Banner', value: '/component/banner' },
     { label: 'Bottom Sheet', value: '/component/bottom-sheet' },
-    { label: 'Busy Indicator', value: '/component/busy-indicator' },
     { label: 'Button', value: '/component/button' },
     { label: 'Checkbox', value: '/component/checkbox' },
     { label: 'Chip Field', value: '/component/chip-field' },
     { label: 'Chips', value: '/component/chips' },
+    { label: 'Circular Progress', value: '/component/circular-progress' },
     { label: 'Date picker', value: '/component/date-picker' },
     { label: 'Date Range Picker', value: '/component/date-range-picker' },
     { label: 'Dialog', value: '/component/dialog' },
@@ -65,9 +65,7 @@ export class SidenavComponent implements OnInit {
     { label: 'Menu', value: '/component/menu' },
     { label: 'Page State', value: '/component/page-state' },
     { label: 'Paginator', value: '/component/paginator' },
-    { label: 'Popup', value: '/component/popup' },
-    { label: 'Progress Spinner', value: '/component/progress-spinner' },
-    { label: 'Quantity Field', value: '/component/quantity-field' },
+    { label: 'Popover', value: '/component/popover' },
     { label: 'Radio', value: '/component/radio' },
     { label: 'Scaffold', value: '/component/scaffold' },
     { label: 'Select', value: '/component/select' },
@@ -97,7 +95,7 @@ export class SidenavComponent implements OnInit {
     this.open = window.innerWidth > 750;
   }
 
-  public handleDrawer() {
+  public updateViewportSize(): void {
     if (window.innerWidth < 750) {
       this.isSmallViewPort = true;
     } else {
@@ -105,23 +103,28 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  public openSidenav() {
+  public openSidenav(): void {
     this.open = true;
   }
 
-  public closeSidenav() {
+  public closeSidenav(): void {
     this.open = false;
     this.onClose.emit();
   }
 
-  public adjustDrawer() {
-    this.drawerType = this.isSmallViewPort ? 'modal' : 'dismissible';
+  public handleResize(): void {
     this.open = !this.isSmallViewPort;
   }
 
   public ngOnInit(): void {
-    this.handleDrawer();
-    this.adjustDrawer();
+    this.updateViewportSize();
+    this.handleResize();
+
+    window.requestAnimationFrame(() => {
+      if (!this.open) {
+        this.onClose.emit();
+      }
+    });
   }
 
   public ngAfterViewInit(): void {
@@ -137,8 +140,15 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  public onMenuItemSelected(evt: CustomEvent): void {
-    this.selectedPath = evt.detail.value;
-    this._router.navigateByUrl(evt.detail.value);
+  public onMenuItemSelected(evt: CustomEvent<IListItemSelectEventData>): void {
+    const path = (evt.detail as IListItemSelectEventData<string>).value;
+    if (path === undefined) {
+      return;
+    }
+    if (this.isSmallViewPort && this.open) {
+      this.closeSidenav();
+    }
+    this.selectedPath = path;
+    this._router.navigateByUrl(path);
   }
 }

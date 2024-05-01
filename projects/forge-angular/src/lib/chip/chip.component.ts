@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ChipComponent as ChipComponentCustomElement, defineChipComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-chip>` component. */
+/**  */
 @Component({
   selector: 'forge-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ChipComponent {
 	/** The forge-chip element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets the chip type. */
+	/** The type of chip. */
 	@Input()
 	public set type(value: ChipComponentCustomElement['type']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,40 +24,7 @@ export class ChipComponent {
 		return this.nativeElement.type;
 	}
 
-	/** Gets/sets the selected state of the chip. */
-	@Input({ transform: booleanAttribute })
-	public set selected(value: ChipComponentCustomElement['selected']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.selected = value;
-		});
-	}
-	public get selected(): ChipComponentCustomElement['selected'] {
-		return this.nativeElement.selected;
-	}
-
-	/** Gets/sets the disabled state of the chip. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: ChipComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): ChipComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
-	/** Gets/sets the invalid state of the chip. */
-	@Input({ transform: booleanAttribute })
-	public set invalid(value: ChipComponentCustomElement['invalid']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.invalid = value;
-		});
-	}
-	public get invalid(): ChipComponentCustomElement['invalid'] {
-		return this.nativeElement.invalid;
-	}
-
-	/** Gets/sets the chip value. */
+	/** The value of the chip. */
 	@Input()
 	public set value(value: ChipComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +35,40 @@ export class ChipComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Gets/sets the dense state of the chip. */
+	/** Whether the chip is selected. */
+	@Input({ transform: booleanAttribute })
+	public set selected(value: ChipComponentCustomElement['selected']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.selected = value;
+		});
+	}
+	public get selected(): ChipComponentCustomElement['selected'] {
+		return this.nativeElement.selected;
+	}
+
+	/** Whether the chip is invalid. */
+	@Input({ transform: booleanAttribute })
+	public set invalid(value: ChipComponentCustomElement['invalid']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.invalid = value;
+		});
+	}
+	public get invalid(): ChipComponentCustomElement['invalid'] {
+		return this.nativeElement.invalid;
+	}
+
+	/** Whether the chip is disabled. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: ChipComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): ChipComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** Whether the chip is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ChipComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,15 +79,59 @@ export class ChipComponent {
 		return this.nativeElement.dense;
 	}
 
-
-	@Input({ transform: booleanAttribute })
-	public set emulateFocus(value: ChipComponentCustomElement['emulateFocus']) {
+	/** The theme of the chip. */
+	@Input()
+	public set theme(value: ChipComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.emulateFocus = value;
+			this.nativeElement.theme = value;
 		});
 	}
-	public get emulateFocus(): ChipComponentCustomElement['emulateFocus'] {
-		return this.nativeElement.emulateFocus;
+	public get theme(): ChipComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+	/** The href of the chip. */
+	@Input()
+	public set href(value: ChipComponentCustomElement['href']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.href = value;
+		});
+	}
+	public get href(): ChipComponentCustomElement['href'] {
+		return this.nativeElement.href;
+	}
+
+	/** The target of the chip. */
+	@Input()
+	public set target(value: ChipComponentCustomElement['target']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.target = value;
+		});
+	}
+	public get target(): ChipComponentCustomElement['target'] {
+		return this.nativeElement.target;
+	}
+
+	/** The download of the chip. */
+	@Input()
+	public set download(value: ChipComponentCustomElement['download']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.download = value;
+		});
+	}
+	public get download(): ChipComponentCustomElement['download'] {
+		return this.nativeElement.download;
+	}
+
+	/** The rel of the chip. */
+	@Input()
+	public set rel(value: ChipComponentCustomElement['rel']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.rel = value;
+		});
+	}
+	public get rel(): ChipComponentCustomElement['rel'] {
+		return this.nativeElement.rel;
 	}
 
 
@@ -96,8 +140,13 @@ export class ChipComponent {
 	}
 
 
-	public tryFocusDelete(...args: Parameters<ChipComponentCustomElement['tryFocusDelete']>): ReturnType<ChipComponentCustomElement['tryFocusDelete']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.tryFocusDelete(...args));
+	public focusRemoveButton(...args: Parameters<ChipComponentCustomElement['focusRemoveButton']>): ReturnType<ChipComponentCustomElement['focusRemoveButton']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.focusRemoveButton(...args));
+	}
+
+
+	public click(...args: Parameters<ChipComponentCustomElement['click']>): ReturnType<ChipComponentCustomElement['click']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
 	}
 
 	constructor(

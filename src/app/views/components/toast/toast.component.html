@@ -1,9 +1,5 @@
 <app-demo-card headerText="Toast">
-  <forge-button type="raised">
-    <button (click)="onShowToast()">Show toast</button>
-  </forge-button>
-  <br/>
-  <br/>
+  <forge-button variant="raised" (click)="onShowToast()">Show toast</forge-button>
 
   <forge-text-field>
     <label for="message">Message</label>
@@ -22,24 +18,18 @@
 
   <forge-select id="placement" label="Placement" [(ngModel)]="placement">
     <forge-option value="bottom">Bottom</forge-option>
-    <forge-option value="bottom-left">Bottom Left</forge-option>
-    <forge-option value="bottom-right">Bottom Right</forge-option>
+    <forge-option value="bottom-start">Bottom Start</forge-option>
+    <forge-option value="bottom-end">Bottom End</forge-option>
     <forge-option value="top">Top</forge-option>
-    <forge-option value="top-left">Top Left</forge-option>
-    <forge-option value="top-right">Top Right</forge-option>
+    <forge-option value="top-start">Top Start</forge-option>
+    <forge-option value="top-end">Top End</forge-option>
   </forge-select>
   
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="showClose" [(ngModel)]="showClose">
-      <label for="showClose">Show close</label>
-    </forge-checkbox>
+    <forge-checkbox id="dismissible" [(ngModel)]="dismissible">Dismissible</forge-checkbox>
   </div>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="useCustom" [(ngModel)]="useCustom">
-      <label for="useCustom">Use custom component</label>
-    </forge-checkbox>
+    <forge-checkbox id="useCustom" [(ngModel)]="useCustom">Use custom component</forge-checkbox>
   </div>
 </app-demo-card>

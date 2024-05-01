@@ -1,10 +1,7 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  flex-grow: 1;
+.body {
+  padding-inline: var(--forge-spacing-medium);
 }
 
-.forge-bottom-sheet__body {
-  flex-grow: 1;
+forge-toolbar[slot=footer] forge-button:last-child {
+  margin-inline-start: var(--forge-spacing-medium);
 }

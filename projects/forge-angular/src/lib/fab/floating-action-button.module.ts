@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core'; 
 import { defineFloatingActionButtonComponent } from '@tylertech/forge';
 
-import { FloatingActionButton } from './floating-action-button.component';
+import { FloatingActionButtonComponent } from './floating-action-button.component';
 
 @NgModule({
 	imports: [CommonModule],
-	declarations: [FloatingActionButton],
-	exports: [FloatingActionButton]
+	declarations: [FloatingActionButtonComponent],
+	exports: [FloatingActionButtonComponent]
 })
 export class ForgeFloatingActionButtonModule {
 	constructor() {

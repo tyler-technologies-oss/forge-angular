@@ -33,7 +33,7 @@ export class HeaderComponent {
     this._toastService.show(`Search: ${evt.detail}`);
   }
 
-  public toggleTheme() {
+  public toggleTheme(): void {
     this._isDark = !this._isDark;
     toggleClass(document.body, this._isDark, 'app-theme-dark');
     this.themeSwitcherIcon = this._isDark ? tylIconWbSunny.name : tylIconBrightness3.name;

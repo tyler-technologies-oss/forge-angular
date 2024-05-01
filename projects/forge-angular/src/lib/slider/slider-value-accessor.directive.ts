@@ -1,13 +1,14 @@
 import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ISliderChangeEventData, ISliderInputEventData } from '@tylertech/forge';
+import { ISliderChangeEventData, ISliderRangeChangeEventData } from '@tylertech/forge';
 
 export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SliderValueAccessor),
   multi: true
 };
+
 
 @Directive({
   selector: 'forge-slider[formControlName],forge-slider[formControl],forge-slider[ngModel]',
@@ -16,12 +17,22 @@ export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
 export class SliderValueAccessor implements ControlValueAccessor {
   @HostListener('forge-slider-change', ['$event'])
   public sliderChange(event: CustomEvent<ISliderChangeEventData>): void {
-    this.change(event.detail.value);
+    this.change(event.detail);
   }
 
   @HostListener('forge-slider-input', ['$event'])
-  public sliderInput(event: CustomEvent<ISliderInputEventData>): void {
-    this.change(event.detail.value);
+  public sliderInput(event: CustomEvent<ISliderChangeEventData>): void {
+    this.change(event.detail);
+  }
+
+  @HostListener('forge-slider-range-change', ['$event'])
+  public sliderRangeChange(event: CustomEvent<ISliderRangeChangeEventData>): void {
+    this.changeRange(event.detail);
+  }
+
+  @HostListener('forge-slider-range-input', ['$event'])
+  public sliderRangeInput(event: CustomEvent<ISliderRangeChangeEventData>): void {
+    this.changeRange(event.detail);
   }
 
   @HostListener('blur')
@@ -34,8 +45,22 @@ export class SliderValueAccessor implements ControlValueAccessor {
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
-  public writeValue(value: any): void {
-    this._renderer.setProperty(this._elementRef.nativeElement, 'value', this._toFloat(value));
+  public writeValue(value: ISliderChangeEventData | ISliderRangeChangeEventData): void {
+    if (this._elementRef.nativeElement.range) {
+      if (value === null || value === undefined || typeof value !== 'object') {
+        this._renderer.setProperty(this._elementRef.nativeElement, 'valueStart', 0);
+        this._renderer.setProperty(this._elementRef.nativeElement, 'valueEnd', 0);
+        return;
+      }
+      if ('valueStart' in value) {
+        this._renderer.setProperty(this._elementRef.nativeElement, 'valueStart', this._toFloat(value.valueStart));
+      }
+      if ('valueStart' in value) {
+        this._renderer.setProperty(this._elementRef.nativeElement, 'valueEnd', this._toFloat(value.valueEnd));
+      }
+    } else {
+      this._renderer.setProperty(this._elementRef.nativeElement, 'value', this._toFloat(value));
+    }
   }
 
   public registerOnChange(fn: (_: number | null) => void): void {
@@ -50,7 +75,11 @@ export class SliderValueAccessor implements ControlValueAccessor {
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
   }
 
-  public change(value: number | undefined): void {
+  public change(value: ISliderChangeEventData | undefined): void {
+    this.onChange(value);
+  }
+
+  public changeRange(value: ISliderRangeChangeEventData | undefined): void {
     this.onChange(value);
   }
 
@@ -60,7 +89,6 @@ export class SliderValueAccessor implements ControlValueAccessor {
     }
 
     const parsedValue = parseFloat(value);
-
     if (isNaN(parsedValue) || typeof parsedValue !== 'number') {
       return 0;
     }
