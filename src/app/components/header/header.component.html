@@ -1,8 +1,10 @@
-<forge-app-bar title-text="Forge Angular Adapter" href="/" (forge-app-bar-search-input)="onSearch($event)">
+<forge-app-bar title-text="Tyler Forge™ Angular Adapter" href="/" (forge-app-bar-search-input)="onSearch($event)">
   <forge-app-bar-menu-button slot="start" (click)="onMenuClicked()"></forge-app-bar-menu-button>
   <forge-icon slot="logo" name="tyler_talking_t_logo"></forge-icon>
-  <forge-icon-button slot="end" (click)="toggleTheme()">
-    <forge-icon [name]="themeSwitcherIcon"></forge-icon>
-  </forge-icon-button>
-  <forge-tooltip type="label" placement="left" slot="end">Toggle theme</forge-tooltip>
+  <div slot="end">
+    <forge-icon-button (click)="toggleTheme()">
+      <forge-icon [name]="themeSwitcherIcon"></forge-icon>
+    </forge-icon-button>
+    <forge-tooltip type="label" placement="left">Toggle theme</forge-tooltip>
+  </div>
 </forge-app-bar>

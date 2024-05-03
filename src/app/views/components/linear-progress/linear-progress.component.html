@@ -9,12 +9,12 @@
     <ng-container *ngIf="isDeterminate">
       <div class="with-label">
         <label class="forge-typography--label1">Progress: {{progress}}</label>
-        <forge-slider [value]="sliderProgressValue" (forge-slider-input)="progress = $any($event).detail / 100"></forge-slider>
+        <forge-slider [value]="sliderProgressValue" (forge-slider-input)="progress = $event.detail.value / 100"></forge-slider>
       </div>
 
       <div class="with-label">
         <label class="forge-typography--label1">Buffer: {{buffer}}</label>
-        <forge-slider [value]="sliderBufferValue" (forge-slider-input)="buffer = $any($event).detail / 100"></forge-slider>
+        <forge-slider [value]="sliderBufferValue" (forge-slider-input)="buffer = $event.detail.value / 100"></forge-slider>
       </div>
     </ng-container>
   </div>
