@@ -13,83 +13,6 @@ export class ListItemComponent {
 	/** The forge-list-item element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The href of the anchor. This forces the list item to render as an anchor element. */
-	@Input()
-	public set href(value: ListItemComponentCustomElement['href']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.href = value;
-		});
-	}
-	public get href(): ListItemComponentCustomElement['href'] {
-		return this.nativeElement.href;
-	}
-
-	/** The target of the list item when an `href` is set. Defaults to `'_blank'`. */
-	@Input()
-	public set target(value: ListItemComponentCustomElement['target']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.target = value;
-		});
-	}
-	public get target(): ListItemComponentCustomElement['target'] {
-		return this.nativeElement.target;
-	}
-
-	/** The anchor download attribute. */
-	@Input({ transform: booleanAttribute })
-	public set download(value: ListItemComponentCustomElement['download']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.download = value;
-		});
-	}
-	public get download(): ListItemComponentCustomElement['download'] {
-		return this.nativeElement.download;
-	}
-
-	/** The anchor rel attribute. */
-	@Input({ transform: booleanAttribute })
-	public set rel(value: ListItemComponentCustomElement['rel']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.rel = value;
-		});
-	}
-	public get rel(): ListItemComponentCustomElement['rel'] {
-		return this.nativeElement.rel;
-	}
-
-	/** If true, the list item will not be interactive. Deprecated use `nonInteractive` instead. */
-	@Input({ transform: booleanAttribute })
-	public set static(value: ListItemComponentCustomElement['static']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.static = value;
-		});
-	}
-	public get static(): ListItemComponentCustomElement['static'] {
-		return this.nativeElement.static;
-	}
-
-	/** If true, the list item will not be interactive. */
-	@Input({ transform: booleanAttribute })
-	public set nonInteractive(value: ListItemComponentCustomElement['nonInteractive']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.nonInteractive = value;
-		});
-	}
-	public get nonInteractive(): ListItemComponentCustomElement['nonInteractive'] {
-		return this.nativeElement.nonInteractive;
-	}
-
-	/** Disables the list item. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: ListItemComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): ListItemComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
 	/** Applies the selected state to the list item. */
 	@Input({ transform: booleanAttribute })
 	public set selected(value: ListItemComponentCustomElement['selected']) {
@@ -132,17 +55,6 @@ export class ListItemComponent {
 	}
 	public get dense(): ListItemComponentCustomElement['dense'] {
 		return this.nativeElement.dense;
-	}
-
-	/** If true, the list item will not propagate click events to itself and therefore cannot receive focus. */
-	@Input({ transform: booleanAttribute })
-	public set propagateClick(value: ListItemComponentCustomElement['propagateClick']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.propagateClick = value;
-		});
-	}
-	public get propagateClick(): ListItemComponentCustomElement['propagateClick'] {
-		return this.nativeElement.propagateClick;
 	}
 
 	/** Applies the indented state by adding margin to the start of the list item. */
@@ -189,14 +101,15 @@ export class ListItemComponent {
 		return this.nativeElement.wrap;
 	}
 
-
-	public focus(...args: Parameters<ListItemComponentCustomElement['focus']>): ReturnType<ListItemComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
+	/** Controls whether the list item will automatically attach itself to interactive slotted elements or not. */
+	@Input({ transform: booleanAttribute })
+	public set noninteractive(value: ListItemComponentCustomElement['noninteractive']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.noninteractive = value;
+		});
 	}
-
-
-	public click(...args: Parameters<ListItemComponentCustomElement['click']>): ReturnType<ListItemComponentCustomElement['click']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
+	public get noninteractive(): ListItemComponentCustomElement['noninteractive'] {
+		return this.nativeElement.noninteractive;
 	}
 
 	constructor(

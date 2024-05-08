@@ -16,8 +16,6 @@ interface DemoForm {
   shirtSize: FormControl<'xs' | 's' | 'm' | 'l' | 'xl'>;
   shirtQuantity: FormControl<number>;
   agree: FormControl<boolean>;
-  checkedListItems: FormControl<number[]>;
-  radioListItem: FormControl<number[]>;
 }
 
 @Component({
@@ -46,9 +44,7 @@ export class ReactiveFormExampleComponent implements OnInit {
       favoriteNumber: new FormControl(0, { nonNullable: true, validators: Validators.required }),
       shirtSize: new FormControl('m', { nonNullable: true, validators: Validators.required }),
       shirtQuantity: new FormControl(1, { nonNullable: true, validators: Validators.min(1) }),
-      agree: new FormControl(false, { nonNullable: true, validators: Validators.required }),
-      checkedListItems: new FormControl([], { nonNullable: true }),
-      radioListItem: new FormControl([], { nonNullable: true })
+      agree: new FormControl(false, { nonNullable: true, validators: Validators.required })
     });
 
     this.shirtQuantityControl = this.exampleForm.controls.shirtQuantity;

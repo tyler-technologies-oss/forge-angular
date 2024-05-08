@@ -99,26 +99,6 @@
       <forge-checkbox formControlName="agree">Do you agree to the terms of service?</forge-checkbox>
     </div>
 
-    <!-- List with checkboxes -->
-    <div class="forge-demo-form-field">
-      <forge-list formControlName="checkedListItems">
-        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
-          {{item.label}}
-          <forge-checkbox slot="trailing" [attr.aria-label]="'Check ' + item.label"></forge-checkbox>
-        </forge-list-item>
-      </forge-list>
-    </div>
-
-    <!-- List with radios -->
-    <div class="forge-demo-form-field">
-      <forge-list formControlName="radioListItem">
-        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
-          {{item.label}}
-          <forge-radio slot="trailing" name="list-radio" [attr.aria-label]="'Radio' + item.label" [attr.value]="item.value"></forge-radio>
-        </forge-list-item>
-      </forge-list>
-    </div>
-
     <!-- Reset and submit buttons-->
     <div class="forge-form-field">
       <forge-button style="margin-right: 8px;" (click)="onReset()" [disabled]="!exampleForm.dirty">Reset</forge-button>

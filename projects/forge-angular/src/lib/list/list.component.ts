@@ -13,39 +13,6 @@ export class ListComponent {
 	/** The forge-list element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Whether the list has all static items or not. */
-	@Input({ transform: booleanAttribute })
-	public set static(value: ListComponentCustomElement['static']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.static = value;
-		});
-	}
-	public get static(): ListComponentCustomElement['static'] {
-		return this.nativeElement.static;
-	}
-
-	/** Whether the list has all non-interactive items or not. */
-	@Input({ transform: booleanAttribute })
-	public set nonInteractive(value: ListComponentCustomElement['nonInteractive']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.nonInteractive = value;
-		});
-	}
-	public get nonInteractive(): ListComponentCustomElement['nonInteractive'] {
-		return this.nativeElement.nonInteractive;
-	}
-
-	/** Whether the list items are disabled or not. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: ListComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): ListComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
 	/** Whether the list has all dense items or not. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ListComponentCustomElement['dense']) {
@@ -55,17 +22,6 @@ export class ListComponent {
 	}
 	public get dense(): ListComponentCustomElement['dense'] {
 		return this.nativeElement.dense;
-	}
-
-	/** Whether the list items propagate click events or not. */
-	@Input({ transform: booleanAttribute })
-	public set propagateClick(value: ListComponentCustomElement['propagateClick']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.propagateClick = value;
-		});
-	}
-	public get propagateClick(): ListComponentCustomElement['propagateClick'] {
-		return this.nativeElement.propagateClick;
 	}
 
 	/** Whether the list items within this list are indented. Default is false. */
@@ -123,15 +79,15 @@ export class ListComponent {
 		return this.nativeElement.wrap;
 	}
 
-	/** The role of the list. Default is 'list'. Valid values are 'list', 'listbox', and 'menu'. */
-	@Input()
-	public set role(value: ListComponentCustomElement['role']) {
+	/** Controls whether the list items will automatically attach themselves to interactive slotted elements or not. */
+	@Input({ transform: booleanAttribute })
+	public set noninteractive(value: ListComponentCustomElement['noninteractive']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.role = value;
+			this.nativeElement.noninteractive = value;
 		});
 	}
-	public get role(): ListComponentCustomElement['role'] {
-		return this.nativeElement.role;
+	public get noninteractive(): ListComponentCustomElement['noninteractive'] {
+		return this.nativeElement.noninteractive;
 	}
 
 	constructor(

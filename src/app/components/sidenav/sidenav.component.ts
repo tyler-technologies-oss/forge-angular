@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 
@@ -35,6 +36,7 @@ export class SidenavComponent implements OnInit {
   public isSmallViewPort: boolean;
 
   @Output() public onClose = new EventEmitter();
+  @Output() public onModalChange = new EventEmitter<boolean>();
 
   @HostListener('window:resize')
   public onResize(): void {
@@ -91,16 +93,24 @@ export class SidenavComponent implements OnInit {
     { label: 'Two column layout', value: '/example/two-column-grid' }
   ];
 
-  constructor(private _router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
-    this.open = window.innerWidth > 750;
+  constructor(router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
+    router.events.pipe(takeUntilDestroyed()).subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (this.open) {
+          this.closeSidenav();
+        }
+      }
+    });
   }
 
   public updateViewportSize(): void {
     if (window.innerWidth < 750) {
       this.isSmallViewPort = true;
+      this.open = false;
     } else {
       this.isSmallViewPort = false;
     }
+    this.onModalChange.emit(this.isSmallViewPort);
   }
 
   public openSidenav(): void {
@@ -112,15 +122,9 @@ export class SidenavComponent implements OnInit {
     this.onClose.emit();
   }
 
-  public handleResize(): void {
-    this.open = !this.isSmallViewPort;
-  }
-
   public ngOnInit(): void {
-    this.updateViewportSize();
-    this.handleResize();
-
     window.requestAnimationFrame(() => {
+      this.updateViewportSize();
       if (!this.open) {
         this.onClose.emit();
       }
@@ -138,17 +142,5 @@ export class SidenavComponent implements OnInit {
     } else if (path.match(/^\/example\//)) {
       this.exampleExpansionPanel.nativeElement.open = true;
     }
-  }
-
-  public onMenuItemSelected(evt: CustomEvent<IListItemSelectEventData>): void {
-    const path = (evt.detail as IListItemSelectEventData<string>).value;
-    if (path === undefined) {
-      return;
-    }
-    if (this.isSmallViewPort && this.open) {
-      this.closeSidenav();
-    }
-    this.selectedPath = path;
-    this._router.navigateByUrl(path);
   }
 }

@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public isDrawerOpen = true;
+  public isDrawerOpen = false;
+  public canCloseDrawer = false;
 
   public onMenuClicked(): void {
     this.isDrawerOpen = !this.isDrawerOpen;

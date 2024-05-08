@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ToastService } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
@@ -13,6 +13,8 @@ import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
 export class HeaderComponent {
   private _isDark = false;
   public themeSwitcherIcon: string = tylIconBrightness3.name;
+
+  @Input() public showDrawerToggle = false;
 
   @Output()
   public menuClicked = new EventEmitter<void>();

@@ -1,5 +1,5 @@
 <ng-container *ngIf="isSmallViewPort; else largeViewPort">
-  <forge-dialog aria-label="Navigation menu" preset="left-sheet" (window:resize)="handleResize()" (forge-dialog-close)="closeSidenav()" [open]="open">
+  <forge-dialog aria-label="Navigation menu" preset="left-sheet" (forge-dialog-close)="closeSidenav()" [open]="open">
     <div class="dialog-sidenav">
       <ng-container *ngTemplateOutlet="sidenavContent"></ng-container>
     </div>
@@ -7,7 +7,7 @@
 </ng-container>
 
 <ng-template #largeViewPort>
-  <forge-drawer (window:resize)="handleResize()" [open]="open">
+  <forge-drawer>
     <aside>
       <ng-container *ngTemplateOutlet="sidenavContent"></ng-container>
     </aside>
@@ -15,26 +15,30 @@
 </ng-template>
 
 <ng-template #sidenavContent>
-  <forge-list navlist (forge-list-item-select)="onMenuItemSelected($event)" [selectedValue]="selectedPath">
-      <forge-list-item value="/">
+  <forge-list navlist>
+      <forge-list-item [selected]="homeLink.isActive">
         <forge-icon name="home" slot="leading"></forge-icon>
-        Home
+        <a routerLink="/" #homeLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">Home</a>
       </forge-list-item>
       <forge-expansion-panel #componentExpansionPanel>
         <forge-list-item slot="header">
           <forge-icon name="settings_input_component" slot="leading"></forge-icon>
-          Components
+          <button>Components</button>
           <forge-open-icon slot="trailing"></forge-open-icon>
         </forge-list-item>
-        <forge-list-item indented *ngFor="let item of componentMenuItems" [value]="item.value">{{item.label}}</forge-list-item>
+        <forge-list-item indented *ngFor="let item of componentMenuItems" [selected]="componentMenuLink.isActive">
+          <a [routerLink]="[item.value]" #componentMenuLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">{{item.label}}</a>
+        </forge-list-item>
       </forge-expansion-panel>
       <forge-expansion-panel #exampleExpansionPanel>
         <forge-list-item slot="header">
           <forge-icon name="settings" slot="leading"></forge-icon>
-          Examples
+          <button>Examples</button>
           <forge-open-icon slot="trailing"></forge-open-icon>
         </forge-list-item>
-        <forge-list-item indented *ngFor="let item of exampleMenuItems" [value]="item.value">{{item.label}}</forge-list-item>
+        <forge-list-item indented *ngFor="let item of exampleMenuItems" [selected]="exampleLink.isActive">
+          <a [routerLink]="[item.value]" #exampleLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">{{item.label}}</a>
+        </forge-list-item>
       </forge-expansion-panel>
   </forge-list>
 </ng-template>
