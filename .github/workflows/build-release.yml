@@ -69,7 +69,6 @@ jobs:
             echo "Release: false"
             echo "release=false" >> $GITHUB_OUTPUT
           fi
-          fi
 
       ## Detect if any specific files we care about have changed to help us know if we need to execute a CI build or Storybook deployment at all or not
       - name: Check File Changes
