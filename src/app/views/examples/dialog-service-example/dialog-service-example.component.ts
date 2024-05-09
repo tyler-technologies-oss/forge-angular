@@ -13,10 +13,7 @@ export class DialogServiceExampleComponent {
   public result = false;
 
 
-  constructor(
-    private _dialogService: DialogService,
-    private _toastService: ToastService
-    ) {}
+  constructor(private _dialogService: DialogService, private _toastService: ToastService) {}
 
   public async showDialog(): Promise<void> {
     this._dialogService.show(DialogComponent);
@@ -28,13 +25,11 @@ export class DialogServiceExampleComponent {
 
   private _openCountDownDialog(): void {
     const dialogOptions: IDialogOptions = {
-      backdropClose: false,
-      escapeClose: false,
+      persistent: false,
       attributes: new Map([
         ['aria-labelledby', 'dialog-title'],
         ['aria-describedby', 'dialog-desc']
-      ]),
-      closeCallback: () => console.log('closeCallback')
+      ])
     };
     
     const dialogConfig = {

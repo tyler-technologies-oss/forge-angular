@@ -1,24 +1,23 @@
-import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector, Renderer2, RendererFactory2, Type } from '@angular/core';
-import { IToastComponent, TOAST_CONSTANTS, defineToastComponent } from '@tylertech/forge';
+import { ApplicationRef, ComponentRef, EmbeddedViewRef, EnvironmentInjector, Injectable, Type, createComponent, createEnvironmentInjector } from '@angular/core';
+import { IToastComponent, IToastPresentConfiguration, TOAST_CONSTANTS, ToastComponent, defineToastComponent } from '@tylertech/forge';
 import { ToastConfig } from './toast-config';
-import { ToastInjector } from './toast-injector';
 
-export interface IToastConfig extends Partial<IToastComponent> {
-  component?: Type<any>;
+export interface IToastConfig<T = any> extends Partial<IToastPresentConfiguration> {
+  component?: Type<T>;
+  message?: string;
   actionHandler?: () => void;
 }
 
-/**
- * Provides facilities for managing toast notifications.
- */
+export interface IToastRef {
+  nativeElement: IToastComponent;
+  close: () => Promise<void>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ToastService {
-  private _renderer: Renderer2;
-
-  constructor(private _rendererFactory: RendererFactory2, private componentFactoryResolver: ComponentFactoryResolver, private appRef: ApplicationRef, private injector: Injector) {
-    this._renderer = this._rendererFactory.createRenderer(null, null);
+  constructor(private _appRef: ApplicationRef, private _injector: EnvironmentInjector) {
     defineToastComponent();
   }
 
@@ -26,40 +25,44 @@ export class ToastService {
    * Creates and renders a toast component.
    * @param config The toast configuration.
    */
-  public show(config: IToastConfig | string, toastConfig?: ToastConfig): IToastComponent {
-    const toastElement = this._renderer.createElement('forge-toast');
-    const map = new WeakMap();
+  public show(configOrMessage: IToastConfig | string, toastConfig?: ToastConfig): IToastRef {
+    const { component, message, actionHandler, ...config } = configOrMessage as IToastConfig;
 
-    if (toastConfig) {
-      map.set(ToastConfig, toastConfig);
+    let toastElement: IToastComponent;
+    let environmentInjector: EnvironmentInjector | undefined;
+    let componentRef: ComponentRef<any> | undefined;
+
+    const messageText = typeof configOrMessage === 'string' ? configOrMessage : configOrMessage.message;
+    if (typeof messageText === 'string') {
+      toastElement = ToastComponent.present({ message: messageText, ...config });
+    } else if (component) {
+      const providers = toastConfig ? [{ provide: ToastConfig, useValue: toastConfig }] : [];
+      environmentInjector = createEnvironmentInjector(providers, this._injector);
+      componentRef = createComponent(component, { environmentInjector });
+      this._appRef.attachView(componentRef.hostView);
+
+      const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+      toastElement = ToastComponent.present({ element, ...config });
+
+      toastElement.addEventListener(TOAST_CONSTANTS.events.CLOSE, () => {
+        environmentInjector?.destroy();
+      });
+    } else {
+      throw new Error('Either a component or a message must be provided.');
     }
 
-    if (typeof config === 'string') {
-      config = {
-        message: config
-      };
+    if (toastElement && config.actionText && typeof actionHandler === 'function') {
+      toastElement.addEventListener(TOAST_CONSTANTS.events.ACTION, actionHandler);
     }
 
-    const { component, actionHandler, ...restConfig } = config;
-
-    if (component) {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-      const componentRef = componentFactory.create(new ToastInjector(this.injector, map));
-      this.appRef.attachView(componentRef.hostView);
-      const componentElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
-      toastElement.builder = () => componentElement;
-    }
-
-    Object.assign(toastElement, restConfig);
-
-    if (config.actionText && typeof config.actionHandler === 'function') {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
-      this._renderer.listen(toastElement, TOAST_CONSTANTS.events.ACTION, () => (config as IToastConfig).actionHandler!());
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
-    }
-
-    this._renderer.appendChild(document.body, toastElement);
-
-    return toastElement;
+    return {
+      nativeElement: toastElement,
+      close: async () => {
+        environmentInjector?.destroy();
+        componentRef?.destroy();
+        await toastElement.hide();
+        toastElement.remove();
+      }
+    };
   }
 }

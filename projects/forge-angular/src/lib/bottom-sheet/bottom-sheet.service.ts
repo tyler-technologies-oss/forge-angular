@@ -1,8 +1,6 @@
-import { ComponentFactory, Injectable, Injector, NgModuleRef, Type } from '@angular/core';
-import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent, defineBottomSheetComponent } from '@tylertech/forge';
-import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
+import { ApplicationRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgModuleRef, NgZone, Provider, Type, createComponent, createEnvironmentInjector } from '@angular/core';
+import { IBottomSheetComponent, defineBottomSheetComponent } from '@tylertech/forge';
 import { BottomSheetConfig } from './bottom-sheet-config';
-import { BottomSheetInjector } from './bottom-sheet-injector';
 import { BottomSheetRef } from './bottom-sheet-ref';
 
 export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>, 'attributes'> {
@@ -10,14 +8,14 @@ export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>
   attributes?: Map<string, string>;
 }
 
-/**
- * Provides facilities for working with a Forge bottom sheet and placing dynamic components within it.
- */
 @Injectable({
   providedIn: 'root'
 })
 export class BottomSheetService {
-  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
+  constructor(
+    private _appRef: ApplicationRef,
+    private _injector: EnvironmentInjector,
+    private _ngZone: NgZone) {
     defineBottomSheetComponent();
   }
 
@@ -27,15 +25,16 @@ export class BottomSheetService {
    * @param options The component reference.
    * @param config The configuration to provide to the dynamic component as an injectable token.
    * @param moduleRef An NgModuleRef to create the component factory from. (should the injector also inherit from this?)
+   * @param envInjector An environment injector to provide to the component.
    * @returns A reference for interacting with the created bottom sheet.
    */
-  public show<T, K>(component: Type<T> | ComponentFactory<T>, options?: IBottomSheetOptions, config?: BottomSheetConfig, moduleRef?: NgModuleRef<K>): BottomSheetRef<T> {
+  public show<T, K>(component: Type<T>, options?: IBottomSheetOptions, config?: BottomSheetConfig, moduleRef?: NgModuleRef<K>, envInjector?: EnvironmentInjector): BottomSheetRef<T> {
     // Contains tokens that will be provided to components through our custom bottom sheet injector
-    const map = new WeakMap();
+    const providers: Provider[] = [];
 
     // If we got a config, we should provide it as an injection token
     if (config) {
-      map.set(BottomSheetConfig, config);
+      providers.push({ provide: BottomSheetConfig, useValue: config });
     }
 
     // Create the Forge bottom sheet element
@@ -57,29 +56,33 @@ export class BottomSheetService {
     const bottomSheetRef = new BottomSheetRef<T>(bottomSheetElement);
 
     // Always provide the bottom sheet ref as an injection token
-    map.set(BottomSheetRef, bottomSheetRef);
+    providers.push({ provide: BottomSheetRef, useValue: bottomSheetRef });
 
     // Create and attach the dynamic component to the bottom sheet element
-    const dcRef = this._dcs.create(component, bottomSheetElement, new BottomSheetInjector(this._injector, map), moduleRef);
-    bottomSheetRef.componentInstance = dcRef.componentRef.instance;
+    this._ngZone.run(() => {
+      const parentInjector = envInjector ?? moduleRef?.injector ?? this._injector;
+      const environmentInjector = createEnvironmentInjector(providers, parentInjector);
+      const componentRef = createComponent(component, { environmentInjector });
+      this._appRef.attachView(componentRef.hostView);
 
-    // Always destroy when the bottom sheet is closed
-    bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, () => dcRef.destroy());
+      const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+      bottomSheetElement.appendChild(element);
 
-    // Listen for close via escape/backdrop click if applicable to ensure observables complete.
-    const closeRef = (): void => bottomSheetRef.close();
-    if (bottomSheetElement.backdropClose) {
-      bottomSheetElement.addEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, closeRef);
-    }
-
-    const sub = bottomSheetRef.afterClosed.subscribe(() => {
-      bottomSheetElement.removeEventListener(BOTTOM_SHEET_CONSTANTS.events.CLOSE, closeRef);
-      bottomSheetElement.open = false;
-      sub.unsubscribe();
+      const sub = bottomSheetRef.afterClosed.subscribe(() => {
+        componentRef.destroy();
+        sub.unsubscribe();
+      });
+  
+      bottomSheetElement.addEventListener('forge-bottom-sheet-close', () => {
+        bottomSheetRef.close();
+        componentRef.destroy();
+        sub.unsubscribe();
+        bottomSheetElement.remove();
+      });
     });
 
-    // Appends the bottom sheet element to the DOM
     bottomSheetElement.open = true;
+    document.body.appendChild(bottomSheetElement);
 
     return bottomSheetRef;
   }

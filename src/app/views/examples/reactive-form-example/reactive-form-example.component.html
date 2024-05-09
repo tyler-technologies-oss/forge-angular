@@ -2,62 +2,71 @@
   <pre style="margin-bottom: 24px;">{{exampleForm.value | json}}</pre>
 
   <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+    <!-- Text field -->
     <div class="forge-demo-form-field" style="display: flex;">
       <forge-text-field style="margin-right: 16px;" required [invalid]="isInvalid('firstName')">
         <label for="firstName">First Name</label>
-        <input type="text" id="firstName" formControlName="firstName" />
+        <input type="text" id="firstName" formControlName="firstName">
         <span slot="helper-text">{{isInvalid('firstName') ? 'A first name is required' : 'Enter your first name'}}</span>
       </forge-text-field>
       <forge-text-field required [invalid]="isInvalid('lastName')">
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" formControlName="lastName" />
+        <input type="text" id="lastName" formControlName="lastName">
       </forge-text-field>
     </div>
     <div class="forge-demo-form-field">
       <forge-text-field required [invalid]="isInvalid('email')">
         <label for="email">Email</label>
-        <input type="text" id="email" formControlName="email" />
+        <input type="text" id="email" formControlName="email">
       </forge-text-field>
     </div>
+
+    <!-- Switch -->
     <div class="forge-demo-form-field">
       <forge-switch formControlName="send">
         <span>&nbsp;Send me promotional emails</span>
       </forge-switch>
     </div>
+    
+    <!-- Date picker -->
     <div class="forge-demo-form-field">
       <forge-date-picker formControlName="dob" masked>
         <forge-text-field required [invalid]="isInvalid('dob')">
           <label for="dob">Date of birth</label>
-          <input type="text" id="dob"/>
+          <input type="text" id="dob">
         </forge-text-field>
       </forge-date-picker>
     </div>
+
+    <!-- Time picker -->
     <div class="forge-demo-form-field">
       <forge-time-picker formControlName="tob">
         <forge-text-field required [invalid]="isInvalid('tob')">
           <label for="tob">Time of birth</label>
-          <input type="text" id="tob" />
+          <input type="text" id="tob">
         </forge-text-field>
       </forge-time-picker>
     </div>
-    <div class="forge-demo-form-field" role="radiogroup">
-      <forge-radio>
-        <input type="radio" id="gender-male" value="male" formControlName="gender" />
-        <label for="gender-male">Male</label>
-      </forge-radio>
-      <forge-radio>
-        <input type="radio" id="gender-female" value="female" formControlName="gender" />
-        <label for="gender-female">Female</label>
-      </forge-radio>
+
+    <!-- Radio -->
+    <div class="forge-demo-form-field">
+      <forge-radio-group>
+        <forge-radio name="gender" value="male" formControlName="gender">Male</forge-radio>
+        <forge-radio name="gender" value="female" formControlName="gender">Female</forge-radio>
+      </forge-radio-group>
     </div>
+
+    <!-- Autocomplete -->
     <div class="forge-demo-form-field">
       <forge-autocomplete debounce="0" #stateAutocomplete formControlName="state">
         <forge-text-field required [invalid]="isInvalid('state')">
-          <input type="text" id="state" />
           <label for="state">State</label>
+          <input type="text" id="state">
         </forge-text-field>
       </forge-autocomplete>
     </div>
+
+    <!-- Select -->
     <div class="forge-demo-form-field">
       <forge-select label="Country" formControlName="country" required [invalid]="isInvalid('country')">
         <forge-option value=""></forge-option>
@@ -66,12 +75,16 @@
         <forge-option value="MX">Mexico</forge-option>
       </forge-select>
     </div>
+
+    <!-- Slider -->
     <div class="forge-demo-form-field">
-      <forge-slider type="discrete" min="0" max="100" formControlName="favoriteNumber"></forge-slider>
-      <div style="text-align: center;">Favorite Number: {{exampleForm.value.favoriteNumber}}</div>
+      <forge-slider type="discrete" min="0" max="100" formControlName="favoriteNumber" aria-label="Set favorite number"></forge-slider>
+      <div class="forge-typography--label1" style="text-align: center;">Favorite Number: {{exampleForm.value.favoriteNumber}}</div>
     </div>
+
+    <!-- Chips -->
     <div class="forge-demo-form-field">
-      <h4>Shirt Size</h4>
+      <h3>Shirt Size</h3>
       <forge-chip-set type="choice">
         <forge-chip [selected]="shirtSize.value === 'xs'" value="xs" formControlName="shirtSize">Extra small</forge-chip>
         <forge-chip [selected]="shirtSize.value === 's'" value="s" formControlName="shirtSize">Small</forge-chip>
@@ -80,59 +93,16 @@
         <forge-chip [selected]="shirtSize.value === 'xl'" value="xl" formControlName="shirtSize">Extra large</forge-chip>
       </forge-chip-set>
     </div>
+
+    <!-- Checkbox -->
     <div class="forge-demo-form-field">
-      <forge-quantity-field [invalid]="shirtQuantityControl.invalid" required>
-        <label slot="label">Shirts</label>
-        <forge-icon-button slot="decrement-button">
-          <button type="button">
-            <forge-icon name="remove_circle_outline"></forge-icon>
-          </button>
-        </forge-icon-button>
-        <forge-text-field>
-          <input type="number" style="text-align: center; width: 64px;" step="1" min="0" max="100" formControlName="shirtQuantity" />
-        </forge-text-field>
-        <forge-icon-button slot="increment-button">
-          <button type="button">
-            <forge-icon name="add_circle_outline"></forge-icon>
-          </button>
-        </forge-icon-button>
-        <div slot="helper-text" *ngIf="!shirtQuantityControl.invalid">Number of shirts</div>
-        <div slot="helper-text" *ngIf="shirtQuantityControl.invalid">Number of shirts must be 1 or greater</div>
-      </forge-quantity-field>
+      <forge-checkbox formControlName="agree">Do you agree to the terms of service?</forge-checkbox>
     </div>
-    <div class="forge-demo-form-field">
-      <forge-checkbox>
-        <input type="checkbox" id="agree" formControlName="agree" />
-        <label for="agree">Do you agree to the terms of service?</label>
-      </forge-checkbox>
-    </div>
-    <div class="forge-demo-form-field">
-      <forge-list formControlName="checkedListItems">
-        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
-          {{item.label}}
-          <forge-checkbox slot="trailing">
-            <input type="checkbox" />
-          </forge-checkbox>
-        </forge-list-item>
-      </forge-list>
-    </div>
-    <div class="forge-demo-form-field">
-      <forge-list formControlName="radioListItem" role="radiogroup">
-        <forge-list-item *ngFor="let item of listItems" [value]="item.value">
-          {{item.label}}
-          <forge-radio slot="trailing">
-            <input type="radio" name="listRadioGroup" />
-          </forge-radio>
-        </forge-list-item>
-      </forge-list>
-    </div>
+
+    <!-- Reset and submit buttons-->
     <div class="forge-form-field">
-      <forge-button style="margin-right: 8px;">
-        <button (click)="onReset()" [disabled]="!exampleForm.dirty">Reset</button>
-      </forge-button>
-      <forge-button type="raised">
-        <button [disabled]="!exampleForm.get('agree')?.value || !exampleForm.valid">Submit</button>
-      </forge-button>
+      <forge-button style="margin-right: 8px;" (click)="onReset()" [disabled]="!exampleForm.dirty">Reset</forge-button>
+      <forge-button variant="raised" [disabled]="!exampleForm.get('agree')?.value || !exampleForm.valid">Submit</forge-button>
     </div>
   </form>
 </app-demo-card>

@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { IconComponent as IconComponentCustomElement, defineIconComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-icon>` custom element. */
+/**  */
 @Component({
   selector: 'forge-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class IconComponent {
 	/** The forge-icon element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The name of the icon within the icon registry to be used. */
+	/** The name of the icon to render. */
 	@Input()
 	public set name(value: IconComponentCustomElement['name']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class IconComponent {
 		return this.nativeElement.lazy;
 	}
 
-	/** Controls whether external network requests are allowed for this icon. Only pertains for icons that aren't defined in the registry. */
+	/** Controls whether external network requests are allowed for this icon. Only pertains for icons that aren't already defined in the registry. */
 	@Input({ transform: booleanAttribute })
 	public set external(value: IconComponentCustomElement['external']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class IconComponent {
 		return this.nativeElement.external;
 	}
 
-	/** The type of icon to load externally. Possible values: "standard", "extended", "custom". */
+	/** The type of icon to load externally. Possible values: "standard" (default), "extended", "custom". */
 	@Input()
 	public set externalType(value: IconComponentCustomElement['externalType']) {
 		this.zone.runOutsideAngular(() => {
@@ -88,6 +88,17 @@ export class IconComponent {
 	}
 	public get viewbox(): IconComponentCustomElement['viewbox'] {
 		return this.nativeElement.viewbox;
+	}
+
+	/** The theme to apply to the icon. */
+	@Input()
+	public set theme(value: IconComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): IconComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
 	}
 
 	/** Forces a reload of the icon. */

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { defineDialogComponent } from '@tylertech/forge';
-import { ForgeButtonModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgeCheckboxModule, ForgeDialogModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeToolbarModule } from '@tylertech/forge-angular';
 
 import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
@@ -23,6 +23,9 @@ defineDialogComponent();
     ForgeButtonModule,
     ForgeCheckboxModule,
     ForgeTextFieldModule,
+    ForgeScaffoldModule,
+    ForgeToolbarModule,
+    ForgeDialogModule,
     DemoCardComponent
   ]
 })

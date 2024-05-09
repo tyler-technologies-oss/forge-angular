@@ -15,14 +15,9 @@
       At least 2 tokens are required
     </div>
   </forge-chip-field>
-  <forge-button type="raised">
-    <button type="submit" [disabled]="chipFieldForm.invalid">Submit</button>
-  </forge-button>
+  <forge-button variant="raised" type="submit" [disabled]="chipFieldForm.invalid">Submit</forge-button>
 </form>
 <div style="margin-top:12px;">
   {{chipFieldForm.value | json}}
 </div>
-<forge-checkbox>
-  <input type="checkbox" id="disable-simple-form-chk" (click)="disableForm($event)">
-  <label for="disable-simple-form-chk">Form disabled</label>
-</forge-checkbox>
+<forge-checkbox (click)="disableForm($event)">Form disabled</forge-checkbox>

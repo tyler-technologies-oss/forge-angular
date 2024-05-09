@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { LinearProgressComponent as LinearProgressComponentCustomElement, defineLinearProgressComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-linear-progress>` custom element. */
+/**  */
 @Component({
   selector: 'forge-linear-progress',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class LinearProgressComponent {
 	/** The forge-linear-progress element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** Controls the determinate state. */
 	@Input({ transform: booleanAttribute })
 	public set determinate(value: LinearProgressComponentCustomElement['determinate']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class LinearProgressComponent {
 		return this.nativeElement.determinate;
 	}
 
-
+	/** Controls the progress while in a determinate state. Accepts values from `0` to `1`. */
 	@Input({ transform: numberAttribute })
 	public set progress(value: LinearProgressComponentCustomElement['progress']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class LinearProgressComponent {
 		return this.nativeElement.progress;
 	}
 
-
+	/** Controls the buffer progress while in a determinate state. Accepts values from `0` to `1`. */
 	@Input({ transform: numberAttribute })
 	public set buffer(value: LinearProgressComponentCustomElement['buffer']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,25 +46,15 @@ export class LinearProgressComponent {
 		return this.nativeElement.buffer;
 	}
 
-
-	@Input({ transform: booleanAttribute })
-	public set visible(value: LinearProgressComponentCustomElement['visible']) {
+	/** Sets the theme. */
+	@Input()
+	public set theme(value: LinearProgressComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.visible = value;
+			this.nativeElement.theme = value;
 		});
 	}
-	public get visible(): LinearProgressComponentCustomElement['visible'] {
-		return this.nativeElement.visible;
-	}
-
-
-	public open(...args: Parameters<LinearProgressComponentCustomElement['open']>): ReturnType<LinearProgressComponentCustomElement['open']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.open(...args));
-	}
-
-
-	public close(...args: Parameters<LinearProgressComponentCustomElement['close']>): ReturnType<LinearProgressComponentCustomElement['close']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.close(...args));
+	public get theme(): LinearProgressComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
 	}
 
 	constructor(

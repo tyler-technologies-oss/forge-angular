@@ -13,20 +13,8 @@
   </forge-chip-field>
 </forge-autocomplete>
 <div>
-  <forge-checkbox>
-    <input type="checkbox" id="required-chk" [(ngModel)]="isRequired">
-    <label for="required-chk">Required</label>
-  </forge-checkbox>
-  <forge-checkbox>
-    <input type="checkbox" id="invalid-chk" [(ngModel)]="isInvalid">
-    <label for="invalid-chk">Invalid</label>
-  </forge-checkbox>
-  <forge-checkbox>
-    <input type="checkbox" id="disabled-chk" [(ngModel)]="isDisabled">
-    <label for="disabled-chk">Disabled</label>
-  </forge-checkbox>
-  <forge-checkbox>
-    <input type="checkbox" id="dense-chk" [(ngModel)]="isDense">
-    <label for="dense-chk">Dense</label>
-  </forge-checkbox>
+  <forge-checkbox [(ngModel)]="isRequired">Required</forge-checkbox>
+  <forge-checkbox [(ngModel)]="isInvalid">Invalid</forge-checkbox>
+  <forge-checkbox [(ngModel)]="isDisabled">Disabled</forge-checkbox>
+  <forge-checkbox [(ngModel)]="isDense">Dense</forge-checkbox>
 </div>

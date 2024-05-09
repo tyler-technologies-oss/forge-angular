@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { AppBarProfileButtonComponent as AppBarProfileButtonComponentCustomElement, defineAppBarProfileButtonComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-app-bar-profile-button>` custom element. */
+/**  */
 @Component({
   selector: 'forge-app-bar-profile-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class AppBarProfileButtonComponent {
 	/** The forge-app-bar-profile-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The full name. */
 	@Input()
 	public set fullName(value: AppBarProfileButtonComponentCustomElement['fullName']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.fullName;
 	}
 
-
+	/** The email address. */
 	@Input()
 	public set email(value: AppBarProfileButtonComponentCustomElement['email']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.email;
 	}
 
-
+	/** The url of the avatar image to display. */
 	@Input()
 	public set avatarImageUrl(value: AppBarProfileButtonComponentCustomElement['avatarImageUrl']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.avatarImageUrl;
 	}
 
-
+	/** The number of letters to display in the avatar. */
 	@Input({ transform: numberAttribute })
 	public set avatarLetterCount(value: AppBarProfileButtonComponentCustomElement['avatarLetterCount']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.avatarLetterCount;
 	}
 
-
+	/** The text to display in the avatar. */
 	@Input()
 	public set avatarText(value: AppBarProfileButtonComponentCustomElement['avatarText']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.avatarText;
 	}
 
-
+	/** The name of an alternative icon to display in the avatar. */
 	@Input()
 	public set avatarIcon(value: AppBarProfileButtonComponentCustomElement['avatarIcon']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.avatarIcon;
 	}
 
-
+	/** Whether to display the sign out button or not. Defaults to `true`. */
 	@Input({ transform: booleanAttribute })
 	public set signOutButton(value: AppBarProfileButtonComponentCustomElement['signOutButton']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.signOutButton;
 	}
 
-
+	/** Whether to display the profile button or not. */
 	@Input({ transform: booleanAttribute })
 	public set profileButton(value: AppBarProfileButtonComponentCustomElement['profileButton']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.profileButton;
 	}
 
-
+	/** The text to display in the sign out button. */
 	@Input()
 	public set signOutButtonText(value: AppBarProfileButtonComponentCustomElement['signOutButtonText']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.signOutButtonText;
 	}
 
-
+	/** The text to display in the profile button. */
 	@Input()
 	public set profileButtonText(value: AppBarProfileButtonComponentCustomElement['profileButtonText']) {
 		this.zone.runOutsideAngular(() => {
@@ -123,7 +123,7 @@ export class AppBarProfileButtonComponent {
 		return this.nativeElement.profileButtonText;
 	}
 
-
+	/** Whether the profile card is open or not. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: AppBarProfileButtonComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -132,6 +132,11 @@ export class AppBarProfileButtonComponent {
 	}
 	public get open(): AppBarProfileButtonComponentCustomElement['open'] {
 		return this.nativeElement.open;
+	}
+
+	/** The popup element when open. */
+	public get popupElement(): AppBarProfileButtonComponentCustomElement['popupElement'] {
+		return this.nativeElement.popupElement;
 	}
 
 	/** Sets the profile card builder callback that will be used to add extra content to the profile card. */
@@ -143,11 +148,6 @@ export class AppBarProfileButtonComponent {
 	}
 	public get profileCardBuilder(): AppBarProfileButtonComponentCustomElement['profileCardBuilder'] {
 		return this.nativeElement.profileCardBuilder;
-	}
-
-
-	public initializedCallback(...args: Parameters<AppBarProfileButtonComponentCustomElement['initializedCallback']>): ReturnType<AppBarProfileButtonComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	constructor(

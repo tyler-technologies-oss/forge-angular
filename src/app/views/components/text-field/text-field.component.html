@@ -6,15 +6,15 @@
     </forge-text-field>
     <br/>
 
-    <forge-text-field density="roomy">
-      <input type="text" id="input-text-02" [(ngModel)]="roomyTextFieldValue" />
+    <forge-text-field density="extra-large">
       <label for="input-text-02">Roomy</label>
+      <input type="text" id="input-text-02" [(ngModel)]="roomyTextFieldValue" />
     </forge-text-field>
 
     <br />
     <br />
 
-    <forge-text-field density="dense">
+    <forge-text-field dense>
       <input type="text" id="input-text-02" [(ngModel)]="denseTextFieldValue" />
     </forge-text-field>
 
@@ -22,8 +22,8 @@
     <br />
 
     <forge-text-field>
-      <textarea id="input-textarea-01" [(ngModel)]="textAreaValue"></textarea>
       <label for="input-textarea-01">Textarea</label>
+      <textarea id="input-textarea-01" [(ngModel)]="textAreaValue"></textarea>
     </forge-text-field>
 
     <br />
@@ -31,25 +31,25 @@
 
     <forge-text-field>
       <forge-icon slot="leading" name="event"></forge-icon>
-      <input type="text" id="input-text-05" />
       <label for="input-text-05">Leading Icon</label>
+      <input type="text" id="input-text-05" />
     </forge-text-field>
 
     <br />
     <br />
 
     <forge-text-field>
-      <input type="text" id="input-text-06" />
       <label for="input-text-06">Trailing Icon</label>
+      <input type="text" id="input-text-06" />
       <forge-icon slot="trailing" name="event"></forge-icon>
     </forge-text-field>
 
     <br />
     <br />
 
-    <forge-text-field float-label-type="always">
-      <input type="text" id="input-text-07" />
+    <forge-text-field float-label>
       <label for="input-text-07">First Name</label>
+      <input type="text" id="input-text-07" />
     </forge-text-field>
   </div>
 </app-demo-card>

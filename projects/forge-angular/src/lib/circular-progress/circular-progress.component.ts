@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { CircularProgressComponent as CircularProgressComponentCustomElement, defineCircularProgressComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-circular-progress>` custom element. */
+/**  */
 @Component({
   selector: 'forge-circular-progress',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,18 +13,7 @@ export class CircularProgressComponent {
 	/** The forge-circular-progress element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
-	@Input({ transform: booleanAttribute })
-	public set open(value: CircularProgressComponentCustomElement['open']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.open = value;
-		});
-	}
-	public get open(): CircularProgressComponentCustomElement['open'] {
-		return this.nativeElement.open;
-	}
-
-
+	/** Controls the determinate state. */
 	@Input({ transform: booleanAttribute })
 	public set determinate(value: CircularProgressComponentCustomElement['determinate']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +24,7 @@ export class CircularProgressComponent {
 		return this.nativeElement.determinate;
 	}
 
-
+	/** Controls the progress while in a determinate state. Accepts values from `0` to `1`. */
 	@Input({ transform: numberAttribute })
 	public set progress(value: CircularProgressComponentCustomElement['progress']) {
 		this.zone.runOutsideAngular(() => {
@@ -44,6 +33,28 @@ export class CircularProgressComponent {
 	}
 	public get progress(): CircularProgressComponentCustomElement['progress'] {
 		return this.nativeElement.progress;
+	}
+
+	/** Controls the theme of the progress indicator. */
+	@Input()
+	public set theme(value: CircularProgressComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): CircularProgressComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+	/** Controls the visibility of the track background. */
+	@Input({ transform: booleanAttribute })
+	public set track(value: CircularProgressComponentCustomElement['track']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.track = value;
+		});
+	}
+	public get track(): CircularProgressComponentCustomElement['track'] {
+		return this.nativeElement.track;
 	}
 
 	constructor(

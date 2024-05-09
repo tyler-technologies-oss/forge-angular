@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { SplitViewPanelComponent as SplitViewPanelComponentCustomElement, defineSplitViewPanelComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-split-view-panel>` element. */
+/**  */
 @Component({
   selector: 'forge-split-view-panel',
   changeDetection: ChangeDetectionStrategy.OnPush,

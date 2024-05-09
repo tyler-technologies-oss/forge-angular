@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { BadgeComponent as BadgeComponentCustomElement, defineBadgeComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-badge>` custom element. */
+/**  */
 @Component({
   selector: 'forge-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class BadgeComponent {
 	/** The forge-badge element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls whether the component renders a simple dot/circle, or allows for content. */
+	/** Controls whether the badge will be a small dot without any content visible. */
 	@Input({ transform: booleanAttribute })
 	public set dot(value: BadgeComponentCustomElement['dot']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,15 +24,37 @@ export class BadgeComponent {
 		return this.nativeElement.dot;
 	}
 
-	/** Controls the visibility state. */
-	@Input({ transform: booleanAttribute })
-	public set open(value: BadgeComponentCustomElement['open']) {
+	/** The theme of the badge. */
+	@Input()
+	public set theme(value: BadgeComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.open = value;
+			this.nativeElement.theme = value;
 		});
 	}
-	public get open(): BadgeComponentCustomElement['open'] {
-		return this.nativeElement.open;
+	public get theme(): BadgeComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+	/** Controls whether the badge will have a stronger visual appearance. */
+	@Input({ transform: booleanAttribute })
+	public set strong(value: BadgeComponentCustomElement['strong']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.strong = value;
+		});
+	}
+	public get strong(): BadgeComponentCustomElement['strong'] {
+		return this.nativeElement.strong;
+	}
+
+	/** Controls whether the badge is visible. */
+	@Input({ transform: booleanAttribute })
+	public set hide(value: BadgeComponentCustomElement['hide']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.hide = value;
+		});
+	}
+	public get hide(): BadgeComponentCustomElement['hide'] {
+		return this.nativeElement.hide;
 	}
 
 	constructor(

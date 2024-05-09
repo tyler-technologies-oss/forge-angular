@@ -1,19 +1,24 @@
-import { DestroyRef, Injectable, Injector, inject } from '@angular/core';
-import { Type, ComponentFactory, NgModuleRef } from '@angular/core';
-import { IDialogComponent, DIALOG_CONSTANTS, defineDialogComponent } from '@tylertech/forge';
-import { DialogConfig } from './dialog-config';
+import { ApplicationRef, DestroyRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgZone, Provider, createComponent, createEnvironmentInjector, inject } from '@angular/core';
+import { Type, NgModuleRef } from '@angular/core';
+import { IDialogProperties, defineDialogComponent } from '@tylertech/forge';
+import { DIALOG_DATA, DialogConfig } from './dialog-config';
 import { DialogRef } from './dialog-ref';
-import { DialogInjector } from './dialog-injector';
-import { DynamicComponentService } from '../core/dynamic-component/dynamic-component.service';
-import { IDynamicComponentRef } from '../core/dynamic-component/dynamic-component.service';
-import { Subject, take } from 'rxjs';
+import { take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 const MAX_NESTED_DIALOGS = 2;
 
-export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attributes'> {
+export interface IDialogOptions extends Partial<IDialogProperties> {
   dialogClass?: string;
   attributes?: Map<string, string>;
+}
+
+export interface IDialogServiceShowConfiguration<TModule> {
+  options?: IDialogOptions;
+  config?: DialogConfig;
+  data?: any;
+  module?: NgModuleRef<TModule>;
+  injector?: EnvironmentInjector;
 }
 
 /**
@@ -23,32 +28,57 @@ export interface IDialogOptions extends Omit<Partial<IDialogComponent>, 'attribu
   providedIn: 'root'
 })
 export class DialogService {
-  
   private _openDialogRefs: DialogRef[] = [];
   private _destroyRef: DestroyRef = inject(DestroyRef);
-  constructor(private _dcs: DynamicComponentService, private _injector: Injector) {
+
+  constructor(
+    private _appRef: ApplicationRef,
+    private _injector: EnvironmentInjector,
+    private _ngZone: NgZone) {
     defineDialogComponent();
   }
 
   /**
    * Displays a component within a Forge dialog instance.
+   * @deprecated Use `open()` instead.
    * @param component The component reference.
    * @param config The configuration to provide to the dynamic component as an injectable token.
+   * @param moduleRef Optional NgModule ref if need by the component.
+   * @param envInjector Optional environment injector to provide to the component.
+   * @returns A reference for interacting with the created dialog.
    */
-  public show<T, K>(component: Type<T> | ComponentFactory<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>): DialogRef<T> {
-    const dialogRef = this._showDialog(component, options, config, moduleRef);
+  public show<T, K>(component: Type<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>, envInjector?: EnvironmentInjector): DialogRef<T> {
+    return this.open(component, { options, config, module: moduleRef, injector: envInjector });
+  }
+
+  /**
+   * Opens a Forge dialog with the provided component.
+   * @param component The component reference.
+   * @param configuration The configuration for the dialog.
+   * @returns A reference for interacting with the created dialog.
+   */
+  public open<TComponent, TModule>(component: Type<TComponent>, configuration: IDialogServiceShowConfiguration<TModule> = {}): DialogRef<TComponent> {
+    const dialogRef = this._showDialog(component, configuration);
     this._openDialogRefs.push(dialogRef);
     dialogRef.afterClosed.pipe(take(1), takeUntilDestroyed(this._destroyRef)).subscribe(() => this._removeDialogRef(dialogRef));
     return dialogRef;
   }
 
-  private _showDialog<T, K>(component: Type<T> | ComponentFactory<T>, options?: IDialogOptions, config?: DialogConfig, moduleRef?: NgModuleRef<K>): DialogRef<T> {
+  private _showDialog<TComponent, TModule>(
+    component: Type<TComponent>,
+    { config, data, injector, module, options }: IDialogServiceShowConfiguration<TModule>
+  ): DialogRef<TComponent> {
     // Contains tokens that will be provided to components through our custom dialog injector
-    const map = new WeakMap();
+    const providers: Provider[] = [];
 
     // If we got a config, we should provide it as an injection token
     if (config) {
-      map.set(DialogConfig, config);
+      providers.push({ provide: DialogConfig, useValue: config });
+    }
+
+    // If we got data, we should provide it as an injection token
+    if (data !== null && data !== undefined) {
+      providers.push({ provide: DIALOG_DATA, useValue: data });
     }
 
     // Create the Forge dialog element
@@ -67,44 +97,38 @@ export class DialogService {
     }
 
     // Create the ref that will allow the consumer to control the dialog
-    const dialogRef = new DialogRef<T>(dialogElement);
+    const dialogRef = new DialogRef<TComponent>(dialogElement);
 
     // Always provide the dialog ref as an injection token
-    map.set(DialogRef, dialogRef);
+    providers.push({ provide: DialogRef, useValue: dialogRef });
 
     // Create and attach the dynamic component to the dialog element
-    const dcRef = this._dcs.create(component, dialogElement, new DialogInjector(this._injector, map), moduleRef);
-    dialogRef.componentInstance = dcRef.componentRef.instance;
+    this._ngZone.run(() => {
+      const parentInjector = injector ?? module?.injector ?? this._injector;
+      const environmentInjector = createEnvironmentInjector(providers, parentInjector);
+      const componentRef = createComponent(component, { environmentInjector });
+      this._appRef.attachView(componentRef.hostView);
 
-    // Always destroy when the dialog is closed
-    const sub = dialogRef.afterClosed.subscribe(() => {
-      this._destroy(dialogElement, dcRef);
-      sub.unsubscribe();
-    });
+      const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+      dialogElement.appendChild(element);
 
-    // Listen for clicks on the backdrop to destroy the dialog (if applicable)
-    if (dialogElement.backdropClose) {
-      dialogElement.addEventListener(DIALOG_CONSTANTS.events.CLOSE, () => {
-        dialogRef.close();
-        this._destroy(dialogElement, dcRef);
+      const sub = dialogRef.afterClosed.subscribe(() => {
+        componentRef.destroy();
         sub.unsubscribe();
       });
-    }
 
-    // Appends the dialog element to the DOM
+      dialogElement.addEventListener('forge-dialog-close', () => {
+        dialogRef.close();
+        componentRef.destroy();
+        sub.unsubscribe();
+        dialogElement.remove();
+      });
+    });
+
     dialogElement.open = true;
+    document.body.appendChild(dialogElement);
 
     return dialogRef;
-  }
-
-  /**
-   * Removes a dialog from the DOM and destroys the component instance.
-   * @param dialogInstance An instance of a Forge dialog element.
-   * @param ref A reference to the dynamic component.
-   */
-  private _destroy<T>(dialogInstance: IDialogComponent, ref: IDynamicComponentRef<T>): void {
-    dialogInstance.open = false;
-    ref.destroy();
   }
 
   /**
@@ -121,7 +145,7 @@ export class DialogService {
       throw new Error('Could not close all dialogs. Reason: Too many nested dialogs.');
     }
 
-    this._openDialogRefs.forEach((ref) => ref.close(result));
+    this._openDialogRefs.forEach(ref => ref.close(result));
 
     // This is here to close any dialogs that open as a result of other dialogs closing
     // e.g. A dirty dialog opening when a dirty form dialog closes.
@@ -131,7 +155,7 @@ export class DialogService {
   }
 
   private _removeDialogRef(ref: DialogRef): void {
-    const index = this._openDialogRefs.findIndex((dlgRef) => ref === dlgRef);
+    const index = this._openDialogRefs.findIndex(dlgRef => ref === dlgRef);
     if (index < 0) {
       return;
     }

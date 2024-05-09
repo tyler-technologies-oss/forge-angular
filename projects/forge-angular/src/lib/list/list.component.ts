@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ListComponent as ListComponentCustomElement, defineListComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-list>` element. */
+/**  */
 @Component({
   selector: 'forge-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,18 +13,7 @@ export class ListComponent {
 	/** The forge-list element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets whether the list has all static items or not. */
-	@Input({ transform: booleanAttribute })
-	public set static(value: ListComponentCustomElement['static']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.static = value;
-		});
-	}
-	public get static(): ListComponentCustomElement['static'] {
-		return this.nativeElement.static;
-	}
-
-	/** Gets/sets whether the list has all dense items or not. */
+	/** Whether the list has all dense items or not. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ListComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,18 +24,7 @@ export class ListComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Gets/sets whether the list items allow mousedown events through to their underlying list item elements. Default is true. */
-	@Input({ transform: booleanAttribute })
-	public set propagateClick(value: ListComponentCustomElement['propagateClick']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.propagateClick = value;
-		});
-	}
-	public get propagateClick(): ListComponentCustomElement['propagateClick'] {
-		return this.nativeElement.propagateClick;
-	}
-
-	/** Gets/sets whether the list items within this list are indented. Default is false. */
+	/** Whether the list items within this list are indented. Default is false. */
 	@Input({ transform: booleanAttribute })
 	public set indented(value: ListComponentCustomElement['indented']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +35,7 @@ export class ListComponent {
 		return this.nativeElement.indented;
 	}
 
-	/** Gets/sets the selected list item value(s) */
+	/** The selected list item value(s). */
 	@Input()
 	public set selectedValue(value: ListComponentCustomElement['selectedValue']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,9 +46,48 @@ export class ListComponent {
 		return this.nativeElement.selectedValue;
 	}
 
+	/** Whether the list has all two-line items or not. */
+	@Input({ transform: booleanAttribute })
+	public set twoLine(value: ListComponentCustomElement['twoLine']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.twoLine = value;
+		});
+	}
+	public get twoLine(): ListComponentCustomElement['twoLine'] {
+		return this.nativeElement.twoLine;
+	}
 
-	public initializedCallback(...args: Parameters<ListComponentCustomElement['initializedCallback']>): ReturnType<ListComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** Whether the list has all three-line items or not. */
+	@Input({ transform: booleanAttribute })
+	public set threeLine(value: ListComponentCustomElement['threeLine']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.threeLine = value;
+		});
+	}
+	public get threeLine(): ListComponentCustomElement['threeLine'] {
+		return this.nativeElement.threeLine;
+	}
+
+	/** Whether the list has all items that wrap their text or not. */
+	@Input({ transform: booleanAttribute })
+	public set wrap(value: ListComponentCustomElement['wrap']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.wrap = value;
+		});
+	}
+	public get wrap(): ListComponentCustomElement['wrap'] {
+		return this.nativeElement.wrap;
+	}
+
+	/** Controls whether the list items will automatically attach themselves to interactive slotted elements or not. */
+	@Input({ transform: booleanAttribute })
+	public set noninteractive(value: ListComponentCustomElement['noninteractive']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.noninteractive = value;
+		});
+	}
+	public get noninteractive(): ListComponentCustomElement['noninteractive'] {
+		return this.nativeElement.noninteractive;
 	}
 
 	constructor(

@@ -6,17 +6,17 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 
 @Component({
   selector: 'app-dialog',
+  styleUrls: ['./dialog.component.scss'],
   templateUrl: './dialog.component.html'
 })
 export class DialogComponent {
-  public backdropClose = true;
-  public escapeClose = false;
+  public nonmodal = false;
+  public persistent = false;
   public fullscreen = false;
   public moveable = false;
   public lazyload = false;
   public dialogClass = '';
-  public beforeCloseCallback = false;
-  public beforeCloseSubscription = false;
+  public preventClose = false;
 
   constructor(
     private _dialogService: DialogService,
@@ -26,46 +26,33 @@ export class DialogComponent {
   }
 
   public async showConfirmDialog(): Promise<void> {
-
-    const dialogOptions: IDialogOptions = {
-      backdropClose: this.backdropClose,
-      escapeClose: this.escapeClose,
+    const options: IDialogOptions = {
+      mode: this.nonmodal ? 'nonmodal' : 'modal',
+      persistent: this.persistent,
       fullscreen: this.fullscreen,
       dialogClass: this.dialogClass,
       moveable: this.moveable,
       attributes: new Map([
         ['aria-labelledby', 'dialog-title'],
         ['aria-describedby', 'dialog-desc']
-      ]),
-      beforeCloseCallback: () => {
-        console.log('[beforeCloseCallback]');
-        return !this.beforeCloseCallback;
-      },
-      closeCallback: () => console.log('closeCallback')
+      ])
     };
 
-    const dialogConfig = {
-      data: {
-        title: 'Confirm',
-        message: 'Are you sure you want to close the modal?',
-        moveable: this.moveable
-      }
+    const data = {
+      title: 'Confirm',
+      message: 'Are you sure you want to close the modal?'
     };
 
     if (!this.lazyload) {
-      const dialogRef = this._dialogService.show(
-        ConfirmDialogComponent,
-        dialogOptions,
-        dialogConfig
-      );
+      const dialogRef = this._dialogService.open(ConfirmDialogComponent, { options, data });
       console.log('Native Forge dialog instance', dialogRef.nativeElement);
       console.log('[DialogRef] Angular componentInstance', dialogRef.componentInstance);
       dialogRef.afterClosed.pipe(take(1)).subscribe(result => {
         this._toastService.show(`Dialog closed with result: ${result}`);
       });
-      if (this.beforeCloseSubscription) {
+      if (this.preventClose) {
         dialogRef.beforeClose.pipe(takeUntil(dialogRef.afterClosed)).subscribe(evt => {
-          console.log('[beforeClosed subscription] preventDefault');
+          console.log('[beforeClose] preventDefault');
           evt.preventDefault();
         });
       }
@@ -75,15 +62,15 @@ export class DialogComponent {
       const moduleFactory = await this._compiler.compileModuleAsync(LazyLoadedModule);
       const moduleRef = moduleFactory.create(this._injector);
       const componentFactory = moduleRef.instance.resolveComponent();
-      const dialogRef = this._dialogService.show(componentFactory, dialogOptions, dialogConfig);
+      const dialogRef = this._dialogService.open(componentFactory.componentType, { options, config: { data }});
       console.log('Native Forge dialog instance', dialogRef.nativeElement);
       console.log('[DialogRef] Angular componentInstance', dialogRef.componentInstance);
       dialogRef.afterClosed.pipe(take(1)).subscribe(result => {
         this._toastService.show(`Dialog closed with result: ${result}`);
       });
-      if (this.beforeCloseSubscription) {
-        dialogRef.beforeClose.pipe(takeUntil(dialogRef.afterClosed)).subscribe(evt =>{
-          console.log('[beforeClosed subscription] preventDefault');
+      if (this.preventClose) {
+        dialogRef.beforeClose.pipe(takeUntil(dialogRef.afterClosed)).subscribe(evt => {
+          console.log('[beforeClose] preventDefault');
           evt.preventDefault();
         });
       }

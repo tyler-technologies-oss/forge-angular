@@ -244,11 +244,6 @@ export class TableComponent {
 		return this.nativeElement.selectCheckboxAlignment;
 	}
 
-
-	public initializedCallback(...args: Parameters<TableComponentCustomElement['initializedCallback']>): ReturnType<TableComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
-	}
-
 	/** Hides a column from the table. */
 	public hideColumn(...args: Parameters<TableComponentCustomElement['hideColumn']>): ReturnType<TableComponentCustomElement['hideColumn']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hideColumn(...args));

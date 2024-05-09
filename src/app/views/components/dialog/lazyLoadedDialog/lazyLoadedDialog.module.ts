@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ComponentFactory, ComponentFactoryResolver, NgModule } from '@angular/core';
-import { ForgeButtonModule } from '@tylertech/forge-angular';
+import { ForgeButtonModule, ForgeScaffoldModule, ForgeToolbarModule } from '@tylertech/forge-angular';
 
 import { LazyLoadedDialogComponent } from './lazyLoadedDialog.component';
 
@@ -10,7 +10,9 @@ import { LazyLoadedDialogComponent } from './lazyLoadedDialog.component';
   ],
   imports: [
     CommonModule,
-    ForgeButtonModule
+    ForgeButtonModule,
+    ForgeScaffoldModule,
+    ForgeToolbarModule
   ]
 })
 export class LazyLoadedModule {

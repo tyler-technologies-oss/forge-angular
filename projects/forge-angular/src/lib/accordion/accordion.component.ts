@@ -2,12 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { AccordionComponent as AccordionComponentCustomElement, defineAccordionComponent } from '@tylertech/forge';
 
-/**
- * The custom element class behind the `<forge-accordion>` web component.
- * 
- * This component is intended to wrap and orchestrate child expansion panels
- * so that only one expansion panel is open at a time.
- */
+/**  */
 @Component({
   selector: 'forge-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,11 +22,6 @@ export class AccordionComponent {
 	}
 	public get panelSelector(): AccordionComponentCustomElement['panelSelector'] {
 		return this.nativeElement.panelSelector;
-	}
-
-
-	public initializedCallback(...args: Parameters<AccordionComponentCustomElement['initializedCallback']>): ReturnType<AccordionComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	constructor(

@@ -3,7 +3,7 @@
 }
 
 .seconds-container {
-  margin-top: 8px;
+  margin-top: var(--forge-spacing-medium);
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

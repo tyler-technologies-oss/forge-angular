@@ -3,11 +3,14 @@
   <forge-slider [value]="continuous" [(ngModel)]="continuous"></forge-slider>
 
   <h4>Disabled</h4>
-  <forge-slider value="33" disabled="true"></forge-slider>
+  <forge-slider [value]="33" disabled></forge-slider>
 
   <h4>Discrete: {{discrete | number:'1.2-2'}}</h4>
-  <forge-slider type="discrete" [value]="discrete"  [(ngModel)]="discrete"></forge-slider>
+  <forge-slider [value]="discrete" [(ngModel)]="discrete"></forge-slider>
 
-  <h4>Discrete with Tick Marks: {{discreteMarkers | number:'1.2-2'}}</h4>
-  <forge-slider type="discrete-markers" [value]="discreteMarkers" [(ngModel)]="discreteMarkers" step="10"></forge-slider>
+  <h4>w/Tick Marks: {{discreteMarkers | number:'1.2-2'}}</h4>
+  <forge-slider tickmarks [value]="discreteMarkers" [(ngModel)]="discreteMarkers" step="10"></forge-slider>
+
+  <h4>Range: {{rangeValue | json}}</h4>
+  <forge-slider range tickmarks [(ngModel)]="rangeValue" step="5"></forge-slider>
 </app-demo-card>

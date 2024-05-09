@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ListItemComponent as ListItemComponentCustomElement, defineListItemComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-list-item>` element. */
+/**  */
 @Component({
   selector: 'forge-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,51 +13,7 @@ export class ListItemComponent {
 	/** The forge-list-item element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets whether the static state of this list item. */
-	@Input({ transform: booleanAttribute })
-	public set static(value: ListItemComponentCustomElement['static']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.static = value;
-		});
-	}
-	public get static(): ListItemComponentCustomElement['static'] {
-		return this.nativeElement.static;
-	}
-
-	/** Gets/sets whether the list item displays two lines of text. */
-	@Input({ transform: booleanAttribute })
-	public set twoLine(value: ListItemComponentCustomElement['twoLine']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.twoLine = value;
-		});
-	}
-	public get twoLine(): ListItemComponentCustomElement['twoLine'] {
-		return this.nativeElement.twoLine;
-	}
-
-	/** Gets/sets whether the list item displays three lines of text. */
-	@Input({ transform: booleanAttribute })
-	public set threeLine(value: ListItemComponentCustomElement['threeLine']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.threeLine = value;
-		});
-	}
-	public get threeLine(): ListItemComponentCustomElement['threeLine'] {
-		return this.nativeElement.threeLine;
-	}
-
-	/** Gets/sets whether the list item is active or not. */
-	@Input({ transform: booleanAttribute })
-	public set active(value: ListItemComponentCustomElement['active']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.active = value;
-		});
-	}
-	public get active(): ListItemComponentCustomElement['active'] {
-		return this.nativeElement.active;
-	}
-
-	/** Gets/sets whether the list item is selected or not. */
+	/** Applies the selected state to the list item. */
 	@Input({ transform: booleanAttribute })
 	public set selected(value: ListItemComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +24,18 @@ export class ListItemComponent {
 		return this.nativeElement.selected;
 	}
 
-	/** Gets/sets list item value. */
+	/** Applies the active state to the list item by emulating its focused state. */
+	@Input({ transform: booleanAttribute })
+	public set active(value: ListItemComponentCustomElement['active']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.active = value;
+		});
+	}
+	public get active(): ListItemComponentCustomElement['active'] {
+		return this.nativeElement.active;
+	}
+
+	/** The unique value of the list item. */
 	@Input()
 	public set value(value: ListItemComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,51 +46,7 @@ export class ListItemComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Gets/sets the href link that this list item will send the browser to when clicked. */
-	@Input()
-	public set href(value: ListItemComponentCustomElement['href']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.href = value;
-		});
-	}
-	public get href(): ListItemComponentCustomElement['href'] {
-		return this.nativeElement.href;
-	}
-
-	/** Gets/sets the href link target. Only pertains when `href` is also used. */
-	@Input()
-	public set target(value: ListItemComponentCustomElement['target']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.target = value;
-		});
-	}
-	public get target(): ListItemComponentCustomElement['target'] {
-		return this.nativeElement.target;
-	}
-
-	/** Gets/sets whether the list item has a ripple or not. */
-	@Input({ transform: booleanAttribute })
-	public set ripple(value: ListItemComponentCustomElement['ripple']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.ripple = value;
-		});
-	}
-	public get ripple(): ListItemComponentCustomElement['ripple'] {
-		return this.nativeElement.ripple;
-	}
-
-	/** Gets/sets whether the list item is disabled or not. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: ListItemComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): ListItemComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
-	/** Gets/sets whether the list item is using dense styles or not. */
+	/** Applies the dense state to the list item. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ListItemComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -134,18 +57,7 @@ export class ListItemComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Gets/sets whether the list item allows mousedown events through to the underlying list item element. Default is true. */
-	@Input({ transform: booleanAttribute })
-	public set propagateClick(value: ListItemComponentCustomElement['propagateClick']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.propagateClick = value;
-		});
-	}
-	public get propagateClick(): ListItemComponentCustomElement['propagateClick'] {
-		return this.nativeElement.propagateClick;
-	}
-
-	/** Gets/sets whether the list item is indented or not. Default is false. */
+	/** Applies the indented state by adding margin to the start of the list item. */
 	@Input({ transform: booleanAttribute })
 	public set indented(value: ListItemComponentCustomElement['indented']) {
 		this.zone.runOutsideAngular(() => {
@@ -156,7 +68,29 @@ export class ListItemComponent {
 		return this.nativeElement.indented;
 	}
 
-	/** Gets/sets whether the list item content is wrapped or not. Default is true. */
+	/** Sets the list item height to support at least two lines of text. */
+	@Input({ transform: booleanAttribute })
+	public set twoLine(value: ListItemComponentCustomElement['twoLine']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.twoLine = value;
+		});
+	}
+	public get twoLine(): ListItemComponentCustomElement['twoLine'] {
+		return this.nativeElement.twoLine;
+	}
+
+	/** Sets the list item height to support at least three lines of text. */
+	@Input({ transform: booleanAttribute })
+	public set threeLine(value: ListItemComponentCustomElement['threeLine']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.threeLine = value;
+		});
+	}
+	public get threeLine(): ListItemComponentCustomElement['threeLine'] {
+		return this.nativeElement.threeLine;
+	}
+
+	/** Sets the list item to wrap its text content. */
 	@Input({ transform: booleanAttribute })
 	public set wrap(value: ListItemComponentCustomElement['wrap']) {
 		this.zone.runOutsideAngular(() => {
@@ -167,9 +101,15 @@ export class ListItemComponent {
 		return this.nativeElement.wrap;
 	}
 
-	/** Sets focus to this list item. */
-	public focus(...args: Parameters<ListItemComponentCustomElement['focus']>): ReturnType<ListItemComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
+	/** Controls whether the list item will automatically attach itself to interactive slotted elements or not. */
+	@Input({ transform: booleanAttribute })
+	public set noninteractive(value: ListItemComponentCustomElement['noninteractive']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.noninteractive = value;
+		});
+	}
+	public get noninteractive(): ListItemComponentCustomElement['noninteractive'] {
+		return this.nativeElement.noninteractive;
 	}
 
 	constructor(

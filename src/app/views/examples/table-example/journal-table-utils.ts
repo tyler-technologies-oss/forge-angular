@@ -1,15 +1,10 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import {
-  BADGE_CONSTANTS,
-  BadgeComponentDelegate,
+  BadgeTheme,
   CellAlign,
   DatePickerComponentDelegate,
-  IBadgeComponent,
-  ICON_BUTTON_CONSTANTS,
   IColumnConfiguration,
-  IIconButtonComponent,
   IconButtonComponentDelegate,
-  IconComponent,
   SelectComponentDelegate,
   TextFieldComponentDelegate
 } from '@tylertech/forge';
@@ -112,15 +107,10 @@ export function getJournalColumnConfig(instance: TableExampleComponent): IJourna
       property: 'status',
       headerCellStyle: { minWidth: instance.showFilter ? '130px' : 'auto' },
       template: (index, div, data: IJournal) => {
-        const badgeDelegate = new BadgeComponentDelegate({
-          options: {
-            attributes: {
-              theme: getBadgeTheme(data.status)
-            },
-            children: data.status.toString()
-          }
-        });
-        return badgeDelegate.element;
+        const badge = document.createElement('forge-badge');
+        badge.theme = getBadgeTheme(data.status);
+        badge.textContent = data.status.toString();
+        return badge;
       },
       filter: true,
       filterDelegate: new SelectComponentDelegate({
@@ -267,10 +257,10 @@ export function getBadgeStatusText(code: number): string {
   return code.toString();
 }
 
-export function getBadgeTheme(code: number): string {
+export function getBadgeTheme(code: number): BadgeTheme {
   switch (code) {
     case 1:
-      return 'info-primary';
+      return 'info';
     case 2:
       return 'danger';
     case 3:
@@ -280,6 +270,6 @@ export function getBadgeTheme(code: number): string {
     case 5:
       return 'success';
     default:
-      return '';
+      return 'default';
   }
 }

@@ -1,11 +1,11 @@
 <app-demo-card headerText="Table example" [fullWidth]="true">
 
-  <p class="forge-typography--subtitle1">
+  <p class="forge-typography--subheading2">
     The following example demonstrates a complex usage of the Forge table component to showcase many of its features,
     while also demonstrating a realistic design for an actual Tyler application.
   </p>
 
-  <p class="forge-typography--subtitle1">
+  <p class="forge-typography--subheading2">
     The design for the following example can be found
     <a href="https://tylertech.invisionapp.com/share/7TWPBF5B2E5#/screens" target="_blank" rel="noopener noreferrer">here</a>.
   </p>
@@ -16,18 +16,14 @@
     <h2>Journals</h2>
     <div class="align-vert">
       <forge-menu [options]="availableColumns" (forge-menu-select)="onToggleColumnVisibility($event)">
-        <forge-icon-button style="color: var(--mdc-theme-text-secondary-on-background); margin-right: 8px;">
-          <button type="button">
-            <forge-icon name="view_column"></forge-icon>
-          </button>
-          <forge-tooltip position="bottom">Customize columns</forge-tooltip>
+        <forge-icon-button style="color: var(--forge-theme-text-medium); margin-right: 8px;">
+          <forge-icon name="view_column"></forge-icon>
         </forge-icon-button>
+        <forge-tooltip placement="bottom">Customize columns</forge-tooltip>
       </forge-menu>
-      <forge-button type="outlined" (click)="onToggleFilters()">
-        <button type="button">
-          <forge-icon name="filter_list"></forge-icon>
-          {{showFilter ? 'Cancel filter' : 'Filter'}}
-        </button>
+      <forge-button variant="outlined" (click)="onToggleFilters()">
+        <forge-icon name="filter_list"></forge-icon>
+        {{showFilter ? 'Cancel filter' : 'Filter'}}
       </forge-button>
     </div>
   </div>

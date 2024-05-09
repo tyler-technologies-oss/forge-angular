@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { AppBarMenuButtonComponent as AppBarMenuButtonComponentCustomElement, defineAppBarMenuButtonComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-app-bar-menu-button>` custom element. */
+/**  */
 @Component({
   selector: 'forge-app-bar-menu-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,9 +13,15 @@ export class AppBarMenuButtonComponent {
 	/** The forge-app-bar-menu-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
-	public initializedCallback(...args: Parameters<AppBarMenuButtonComponentCustomElement['initializedCallback']>): ReturnType<AppBarMenuButtonComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** The name of an alternative icon to display. */
+	@Input()
+	public set icon(value: AppBarMenuButtonComponentCustomElement['icon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.icon = value;
+		});
+	}
+	public get icon(): AppBarMenuButtonComponentCustomElement['icon'] {
+		return this.nativeElement.icon;
 	}
 
 	constructor(

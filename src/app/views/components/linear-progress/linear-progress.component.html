@@ -1,22 +1,21 @@
 <app-demo-card headerText="Linear Progress">
-  <forge-linear-progress [determinate]="isDeterminate" [progress]="progress" [buffer]="buffer"></forge-linear-progress>
+  <div class="container">
+    <forge-linear-progress [determinate]="isDeterminate" [progress]="progress" [buffer]="buffer"></forge-linear-progress>
 
-  <br/>
+    <div>
+      <forge-checkbox [(ngModel)]="isDeterminate" (change)="onDeterminateChanged()">Determinate</forge-checkbox>
+    </div>
 
-  <div>
-    <forge-checkbox>
-      <input type="checkbox" [(ngModel)]="isDeterminate" (change)="onDeterminateChanged()" />
-      <label for="determinate-checkbox">Determinate</label>
-    </forge-checkbox>
+    <ng-container *ngIf="isDeterminate">
+      <div class="with-label">
+        <label class="forge-typography--label1">Progress: {{progress}}</label>
+        <forge-slider [value]="sliderProgressValue" (forge-slider-input)="progress = $event.detail.value / 100"></forge-slider>
+      </div>
+
+      <div class="with-label">
+        <label class="forge-typography--label1">Buffer: {{buffer}}</label>
+        <forge-slider [value]="sliderBufferValue" (forge-slider-input)="buffer = $event.detail.value / 100"></forge-slider>
+      </div>
+    </ng-container>
   </div>
-
-  <br />
-
-  <ng-container *ngIf="isDeterminate">
-    <label>Progress: {{progress.toFixed(2)}}</label>
-    <forge-slider [value]="sliderProgressValue" (forge-slider-input)="progress = $any($event).detail.value / 100"></forge-slider>
-
-    <label>Buffer: {{buffer.toFixed(2)}}</label>
-    <forge-slider [value]="sliderBufferValue" (forge-slider-input)="buffer = $any($event).detail.value / 100"></forge-slider>
-  </ng-container>
 </app-demo-card>

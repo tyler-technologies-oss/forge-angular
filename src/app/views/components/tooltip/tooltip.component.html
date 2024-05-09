@@ -1,35 +1,23 @@
 <app-demo-card headerText="Tooltip">
-  <forge-button type="raised">
-    <button id="tooltip-demo-btn">Hover me</button>
-  </forge-button>
-  <forge-tooltip #tooltip target="#tooltip-demo-btn" [text]="text" [position]="position" [delay]="delay"></forge-tooltip>
-
-  <br/>
-  <br/>
+  <forge-button variant="raised" id="tooltip-demo-btn">Hover me</forge-button>
+  <forge-tooltip #tooltip anchor="tooltip-demo-btn" [placement]="placement" [delay]="delay">{{text}}</forge-tooltip>
 
   <div>
     <forge-text-field>
-      <input type="text" id="tooltip-text" [(ngModel)]="text" />
       <label for="tooltip-text">Text</label>
+      <input type="text" id="tooltip-text" [(ngModel)]="text" />
     </forge-text-field>
   </div>
   <div>
     <forge-text-field>
-      <input type="number" id="tooltip-delay" [(ngModel)]="delay" />
       <label for="tooltip-delay">Delay (ms)</label>
+      <input type="number" id="tooltip-delay" [(ngModel)]="delay" />
     </forge-text-field>
   </div>
-  <forge-select id="tooltip-position" label="Position" [(ngModel)]="position">
+  <forge-select id="tooltip-placement" label="Placement}" [(ngModel)]="placement">
     <forge-option value="top">Top</forge-option>
     <forge-option value="right">Right</forge-option>
     <forge-option value="bottom">Bottom</forge-option>
     <forge-option value="left">Left</forge-option>
   </forge-select>
-  <div>
-    <forge-checkbox>
-      <input id="tooltip-builder" type="checkbox" [(ngModel)]="useBuilder" (change)="onUseBuilderChanged($event)" />
-      <label for="tooltip-builder">Use Builder</label>
-    </forge-checkbox>
-    <forge-tooltip delay="500" text="Provides a builder function to render an HTML element in the tooltip instead of just text."></forge-tooltip>
-  </div>
 </app-demo-card>

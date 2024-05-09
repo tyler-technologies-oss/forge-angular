@@ -13,7 +13,7 @@ export class ToastComponent {
   public actionText = 'UNDO';
   public duration = 2000;
   public placement: ToastPlacement = 'bottom';
-  public showClose = true;
+  public dismissible = true;
   public useCustom = false;
 
   constructor(private _toastService: ToastService) {}
@@ -26,12 +26,12 @@ export class ToastComponent {
     };
     const config: IToastConfig = {
       component: this.useCustom ? CustomToastComponent : undefined,
-      message: this.message,
+      message: !this.useCustom ? this.message : undefined,
       actionText: this.actionText,
-      actionHandler: () => toast.hide(),
+      actionHandler: () => toast.close(),
       placement: this.placement,
       duration: this.duration,
-      showClose: this.showClose
+      dismissible: this.dismissible
     };
     const toast = this._toastService.show(config, toastData);
   }

@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { IExpansionPanelComponent, IconRegistry } from '@tylertech/forge';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
+import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 
 IconRegistry.define([
@@ -35,10 +36,11 @@ export class SidenavComponent implements OnInit {
   public isSmallViewPort: boolean;
 
   @Output() public onClose = new EventEmitter();
+  @Output() public onModalChange = new EventEmitter<boolean>();
 
   @HostListener('window:resize')
-  public onResize() {
-    this.handleDrawer();
+  public onResize(): void {
+    this.updateViewportSize();
   }
 
   public componentMenuItems: IMenuItem[] = [
@@ -47,11 +49,11 @@ export class SidenavComponent implements OnInit {
     { label: 'Avatar', value: '/component/avatar' },
     { label: 'Banner', value: '/component/banner' },
     { label: 'Bottom Sheet', value: '/component/bottom-sheet' },
-    { label: 'Busy Indicator', value: '/component/busy-indicator' },
     { label: 'Button', value: '/component/button' },
     { label: 'Checkbox', value: '/component/checkbox' },
     { label: 'Chip Field', value: '/component/chip-field' },
     { label: 'Chips', value: '/component/chips' },
+    { label: 'Circular Progress', value: '/component/circular-progress' },
     { label: 'Date picker', value: '/component/date-picker' },
     { label: 'Date Range Picker', value: '/component/date-range-picker' },
     { label: 'Dialog', value: '/component/dialog' },
@@ -65,9 +67,7 @@ export class SidenavComponent implements OnInit {
     { label: 'Menu', value: '/component/menu' },
     { label: 'Page State', value: '/component/page-state' },
     { label: 'Paginator', value: '/component/paginator' },
-    { label: 'Popup', value: '/component/popup' },
-    { label: 'Progress Spinner', value: '/component/progress-spinner' },
-    { label: 'Quantity Field', value: '/component/quantity-field' },
+    { label: 'Popover', value: '/component/popover' },
     { label: 'Radio', value: '/component/radio' },
     { label: 'Scaffold', value: '/component/scaffold' },
     { label: 'Select', value: '/component/select' },
@@ -93,35 +93,42 @@ export class SidenavComponent implements OnInit {
     { label: 'Two column layout', value: '/example/two-column-grid' }
   ];
 
-  constructor(private _router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
-    this.open = window.innerWidth > 750;
+  constructor(router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
+    router.events.pipe(takeUntilDestroyed()).subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (this.open) {
+          this.closeSidenav();
+        }
+      }
+    });
   }
 
-  public handleDrawer() {
+  public updateViewportSize(): void {
     if (window.innerWidth < 750) {
       this.isSmallViewPort = true;
+      this.open = false;
     } else {
       this.isSmallViewPort = false;
     }
+    this.onModalChange.emit(this.isSmallViewPort);
   }
 
-  public openSidenav() {
+  public openSidenav(): void {
     this.open = true;
   }
 
-  public closeSidenav() {
+  public closeSidenav(): void {
     this.open = false;
     this.onClose.emit();
   }
 
-  public adjustDrawer() {
-    this.drawerType = this.isSmallViewPort ? 'modal' : 'dismissible';
-    this.open = !this.isSmallViewPort;
-  }
-
   public ngOnInit(): void {
-    this.handleDrawer();
-    this.adjustDrawer();
+    window.requestAnimationFrame(() => {
+      this.updateViewportSize();
+      if (!this.open) {
+        this.onClose.emit();
+      }
+    });
   }
 
   public ngAfterViewInit(): void {
@@ -135,10 +142,5 @@ export class SidenavComponent implements OnInit {
     } else if (path.match(/^\/example\//)) {
       this.exampleExpansionPanel.nativeElement.open = true;
     }
-  }
-
-  public onMenuItemSelected(evt: CustomEvent): void {
-    this.selectedPath = evt.detail.value;
-    this._router.navigateByUrl(evt.detail.value);
   }
 }

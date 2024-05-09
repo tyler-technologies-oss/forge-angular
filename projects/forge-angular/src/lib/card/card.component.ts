@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { CardComponent as CardComponentCustomElement, defineCardComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-card>` component. */
+/**  */
 @Component({
   selector: 'forge-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,15 +13,15 @@ export class CardComponent {
 	/** The forge-card element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets whether the card is using the outlined style or not. */
+	/** Whether the card has elevation or not. */
 	@Input({ transform: booleanAttribute })
-	public set outlined(value: CardComponentCustomElement['outlined']) {
+	public set raised(value: CardComponentCustomElement['raised']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.outlined = value;
+			this.nativeElement.raised = value;
 		});
 	}
-	public get outlined(): CardComponentCustomElement['outlined'] {
-		return this.nativeElement.outlined;
+	public get raised(): CardComponentCustomElement['raised'] {
+		return this.nativeElement.raised;
 	}
 
 	constructor(

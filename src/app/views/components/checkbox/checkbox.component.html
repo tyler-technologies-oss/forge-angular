@@ -1,8 +1,5 @@
 <app-demo-card headerText="Checkbox">
-  <forge-checkbox>
-    <input type="checkbox" id="input-checkbox-01" [(ngModel)]="checked" />
-    <label for="input-checkbox-01">Checkbox input</label>
-  </forge-checkbox>
+  <forge-checkbox id="input-checkbox-01" [(ngModel)]="checked">Checkbox input</forge-checkbox>
 
   <br/>
 
@@ -12,7 +9,5 @@
 
   <br/>
 
-  <forge-button type="raised">
-    <button (click)="checked = !checked">Toggle</button>
-  </forge-button>
+  <forge-button variant="raised" (click)="checked = !checked">Toggle</forge-button>
 </app-demo-card>

@@ -9,14 +9,12 @@ import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.comp
   templateUrl: './bottom-sheet.component.html'
 })
 export class BottomSheetComponent {
-  public backdropClose = true;
-  public escapeClose = false;
+  public persistent = false;
   public fullscreen = false;
   public lazyload = false;
-  public showBackdrop = true;
+  public nonmodal = false;
   public bottomSheetClass = '';
-  public beforeCloseCallback = false;
-  public beforeCloseSubscription = false;
+  public preventClose = false;
   public scrollable = false;
   public options: IBottomSheetOptions = {};
 
@@ -29,19 +27,14 @@ export class BottomSheetComponent {
 
   public async showConfirmBottomSheet(): Promise<void> {
     const bottomSheetOptions: IBottomSheetOptions = {
-      showBackdrop: this.showBackdrop,
-      backdropClose: this.backdropClose,
-      escapeClose: this.escapeClose,
+      mode: this.nonmodal ? 'nonmodal' : 'modal',
+      persistent: this.persistent,
       fullscreen: this.fullscreen,
       bottomSheetClass: this.bottomSheetClass,
       attributes: new Map([
         ['aria-labelledby', 'bottomSheet-title'],
         ['aria-describedby', 'bottomSheet-desc']
-      ]),
-      beforeCloseCallback: () => {
-        console.log('[beforeCloseCallback]');
-        return !this.beforeCloseCallback;
-      }
+      ])
     };
 
     const bottomSheetConfig = {
@@ -64,7 +57,7 @@ export class BottomSheetComponent {
       bottomSheetRef.afterClosed.pipe(take(1)).subscribe(result => {
         this._toastService.show(`Bottom sheet closed with result: ${result}`);
       });
-      if (this.beforeCloseSubscription) {
+      if (this.preventClose) {
         bottomSheetRef.beforeClose.pipe(takeUntil(bottomSheetRef.afterClosed)).subscribe(evt => {
           console.log('[beforeClosed subscription] preventDefault');
           evt.preventDefault();
@@ -73,16 +66,16 @@ export class BottomSheetComponent {
     } else {
       // lazyload
       const { LazyBottomSheetModule } = await import('./lazy/lazy-bottom-sheet.module');
-        const moduleFactory = await this._compiler.compileModuleAsync(LazyBottomSheetModule);
-        const moduleRef = moduleFactory.create(this._injector);
-        const componentFactory = moduleRef.instance.resolveComponent();
-        const bottomSheetRef = this._bottomSheetService.show(componentFactory, bottomSheetOptions, bottomSheetConfig);
+      const moduleFactory = await this._compiler.compileModuleAsync(LazyBottomSheetModule);
+      const moduleRef = moduleFactory.create(this._injector);
+      const componentFactory = moduleRef.instance.resolveComponent();
+      const bottomSheetRef = this._bottomSheetService.show(componentFactory.componentType, bottomSheetOptions, bottomSheetConfig);
       console.log('Native Forge bottomSheet instance', bottomSheetRef.nativeElement);
       console.log('[BottomSheetRef] Angular componentInstance', bottomSheetRef.componentInstance);
       bottomSheetRef.afterClosed.pipe(take(1)).subscribe(result => {
         this._toastService.show(`BottomSheet closed with result: ${result}`);
       });
-      if (this.beforeCloseSubscription) {
+      if (this.preventClose) {
         bottomSheetRef.beforeClose.pipe(takeUntil(bottomSheetRef.afterClosed)).subscribe(evt => {
           console.log('[beforeClosed subscription] preventDefault');
           evt.preventDefault();

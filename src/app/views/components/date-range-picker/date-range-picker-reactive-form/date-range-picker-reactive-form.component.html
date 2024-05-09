@@ -17,9 +17,7 @@
         </div>
       </forge-text-field>
     </forge-date-range-picker>
-    <forge-button type="raised">
-      <button type="submit" [disabled]="demoForm.invalid">Submit</button>
-    </forge-button>
+    <forge-button variant="raised" [disabled]="demoForm.invalid">Submit</forge-button>
   </form>
 </section>
 
@@ -48,8 +46,5 @@
     <forge-option value="string">string</forge-option>
     <forge-option value="iso-string">ISO string</forge-option>
   </forge-select>
-  <forge-checkbox>
-    <input type="checkbox" id="disable-demo-form-chk" (click)="disableForm($event)">
-    <label for="disable-demo-form-chk">Disabled</label>
-  </forge-checkbox>
+  <forge-checkbox (click)="disableForm($event)">Disabled</forge-checkbox>
 </section>

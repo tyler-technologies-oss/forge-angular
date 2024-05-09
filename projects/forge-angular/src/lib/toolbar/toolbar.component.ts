@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ToolbarComponent as ToolbarComponentCustomElement, defineToolbarComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-toolbar>` custom element. */
+/**  */
 @Component({
   selector: 'forge-toolbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ToolbarComponent {
 	/** The forge-toolbar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** Controls whether a bottom divider (default) or top divider (true) is used. */
 	@Input({ transform: booleanAttribute })
 	public set inverted(value: ToolbarComponentCustomElement['inverted']) {
 		this.zone.runOutsideAngular(() => {

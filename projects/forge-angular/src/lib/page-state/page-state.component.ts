@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { PageStateComponent as PageStateComponentCustomElement, definePageStateComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-page-state>` custom element. */
+/**  */
 @Component({
   selector: 'forge-page-state',
   changeDetection: ChangeDetectionStrategy.OnPush,
