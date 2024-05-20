@@ -112,61 +112,6 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Whether or not the button is an `<a>` element. */
-	@Input({ transform: booleanAttribute })
-	public set anchor(value: FloatingActionButtonComponentCustomElement['anchor']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.anchor = value;
-		});
-	}
-	public get anchor(): FloatingActionButtonComponentCustomElement['anchor'] {
-		return this.nativeElement.anchor;
-	}
-
-	/** The href of the anchor. */
-	@Input()
-	public set href(value: FloatingActionButtonComponentCustomElement['href']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.href = value;
-		});
-	}
-	public get href(): FloatingActionButtonComponentCustomElement['href'] {
-		return this.nativeElement.href;
-	}
-
-	/** The target of the anchor. */
-	@Input()
-	public set target(value: FloatingActionButtonComponentCustomElement['target']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.target = value;
-		});
-	}
-	public get target(): FloatingActionButtonComponentCustomElement['target'] {
-		return this.nativeElement.target;
-	}
-
-	/** The download of the anchor. */
-	@Input()
-	public set download(value: FloatingActionButtonComponentCustomElement['download']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.download = value;
-		});
-	}
-	public get download(): FloatingActionButtonComponentCustomElement['download'] {
-		return this.nativeElement.download;
-	}
-
-	/** The rel of the anchor. */
-	@Input()
-	public set rel(value: FloatingActionButtonComponentCustomElement['rel']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.rel = value;
-		});
-	}
-	public get rel(): FloatingActionButtonComponentCustomElement['rel'] {
-		return this.nativeElement.rel;
-	}
-
 	/** The form reference of the button if within a `<form>` element. */
 	public get form(): FloatingActionButtonComponentCustomElement['form'] {
 		return this.nativeElement.form;

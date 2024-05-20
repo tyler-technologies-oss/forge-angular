@@ -13,7 +13,7 @@ export class SelectComponent {
 	/** The forge-select element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The label text. */
+
 	@Input()
 	public set label(value: SelectComponentCustomElement['label']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class SelectComponent {
 		return this.nativeElement.label;
 	}
 
-	/** The placeholder text. */
+
 	@Input()
 	public set placeholder(value: SelectComponentCustomElement['placeholder']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class SelectComponent {
 		return this.nativeElement.placeholder;
 	}
 
-	/** Whether an inset positioned label is floated to the top of the container. */
+
 	@Input({ transform: booleanAttribute })
 	public set floatLabel(value: SelectComponentCustomElement['floatLabel']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class SelectComponent {
 		return this.nativeElement.floatLabel;
 	}
 
-	/** The density of the field. */
+
 	@Input()
 	public set density(value: SelectComponentCustomElement['density']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class SelectComponent {
 		return this.nativeElement.density;
 	}
 
-	/** Whether the field is at the "extra-small" density level. */
+
 	@Input({ transform: booleanAttribute })
 	public set dense(value: SelectComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class SelectComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Whether the field is disabled. */
+
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: SelectComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class SelectComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** The position of the label relative to the input area. */
+
 	@Input()
 	public set labelPosition(value: SelectComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class SelectComponent {
 		return this.nativeElement.labelPosition;
 	}
 
-	/** The alignment of the label relative to the input area. */
+
 	@Input()
 	public set labelAlignment(value: SelectComponentCustomElement['labelAlignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class SelectComponent {
 		return this.nativeElement.labelAlignment;
 	}
 
-	/** Whether the field is in an invalid state. */
+
 	@Input({ transform: booleanAttribute })
 	public set invalid(value: SelectComponentCustomElement['invalid']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class SelectComponent {
 		return this.nativeElement.invalid;
 	}
 
-	/** Whether the field is required. */
+
 	@Input({ transform: booleanAttribute })
 	public set required(value: SelectComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -123,7 +123,7 @@ export class SelectComponent {
 		return this.nativeElement.required;
 	}
 
-	/** Whether the field is optional. */
+
 	@Input({ transform: booleanAttribute })
 	public set optional(value: SelectComponentCustomElement['optional']) {
 		this.zone.runOutsideAngular(() => {
@@ -134,7 +134,7 @@ export class SelectComponent {
 		return this.nativeElement.optional;
 	}
 
-	/** The variant of the field. */
+
 	@Input()
 	public set variant(value: SelectComponentCustomElement['variant']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,7 +145,7 @@ export class SelectComponent {
 		return this.nativeElement.variant;
 	}
 
-	/** The theme of the field. */
+
 	@Input()
 	public set theme(value: SelectComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
@@ -156,7 +156,7 @@ export class SelectComponent {
 		return this.nativeElement.theme;
 	}
 
-	/** The border radius of the field's corners. */
+
 	@Input()
 	public set shape(value: SelectComponentCustomElement['shape']) {
 		this.zone.runOutsideAngular(() => {
@@ -167,7 +167,18 @@ export class SelectComponent {
 		return this.nativeElement.shape;
 	}
 
-	/** Whether the field's support text is inset from either side. */
+
+	@Input({ transform: booleanAttribute })
+	public set popoverIcon(value: SelectComponentCustomElement['popoverIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverIcon = value;
+		});
+	}
+	public get popoverIcon(): SelectComponentCustomElement['popoverIcon'] {
+		return this.nativeElement.popoverIcon;
+	}
+
+
 	@Input()
 	public set supportTextInset(value: SelectComponentCustomElement['supportTextInset']) {
 		this.zone.runOutsideAngular(() => {
@@ -176,6 +187,11 @@ export class SelectComponent {
 	}
 	public get supportTextInset(): SelectComponentCustomElement['supportTextInset'] {
 		return this.nativeElement.supportTextInset;
+	}
+
+
+	public floatLabelWithoutAnimation(...args: Parameters<SelectComponentCustomElement['floatLabelWithoutAnimation']>): ReturnType<SelectComponentCustomElement['floatLabelWithoutAnimation']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}
 
 	constructor(

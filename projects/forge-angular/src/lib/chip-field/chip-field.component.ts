@@ -173,6 +173,17 @@ export class ChipFieldComponent {
 	}
 
 
+	@Input({ transform: booleanAttribute })
+	public set popoverExpanded(value: ChipFieldComponentCustomElement['popoverExpanded']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverExpanded = value;
+		});
+	}
+	public get popoverExpanded(): ChipFieldComponentCustomElement['popoverExpanded'] {
+		return this.nativeElement.popoverExpanded;
+	}
+
+
 	@Input()
 	public set supportTextInset(value: ChipFieldComponentCustomElement['supportTextInset']) {
 		this.zone.runOutsideAngular(() => {

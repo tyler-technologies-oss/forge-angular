@@ -173,6 +173,17 @@ export class TextFieldComponent {
 	}
 
 
+	@Input({ transform: booleanAttribute })
+	public set popoverExpanded(value: TextFieldComponentCustomElement['popoverExpanded']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverExpanded = value;
+		});
+	}
+	public get popoverExpanded(): TextFieldComponentCustomElement['popoverExpanded'] {
+		return this.nativeElement.popoverExpanded;
+	}
+
+
 	@Input()
 	public set supportTextInset(value: TextFieldComponentCustomElement['supportTextInset']) {
 		this.zone.runOutsideAngular(() => {

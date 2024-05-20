@@ -123,61 +123,6 @@ export class ButtonComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Whether or not the button is an `<a>` element. */
-	@Input({ transform: booleanAttribute })
-	public set anchor(value: ButtonComponentCustomElement['anchor']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.anchor = value;
-		});
-	}
-	public get anchor(): ButtonComponentCustomElement['anchor'] {
-		return this.nativeElement.anchor;
-	}
-
-	/** The href of the anchor. */
-	@Input()
-	public set href(value: ButtonComponentCustomElement['href']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.href = value;
-		});
-	}
-	public get href(): ButtonComponentCustomElement['href'] {
-		return this.nativeElement.href;
-	}
-
-	/** The target of the anchor. */
-	@Input()
-	public set target(value: ButtonComponentCustomElement['target']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.target = value;
-		});
-	}
-	public get target(): ButtonComponentCustomElement['target'] {
-		return this.nativeElement.target;
-	}
-
-	/** The download of the anchor. */
-	@Input()
-	public set download(value: ButtonComponentCustomElement['download']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.download = value;
-		});
-	}
-	public get download(): ButtonComponentCustomElement['download'] {
-		return this.nativeElement.download;
-	}
-
-	/** The rel of the anchor. */
-	@Input()
-	public set rel(value: ButtonComponentCustomElement['rel']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.rel = value;
-		});
-	}
-	public get rel(): ButtonComponentCustomElement['rel'] {
-		return this.nativeElement.rel;
-	}
-
 	/** The form reference of the button if within a `<form>` element. */
 	public get form(): ButtonComponentCustomElement['form'] {
 		return this.nativeElement.form;
