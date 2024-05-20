@@ -13,7 +13,7 @@ export interface IDialogOptions extends Partial<IDialogProperties> {
   attributes?: Map<string, string>;
 }
 
-export interface IDialogServiceShowConfiguration<TModule> {
+export interface IDialogServiceShowConfiguration<TModule = unknown> {
   options?: IDialogOptions;
   config?: DialogConfig;
   data?: any;
