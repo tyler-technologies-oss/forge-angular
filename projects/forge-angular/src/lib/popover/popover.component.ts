@@ -101,12 +101,12 @@ export class PopoverComponent {
 		return this.nativeElement.preset;
 	}
 
-
+	/** A readonly reference to the internal `<forge-overlay>` element instance. */
 	public get overlay(): PopoverComponentCustomElement['overlay'] {
 		return this.nativeElement.overlay;
 	}
 
-
+	/** The anchor element to position the overlay relative to. */
 	@Input()
 	public set anchorElement(value: PopoverComponentCustomElement['anchorElement']) {
 		this.zone.runOutsideAngular(() => {
@@ -117,7 +117,7 @@ export class PopoverComponent {
 		return this.nativeElement.anchorElement;
 	}
 
-
+	/** The IDREF of the anchor element to position the overlay relative to. */
 	@Input()
 	public set anchor(value: PopoverComponentCustomElement['anchor']) {
 		this.zone.runOutsideAngular(() => {
@@ -128,7 +128,7 @@ export class PopoverComponent {
 		return this.nativeElement.anchor;
 	}
 
-
+	/** Whether the overlay should not be anchored to an element. This allows for custom positioning. */
 	@Input({ transform: booleanAttribute })
 	public set noAnchor(value: PopoverComponentCustomElement['noAnchor']) {
 		this.zone.runOutsideAngular(() => {
@@ -139,7 +139,7 @@ export class PopoverComponent {
 		return this.nativeElement.noAnchor;
 	}
 
-
+	/** Whether the overlay is open. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: PopoverComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -150,7 +150,7 @@ export class PopoverComponent {
 		return this.nativeElement.open;
 	}
 
-
+	/** Whether the overlay is inline (not in the top-layer). */
 	@Input({ transform: booleanAttribute })
 	public set inline(value: PopoverComponentCustomElement['inline']) {
 		this.zone.runOutsideAngular(() => {
@@ -161,7 +161,7 @@ export class PopoverComponent {
 		return this.nativeElement.inline;
 	}
 
-
+	/** The placement of the overlay. */
 	@Input()
 	public set placement(value: PopoverComponentCustomElement['placement']) {
 		this.zone.runOutsideAngular(() => {
@@ -172,7 +172,7 @@ export class PopoverComponent {
 		return this.nativeElement.placement;
 	}
 
-
+	/** The position strategy of the overlay. */
 	@Input()
 	public set positionStrategy(value: PopoverComponentCustomElement['positionStrategy']) {
 		this.zone.runOutsideAngular(() => {
@@ -183,7 +183,7 @@ export class PopoverComponent {
 		return this.nativeElement.positionStrategy;
 	}
 
-
+	/** The offset of the overlay. */
 	@Input()
 	public set offset(value: PopoverComponentCustomElement['offset']) {
 		this.zone.runOutsideAngular(() => {
@@ -194,7 +194,7 @@ export class PopoverComponent {
 		return this.nativeElement.offset;
 	}
 
-
+	/** Whether the overlay should shift to fit within the viewport. */
 	@Input({ transform: booleanAttribute })
 	public set shift(value: PopoverComponentCustomElement['shift']) {
 		this.zone.runOutsideAngular(() => {
@@ -205,7 +205,7 @@ export class PopoverComponent {
 		return this.nativeElement.shift;
 	}
 
-
+	/** The hide state of the overlay. */
 	@Input()
 	public set hide(value: PopoverComponentCustomElement['hide']) {
 		this.zone.runOutsideAngular(() => {
@@ -216,7 +216,7 @@ export class PopoverComponent {
 		return this.nativeElement.hide;
 	}
 
-
+	/** Whether the overlay should persist when the anchor is removed. */
 	@Input({ transform: booleanAttribute })
 	public set persistent(value: PopoverComponentCustomElement['persistent']) {
 		this.zone.runOutsideAngular(() => {
@@ -227,7 +227,7 @@ export class PopoverComponent {
 		return this.nativeElement.persistent;
 	}
 
-
+	/** Whether the overlay should flip placements to another side fit within the viewport. */
 	@Input()
 	public set flip(value: PopoverComponentCustomElement['flip']) {
 		this.zone.runOutsideAngular(() => {
@@ -238,7 +238,7 @@ export class PopoverComponent {
 		return this.nativeElement.flip;
 	}
 
-
+	/** An IDREF to boundary element to constrain the overlay within. */
 	@Input()
 	public set boundary(value: PopoverComponentCustomElement['boundary']) {
 		this.zone.runOutsideAngular(() => {
@@ -249,7 +249,7 @@ export class PopoverComponent {
 		return this.nativeElement.boundary;
 	}
 
-
+	/** The boundary element instance to constrain the overlay within. */
 	@Input()
 	public set boundaryElement(value: PopoverComponentCustomElement['boundaryElement']) {
 		this.zone.runOutsideAngular(() => {
@@ -260,7 +260,7 @@ export class PopoverComponent {
 		return this.nativeElement.boundaryElement;
 	}
 
-
+	/** The fallback placements of the overlay. */
 	@Input()
 	public set fallbackPlacements(value: PopoverComponentCustomElement['fallbackPlacements']) {
 		this.zone.runOutsideAngular(() => {
@@ -271,12 +271,12 @@ export class PopoverComponent {
 		return this.nativeElement.fallbackPlacements;
 	}
 
-
+	/** Hides the popover, and returns a `Promise` that resolves when the hide animation is complete. */
 	public hideAsync(...args: Parameters<PopoverComponentCustomElement['hideAsync']>): ReturnType<PopoverComponentCustomElement['hideAsync']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hideAsync(...args));
 	}
 
-
+	/** Forces the overlay to reposition itself. */
 	public position(...args: Parameters<PopoverComponentCustomElement['position']>): ReturnType<PopoverComponentCustomElement['position']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.position(...args));
 	}

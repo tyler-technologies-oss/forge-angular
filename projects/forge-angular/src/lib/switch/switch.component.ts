@@ -124,6 +124,27 @@ export class SwitchComponent {
 	}
 
 
+	public get form(): SwitchComponentCustomElement['form'] {
+		return this.nativeElement.form;
+	}
+
+
+	public get labels(): SwitchComponentCustomElement['labels'] {
+		return this.nativeElement.labels;
+	}
+
+
+	@Input()
+	public set name(value: SwitchComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): SwitchComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+
 	public setFormValue(...args: Parameters<SwitchComponentCustomElement['setFormValue']>): ReturnType<SwitchComponentCustomElement['setFormValue']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.setFormValue(...args));
 	}

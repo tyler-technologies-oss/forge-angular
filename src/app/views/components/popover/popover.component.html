@@ -6,12 +6,7 @@
     </div>
   </forge-popover>
 
-  <forge-button
-    variant="raised"
-    #popup="forgePopover"
-    [forgePopover]="popupTemplate"
-    (click)="popupOpen(popup)"
-    forgePopoverClass="test-class">
+  <forge-button variant="raised" #popup="forgePopover" [forgePopover]="popupTemplate" (click)="popupOpen(popup)" forgePopoverClass="test-class">
     Show popup using directive
   </forge-button>
 
@@ -22,12 +17,12 @@
     <forge-popover>
       <div style="padding: 16px; display: flex; flex-direction: column;">
         <div>Popup Content</div>
-        <br/>
+        <br>
         <forge-text-field>
           <label for="popup-text-field">Text Field</label>
-          <input type="text" id="popup-text-field" [(ngModel)]="popupTextValue" />
+          <input type="text" id="popup-text-field" [(ngModel)]="popupTextValue">
         </forge-text-field>
-        <br/>
+        <br>
         <forge-button variant="filled" (click)="popup.close()">Close</forge-button>
       </div>
     </forge-popover>

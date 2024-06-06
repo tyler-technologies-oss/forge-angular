@@ -13,7 +13,7 @@ export class BackdropComponent {
 	/** The forge-backdrop element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** Whether the backdrop is visible. */
 	@Input({ transform: booleanAttribute })
 	public set visible(value: BackdropComponentCustomElement['visible']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class BackdropComponent {
 		return this.nativeElement.visible;
 	}
 
-
+	/** Whether the backdrop uses "fixed" or "relative" positioning. */
 	@Input({ transform: booleanAttribute })
 	public set fixed(value: BackdropComponentCustomElement['fixed']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,22 +35,22 @@ export class BackdropComponent {
 		return this.nativeElement.fixed;
 	}
 
-
+	/** Immediately shows the backdrop by setting the `visibility` to `true` without animations. */
 	public show(...args: Parameters<BackdropComponentCustomElement['show']>): ReturnType<BackdropComponentCustomElement['show']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
 	}
 
-
+	/** Immediately hides the backdrop by setting the `visibility` to `false` without animations. */
 	public hide(...args: Parameters<BackdropComponentCustomElement['hide']>): ReturnType<BackdropComponentCustomElement['hide']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hide(...args));
 	}
 
-
+	/** Sets the `visibility` to `true` and animates in. */
 	public fadeIn(...args: Parameters<BackdropComponentCustomElement['fadeIn']>): ReturnType<BackdropComponentCustomElement['fadeIn']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.fadeIn(...args));
 	}
 
-
+	/** Sets the `visibility` to `false` and animates out. */
 	public fadeOut(...args: Parameters<BackdropComponentCustomElement['fadeOut']>): ReturnType<BackdropComponentCustomElement['fadeOut']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.fadeOut(...args));
 	}

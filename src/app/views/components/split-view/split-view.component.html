@@ -1,25 +1,12 @@
 <app-demo-card headerText="Split View">
-  <forge-split-view
-    style="height: 300px"
-    [orientation]="orientation"
-    [allowClose]="allowClose"
-    [autoClose]="autoClose"
-    [autoCloseThreshold]="autoCloseThreshold"
-    [disabled]="disabled">
-    <forge-split-view-panel
-      *ngFor="let panel of panels"
-      [resizable]="panel.resizable"
-      [open]="panel.open"
-      (forge-split-view-panel-did-close)="panel.open = false">
+  <forge-split-view style="height: 300px" [orientation]="orientation" [allowClose]="allowClose" [autoClose]="autoClose" [autoCloseThreshold]="autoCloseThreshold" [disabled]="disabled">
+    <forge-split-view-panel *ngFor="let panel of panels" [resizable]="panel.resizable" [open]="panel.open" (forge-split-view-panel-did-close)="panel.open = false">
       <div>{{ panel.label }}</div>
     </forge-split-view-panel>
   </forge-split-view>
 
   <div>
-    <forge-select
-      id="splitViewOrientation"
-      label="Orientation"
-      [(ngModel)]="orientation">
+    <forge-select id="splitViewOrientation" label="Orientation" [(ngModel)]="orientation">
       <forge-option value="vertical">Vertical</forge-option>
       <forge-option value="horizontal">Horizontal</forge-option>
     </forge-select>

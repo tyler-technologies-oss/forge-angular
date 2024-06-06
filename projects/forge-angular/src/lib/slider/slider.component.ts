@@ -221,11 +221,6 @@ export class SliderComponent {
 		return this.nativeElement.readonly;
 	}
 
-
-	public formDisabledCallback(...args: Parameters<SliderComponentCustomElement['formDisabledCallback']>): ReturnType<SliderComponentCustomElement['formDisabledCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.formDisabledCallback(...args));
-	}
-
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<SliderComponentCustomElement>,

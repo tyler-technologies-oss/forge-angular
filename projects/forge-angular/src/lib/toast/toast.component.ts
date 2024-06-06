@@ -90,12 +90,12 @@ export class ToastComponent {
 		return this.nativeElement.theme;
 	}
 
-
+	/** Shows the toast. */
 	public show(...args: Parameters<ToastComponentCustomElement['show']>): ReturnType<ToastComponentCustomElement['show']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
 	}
 
-
+	/** Hides the toast. */
 	public hide(...args: Parameters<ToastComponentCustomElement['hide']>): ReturnType<ToastComponentCustomElement['hide']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hide(...args));
 	}

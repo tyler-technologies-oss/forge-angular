@@ -1,14 +1,8 @@
 <app-demo-card headerText="Circular Progress">
-  <forge-circular-progress
-    [determinate]="determinate"
-    [progress]="progress"
-    [theme]="color"
-    [style.--forge-circular-progress-stroke-width]="strokeWidth + 'px'"
-    [style.--forge-circular-progress-size]="size + 'px'"
-    ></forge-circular-progress>
+  <forge-circular-progress [determinate]="determinate" [progress]="progress" [theme]="color" [style.--forge-circular-progress-stroke-width]="strokeWidth + 'px'" [style.--forge-circular-progress-size]="size + 'px'"></forge-circular-progress>
 
-  <br/>
-  <br/>
+  <br>
+  <br>
   
   <forge-select id="progress-spinner-mode" label="Mode" [(ngModel)]="determinate">
     <forge-option [value]="false">Indeterminate</forge-option>

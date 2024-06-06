@@ -79,7 +79,7 @@ export class LabelComponent {
 		return this.nativeElement.legend;
 	}
 
-	/** Updates the targetted element with the label's current text content. */
+	/** Updates the targeted element with the label's current text content. */
 	public update(...args: Parameters<LabelComponentCustomElement['update']>): ReturnType<LabelComponentCustomElement['update']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.update(...args));
 	}

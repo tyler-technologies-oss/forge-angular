@@ -13,7 +13,7 @@ export class AppBarSearchComponent {
 	/** The forge-app-bar-search element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The value of the input. */
 	@Input()
 	public set value(value: AppBarSearchComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class AppBarSearchComponent {
 		return this.nativeElement.value;
 	}
 
-
+	/** A boolean property that, if true, indicates that the input should be disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: AppBarSearchComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class AppBarSearchComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** The placeholder text of the input. */
 	@Input()
 	public set placeholder(value: AppBarSearchComponentCustomElement['placeholder']) {
 		this.zone.runOutsideAngular(() => {

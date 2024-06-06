@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ColorPickerComponent as ColorPickerComponentCustomElement, defineColorPickerComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-color-picker>` custom element. */
+/**  */
 @Component({
   selector: 'forge-color-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -68,7 +68,7 @@ export class ColorPickerComponent {
 		return this.nativeElement.allowOpacity;
 	}
 
-	/** Gets/sets whether change event has a debounce applied to avoid successive updates. Defaults to `false`. */
+	/** Gets/sets whether change event has a debounce applied to avoid successive updates. */
 	@Input({ transform: booleanAttribute })
 	public set debounceChangeEvent(value: ColorPickerComponentCustomElement['debounceChangeEvent']) {
 		this.zone.runOutsideAngular(() => {

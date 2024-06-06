@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { ViewSwitcherComponent as ViewSwitcherComponentCustomElement, defineViewSwitcherComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-view-switcher>` custom element. */
+/**  */
 @Component({
   selector: 'forge-view-switcher',
   changeDetection: ChangeDetectionStrategy.OnPush,

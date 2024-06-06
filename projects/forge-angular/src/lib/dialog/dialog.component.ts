@@ -24,7 +24,7 @@ export class DialogComponent {
 		return this.nativeElement.open;
 	}
 
-	/** The mode of the dialog. Default is 'modal'. */
+	/** The mode of the dialog. */
 	@Input()
 	public set mode(value: DialogComponentCustomElement['mode']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class DialogComponent {
 		return this.nativeElement.mode;
 	}
 
-	/** The type of the dialog. Default is 'dialog'. */
+	/** The type of the dialog. */
 	@Input()
 	public set type(value: DialogComponentCustomElement['type']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,7 +145,7 @@ export class DialogComponent {
 		return this.nativeElement.sizeStrategy;
 	}
 
-	/** The placement of the dialog. Defaults to center. */
+	/** The placement of the dialog. */
 	@Input()
 	public set placement(value: DialogComponentCustomElement['placement']) {
 		this.zone.runOutsideAngular(() => {
@@ -156,12 +156,12 @@ export class DialogComponent {
 		return this.nativeElement.placement;
 	}
 
-
+	/** Shows the dialog. */
 	public show(...args: Parameters<DialogComponentCustomElement['show']>): ReturnType<DialogComponentCustomElement['show']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
 	}
 
-
+	/** Hides the dialog. */
 	public hide(...args: Parameters<DialogComponentCustomElement['hide']>): ReturnType<DialogComponentCustomElement['hide']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hide(...args));
 	}

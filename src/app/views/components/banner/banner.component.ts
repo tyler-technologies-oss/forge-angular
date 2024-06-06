@@ -26,8 +26,4 @@ export class BannerComponent {
   public dismissBanner(): void {
     this.isDismissed = true;
   }
-
-  public undismissBanner(): void {
-    this.isDismissed = false;
-  }
 }

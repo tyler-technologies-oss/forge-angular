@@ -46,7 +46,7 @@ export class LabelValueComponent {
 		return this.nativeElement.inline;
 	}
 
-
+	/** Deprecated. Use `inline` instead. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: LabelValueComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {

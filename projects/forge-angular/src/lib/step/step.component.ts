@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { StepComponent as StepComponentCustomElement, defineStepComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-step>` custom element. */
+/**  */
 @Component({
   selector: 'forge-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -121,16 +121,6 @@ export class StepComponent {
 	}
 	public get ignoreUserExpansion(): StepComponentCustomElement['ignoreUserExpansion'] {
 		return this.nativeElement.ignoreUserExpansion;
-	}
-
-
-	public focus(...args: Parameters<StepComponentCustomElement['focus']>): ReturnType<StepComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
-	}
-
-
-	public setStepTabIndex(...args: Parameters<StepComponentCustomElement['setStepTabIndex']>): ReturnType<StepComponentCustomElement['setStepTabIndex']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.setStepTabIndex(...args));
 	}
 
 	constructor(

@@ -46,37 +46,9 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.elevation;
 	}
 
-	/** The type of button. Defaults to `button`. Valid values are `button`, `submit`, and `reset`. */
-	@Input()
-	public set type(value: FloatingActionButtonComponentCustomElement['type']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.type = value;
-		});
-	}
-	public get type(): FloatingActionButtonComponentCustomElement['type'] {
-		return this.nativeElement.type;
-	}
 
-	/** Whether or not the button is disabled. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: FloatingActionButtonComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): FloatingActionButtonComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
-	/** Whether or not the button shows a built-in popover icon. */
-	@Input({ transform: booleanAttribute })
-	public set popoverIcon(value: FloatingActionButtonComponentCustomElement['popoverIcon']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.popoverIcon = value;
-		});
-	}
-	public get popoverIcon(): FloatingActionButtonComponentCustomElement['popoverIcon'] {
-		return this.nativeElement.popoverIcon;
+	public get form(): FloatingActionButtonComponentCustomElement['form'] {
+		return this.nativeElement.form;
 	}
 
 	/** The name of the button. */
@@ -90,7 +62,7 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.name;
 	}
 
-	/** The form value of the button. */
+	/** The value of the button. */
 	@Input()
 	public set value(value: FloatingActionButtonComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +73,40 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Whether or not the button is dense. */
+	/** Sets the type of the button. Possible values are `button`, `submit`, and `reset`. */
+	@Input()
+	public set type(value: FloatingActionButtonComponentCustomElement['type']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.type = value;
+		});
+	}
+	public get type(): FloatingActionButtonComponentCustomElement['type'] {
+		return this.nativeElement.type;
+	}
+
+	/** Disables the button. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: FloatingActionButtonComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): FloatingActionButtonComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** Shows a popover icon on the button. */
+	@Input({ transform: booleanAttribute })
+	public set popoverIcon(value: FloatingActionButtonComponentCustomElement['popoverIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverIcon = value;
+		});
+	}
+	public get popoverIcon(): FloatingActionButtonComponentCustomElement['popoverIcon'] {
+		return this.nativeElement.popoverIcon;
+	}
+
+	/** Sets the density of the button. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: FloatingActionButtonComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,17 +117,12 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** The form reference of the button if within a `<form>` element. */
-	public get form(): FloatingActionButtonComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
+	/** Clicks the button. */
 	public click(...args: Parameters<FloatingActionButtonComponentCustomElement['click']>): ReturnType<FloatingActionButtonComponentCustomElement['click']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
 	}
 
-
+	/** Focuses the button. */
 	public focus(...args: Parameters<FloatingActionButtonComponentCustomElement['focus']>): ReturnType<FloatingActionButtonComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}

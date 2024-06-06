@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { TimePickerComponent as TimePickerComponentCustomElement, defineTimePickerComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-time-picker>` custom element. */
+/**  */
 @Component({
   selector: 'forge-time-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class TimePickerComponent {
 	/** The forge-time-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The current value of the time picker. */
 	@Input()
 	public set value(value: TimePickerComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class TimePickerComponent {
 		return this.nativeElement.value;
 	}
 
-
+	/** Whether or not the time picker is open. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: TimePickerComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class TimePickerComponent {
 		return this.nativeElement.open;
 	}
 
-
+	/** Whether or not to allow seconds in the time picker. */
 	@Input({ transform: booleanAttribute })
 	public set allowSeconds(value: TimePickerComponentCustomElement['allowSeconds']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class TimePickerComponent {
 		return this.nativeElement.allowSeconds;
 	}
 
-
+	/** Whether or not the time picker input should be masked. */
 	@Input({ transform: booleanAttribute })
 	public set masked(value: TimePickerComponentCustomElement['masked']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class TimePickerComponent {
 		return this.nativeElement.masked;
 	}
 
-
+	/** Whether or not to show the mask format in the input. */
 	@Input({ transform: booleanAttribute })
 	public set showMaskFormat(value: TimePickerComponentCustomElement['showMaskFormat']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class TimePickerComponent {
 		return this.nativeElement.showMaskFormat;
 	}
 
-
+	/** Whether or not to use 24-hour time. */
 	@Input({ transform: booleanAttribute })
 	public set use24HourTime(value: TimePickerComponentCustomElement['use24HourTime']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class TimePickerComponent {
 		return this.nativeElement.use24HourTime;
 	}
 
-
+	/** Whether or not to allow invalid times. */
 	@Input({ transform: booleanAttribute })
 	public set allowInvalidTime(value: TimePickerComponentCustomElement['allowInvalidTime']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class TimePickerComponent {
 		return this.nativeElement.allowInvalidTime;
 	}
 
-
+	/** The minimum time that can be selected. */
 	@Input()
 	public set min(value: TimePickerComponentCustomElement['min']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class TimePickerComponent {
 		return this.nativeElement.min;
 	}
 
-
+	/** The maximum time that can be selected. */
 	@Input()
 	public set max(value: TimePickerComponentCustomElement['max']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class TimePickerComponent {
 		return this.nativeElement.max;
 	}
 
-
+	/** An array of times that cannot be selected. */
 	@Input()
 	public set restrictedTimes(value: TimePickerComponentCustomElement['restrictedTimes']) {
 		this.zone.runOutsideAngular(() => {
@@ -123,7 +123,7 @@ export class TimePickerComponent {
 		return this.nativeElement.restrictedTimes;
 	}
 
-
+	/** The time to start the time picker at. */
 	@Input()
 	public set startTime(value: TimePickerComponentCustomElement['startTime']) {
 		this.zone.runOutsideAngular(() => {
@@ -134,7 +134,7 @@ export class TimePickerComponent {
 		return this.nativeElement.startTime;
 	}
 
-
+	/** The step interval for the time picker. */
 	@Input({ transform: numberAttribute })
 	public set step(value: TimePickerComponentCustomElement['step']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,7 +145,7 @@ export class TimePickerComponent {
 		return this.nativeElement.step;
 	}
 
-
+	/** Whether or not to allow manual input of the time. */
 	@Input({ transform: booleanAttribute })
 	public set allowInput(value: TimePickerComponentCustomElement['allowInput']) {
 		this.zone.runOutsideAngular(() => {
@@ -156,7 +156,7 @@ export class TimePickerComponent {
 		return this.nativeElement.allowInput;
 	}
 
-
+	/** Whether or not to show a "Now" button. */
 	@Input({ transform: booleanAttribute })
 	public set showNow(value: TimePickerComponentCustomElement['showNow']) {
 		this.zone.runOutsideAngular(() => {
@@ -167,7 +167,7 @@ export class TimePickerComponent {
 		return this.nativeElement.showNow;
 	}
 
-	/** Whether or not to display hour options in dropdown */
+	/** Whether or not to display hour options in dropdown. */
 	@Input({ transform: booleanAttribute })
 	public set showHourOptions(value: TimePickerComponentCustomElement['showHourOptions']) {
 		this.zone.runOutsideAngular(() => {
@@ -178,7 +178,7 @@ export class TimePickerComponent {
 		return this.nativeElement.showHourOptions;
 	}
 
-
+	/** An array of custom time picker options. */
 	@Input()
 	public set customOptions(value: TimePickerComponentCustomElement['customOptions']) {
 		this.zone.runOutsideAngular(() => {
@@ -189,7 +189,7 @@ export class TimePickerComponent {
 		return this.nativeElement.customOptions;
 	}
 
-
+	/** A callback function to validate the time. */
 	@Input()
 	public set validationCallback(value: TimePickerComponentCustomElement['validationCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -200,7 +200,7 @@ export class TimePickerComponent {
 		return this.nativeElement.validationCallback;
 	}
 
-
+	/** A callback function to parse the time. */
 	@Input()
 	public set parseCallback(value: TimePickerComponentCustomElement['parseCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -211,7 +211,7 @@ export class TimePickerComponent {
 		return this.nativeElement.parseCallback;
 	}
 
-
+	/** A callback function to format the time. */
 	@Input()
 	public set formatCallback(value: TimePickerComponentCustomElement['formatCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -222,7 +222,7 @@ export class TimePickerComponent {
 		return this.nativeElement.formatCallback;
 	}
 
-
+	/** A callback function to coerce the time. */
 	@Input()
 	public set coercionCallback(value: TimePickerComponentCustomElement['coercionCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -233,7 +233,7 @@ export class TimePickerComponent {
 		return this.nativeElement.coercionCallback;
 	}
 
-
+	/** A callback function to prepare the mask. */
 	@Input()
 	public set prepareMaskCallback(value: TimePickerComponentCustomElement['prepareMaskCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -244,7 +244,7 @@ export class TimePickerComponent {
 		return this.nativeElement.prepareMaskCallback;
 	}
 
-
+	/** Whether or not the time picker is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TimePickerComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -255,7 +255,7 @@ export class TimePickerComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** The classes to apply to the time picker popup. */
 	@Input()
 	public set popupClasses(value: TimePickerComponentCustomElement['popupClasses']) {
 		this.zone.runOutsideAngular(() => {
@@ -266,7 +266,7 @@ export class TimePickerComponent {
 		return this.nativeElement.popupClasses;
 	}
 
-
+	/** Whether or not to allow the time picker to be a dropdown. */
 	@Input({ transform: booleanAttribute })
 	public set allowDropdown(value: TimePickerComponentCustomElement['allowDropdown']) {
 		this.zone.runOutsideAngular(() => {
@@ -277,7 +277,7 @@ export class TimePickerComponent {
 		return this.nativeElement.allowDropdown;
 	}
 
-
+	/** The target element to attach the popup to. */
 	@Input()
 	public set popupTarget(value: TimePickerComponentCustomElement['popupTarget']) {
 		this.zone.runOutsideAngular(() => {

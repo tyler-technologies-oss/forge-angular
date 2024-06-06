@@ -8,7 +8,7 @@
       <forge-date-picker [(ngModel)]="basicDate">
         <forge-text-field>
           <label for="basic-date">Date</label>
-          <input type="text" id="basic-date" />
+          <input type="text" id="basic-date">
         </forge-text-field>
       </forge-date-picker>
       <forge-label-value [empty]="!basicDate">
@@ -27,7 +27,7 @@
       <forge-date-picker [(ngModel)]="commonDate" masked value-mode="iso-string">
         <forge-text-field>
           <label for="common-date">Date</label>
-          <input type="text" id="common-date" placeholder="mm/dd/yyyy" />
+          <input type="text" id="common-date" placeholder="mm/dd/yyyy">
         </forge-text-field>
       </forge-date-picker>
       <forge-label-value [empty]="!commonDate">
@@ -45,7 +45,7 @@
       </h3>
       <forge-date-picker [(ngModel)]="isoDate" value-mode="iso-string" masked show-mask-format>
         <forge-text-field>
-          <input type="text" id="iso-date" />
+          <input type="text" id="iso-date">
           <label for="iso-date">Date</label>
         </forge-text-field>
       </forge-date-picker>
@@ -65,7 +65,7 @@
       </h3>
       <forge-date-picker [(ngModel)]="customDate" value-mode="date" masked show-mask-format mask-format="YYYY-MM-DD" [parseCallback]="parseCb" [formatCallback]="formatCb">
         <forge-text-field>
-          <input type="text" id="custom-date" />
+          <input type="text" id="custom-date">
           <label for="custom-date">Date</label>
         </forge-text-field>
       </forge-date-picker>
@@ -84,7 +84,7 @@
       </h3>
       <forge-date-picker [(ngModel)]="disableDayCallbackDate" value-mode="date" [disableDayCallback]="disableDayCallback">
         <forge-text-field>
-          <input type="text" id="custom-date" />
+          <input type="text" id="custom-date">
           <label for="custom-date">Date</label>
         </forge-text-field>
       </forge-date-picker>
@@ -102,7 +102,7 @@
       <div class="disabled-days-control">
       <forge-date-picker [(ngModel)]="disableDaysOfWeekDate" value-mode="date" [disabledDaysOfWeek]="disabledDaysOfWeek">
         <forge-text-field>
-          <input type="text" id="custom-date" />
+          <input type="text" id="custom-date">
           <label for="custom-date">Date</label>
         </forge-text-field>
       </forge-date-picker>

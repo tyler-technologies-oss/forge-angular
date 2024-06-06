@@ -46,7 +46,7 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.animationType;
 	}
 
-
+	/** Toggles the open state of the panel. */
 	public toggle(...args: Parameters<ExpansionPanelComponentCustomElement['toggle']>): ReturnType<ExpansionPanelComponentCustomElement['toggle']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.toggle(...args));
 	}

@@ -17,14 +17,14 @@
 <ng-template #sidenavContent>
   <forge-list navlist>
       <forge-list-item [selected]="homeLink.isActive">
-        <forge-icon name="home" slot="leading"></forge-icon>
+        <forge-icon name="home" slot="start"></forge-icon>
         <a routerLink="/" #homeLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">Home</a>
       </forge-list-item>
       <forge-expansion-panel #componentExpansionPanel>
         <forge-list-item slot="header">
-          <forge-icon name="settings_input_component" slot="leading"></forge-icon>
+          <forge-icon name="settings_input_component" slot="start"></forge-icon>
           <button>Components</button>
-          <forge-open-icon slot="trailing"></forge-open-icon>
+          <forge-open-icon slot="end"></forge-open-icon>
         </forge-list-item>
         <forge-list-item indented *ngFor="let item of componentMenuItems" [selected]="componentMenuLink.isActive">
           <a [routerLink]="[item.value]" #componentMenuLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">{{item.label}}</a>
@@ -32,9 +32,9 @@
       </forge-expansion-panel>
       <forge-expansion-panel #exampleExpansionPanel>
         <forge-list-item slot="header">
-          <forge-icon name="settings" slot="leading"></forge-icon>
+          <forge-icon name="settings" slot="start"></forge-icon>
           <button>Examples</button>
-          <forge-open-icon slot="trailing"></forge-open-icon>
+          <forge-open-icon slot="end"></forge-open-icon>
         </forge-list-item>
         <forge-list-item indented *ngFor="let item of exampleMenuItems" [selected]="exampleLink.isActive">
           <a [routerLink]="[item.value]" #exampleLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">{{item.label}}</a>

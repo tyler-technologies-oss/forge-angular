@@ -24,7 +24,7 @@ export class BottomSheetComponent {
 		return this.nativeElement.open;
 	}
 
-	/** The mode of the bottom sheet. Defaults to non-modal. */
+	/** The mode of the bottom sheet. */
 	@Input()
 	public set mode(value: BottomSheetComponentCustomElement['mode']) {
 		this.zone.runOutsideAngular(() => {

@@ -7,7 +7,7 @@
       <forge-text-field style="margin-right: 16px;" required [invalid]="isInvalid('firstName')">
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" formControlName="firstName">
-        <span slot="helper-text">{{isInvalid('firstName') ? 'A first name is required' : 'Enter your first name'}}</span>
+        <span slot="support-text">{{isInvalid('firstName') ? 'A first name is required' : 'Enter your first name'}}</span>
       </forge-text-field>
       <forge-text-field required [invalid]="isInvalid('lastName')">
         <label for="lastName">Last Name</label>

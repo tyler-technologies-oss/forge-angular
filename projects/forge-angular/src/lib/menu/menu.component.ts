@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { MenuComponent as MenuComponentCustomElement, defineMenuComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-menu>` custom element. */
+/**  */
 @Component({
   selector: 'forge-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,

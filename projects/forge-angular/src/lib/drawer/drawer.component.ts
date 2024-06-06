@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { DrawerComponent as DrawerComponentCustomElement, defineDrawerComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-drawer>` custom element. */
+/**  */
 @Component({
   selector: 'forge-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class DrawerComponent {
 	/** The forge-drawer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Toggles whether a `dismissible` or `modal` drawer is open or not. Has no effect on `permanent` drawers. */
+	/** Toggles whether the drawer is visible or not. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: DrawerComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class DrawerComponent {
 		return this.nativeElement.open;
 	}
 
-	/** Controls the laytout direction of the drawer for positioning on the left vs. right side of the screen. */
+	/** Controls the layout and animation direction of the drawer for positioning on the left vs. right side of the screen when toggling the `open` attribute. */
 	@Input()
 	public set direction(value: DrawerComponentCustomElement['direction']) {
 		this.zone.runOutsideAngular(() => {

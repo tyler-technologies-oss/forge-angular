@@ -45,11 +45,6 @@ export class RadioGroupComponent {
 		return this.nativeElement.disabled;
 	}
 
-
-	public formDisabledCallback(...args: Parameters<RadioGroupComponentCustomElement['formDisabledCallback']>): ReturnType<RadioGroupComponentCustomElement['formDisabledCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.formDisabledCallback(...args));
-	}
-
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<RadioGroupComponentCustomElement>,
