@@ -1,7 +1,7 @@
 @use '@tylertech/forge/dist/forge-core';
 @use '@tylertech/forge/dist/forge';
 @use '@tylertech/forge/dist/utils/forge-flex';
-@use '@tylertech/forge/styles/theme/theme-dark' as forge-theme-dark;
+@use '@tylertech/forge/sass/theme/theme-dark' as forge-theme-dark;
 
 .app-theme-dark {
   @include forge-theme-dark.theme-properties;

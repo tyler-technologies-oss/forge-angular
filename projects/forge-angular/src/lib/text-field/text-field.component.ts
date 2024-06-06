@@ -29,7 +29,7 @@ export class TextFieldComponent {
 		return this.nativeElement.showClear;
 	}
 
-
+	/** The position of the label relative to the field. */
 	@Input()
 	public set labelPosition(value: TextFieldComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -40,7 +40,7 @@ export class TextFieldComponent {
 		return this.nativeElement.labelPosition;
 	}
 
-
+	/** The alignment of the label relative to the field. */
 	@Input()
 	public set labelAlignment(value: TextFieldComponentCustomElement['labelAlignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -51,7 +51,7 @@ export class TextFieldComponent {
 		return this.nativeElement.labelAlignment;
 	}
 
-
+	/** Whether the field is in an invalid state. */
 	@Input({ transform: booleanAttribute })
 	public set invalid(value: TextFieldComponentCustomElement['invalid']) {
 		this.zone.runOutsideAngular(() => {
@@ -62,7 +62,7 @@ export class TextFieldComponent {
 		return this.nativeElement.invalid;
 	}
 
-
+	/** Whether the field is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: TextFieldComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -73,7 +73,7 @@ export class TextFieldComponent {
 		return this.nativeElement.required;
 	}
 
-
+	/** Whether the field is optional. */
 	@Input({ transform: booleanAttribute })
 	public set optional(value: TextFieldComponentCustomElement['optional']) {
 		this.zone.runOutsideAngular(() => {
@@ -84,7 +84,7 @@ export class TextFieldComponent {
 		return this.nativeElement.optional;
 	}
 
-
+	/** Whether the field is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TextFieldComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -95,7 +95,7 @@ export class TextFieldComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** Whether the label should float above the field. Only applies when the label is inset. */
 	@Input({ transform: booleanAttribute })
 	public set floatLabel(value: TextFieldComponentCustomElement['floatLabel']) {
 		this.zone.runOutsideAngular(() => {
@@ -106,7 +106,7 @@ export class TextFieldComponent {
 		return this.nativeElement.floatLabel;
 	}
 
-
+	/** The variant of the field. */
 	@Input()
 	public set variant(value: TextFieldComponentCustomElement['variant']) {
 		this.zone.runOutsideAngular(() => {
@@ -117,7 +117,7 @@ export class TextFieldComponent {
 		return this.nativeElement.variant;
 	}
 
-
+	/** The theme of the field. */
 	@Input()
 	public set theme(value: TextFieldComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
@@ -128,7 +128,7 @@ export class TextFieldComponent {
 		return this.nativeElement.theme;
 	}
 
-
+	/** The shape of the field. */
 	@Input()
 	public set shape(value: TextFieldComponentCustomElement['shape']) {
 		this.zone.runOutsideAngular(() => {
@@ -139,7 +139,7 @@ export class TextFieldComponent {
 		return this.nativeElement.shape;
 	}
 
-
+	/** The density of the field. */
 	@Input()
 	public set density(value: TextFieldComponentCustomElement['density']) {
 		this.zone.runOutsideAngular(() => {
@@ -150,7 +150,7 @@ export class TextFieldComponent {
 		return this.nativeElement.density;
 	}
 
-
+	/** Whether the field is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: TextFieldComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -161,7 +161,7 @@ export class TextFieldComponent {
 		return this.nativeElement.dense;
 	}
 
-
+	/** Whether the field has a popover icon. */
 	@Input({ transform: booleanAttribute })
 	public set popoverIcon(value: TextFieldComponentCustomElement['popoverIcon']) {
 		this.zone.runOutsideAngular(() => {
@@ -172,7 +172,7 @@ export class TextFieldComponent {
 		return this.nativeElement.popoverIcon;
 	}
 
-
+	/** Whether the field's popover is expanded. */
 	@Input({ transform: booleanAttribute })
 	public set popoverExpanded(value: TextFieldComponentCustomElement['popoverExpanded']) {
 		this.zone.runOutsideAngular(() => {
@@ -183,7 +183,7 @@ export class TextFieldComponent {
 		return this.nativeElement.popoverExpanded;
 	}
 
-
+	/** The inset of the support text. */
 	@Input()
 	public set supportTextInset(value: TextFieldComponentCustomElement['supportTextInset']) {
 		this.zone.runOutsideAngular(() => {
@@ -194,7 +194,7 @@ export class TextFieldComponent {
 		return this.nativeElement.supportTextInset;
 	}
 
-
+	/** Floats the label immediately. Only applies when the label is inset. */
 	public floatLabelWithoutAnimation(...args: Parameters<TextFieldComponentCustomElement['floatLabelWithoutAnimation']>): ReturnType<TextFieldComponentCustomElement['floatLabelWithoutAnimation']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}

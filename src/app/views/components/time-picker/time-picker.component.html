@@ -3,32 +3,32 @@
     <!-- Template-driven form example -->
     <forge-time-picker [(ngModel)]="time">
       <forge-text-field>
-        <input type="text" id="time-field" placeholder="HH:MM AM" />
+        <input type="text" id="time-field" placeholder="HH:MM AM">
         <label for="time-field">Choose time</label>
-        <span slot="helper-text">Value: {{time}}</span>
+        <span slot="support-text">Value: {{time}}</span>
       </forge-text-field>
     </forge-time-picker>
 
-    <br/>
+    <br>
 
     <!-- Reactive form example -->
     <form [formGroup]="form" novalidate autocomplete="off">
       <forge-time-picker formControlName="time" allow-seconds="true">
         <forge-text-field>
-          <input type="text" id="time-field-reactive" placeholder="HH:MM AM" />
+          <input type="text" id="time-field-reactive" placeholder="HH:MM AM">
           <label for="time-field-reactive">Choose time</label>
-          <span slot="helper-text">Value: {{timeControl.value}}</span>
+          <span slot="support-text">Value: {{timeControl.value}}</span>
         </forge-text-field>
       </forge-time-picker>
   
-      <br/>
+      <br>
   
       <h2 class="forge-typography--heading1">Merge date and time values</h2>
       <forge-date-picker formControlName="date">
         <forge-text-field>
-          <input type="text" id="the-date" />
+          <input type="text" id="the-date">
           <label for="the-date">Date</label>
-          <span slot="helper-text">Value: {{combinedDate ? combinedDate.toString() : 'null'}}</span>
+          <span slot="support-text">Value: {{combinedDate ? combinedDate.toString() : 'null'}}</span>
         </forge-text-field>
       </forge-date-picker>
     </form>

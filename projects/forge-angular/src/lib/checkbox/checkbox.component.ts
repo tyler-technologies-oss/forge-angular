@@ -113,6 +113,27 @@ export class CheckboxComponent {
 	}
 
 
+	public get form(): CheckboxComponentCustomElement['form'] {
+		return this.nativeElement.form;
+	}
+
+
+	public get labels(): CheckboxComponentCustomElement['labels'] {
+		return this.nativeElement.labels;
+	}
+
+
+	@Input()
+	public set name(value: CheckboxComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): CheckboxComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+
 	public setFormValue(...args: Parameters<CheckboxComponentCustomElement['setFormValue']>): ReturnType<CheckboxComponentCustomElement['setFormValue']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.setFormValue(...args));
 	}

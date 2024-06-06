@@ -112,6 +112,17 @@ export class IconButtonComponent {
 		return this.nativeElement.popoverIcon;
 	}
 
+	/** Whether or not the button is dense. */
+	@Input({ transform: booleanAttribute })
+	public set dense(value: IconButtonComponentCustomElement['dense']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dense = value;
+		});
+	}
+	public get dense(): IconButtonComponentCustomElement['dense'] {
+		return this.nativeElement.dense;
+	}
+
 	/** The name of the button. */
 	@Input()
 	public set name(value: IconButtonComponentCustomElement['name']) {
@@ -134,28 +145,17 @@ export class IconButtonComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Whether or not the button is dense. */
-	@Input({ transform: booleanAttribute })
-	public set dense(value: IconButtonComponentCustomElement['dense']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.dense = value;
-		});
-	}
-	public get dense(): IconButtonComponentCustomElement['dense'] {
-		return this.nativeElement.dense;
-	}
-
 	/** The form reference of the button if within a `<form>` element. */
 	public get form(): IconButtonComponentCustomElement['form'] {
 		return this.nativeElement.form;
 	}
 
-
+	/** Clicks the button. */
 	public click(...args: Parameters<IconButtonComponentCustomElement['click']>): ReturnType<IconButtonComponentCustomElement['click']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
 	}
 
-
+	/** Focuses the button. */
 	public focus(...args: Parameters<IconButtonComponentCustomElement['focus']>): ReturnType<IconButtonComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}

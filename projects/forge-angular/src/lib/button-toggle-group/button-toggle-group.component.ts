@@ -134,6 +134,57 @@ export class ButtonToggleGroupComponent {
 		return this.nativeElement.theme;
 	}
 
+
+	public get form(): ButtonToggleGroupComponentCustomElement['form'] {
+		return this.nativeElement.form;
+	}
+
+
+	public get labels(): ButtonToggleGroupComponentCustomElement['labels'] {
+		return this.nativeElement.labels;
+	}
+
+
+	@Input()
+	public set name(value: ButtonToggleGroupComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): ButtonToggleGroupComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+
+	public get validity(): ButtonToggleGroupComponentCustomElement['validity'] {
+		return this.nativeElement.validity;
+	}
+
+
+	public get validationMessage(): ButtonToggleGroupComponentCustomElement['validationMessage'] {
+		return this.nativeElement.validationMessage;
+	}
+
+
+	public get willValidate(): ButtonToggleGroupComponentCustomElement['willValidate'] {
+		return this.nativeElement.willValidate;
+	}
+
+
+	public checkValidity(...args: Parameters<ButtonToggleGroupComponentCustomElement['checkValidity']>): ReturnType<ButtonToggleGroupComponentCustomElement['checkValidity']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.checkValidity(...args));
+	}
+
+
+	public reportValidity(...args: Parameters<ButtonToggleGroupComponentCustomElement['reportValidity']>): ReturnType<ButtonToggleGroupComponentCustomElement['reportValidity']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.reportValidity(...args));
+	}
+
+
+	public setCustomValidity(...args: Parameters<ButtonToggleGroupComponentCustomElement['setCustomValidity']>): ReturnType<ButtonToggleGroupComponentCustomElement['setCustomValidity']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.setCustomValidity(...args));
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<ButtonToggleGroupComponentCustomElement>,

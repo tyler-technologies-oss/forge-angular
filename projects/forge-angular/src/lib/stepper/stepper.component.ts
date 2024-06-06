@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { StepperComponent as StepperComponentCustomElement, defineStepperComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-stepper>` custom element. */
+/**  */
 @Component({
   selector: 'forge-stepper',
   changeDetection: ChangeDetectionStrategy.OnPush,

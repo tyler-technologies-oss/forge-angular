@@ -4,12 +4,12 @@
     <forge-chip-field (forge-chip-field-member-added)="selectState($event)" (forge-chip-field-member-removed)="deselectState($event)" [invalid]="statesControl.invalid" required>
       <label slot="label" for="autocomplete-chip-field-input">Favorite states</label>
       <ng-container *ngFor="let state of statesControl.value">
-        <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [invalid]="statesControl.invalid" [disabled]="statesControl.disabled" >
+        <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [invalid]="statesControl.invalid" [disabled]="statesControl.disabled">
           <forge-icon slot="leading" name="place"></forge-icon>
           {{state}}
         </forge-chip>
       </ng-container>
-      <input type="text" id="autocomplete-chip-field-input" aria-label="Choose State" [disabled]="statesControl.disabled" />
+      <input type="text" id="autocomplete-chip-field-input" aria-label="Choose State" [disabled]="statesControl.disabled">
       <div slot="helper-text" *ngIf="!statesControl.invalid">
         Select your favorite states
       </div>

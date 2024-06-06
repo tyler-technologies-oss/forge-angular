@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { DateRangePickerComponent as DateRangePickerComponentCustomElement, defineDateRangePickerComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-date-range-picker>` element. */
+/**  */
 @Component({
   selector: 'forge-date-range-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +35,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.to;
 	}
 
-	/** Gets/sets the value of the component. */
+	/** Gets/sets the date range value. */
 	@Input()
 	public set value(value: DateRangePickerComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Gets/sets the minimum date the calendar will allow. */
+	/** Gets/sets the minimum date range value. */
 	@Input()
 	public set min(value: DateRangePickerComponentCustomElement['min']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.min;
 	}
 
-	/** Gets/sets the maximum date the calendar will allow. */
+	/** Gets/sets the maximum date range value. */
 	@Input()
 	public set max(value: DateRangePickerComponentCustomElement['max']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.max;
 	}
 
-	/** Gets/sets the dates that are restricted from being selected. */
+	/** Gets/sets the disabled date range values. */
 	@Input()
 	public set disabledDates(value: DateRangePickerComponentCustomElement['disabledDates']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.disabledDates;
 	}
 
-	/** Gets/sets whether the calendar dropdown is open. */
+	/** Gets/sets the open state of the date range picker. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: DateRangePickerComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,117 +90,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.open;
 	}
 
-	/** Gets/sets the CSS classes that are applied to the popup element. */
-	@Input()
-	public set popupClasses(value: DateRangePickerComponentCustomElement['popupClasses']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.popupClasses = value;
-		});
-	}
-	public get popupClasses(): DateRangePickerComponentCustomElement['popupClasses'] {
-		return this.nativeElement.popupClasses;
-	}
-
-	/** Gets/sets whether the date picker is disabled or not. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: DateRangePickerComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): DateRangePickerComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
-	/** Gets/sets whether the input mask is applied or not. */
-	@Input({ transform: booleanAttribute })
-	public set masked(value: DateRangePickerComponentCustomElement['masked']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.masked = value;
-		});
-	}
-	public get masked(): DateRangePickerComponentCustomElement['masked'] {
-		return this.nativeElement.masked;
-	}
-
-	/** Gets/sets the mask format that displayed in the input. Default is `MM/DD/YYYY` */
-	@Input()
-	public set maskFormat(value: DateRangePickerComponentCustomElement['maskFormat']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.maskFormat = value;
-		});
-	}
-	public get maskFormat(): DateRangePickerComponentCustomElement['maskFormat'] {
-		return this.nativeElement.maskFormat;
-	}
-
-	/** Gets/sets whether the mask format is displayed in the input or not. Only applies if `masked` is `true`. */
-	@Input({ transform: booleanAttribute })
-	public set showMaskFormat(value: DateRangePickerComponentCustomElement['showMaskFormat']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.showMaskFormat = value;
-		});
-	}
-	public get showMaskFormat(): DateRangePickerComponentCustomElement['showMaskFormat'] {
-		return this.nativeElement.showMaskFormat;
-	}
-
-	/** Gets/sets the type for the `value` property and `forge-date-picker-change` event. */
-	@Input()
-	public set valueMode(value: DateRangePickerComponentCustomElement['valueMode']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.valueMode = value;
-		});
-	}
-	public get valueMode(): DateRangePickerComponentCustomElement['valueMode'] {
-		return this.nativeElement.valueMode;
-	}
-
-	/** Gets/sets whether the native input will be notified of value changes via the `input` and `change` events. */
-	@Input({ transform: booleanAttribute })
-	public set notifyInputValueChanges(value: DateRangePickerComponentCustomElement['notifyInputValueChanges']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.notifyInputValueChanges = value;
-		});
-	}
-	public get notifyInputValueChanges(): DateRangePickerComponentCustomElement['notifyInputValueChanges'] {
-		return this.nativeElement.notifyInputValueChanges;
-	}
-
-	/** Gets/sets whether to allow an invalid date to be input. When true, the date picker will not clear out the value of the input if the date was invalid (i.e. could not be parsed). */
-	@Input({ transform: booleanAttribute })
-	public set allowInvalidDate(value: DateRangePickerComponentCustomElement['allowInvalidDate']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.allowInvalidDate = value;
-		});
-	}
-	public get allowInvalidDate(): DateRangePickerComponentCustomElement['allowInvalidDate'] {
-		return this.nativeElement.allowInvalidDate;
-	}
-
-	/** Gets/sets whether the today button is visible in the popup. */
-	@Input({ transform: booleanAttribute })
-	public set showToday(value: DateRangePickerComponentCustomElement['showToday']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.showToday = value;
-		});
-	}
-	public get showToday(): DateRangePickerComponentCustomElement['showToday'] {
-		return this.nativeElement.showToday;
-	}
-
-	/** Gets/sets whether the clear button is visible in the popup. */
-	@Input({ transform: booleanAttribute })
-	public set showClear(value: DateRangePickerComponentCustomElement['showClear']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.showClear = value;
-		});
-	}
-	public get showClear(): DateRangePickerComponentCustomElement['showClear'] {
-		return this.nativeElement.showClear;
-	}
-
-	/** Sets the callback to use for parsing a date value string to a `Date` object. */
+	/** Gets/sets the callback used to parse date strings. */
 	@Input()
 	public set parseCallback(value: DateRangePickerComponentCustomElement['parseCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -211,7 +101,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.parseCallback;
 	}
 
-	/** Sets the callback to use for formatting `Date` value to a custom string format. */
+	/** Gets/sets the callback used to format date strings. */
 	@Input()
 	public set formatCallback(value: DateRangePickerComponentCustomElement['formatCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -222,7 +112,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.formatCallback;
 	}
 
-	/** Sets the callback to use when altering default mask entry. */
+	/** Gets/sets the callback used to prepare the mask for the date input. */
 	@Input()
 	public set prepareMaskCallback(value: DateRangePickerComponentCustomElement['prepareMaskCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -233,18 +123,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.prepareMaskCallback;
 	}
 
-	/** Sets the days of the week to disable from selection. */
-	@Input()
-	public set disabledDaysOfWeek(value: DateRangePickerComponentCustomElement['disabledDaysOfWeek']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabledDaysOfWeek = value;
-		});
-	}
-	public get disabledDaysOfWeek(): DateRangePickerComponentCustomElement['disabledDaysOfWeek'] {
-		return this.nativeElement.disabledDaysOfWeek;
-	}
-
-	/** Sets the callback to use for testing whether a specific date should be disabled or not. */
+	/** Gets/sets the callback used to disable days in the calendar. */
 	@Input()
 	public set disableDayCallback(value: DateRangePickerComponentCustomElement['disableDayCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -255,7 +134,128 @@ export class DateRangePickerComponent {
 		return this.nativeElement.disableDayCallback;
 	}
 
-	/** Sets the year range. */
+	/** Gets/sets the classes to apply to the date range picker popup. */
+	@Input()
+	public set popupClasses(value: DateRangePickerComponentCustomElement['popupClasses']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popupClasses = value;
+		});
+	}
+	public get popupClasses(): DateRangePickerComponentCustomElement['popupClasses'] {
+		return this.nativeElement.popupClasses;
+	}
+
+	/** Gets/sets the disabled state of the date range picker. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: DateRangePickerComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): DateRangePickerComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** Gets/sets the masked state of the date range picker. */
+	@Input({ transform: booleanAttribute })
+	public set masked(value: DateRangePickerComponentCustomElement['masked']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.masked = value;
+		});
+	}
+	public get masked(): DateRangePickerComponentCustomElement['masked'] {
+		return this.nativeElement.masked;
+	}
+
+	/** Gets/sets the mask format for the date input. */
+	@Input()
+	public set maskFormat(value: DateRangePickerComponentCustomElement['maskFormat']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.maskFormat = value;
+		});
+	}
+	public get maskFormat(): DateRangePickerComponentCustomElement['maskFormat'] {
+		return this.nativeElement.maskFormat;
+	}
+
+	/** Gets/sets the state of whether to show the mask format in the date input. */
+	@Input({ transform: booleanAttribute })
+	public set showMaskFormat(value: DateRangePickerComponentCustomElement['showMaskFormat']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.showMaskFormat = value;
+		});
+	}
+	public get showMaskFormat(): DateRangePickerComponentCustomElement['showMaskFormat'] {
+		return this.nativeElement.showMaskFormat;
+	}
+
+	/** Gets/sets the value mode of the date range picker. */
+	@Input()
+	public set valueMode(value: DateRangePickerComponentCustomElement['valueMode']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.valueMode = value;
+		});
+	}
+	public get valueMode(): DateRangePickerComponentCustomElement['valueMode'] {
+		return this.nativeElement.valueMode;
+	}
+
+	/** Gets/sets the state of whether to notify input value changes. */
+	@Input({ transform: booleanAttribute })
+	public set notifyInputValueChanges(value: DateRangePickerComponentCustomElement['notifyInputValueChanges']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.notifyInputValueChanges = value;
+		});
+	}
+	public get notifyInputValueChanges(): DateRangePickerComponentCustomElement['notifyInputValueChanges'] {
+		return this.nativeElement.notifyInputValueChanges;
+	}
+
+	/** Gets/sets the state of whether to allow invalid dates. */
+	@Input({ transform: booleanAttribute })
+	public set allowInvalidDate(value: DateRangePickerComponentCustomElement['allowInvalidDate']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.allowInvalidDate = value;
+		});
+	}
+	public get allowInvalidDate(): DateRangePickerComponentCustomElement['allowInvalidDate'] {
+		return this.nativeElement.allowInvalidDate;
+	}
+
+	/** Gets/sets the state of whether to show the "Today" button. */
+	@Input({ transform: booleanAttribute })
+	public set showToday(value: DateRangePickerComponentCustomElement['showToday']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.showToday = value;
+		});
+	}
+	public get showToday(): DateRangePickerComponentCustomElement['showToday'] {
+		return this.nativeElement.showToday;
+	}
+
+	/** Gets/sets the state of whether to show the "Clear" button. */
+	@Input({ transform: booleanAttribute })
+	public set showClear(value: DateRangePickerComponentCustomElement['showClear']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.showClear = value;
+		});
+	}
+	public get showClear(): DateRangePickerComponentCustomElement['showClear'] {
+		return this.nativeElement.showClear;
+	}
+
+	/** Gets/sets the disabled days of the week. */
+	@Input()
+	public set disabledDaysOfWeek(value: DateRangePickerComponentCustomElement['disabledDaysOfWeek']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabledDaysOfWeek = value;
+		});
+	}
+	public get disabledDaysOfWeek(): DateRangePickerComponentCustomElement['disabledDaysOfWeek'] {
+		return this.nativeElement.disabledDaysOfWeek;
+	}
+
+	/** Gets/sets the year range for the date range picker. */
 	@Input()
 	public set yearRange(value: DateRangePickerComponentCustomElement['yearRange']) {
 		this.zone.runOutsideAngular(() => {
@@ -266,7 +266,7 @@ export class DateRangePickerComponent {
 		return this.nativeElement.yearRange;
 	}
 
-	/** Sets the locale to use. */
+	/** Gets/sets the locale for the date range picker. */
 	@Input()
 	public set locale(value: DateRangePickerComponentCustomElement['locale']) {
 		this.zone.runOutsideAngular(() => {

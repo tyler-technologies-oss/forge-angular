@@ -19,6 +19,13 @@ import {
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+// Uncomment to test global configuration
+// window.TylerForgeGlobalConfiguration = {
+//   'forge-text-field': {
+//     'labelPosition': 'block-start'
+//   }
+// };
+
 defineScaffoldComponent();
 defineAppBarComponent();
 defineAppBarMenuButtonComponent();

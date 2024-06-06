@@ -101,6 +101,27 @@ export class RadioComponent {
 		return this.nativeElement.labelPosition;
 	}
 
+
+	public get form(): RadioComponentCustomElement['form'] {
+		return this.nativeElement.form;
+	}
+
+
+	public get labels(): RadioComponentCustomElement['labels'] {
+		return this.nativeElement.labels;
+	}
+
+
+	@Input()
+	public set name(value: RadioComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): RadioComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<RadioComponentCustomElement>,

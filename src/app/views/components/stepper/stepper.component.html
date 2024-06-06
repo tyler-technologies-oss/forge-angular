@@ -1,13 +1,5 @@
 <app-demo-card headerText="Stepper">
-  <forge-stepper
-    [steps]="steps"
-    [selectedIndex]="selectedStepIndex"
-    [linear]="linear"
-    [alternative]="alternative"
-    [layoutMode]="layoutMode"
-    [layoutAlign]="layoutAlign"
-    [vertical]="vertical"
-    (forge-step-selected)="onStepChanged($event)">
+  <forge-stepper [steps]="steps" [selectedIndex]="selectedStepIndex" [linear]="linear" [alternative]="alternative" [layoutMode]="layoutMode" [layoutAlign]="layoutAlign" [vertical]="vertical" (forge-step-selected)="onStepChanged($any($event))">
   </forge-stepper>
 
 <h6>Using NgFor and ngIf</h6>

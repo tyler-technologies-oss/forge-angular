@@ -13,7 +13,7 @@ export class StackComponent {
 	/** The forge-stack element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Sets the direction of child items to be horizontal. */
+	/** Controls the direction of the stack. */
 	@Input({ transform: booleanAttribute })
 	public set inline(value: StackComponentCustomElement['inline']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class StackComponent {
 		return this.nativeElement.inline;
 	}
 
-	/** Wrap is used to wrap child elements to a new row when there's not enough space. This only works when inline is set to true. */
+	/** Controls if items wrap to a new line in inline mode */
 	@Input({ transform: booleanAttribute })
 	public set wrap(value: StackComponentCustomElement['wrap']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class StackComponent {
 		return this.nativeElement.wrap;
 	}
 
-	/** Stretch allows each child element to take up as much width as possible until the parent container is filled. You can override this on each individual child element by changing its --forge-stack-stretch CSS custom property. */
+	/** Controls if items stretch and take up the maximum amount of space */
 	@Input({ transform: booleanAttribute })
 	public set stretch(value: StackComponentCustomElement['stretch']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class StackComponent {
 		return this.nativeElement.stretch;
 	}
 
-	/** Controls the amount of space between child elements within a stack. */
+	/** Controls the gap between the children within the stack */
 	@Input()
 	public set gap(value: StackComponentCustomElement['gap']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class StackComponent {
 		return this.nativeElement.gap;
 	}
 
-	/** Controls the align-items property of the stack. */
+	/** Controls the align-items property of a row or column */
 	@Input()
 	public set alignment(value: StackComponentCustomElement['alignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class StackComponent {
 		return this.nativeElement.alignment;
 	}
 
-	/** Controls the justify-content property of the stack. */
+	/** Controls the justify-content property of a row or column */
 	@Input()
 	public set justify(value: StackComponentCustomElement['justify']) {
 		this.zone.runOutsideAngular(() => {

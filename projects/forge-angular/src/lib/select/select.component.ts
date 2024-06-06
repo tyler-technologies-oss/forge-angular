@@ -13,7 +13,7 @@ export class SelectComponent {
 	/** The forge-select element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** Controls the label text. */
 	@Input()
 	public set label(value: SelectComponentCustomElement['label']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class SelectComponent {
 		return this.nativeElement.label;
 	}
 
-
+	/** Controls the placeholder text. */
 	@Input()
 	public set placeholder(value: SelectComponentCustomElement['placeholder']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class SelectComponent {
 		return this.nativeElement.placeholder;
 	}
 
-
+	/** Whether the label floats above the field. */
 	@Input({ transform: booleanAttribute })
 	public set floatLabel(value: SelectComponentCustomElement['floatLabel']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class SelectComponent {
 		return this.nativeElement.floatLabel;
 	}
 
-
+	/** The density of the field. */
 	@Input()
 	public set density(value: SelectComponentCustomElement['density']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class SelectComponent {
 		return this.nativeElement.density;
 	}
 
-
+	/** Whether the field is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: SelectComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class SelectComponent {
 		return this.nativeElement.dense;
 	}
 
-
+	/** Whether the field is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: SelectComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class SelectComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** The position of the label. */
 	@Input()
 	public set labelPosition(value: SelectComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,95 @@ export class SelectComponent {
 		return this.nativeElement.labelPosition;
 	}
 
+	/** Gets/sets the value. */
+	@Input()
+	public set value(value: SelectComponentCustomElement['value']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.value = value;
+		});
+	}
+	public get value(): SelectComponentCustomElement['value'] {
+		return this.nativeElement.value;
+	}
 
+	/** Gets/sets the selected index. */
+	@Input()
+	public set selectedIndex(value: SelectComponentCustomElement['selectedIndex']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.selectedIndex = value;
+		});
+	}
+	public get selectedIndex(): SelectComponentCustomElement['selectedIndex'] {
+		return this.nativeElement.selectedIndex;
+	}
+
+	/** Gets/sets the available options. */
+	@Input()
+	public set options(value: SelectComponentCustomElement['options']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.options = value;
+		});
+	}
+	public get options(): SelectComponentCustomElement['options'] {
+		return this.nativeElement.options;
+	}
+
+	/** Gets/sets the multiple select state. */
+	@Input({ transform: booleanAttribute })
+	public set multiple(value: SelectComponentCustomElement['multiple']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.multiple = value;
+		});
+	}
+	public get multiple(): SelectComponentCustomElement['multiple'] {
+		return this.nativeElement.multiple;
+	}
+
+	/** Gets/sets the open state. */
+	@Input({ transform: booleanAttribute })
+	public set open(value: SelectComponentCustomElement['open']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.open = value;
+		});
+	}
+	public get open(): SelectComponentCustomElement['open'] {
+		return this.nativeElement.open;
+	}
+
+	/** Gets/sets the option builder function. */
+	@Input()
+	public set optionBuilder(value: SelectComponentCustomElement['optionBuilder']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.optionBuilder = value;
+		});
+	}
+	public get optionBuilder(): SelectComponentCustomElement['optionBuilder'] {
+		return this.nativeElement.optionBuilder;
+	}
+
+	/** Gets/sets the selected text builder function. */
+	@Input()
+	public set selectedTextBuilder(value: SelectComponentCustomElement['selectedTextBuilder']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.selectedTextBuilder = value;
+		});
+	}
+	public get selectedTextBuilder(): SelectComponentCustomElement['selectedTextBuilder'] {
+		return this.nativeElement.selectedTextBuilder;
+	}
+
+	/** Gets/sets the before value change callback. */
+	@Input()
+	public set beforeValueChange(value: SelectComponentCustomElement['beforeValueChange']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.beforeValueChange = value;
+		});
+	}
+	public get beforeValueChange(): SelectComponentCustomElement['beforeValueChange'] {
+		return this.nativeElement.beforeValueChange;
+	}
+
+	/** The alignment of the label. */
 	@Input()
 	public set labelAlignment(value: SelectComponentCustomElement['labelAlignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +189,7 @@ export class SelectComponent {
 		return this.nativeElement.labelAlignment;
 	}
 
-
+	/** Whether the field is invalid. */
 	@Input({ transform: booleanAttribute })
 	public set invalid(value: SelectComponentCustomElement['invalid']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +200,7 @@ export class SelectComponent {
 		return this.nativeElement.invalid;
 	}
 
-
+	/** Whether the field is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: SelectComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -123,7 +211,7 @@ export class SelectComponent {
 		return this.nativeElement.required;
 	}
 
-
+	/** Whether the field is optional. */
 	@Input({ transform: booleanAttribute })
 	public set optional(value: SelectComponentCustomElement['optional']) {
 		this.zone.runOutsideAngular(() => {
@@ -134,7 +222,7 @@ export class SelectComponent {
 		return this.nativeElement.optional;
 	}
 
-
+	/** The variant of the field. */
 	@Input()
 	public set variant(value: SelectComponentCustomElement['variant']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,7 +233,7 @@ export class SelectComponent {
 		return this.nativeElement.variant;
 	}
 
-
+	/** The theme of the field. */
 	@Input()
 	public set theme(value: SelectComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
@@ -156,7 +244,7 @@ export class SelectComponent {
 		return this.nativeElement.theme;
 	}
 
-
+	/** The shape of the field. */
 	@Input()
 	public set shape(value: SelectComponentCustomElement['shape']) {
 		this.zone.runOutsideAngular(() => {
@@ -167,7 +255,7 @@ export class SelectComponent {
 		return this.nativeElement.shape;
 	}
 
-
+	/** Whether the popover icon is displayed. */
 	@Input({ transform: booleanAttribute })
 	public set popoverIcon(value: SelectComponentCustomElement['popoverIcon']) {
 		this.zone.runOutsideAngular(() => {
@@ -178,7 +266,7 @@ export class SelectComponent {
 		return this.nativeElement.popoverIcon;
 	}
 
-
+	/** The inset of the support text. */
 	@Input()
 	public set supportTextInset(value: SelectComponentCustomElement['supportTextInset']) {
 		this.zone.runOutsideAngular(() => {
@@ -189,7 +277,7 @@ export class SelectComponent {
 		return this.nativeElement.supportTextInset;
 	}
 
-
+	/** Floats the label without an animation. Only applies when the label is inset. */
 	public floatLabelWithoutAnimation(...args: Parameters<SelectComponentCustomElement['floatLabelWithoutAnimation']>): ReturnType<SelectComponentCustomElement['floatLabelWithoutAnimation']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}

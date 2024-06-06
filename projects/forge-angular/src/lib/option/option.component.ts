@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { OptionComponent as OptionComponentCustomElement, defineOptionComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-option>` element. */
+/**  */
 @Component({
   selector: 'forge-option',
   changeDetection: ChangeDetectionStrategy.OnPush,

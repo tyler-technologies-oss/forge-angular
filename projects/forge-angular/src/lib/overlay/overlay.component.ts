@@ -201,17 +201,6 @@ export class OverlayComponent {
 	}
 
 
-	@Input({ transform: booleanAttribute })
-	public set auto(value: OverlayComponentCustomElement['auto']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.auto = value;
-		});
-	}
-	public get auto(): OverlayComponentCustomElement['auto'] {
-		return this.nativeElement.auto;
-	}
-
-
 	public position(...args: Parameters<OverlayComponentCustomElement['position']>): ReturnType<OverlayComponentCustomElement['position']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.position(...args));
 	}

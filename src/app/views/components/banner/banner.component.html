@@ -1,8 +1,4 @@
-<forge-banner
-  [dismissed]="isDismissed"
-  (forge-banner-dismissed)="dismissBanner()"
-  (forge-banner-undismissed)="undismissBanner()"
->
+<forge-banner [dismissed]="isDismissed" (forge-banner-dismissed)="dismissBanner()">
   <forge-icon slot="icon" name="add_alert"></forge-icon>
   <div>This is the banner with an icon and action using the default theme.</div>
   <forge-button slot="button" variant="outlined" (click)="openAlert()">Learn more...</forge-button>
@@ -16,10 +12,7 @@
 </div>
 
 <div style="margin-top:24px;">
-  <forge-banner
-    theme="warning"
-    [canDismiss]="false"
-  >
+  <forge-banner theme="warning" [canDismiss]="false">
     <forge-icon slot="icon" name="add_alert"></forge-icon>
     <div>
       This is the banner with only text, using the 'warning' theme. Ut voluptate ex Lorem irure voluptate in veniam

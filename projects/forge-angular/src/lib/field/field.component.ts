@@ -222,7 +222,7 @@ export class FieldComponent {
 		return this.nativeElement.focusIndicatorAllowFocus;
 	}
 
-
+	/** Sets the floating label without animating the transition. */
 	public floatLabelWithoutAnimation(...args: Parameters<FieldComponentCustomElement['floatLabelWithoutAnimation']>): ReturnType<FieldComponentCustomElement['floatLabelWithoutAnimation']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}

@@ -13,7 +13,7 @@ export class ButtonComponent {
 	/** The forge-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The variant of the button. Defaults to `text`. */
+	/** The variant of the button. */
 	@Input()
 	public set variant(value: ButtonComponentCustomElement['variant']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class ButtonComponent {
 		return this.nativeElement.fullWidth;
 	}
 
-	/** The type of button. Defaults to `button`. Valid values are `button`, `submit`, and `reset`. */
+	/** The type of button. Valid values are `button`, `submit`, and `reset`. */
 	@Input()
 	public set type(value: ButtonComponentCustomElement['type']) {
 		this.zone.runOutsideAngular(() => {
@@ -128,12 +128,12 @@ export class ButtonComponent {
 		return this.nativeElement.form;
 	}
 
-
+	/** Clicks the button. */
 	public click(...args: Parameters<ButtonComponentCustomElement['click']>): ReturnType<ButtonComponentCustomElement['click']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));
 	}
 
-
+	/** Focuses the button. */
 	public focus(...args: Parameters<ButtonComponentCustomElement['focus']>): ReturnType<ButtonComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}
