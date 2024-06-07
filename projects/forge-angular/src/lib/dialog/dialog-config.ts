@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-export class DialogConfig<T = unknown> {
+export class DialogConfig<T = any> {
   public data: T;
 }
 
