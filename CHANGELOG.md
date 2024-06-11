@@ -1,3 +1,25 @@
+# v3.7.1 (Tue Jun 11 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Nick Andrews ([@nickonometry](https://github.com/nickonometry)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: regenerate angular proxies [#55](https://github.com/tyler-technologies-oss/forge-angular/pull/55) ([@nickonometry](https://github.com/nickonometry))
+
+#### ⚠️ Pushed to `main`
+
+- chore: update the forge-angular package to work with the latest accessibility changes ([@nickonometry](https://github.com/nickonometry))
+- chore: prepare version-3 branch workflow ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 2
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Nick Andrews ([@nickonometry](https://github.com/nickonometry))
+
+---
+
 # v3.7.0 (Mon Feb 26 2024)
 
 #### 🚀 Enhancement
