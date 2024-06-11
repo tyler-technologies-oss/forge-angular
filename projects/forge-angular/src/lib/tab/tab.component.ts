@@ -67,11 +67,6 @@ export class TabComponent {
 	}
 
 
-	public focus(...args: Parameters<TabComponentCustomElement['focus']>): ReturnType<TabComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
-	}
-
-
 	public setTabIndex(...args: Parameters<TabComponentCustomElement['setTabIndex']>): ReturnType<TabComponentCustomElement['setTabIndex']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.setTabIndex(...args));
 	}
