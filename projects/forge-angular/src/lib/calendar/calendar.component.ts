@@ -10,7 +10,7 @@ import { CalendarComponent as CalendarComponentCustomElement, defineCalendarComp
 })
 export class CalendarComponent {
 
-
+	/** readonly */
 	@Input()
 	public set activeDate(value: CalendarComponentCustomElement['activeDate']) {
 		this.zone.runOutsideAngular(() => {

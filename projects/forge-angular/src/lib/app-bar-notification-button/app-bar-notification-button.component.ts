@@ -12,9 +12,9 @@ export class AppBarNotificationButtonComponent {
 
 
 	@Input()
-	public set count(value: AppBarNotificationButtonComponentCustomElement['count'] | string) {
+	public set count(value: AppBarNotificationButtonComponentCustomElement['count']) {
 		this.zone.runOutsideAngular(() => {
-			this.elementRef.nativeElement.count = +value;
+			this.elementRef.nativeElement.count = value;
 		});
 	}
 

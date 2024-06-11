@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { PaginatorComponent as PaginatorComponentCustomElement, definePaginatorComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-paginator>` component. */
+/**  */
 @Component({
   selector: 'forge-paginator',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -140,6 +140,23 @@ export class PaginatorComponent {
 
 	public get alignment(): PaginatorComponentCustomElement['alignment'] {
 		return this.elementRef.nativeElement.alignment;
+	}
+
+
+	@Input()
+	public set rangeLabelCallback(value: PaginatorComponentCustomElement['rangeLabelCallback']) {
+		this.zone.runOutsideAngular(() => {
+			this.elementRef.nativeElement.rangeLabelCallback = value;
+		});
+	}
+
+	public get rangeLabelCallback(): PaginatorComponentCustomElement['rangeLabelCallback'] {
+		return this.elementRef.nativeElement.rangeLabelCallback;
+	}
+
+
+	public focus(...args: Parameters<PaginatorComponentCustomElement['focus']>): ReturnType<PaginatorComponentCustomElement['focus']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.focus(...args));
 	}
 
 	constructor(
