@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { TextFieldComponent as TextFieldComponentCustomElement, defineTextFieldComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-text-field>` custom element. */
+/**  */
 @Component({
   selector: 'forge-text-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,40 +13,45 @@ export class TextFieldComponent {
 	/** The forge-text-field element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls the density type. */
-	@Input()
-	public set density(value: TextFieldComponentCustomElement['density']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.density = value;
-		});
-	}
-	public get density(): TextFieldComponentCustomElement['density'] {
-		return this.nativeElement.density;
+	/** Gets a reference to the element that the popover should target for best alignment. */
+	public get popoverTargetElement(): TextFieldComponentCustomElement['popoverTargetElement'] {
+		return this.nativeElement.popoverTargetElement;
 	}
 
-	/** Whether the label should always float, never float or float as the user types. */
-	@Input()
-	public set floatLabelType(value: TextFieldComponentCustomElement['floatLabelType']) {
+	/** Whether the clear button appears when text has been entered. */
+	@Input({ transform: booleanAttribute })
+	public set showClear(value: TextFieldComponentCustomElement['showClear']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.floatLabelType = value;
+			this.nativeElement.showClear = value;
 		});
 	}
-	public get floatLabelType(): TextFieldComponentCustomElement['floatLabelType'] {
-		return this.nativeElement.floatLabelType;
+	public get showClear(): TextFieldComponentCustomElement['showClear'] {
+		return this.nativeElement.showClear;
 	}
 
-	/** The shape type to use. */
+	/** The position of the label relative to the field. */
 	@Input()
-	public set shape(value: TextFieldComponentCustomElement['shape']) {
+	public set labelPosition(value: TextFieldComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.shape = value;
+			this.nativeElement.labelPosition = value;
 		});
 	}
-	public get shape(): TextFieldComponentCustomElement['shape'] {
-		return this.nativeElement.shape;
+	public get labelPosition(): TextFieldComponentCustomElement['labelPosition'] {
+		return this.nativeElement.labelPosition;
 	}
 
-	/** Gets/sets the invalid state. */
+	/** The alignment of the label relative to the field. */
+	@Input()
+	public set labelAlignment(value: TextFieldComponentCustomElement['labelAlignment']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.labelAlignment = value;
+		});
+	}
+	public get labelAlignment(): TextFieldComponentCustomElement['labelAlignment'] {
+		return this.nativeElement.labelAlignment;
+	}
+
+	/** Whether the field is in an invalid state. */
 	@Input({ transform: booleanAttribute })
 	public set invalid(value: TextFieldComponentCustomElement['invalid']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +62,7 @@ export class TextFieldComponent {
 		return this.nativeElement.invalid;
 	}
 
-	/** Gets/sets the required state which controls the visibility of the asterisk in the label. */
+	/** Whether the field is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: TextFieldComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,9 +73,130 @@ export class TextFieldComponent {
 		return this.nativeElement.required;
 	}
 
-	/** Controls whether the label should be floating or not. */
-	public floatLabel(...args: Parameters<TextFieldComponentCustomElement['floatLabel']>): ReturnType<TextFieldComponentCustomElement['floatLabel']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabel(...args));
+	/** Whether the field is optional. */
+	@Input({ transform: booleanAttribute })
+	public set optional(value: TextFieldComponentCustomElement['optional']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.optional = value;
+		});
+	}
+	public get optional(): TextFieldComponentCustomElement['optional'] {
+		return this.nativeElement.optional;
+	}
+
+	/** Whether the field is disabled. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: TextFieldComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): TextFieldComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** Whether the label should float above the field. Only applies when the label is inset. */
+	@Input({ transform: booleanAttribute })
+	public set floatLabel(value: TextFieldComponentCustomElement['floatLabel']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.floatLabel = value;
+		});
+	}
+	public get floatLabel(): TextFieldComponentCustomElement['floatLabel'] {
+		return this.nativeElement.floatLabel;
+	}
+
+	/** The variant of the field. */
+	@Input()
+	public set variant(value: TextFieldComponentCustomElement['variant']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.variant = value;
+		});
+	}
+	public get variant(): TextFieldComponentCustomElement['variant'] {
+		return this.nativeElement.variant;
+	}
+
+	/** The theme of the field. */
+	@Input()
+	public set theme(value: TextFieldComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): TextFieldComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+	/** The shape of the field. */
+	@Input()
+	public set shape(value: TextFieldComponentCustomElement['shape']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.shape = value;
+		});
+	}
+	public get shape(): TextFieldComponentCustomElement['shape'] {
+		return this.nativeElement.shape;
+	}
+
+	/** The density of the field. */
+	@Input()
+	public set density(value: TextFieldComponentCustomElement['density']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.density = value;
+		});
+	}
+	public get density(): TextFieldComponentCustomElement['density'] {
+		return this.nativeElement.density;
+	}
+
+	/** Whether the field is dense. */
+	@Input({ transform: booleanAttribute })
+	public set dense(value: TextFieldComponentCustomElement['dense']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dense = value;
+		});
+	}
+	public get dense(): TextFieldComponentCustomElement['dense'] {
+		return this.nativeElement.dense;
+	}
+
+	/** Whether the field has a popover icon. */
+	@Input({ transform: booleanAttribute })
+	public set popoverIcon(value: TextFieldComponentCustomElement['popoverIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverIcon = value;
+		});
+	}
+	public get popoverIcon(): TextFieldComponentCustomElement['popoverIcon'] {
+		return this.nativeElement.popoverIcon;
+	}
+
+	/** Whether the field's popover is expanded. */
+	@Input({ transform: booleanAttribute })
+	public set popoverExpanded(value: TextFieldComponentCustomElement['popoverExpanded']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverExpanded = value;
+		});
+	}
+	public get popoverExpanded(): TextFieldComponentCustomElement['popoverExpanded'] {
+		return this.nativeElement.popoverExpanded;
+	}
+
+	/** The inset of the support text. */
+	@Input()
+	public set supportTextInset(value: TextFieldComponentCustomElement['supportTextInset']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.supportTextInset = value;
+		});
+	}
+	public get supportTextInset(): TextFieldComponentCustomElement['supportTextInset'] {
+		return this.nativeElement.supportTextInset;
+	}
+
+	/** Floats the label immediately. Only applies when the label is inset. */
+	public floatLabelWithoutAnimation(...args: Parameters<TextFieldComponentCustomElement['floatLabelWithoutAnimation']>): ReturnType<TextFieldComponentCustomElement['floatLabelWithoutAnimation']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}
 
 	constructor(

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class CountDownDialogComponent {
   public counter$: Observable<number>;
 
-  constructor(public dialogConfig: DialogConfig) {
+  constructor(public dialogConfig: DialogConfig<{ counter: number }>) {
     let localCounter = dialogConfig.data.counter;
     
     this.counter$ = new Observable(observer => {

@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { OpenIconComponent as OpenIconComponentCustomElement, defineOpenIconComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-open-icon>` custom element. */
+/**  */
 @Component({
   selector: 'forge-open-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class OpenIconComponent {
 	/** The forge-open-icon element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls the open state of the icon. */
+	/** Whether the icon is open or closed. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: OpenIconComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,10 +24,7 @@ export class OpenIconComponent {
 		return this.nativeElement.open;
 	}
 
-	/**
-	 * Gets/sets the orientation of the icon.
-	 * Valid values are 'vertical' (default) or 'horizontal'.
-	 */
+	/** The orientation of the rotation. */
 	@Input()
 	public set orientation(value: OpenIconComponentCustomElement['orientation']) {
 		this.zone.runOutsideAngular(() => {
@@ -38,9 +35,15 @@ export class OpenIconComponent {
 		return this.nativeElement.orientation;
 	}
 
-
-	public initializedCallback(...args: Parameters<OpenIconComponentCustomElement['initializedCallback']>): ReturnType<OpenIconComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** The rotation amount. */
+	@Input()
+	public set rotation(value: OpenIconComponentCustomElement['rotation']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.rotation = value;
+		});
+	}
+	public get rotation(): OpenIconComponentCustomElement['rotation'] {
+		return this.nativeElement.rotation;
 	}
 
 	constructor(

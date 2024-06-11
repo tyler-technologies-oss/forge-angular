@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { ToastComponent as ToastComponentCustomElement, defineToastComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-toast>` web component. */
+/**  */
 @Component({
   selector: 'forge-toast',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,29 +13,18 @@ export class ToastComponent {
 	/** The forge-toast element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The message to display in the toast. */
-	@Input()
-	public set message(value: ToastComponentCustomElement['message']) {
+	/** The open state. */
+	@Input({ transform: booleanAttribute })
+	public set open(value: ToastComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.message = value;
+			this.nativeElement.open = value;
 		});
 	}
-	public get message(): ToastComponentCustomElement['message'] {
-		return this.nativeElement.message;
+	public get open(): ToastComponentCustomElement['open'] {
+		return this.nativeElement.open;
 	}
 
-	/** The text to display in the action button. */
-	@Input()
-	public set actionText(value: ToastComponentCustomElement['actionText']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.actionText = value;
-		});
-	}
-	public get actionText(): ToastComponentCustomElement['actionText'] {
-		return this.nativeElement.actionText;
-	}
-
-	/** The time in milliseconds to show the toast. */
+	/** The duration in milliseconds that the toast is displayed. */
 	@Input({ transform: numberAttribute })
 	public set duration(value: ToastComponentCustomElement['duration']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,34 +46,56 @@ export class ToastComponent {
 		return this.nativeElement.placement;
 	}
 
-	/** Sets the toast builder function for displaying custom content. */
+	/** The text for the action button. This controls the visibility of the action button. */
 	@Input()
-	public set builder(value: ToastComponentCustomElement['builder']) {
+	public set actionText(value: ToastComponentCustomElement['actionText']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.builder = value;
+			this.nativeElement.actionText = value;
 		});
 	}
-	public get builder(): ToastComponentCustomElement['builder'] {
-		return this.nativeElement.builder;
+	public get actionText(): ToastComponentCustomElement['actionText'] {
+		return this.nativeElement.actionText;
 	}
 
-	/** Controls the visibility of the close button. */
+	/** Whether the toast is dismissible (displays a close button). */
 	@Input({ transform: booleanAttribute })
-	public set showClose(value: ToastComponentCustomElement['showClose']) {
+	public set dismissible(value: ToastComponentCustomElement['dismissible']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.showClose = value;
+			this.nativeElement.dismissible = value;
 		});
 	}
-	public get showClose(): ToastComponentCustomElement['showClose'] {
-		return this.nativeElement.showClose;
+	public get dismissible(): ToastComponentCustomElement['dismissible'] {
+		return this.nativeElement.dismissible;
 	}
 
-
-	public initializedCallback(...args: Parameters<ToastComponentCustomElement['initializedCallback']>): ReturnType<ToastComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** The accessible label for the dismiss button. */
+	@Input()
+	public set dismissLabel(value: ToastComponentCustomElement['dismissLabel']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dismissLabel = value;
+		});
+	}
+	public get dismissLabel(): ToastComponentCustomElement['dismissLabel'] {
+		return this.nativeElement.dismissLabel;
 	}
 
-	/** Hides the toast and removes it from the DOM. */
+	/** The theme of the toast. */
+	@Input()
+	public set theme(value: ToastComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): ToastComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+	/** Shows the toast. */
+	public show(...args: Parameters<ToastComponentCustomElement['show']>): ReturnType<ToastComponentCustomElement['show']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
+	}
+
+	/** Hides the toast. */
 	public hide(...args: Parameters<ToastComponentCustomElement['hide']>): ReturnType<ToastComponentCustomElement['hide']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.hide(...args));
 	}

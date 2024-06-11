@@ -13,7 +13,7 @@ export const SWITCH_VALUE_ACCESSOR: StaticProvider = {
   providers: [SWITCH_VALUE_ACCESSOR]
 })
 export class SwitchValueAccessor implements ControlValueAccessor {
-  @HostListener('forge-switch-select', ['$event'])
+  @HostListener('forge-switch-change', ['$event'])
   public switchChange(evt: CustomEvent<boolean>): void {
     this.change(evt.detail);
   }
@@ -29,7 +29,7 @@ export class SwitchValueAccessor implements ControlValueAccessor {
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
   public writeValue(value: boolean): void {
-    this._renderer.setProperty(this._elementRef.nativeElement, 'selected', !!value);
+    this._renderer.setProperty(this._elementRef.nativeElement, 'on', Boolean(value));
   }
 
   public registerOnChange(fn: (_: boolean) => void): void {
@@ -41,7 +41,7 @@ export class SwitchValueAccessor implements ControlValueAccessor {
   }
 
   public setDisabledState(value: boolean): void {
-    this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', value);
+    this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', Boolean(value));
   }
 
   public change(value: boolean): void {

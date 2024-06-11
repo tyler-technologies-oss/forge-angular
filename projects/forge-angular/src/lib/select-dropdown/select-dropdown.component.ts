@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { SelectDropdownComponent as SelectDropdownComponentCustomElement, defineSelectDropdownComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-select-dropdown>` custom element. */
+/**  */
 @Component({
   selector: 'forge-select-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -241,17 +241,17 @@ export class SelectDropdownComponent {
 		return this.nativeElement.wrapOptionText;
 	}
 
-
+	/** Dynamically appends options to the dropdown while it's open. */
 	public appendOptions(...args: Parameters<SelectDropdownComponentCustomElement['appendOptions']>): ReturnType<SelectDropdownComponentCustomElement['appendOptions']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.appendOptions(...args));
 	}
 
-
+	/** Selects all options. */
 	public selectAll(...args: Parameters<SelectDropdownComponentCustomElement['selectAll']>): ReturnType<SelectDropdownComponentCustomElement['selectAll']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.selectAll(...args));
 	}
 
-
+	/** Deselects all options. */
 	public deselectAll(...args: Parameters<SelectDropdownComponentCustomElement['deselectAll']>): ReturnType<SelectDropdownComponentCustomElement['deselectAll']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.deselectAll(...args));
 	}

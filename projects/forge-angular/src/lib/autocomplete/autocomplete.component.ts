@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { AutocompleteComponent as AutocompleteComponentCustomElement, defineAutocompleteComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-autocomplete>` element. */
+/**  */
 @Component({
   selector: 'forge-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,9 +1,7 @@
 <app-demo-card headerText="View switcher">
-  <forge-button type="raised">
-    <button type="button" (click)="onAddView()">Add view</button>
-  </forge-button>
+  <forge-button variant="raised" (click)="onAddView()">Add view</forge-button>
 
-  <forge-tab-bar [activeTab]="index" (forge-tab-bar-activate)="index = $event.detail.index">
+  <forge-tab-bar [activeTab]="index" (forge-tab-bar-change)="index = $event.detail.index">
     <forge-tab *ngFor="let tab of tabs">{{tab}}</forge-tab>
   </forge-tab-bar>
 
@@ -11,9 +9,7 @@
     <forge-view *ngFor="let view of views; let i = index">
       <div class="view-container">
         {{view}}
-        <forge-button type="outlined">
-          <button type="button" (click)="onRemoveView(i)">Remove</button>
-        </forge-button>
+        <forge-button variant="outlined" (click)="onRemoveView(i)">Remove</forge-button>
       </div>
     </forge-view>
   </forge-view-switcher>

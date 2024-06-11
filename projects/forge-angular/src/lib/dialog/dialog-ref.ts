@@ -1,21 +1,25 @@
 import { Observable, Subject } from 'rxjs';
 import { ElementRef } from '@angular/core';
-import { DIALOG_CONSTANTS, IDialogComponent } from '@tylertech/forge';
+import { IDialogComponent } from '@tylertech/forge';
 
-export class DialogRef<T = any> {
+export class DialogRef<TComponent = any, TResult = any> {
   private readonly _elementRef: ElementRef<IDialogComponent>;
-  private readonly _afterClosed = new Subject<any>();
-  public afterClosed: Observable<any> = this._afterClosed.asObservable();
-  private readonly _beforeClose = new Subject<CustomEvent>();
-  public beforeClose: Observable<CustomEvent> = this._beforeClose.asObservable();
-  public componentInstance: T;
+  
+  private readonly _afterClosed = new Subject<TResult | undefined>();
+  public afterClosed: Observable<TResult | undefined> = this._afterClosed.asObservable();
+
+  private readonly _beforeClose = new Subject<CustomEvent<void>>();
+  public beforeClose: Observable<CustomEvent<void>> = this._beforeClose.asObservable();
+
+  public componentInstance: TComponent;
 
   constructor(instance: IDialogComponent) {
     this._elementRef = new ElementRef(instance);
-    instance.addEventListener(DIALOG_CONSTANTS.events.BEFORE_CLOSE, evt => this._beforeClose.next(evt as CustomEvent));
+    instance.addEventListener('forge-dialog-before-close', evt => this._beforeClose.next(evt));
   }
 
-  public close(result?: any): void {
+  public close(result?: TResult): void {
+    this.nativeElement.open = false;
     this._afterClosed.next(result);
     this._afterClosed.complete();
     this._beforeClose.complete();

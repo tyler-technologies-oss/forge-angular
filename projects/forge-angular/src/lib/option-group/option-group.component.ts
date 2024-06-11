@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { OptionGroupComponent as OptionGroupComponentCustomElement, defineOptionGroupComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-option-group>` element. */
+/**  */
 @Component({
   selector: 'forge-option-group',
   changeDetection: ChangeDetectionStrategy.OnPush,

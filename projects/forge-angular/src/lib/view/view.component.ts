@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ViewComponent as ViewComponentCustomElement, defineViewComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-view>` custom element. */
+/**  */
 @Component({
   selector: 'forge-view',
   changeDetection: ChangeDetectionStrategy.OnPush,

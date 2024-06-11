@@ -6,11 +6,11 @@
   "author": "Tyler Technologies, Inc.",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/common": ">=16.1.0 < 18.0.0",
-    "@angular/core": ">=16.1.0 < 18.0.0",
-    "@tylertech/forge": "^2.21.2"
+    "@angular/common": ">=17.00 < 19.0.0",
+    "@angular/core": ">=17.0.0 < 19.0.0",
+    "@tylertech/forge": "^3.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.6.3"
   }
 }

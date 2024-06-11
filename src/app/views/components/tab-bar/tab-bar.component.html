@@ -1,5 +1,5 @@
 <app-demo-card headerText="Tab Bar">
-  <forge-tab-bar [activeTab]="selectedTab" (forge-tab-bar-activate)="selectedTab = $event.detail.index" underline>
+  <forge-tab-bar [activeTab]="selectedTab" (forge-tab-bar-change)="selectedTab = $event.detail.index" underline>
     <forge-tab>Tab 1</forge-tab>
     <forge-tab>Tab 2</forge-tab>
     <forge-tab>Tab 3</forge-tab>

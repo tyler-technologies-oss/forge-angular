@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { MiniDrawerComponent as MiniDrawerComponentCustomElement, defineMiniDrawerComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-mini-drawer>` custom element. */
+/**  */
 @Component({
   selector: 'forge-mini-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,18 @@ export class MiniDrawerComponent {
 	/** The forge-mini-drawer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Toggles whether a `dismissible` or `modal` drawer is open or not. Has no effect on `permanent` drawers. */
+	/** The drawer will expand open when hovered. */
+	@Input({ transform: booleanAttribute })
+	public set hover(value: MiniDrawerComponentCustomElement['hover']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.hover = value;
+		});
+	}
+	public get hover(): MiniDrawerComponentCustomElement['hover'] {
+		return this.nativeElement.hover;
+	}
+
+	/** Toggles whether the drawer is visible or not. */
 	@Input({ transform: booleanAttribute })
 	public set open(value: MiniDrawerComponentCustomElement['open']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +35,7 @@ export class MiniDrawerComponent {
 		return this.nativeElement.open;
 	}
 
-	/** Controls the laytout direction of the drawer for positioning on the left vs. right side of the screen. */
+	/** Controls the layout and animation direction of the drawer for positioning on the left vs. right side of the screen when toggling the `open` attribute. */
 	@Input()
 	public set direction(value: MiniDrawerComponentCustomElement['direction']) {
 		this.zone.runOutsideAngular(() => {

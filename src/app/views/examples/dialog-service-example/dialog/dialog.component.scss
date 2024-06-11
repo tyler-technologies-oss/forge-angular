@@ -1,9 +1,12 @@
 :host {
-  padding: 16px;
   width: 80dvw;
   height: 50dvh;
+}
 
-  h2 {
-    margin-top: 0;
-  }
+h1 {
+  margin: 0;
+}
+
+.body {
+  padding: var(--forge-spacing-medium);
 }

@@ -13,7 +13,7 @@ export class PaginatorComponent {
 	/** The forge-paginator element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The zero-based page index. Default is 0. */
+	/** The zero-based page index. */
 	@Input({ transform: numberAttribute })
 	public set pageIndex(value: PaginatorComponentCustomElement['pageIndex']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class PaginatorComponent {
 		return this.nativeElement.pageIndex;
 	}
 
-	/** Number of items to display on a page. By default set to 25. */
+	/** Number of items to display on a page. */
 	@Input({ transform: numberAttribute })
 	public set pageSize(value: PaginatorComponentCustomElement['pageSize']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class PaginatorComponent {
 		return this.nativeElement.offset;
 	}
 
-	/** The total number of items to be paginated. Default is 0. */
+	/** The total number of items to be paginated. */
 	@Input({ transform: numberAttribute })
 	public set total(value: PaginatorComponentCustomElement['total']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class PaginatorComponent {
 		return this.nativeElement.pageSizeOptions;
 	}
 
-	/** A label for the paginator. Default is "Rows per page:". */
+	/** A label for the paginator. */
 	@Input()
 	public set label(value: PaginatorComponentCustomElement['label']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class PaginatorComponent {
 		return this.nativeElement.label;
 	}
 
-	/** Whether to show the first page and last page buttons. Default is false. */
+	/** Whether to show the first page and last page buttons. */
 	@Input({ transform: booleanAttribute })
 	public set firstLast(value: PaginatorComponentCustomElement['firstLast']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class PaginatorComponent {
 		return this.nativeElement.first;
 	}
 
-	/** Whether the paginator is disabled. Default is false. */
+	/** Whether the paginator is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: PaginatorComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class PaginatorComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** Whether to use the alternative range label slot. */
 	@Input({ transform: booleanAttribute })
 	public set alternative(value: PaginatorComponentCustomElement['alternative']) {
 		this.zone.runOutsideAngular(() => {
@@ -123,18 +123,7 @@ export class PaginatorComponent {
 		return this.nativeElement.alternative;
 	}
 
-
-	@Input()
-	public set alignment(value: PaginatorComponentCustomElement['alignment']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.alignment = value;
-		});
-	}
-	public get alignment(): PaginatorComponentCustomElement['alignment'] {
-		return this.nativeElement.alignment;
-	}
-
-
+	/** A callback function to build the range label dynamically. */
 	@Input()
 	public set rangeLabelCallback(value: PaginatorComponentCustomElement['rangeLabelCallback']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,7 +134,7 @@ export class PaginatorComponent {
 		return this.nativeElement.rangeLabelCallback;
 	}
 
-
+	/** Sets focus to the first focusable element within the paginator. */
 	public focus(...args: Parameters<PaginatorComponentCustomElement['focus']>): ReturnType<PaginatorComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}

@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { SkeletonComponent as SkeletonComponentCustomElement, defineSkeletonComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-skeleton>` custom element. */
+/**  */
 @Component({
   selector: 'forge-skeleton',
   changeDetection: ChangeDetectionStrategy.OnPush,

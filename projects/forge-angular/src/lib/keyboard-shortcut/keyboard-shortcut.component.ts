@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { KeyboardShortcutComponent as KeyboardShortcutComponentCustomElement, defineKeyboardShortcutComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-keyboard-shortcut>` custom element. */
+/**  */
 @Component({
   selector: 'forge-keyboard-shortcut',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -90,7 +90,7 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.capture;
 	}
 
-	/** Gets/sets whether to match codes instead of keys on keyboard events */
+	/** Gets/sets whether to match codes instead of keys on keyboard events. */
 	@Input({ transform: booleanAttribute })
 	public set useCode(value: KeyboardShortcutComponentCustomElement['useCode']) {
 		this.zone.runOutsideAngular(() => {

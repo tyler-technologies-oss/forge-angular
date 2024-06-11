@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { SliderComponent as SliderComponentCustomElement, defineSliderComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-slider>` component. */
+/**  */
 @Component({
   selector: 'forge-slider',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,18 +13,50 @@ export class SliderComponent {
 	/** The forge-slider element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets the type of slider this is: `continuous` (default), `discrete`, `discrete-markers` */
-	@Input()
-	public set type(value: SliderComponentCustomElement['type']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.type = value;
-		});
-	}
-	public get type(): SliderComponentCustomElement['type'] {
-		return this.nativeElement.type;
+
+	public get form(): SliderComponentCustomElement['form'] {
+		return this.nativeElement.form;
 	}
 
-	/** Gets/sets the value of the slider. */
+
+	public get labels(): SliderComponentCustomElement['labels'] {
+		return this.nativeElement.labels;
+	}
+
+	/** The form control name. */
+	@Input()
+	public set name(value: SliderComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): SliderComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+	/** The form control name for the start handle in range mode. */
+	@Input()
+	public set nameStart(value: SliderComponentCustomElement['nameStart']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.nameStart = value;
+		});
+	}
+	public get nameStart(): SliderComponentCustomElement['nameStart'] {
+		return this.nativeElement.nameStart;
+	}
+
+	/** The form control name for the end handle in range mode. */
+	@Input()
+	public set nameEnd(value: SliderComponentCustomElement['nameEnd']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.nameEnd = value;
+		});
+	}
+	public get nameEnd(): SliderComponentCustomElement['nameEnd'] {
+		return this.nativeElement.nameEnd;
+	}
+
+	/** The current value of the slider. */
 	@Input({ transform: numberAttribute })
 	public set value(value: SliderComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +67,7 @@ export class SliderComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Gets/sets the start value of the slider (only applicable for range sliders). */
+	/** The current start value of the slider. */
 	@Input({ transform: numberAttribute })
 	public set valueStart(value: SliderComponentCustomElement['valueStart']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +78,62 @@ export class SliderComponent {
 		return this.nativeElement.valueStart;
 	}
 
-	/** Gets/sets the minimum value for the slider. */
+	/** The current end value of the slider. */
+	@Input({ transform: numberAttribute })
+	public set valueEnd(value: SliderComponentCustomElement['valueEnd']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.valueEnd = value;
+		});
+	}
+	public get valueEnd(): SliderComponentCustomElement['valueEnd'] {
+		return this.nativeElement.valueEnd;
+	}
+
+	/** The label text for the slider handle. */
+	@Input()
+	public set label(value: SliderComponentCustomElement['label']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.label = value;
+		});
+	}
+	public get label(): SliderComponentCustomElement['label'] {
+		return this.nativeElement.label;
+	}
+
+	/** The label text for the start slider handle. */
+	@Input()
+	public set labelStart(value: SliderComponentCustomElement['labelStart']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.labelStart = value;
+		});
+	}
+	public get labelStart(): SliderComponentCustomElement['labelStart'] {
+		return this.nativeElement.labelStart;
+	}
+
+	/** The label text for the end slider handle. */
+	@Input()
+	public set labelEnd(value: SliderComponentCustomElement['labelEnd']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.labelEnd = value;
+		});
+	}
+	public get labelEnd(): SliderComponentCustomElement['labelEnd'] {
+		return this.nativeElement.labelEnd;
+	}
+
+	/** A function that returns a label for the slider handle. */
+	@Input()
+	public set labelBuilder(value: SliderComponentCustomElement['labelBuilder']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.labelBuilder = value;
+		});
+	}
+	public get labelBuilder(): SliderComponentCustomElement['labelBuilder'] {
+		return this.nativeElement.labelBuilder;
+	}
+
+	/** The minimum value of the slider. */
 	@Input({ transform: numberAttribute })
 	public set min(value: SliderComponentCustomElement['min']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +144,7 @@ export class SliderComponent {
 		return this.nativeElement.min;
 	}
 
-	/** Gets/sets the maximum value for the slider. */
+	/** The maximum value of the slider. */
 	@Input({ transform: numberAttribute })
 	public set max(value: SliderComponentCustomElement['max']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +155,7 @@ export class SliderComponent {
 		return this.nativeElement.max;
 	}
 
-	/** Gets/sets the step value for the slider when in discrete mode. */
+	/** The step value of the slider. */
 	@Input({ transform: numberAttribute })
 	public set step(value: SliderComponentCustomElement['step']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +166,40 @@ export class SliderComponent {
 		return this.nativeElement.step;
 	}
 
-	/** Gets/sets the disabled state of the slider. */
+	/** Controls if tickmarks are visible. */
+	@Input({ transform: booleanAttribute })
+	public set tickmarks(value: SliderComponentCustomElement['tickmarks']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.tickmarks = value;
+		});
+	}
+	public get tickmarks(): SliderComponentCustomElement['tickmarks'] {
+		return this.nativeElement.tickmarks;
+	}
+
+	/** Controls if labels are visible. */
+	@Input({ transform: booleanAttribute })
+	public set labeled(value: SliderComponentCustomElement['labeled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.labeled = value;
+		});
+	}
+	public get labeled(): SliderComponentCustomElement['labeled'] {
+		return this.nativeElement.labeled;
+	}
+
+	/** Controls range mode. */
+	@Input({ transform: booleanAttribute })
+	public set range(value: SliderComponentCustomElement['range']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.range = value;
+		});
+	}
+	public get range(): SliderComponentCustomElement['range'] {
+		return this.nativeElement.range;
+	}
+
+	/** Controls if the slider is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: SliderComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -88,6 +208,17 @@ export class SliderComponent {
 	}
 	public get disabled(): SliderComponentCustomElement['disabled'] {
 		return this.nativeElement.disabled;
+	}
+
+	/** Controls if the slider is readonly. */
+	@Input({ transform: booleanAttribute })
+	public set readonly(value: SliderComponentCustomElement['readonly']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.readonly = value;
+		});
+	}
+	public get readonly(): SliderComponentCustomElement['readonly'] {
+		return this.nativeElement.readonly;
 	}
 
 	constructor(

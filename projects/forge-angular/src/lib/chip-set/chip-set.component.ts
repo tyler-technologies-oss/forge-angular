@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { ChipSetComponent as ChipSetComponentCustomElement, defineChipSetComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-chip-set>` custom element. */
+/**  */
 @Component({
   selector: 'forge-chip-set',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class ChipSetComponent {
 	/** The forge-chip-set element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** Whether the chip set is vertical. */
 	@Input({ transform: booleanAttribute })
 	public set vertical(value: ChipSetComponentCustomElement['vertical']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class ChipSetComponent {
 		return this.nativeElement.vertical;
 	}
 
-
+	/** The type of chip. */
 	@Input()
 	public set type(value: ChipSetComponentCustomElement['type']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class ChipSetComponent {
 		return this.nativeElement.type;
 	}
 
-
+	/** Whether the chip set is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: ChipSetComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class ChipSetComponent {
 		return this.nativeElement.dense;
 	}
 
-
+	/** Whether the chip set is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: ChipSetComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -55,6 +55,28 @@ export class ChipSetComponent {
 	}
 	public get disabled(): ChipSetComponentCustomElement['disabled'] {
 		return this.nativeElement.disabled;
+	}
+
+	/** Whether the chip set is invalid. */
+	@Input({ transform: booleanAttribute })
+	public set invalid(value: ChipSetComponentCustomElement['invalid']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.invalid = value;
+		});
+	}
+	public get invalid(): ChipSetComponentCustomElement['invalid'] {
+		return this.nativeElement.invalid;
+	}
+
+	/** The theme of the chip set. */
+	@Input()
+	public set theme(value: ChipSetComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): ChipSetComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
 	}
 
 	constructor(

@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 export class SliderComponent{
   public continuous = 25;
   public discrete = 50;
-  public discreteMarkers = 75;
+  public discreteMarkers = 70;
+  public rangeValue = { valueStart: 25, valueEnd: 75 };
 }

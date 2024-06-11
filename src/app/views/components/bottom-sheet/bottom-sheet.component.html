@@ -1,72 +1,34 @@
 <app-demo-card headerText="Bottom Sheet" #container>
-  <forge-button type="raised">
-    <button (click)="showConfirmBottomSheet()">Show confirm bottom sheet</button>
-  </forge-button>
-
-  <br />
-  <br />
+  <forge-button variant="raised" (click)="showConfirmBottomSheet()">Show confirm bottom sheet</forge-button>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="showBackdrop" [(ngModel)]="showBackdrop" />
-      <label for="showBackdrop">Show Backdrop</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="nonmodal">Non-Modal</forge-checkbox>
   </div>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="backdropClose" [(ngModel)]="backdropClose" />
-      <label for="backdropClose">Backdrop close</label>
-    </forge-checkbox>
+    <forge-checkbox id="persistent" [(ngModel)]="persistent">Persistent</forge-checkbox>
+  </div>
+  
+  <div>
+    <forge-checkbox [(ngModel)]="fullscreen">Fullscreen</forge-checkbox>
   </div>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="escapeClose" [(ngModel)]="escapeClose" />
-      <label for="escapeClose">Escape close</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="lazyload">Lazy-load bottom sheet component</forge-checkbox>
   </div>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="fullscreen" [(ngModel)]="fullscreen" />
-      <label for="fullscreen">Fullscreen</label>
-    </forge-checkbox>
-  </div>
-
-
-  <div>
-    <forge-checkbox>
-      <input type="checkbox" id="lazyload" [(ngModel)]="lazyload" />
-      <label for="lazyload">Lazy-load bottom sheet component</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="preventClose">Prevent close</forge-checkbox>
   </div>
 
   <div>
-    <forge-checkbox>
-      <input type="checkbox" id="beforeCloseCallback" [(ngModel)]="beforeCloseCallback" />
-      <label for="beforeCloseCallback" slot="label">Return false from beforeCloseCallback (affects escape/backdrop-click)</label>
-    </forge-checkbox>
-  </div>
-
-  <div>
-    <forge-checkbox>
-      <input type="checkbox" id="beforeCloseSubscription" [(ngModel)]="beforeCloseSubscription" />
-      <label for="beforeCloseSubscription" slot="label">Prevent default in beforeClose subscription (affects escape/backdrop-click)</label>
-    </forge-checkbox>
-  </div>
-
-  <div>
-    <forge-checkbox>
-      <input type="checkbox" id="scrollable" [(ngModel)]="scrollable" />
-      <label for="scrollable" slot="label">Scrollable</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="scrollable">Scrollable</forge-checkbox>
   </div>
 
   <div>
     <forge-text-field>
-      <input type="text" id="add-class" [(ngModel)]="bottomSheetClass" />
       <label for="add-class" slot="label">Custom bottom sheet class</label>
+      <input type="text" id="add-class" [(ngModel)]="bottomSheetClass">
     </forge-text-field>
   </div>
 </app-demo-card>

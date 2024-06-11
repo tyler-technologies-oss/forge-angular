@@ -9,12 +9,10 @@ import { DialogConfig, DialogRef } from '@tylertech/forge-angular';
 export class LazyLoadedDialogComponent {
   public title: string;
   public message: string;
-  public moveable: boolean;
 
-  constructor(public dialogConfig: DialogConfig, private _dialogRef: DialogRef) {
+  constructor(public dialogConfig: DialogConfig<{ title: string; message: string }>, private _dialogRef: DialogRef) {
     this.title = dialogConfig.data.title;
     this.message = dialogConfig.data.message;
-    this.moveable = dialogConfig.data.moveable;
   }
 
   public onCancel(): void {

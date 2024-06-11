@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { InlineMessageComponent as InlineMessageComponentCustomElement, defineInlineMessageComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-inline-message>` custom element. */
+/**  */
 @Component({
   selector: 'forge-inline-message',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,6 +12,17 @@ export class InlineMessageComponent {
 
 	/** The forge-inline-message element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
+
+	/** The theme to apply. Defaults to `"info"`. */
+	@Input()
+	public set theme(value: InlineMessageComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): InlineMessageComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
 
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,

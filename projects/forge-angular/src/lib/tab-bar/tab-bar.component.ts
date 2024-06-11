@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { TabBarComponent as TabBarComponentCustomElement, defineTabBarComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-tab-bar>` element. */
+/**  */
 @Component({
   selector: 'forge-tab-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,18 @@ export class TabBarComponent {
 	/** The forge-tab-bar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets and sets the active tab index. */
+	/** The disabled state of the tab bar. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: TabBarComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): TabBarComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** The index of the active tab. */
 	@Input({ transform: numberAttribute })
 	public set activeTab(value: TabBarComponentCustomElement['activeTab']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,51 +35,29 @@ export class TabBarComponent {
 		return this.nativeElement.activeTab;
 	}
 
-	/** Gets/sets the layout mode that controls how the tabs are sized and rendered. */
-	@Input()
-	public set layoutMode(value: TabBarComponentCustomElement['layoutMode']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.layoutMode = value;
-		});
-	}
-	public get layoutMode(): TabBarComponentCustomElement['layoutMode'] {
-		return this.nativeElement.layoutMode;
-	}
-
-	/** Gets/sets the layout alignment. Only pertains to non-full width layout modes. */
-	@Input()
-	public set layoutAlign(value: TabBarComponentCustomElement['layoutAlign']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.layoutAlign = value;
-		});
-	}
-	public get layoutAlign(): TabBarComponentCustomElement['layoutAlign'] {
-		return this.nativeElement.layoutAlign;
-	}
-
-	/** Gets/sets whether the component displays an underline or not. Default is `false`. */
+	/** Controls whether the tab bar is vertical or horizontal. */
 	@Input({ transform: booleanAttribute })
-	public set underline(value: TabBarComponentCustomElement['underline']) {
+	public set vertical(value: TabBarComponentCustomElement['vertical']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.underline = value;
+			this.nativeElement.vertical = value;
 		});
 	}
-	public get underline(): TabBarComponentCustomElement['underline'] {
-		return this.nativeElement.underline;
+	public get vertical(): TabBarComponentCustomElement['vertical'] {
+		return this.nativeElement.vertical;
 	}
 
-	/** Gets/sets whether tabs are auto-activated when using arrow keys. Default is `true` */
+	/** Controls whether the tabs stretch the full width of their container or cluster together at their minimum width. */
 	@Input({ transform: booleanAttribute })
-	public set autoActivate(value: TabBarComponentCustomElement['autoActivate']) {
+	public set clustered(value: TabBarComponentCustomElement['clustered']) {
 		this.zone.runOutsideAngular(() => {
-			this.nativeElement.autoActivate = value;
+			this.nativeElement.clustered = value;
 		});
 	}
-	public get autoActivate(): TabBarComponentCustomElement['autoActivate'] {
-		return this.nativeElement.autoActivate;
+	public get clustered(): TabBarComponentCustomElement['clustered'] {
+		return this.nativeElement.clustered;
 	}
 
-	/** Gets/sets whether the tabs are displayed with as their stacked variant. Default is `false`. */
+	/** Controls whether the tabs are taller to allow for slotted leading/trailing elements. */
 	@Input({ transform: booleanAttribute })
 	public set stacked(value: TabBarComponentCustomElement['stacked']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +68,40 @@ export class TabBarComponent {
 		return this.nativeElement.stacked;
 	}
 
-	/** Gets/sets whether the scroll buttons can be displayed or not. Default is `true`. The component handles visibility automatically. */
+	/** Controls whether the tabs are styled as secondary tab navigation. */
+	@Input({ transform: booleanAttribute })
+	public set secondary(value: TabBarComponentCustomElement['secondary']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.secondary = value;
+		});
+	}
+	public get secondary(): TabBarComponentCustomElement['secondary'] {
+		return this.nativeElement.secondary;
+	}
+
+	/** Controls whether the tabs are rendered inverted (tab indicator at top instead of bottom). */
+	@Input({ transform: booleanAttribute })
+	public set inverted(value: TabBarComponentCustomElement['inverted']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.inverted = value;
+		});
+	}
+	public get inverted(): TabBarComponentCustomElement['inverted'] {
+		return this.nativeElement.inverted;
+	}
+
+	/** Controls whether the tabs are automatically activated when receiving focus. */
+	@Input({ transform: booleanAttribute })
+	public set autoActivate(value: TabBarComponentCustomElement['autoActivate']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.autoActivate = value;
+		});
+	}
+	public get autoActivate(): TabBarComponentCustomElement['autoActivate'] {
+		return this.nativeElement.autoActivate;
+	}
+
+	/** Controls whether scroll buttons are displayed when the tabs overflow their container. */
 	@Input({ transform: booleanAttribute })
 	public set scrollButtons(value: TabBarComponentCustomElement['scrollButtons']) {
 		this.zone.runOutsideAngular(() => {
@@ -88,27 +110,6 @@ export class TabBarComponent {
 	}
 	public get scrollButtons(): TabBarComponentCustomElement['scrollButtons'] {
 		return this.nativeElement.scrollButtons;
-	}
-
-	/** Gets/sets whether the scroll buttons are visible indefinitely or not. Default is `false`. */
-	@Input({ transform: booleanAttribute })
-	public set forceScrollButtons(value: TabBarComponentCustomElement['forceScrollButtons']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.forceScrollButtons = value;
-		});
-	}
-	public get forceScrollButtons(): TabBarComponentCustomElement['forceScrollButtons'] {
-		return this.nativeElement.forceScrollButtons;
-	}
-
-	/** Activates the tab at the given index. */
-	public activateTab(...args: Parameters<TabBarComponentCustomElement['activateTab']>): ReturnType<TabBarComponentCustomElement['activateTab']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.activateTab(...args));
-	}
-
-	/** Scrolls the tab at the given index into view. */
-	public scrollTabIntoView(...args: Parameters<TabBarComponentCustomElement['scrollTabIntoView']>): ReturnType<TabBarComponentCustomElement['scrollTabIntoView']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.scrollTabIntoView(...args));
 	}
 
 	constructor(

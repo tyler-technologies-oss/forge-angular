@@ -5,10 +5,11 @@ import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/
 
 @Component({
   selector: 'app-icon-button',
+  styleUrls: ['./icon-button.component.scss'],
   templateUrl: './icon-button.component.html'
 })
 export class IconButtonComponent {
-  public isToggleOn = true;
+  public isToggleOn = false;
 
   constructor(private _toastService: ToastService) {
     IconRegistry.define([

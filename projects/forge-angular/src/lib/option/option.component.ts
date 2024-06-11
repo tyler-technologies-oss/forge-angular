@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { OptionComponent as OptionComponentCustomElement, defineOptionComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-option>` element. */
+/**  */
 @Component({
   selector: 'forge-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -187,11 +187,6 @@ export class OptionComponent {
 	}
 	public get trailingBuilder(): OptionComponentCustomElement['trailingBuilder'] {
 		return this.nativeElement.trailingBuilder;
-	}
-
-
-	public initializedCallback(...args: Parameters<OptionComponentCustomElement['initializedCallback']>): ReturnType<OptionComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	constructor(

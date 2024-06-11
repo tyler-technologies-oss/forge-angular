@@ -28,7 +28,7 @@
     <span slot="value">{{toDate || 'n/a'}}</span>
   </forge-label-value>
   <forge-label-value [empty]="!dateRangePicker.value">
-    <forge-tooltip position="top-start">note that the JSON conversion internally converts date object to iso-string format</forge-tooltip>
+    <forge-tooltip placement="top-start">note that the JSON conversion internally converts date object to iso-string format</forge-tooltip>
     <span slot="label" class="form-value-label">
       Form value
       <forge-icon name="info_outline" class="info-icon"></forge-icon>
@@ -43,8 +43,5 @@
     <forge-option value="string">string</forge-option>
     <forge-option value="iso-string">ISO string</forge-option>
   </forge-select>
-  <forge-checkbox>
-    <input type="checkbox" id="disable-simple-form-chk" [(ngModel)]="isDisabled">
-    <label for="disable-simple-form-chk">Disabled</label>
-  </forge-checkbox>
+  <forge-checkbox [(ngModel)]="isDisabled">Disabled</forge-checkbox>
 </section>

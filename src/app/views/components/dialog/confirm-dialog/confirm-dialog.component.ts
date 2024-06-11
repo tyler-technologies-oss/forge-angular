@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { DialogConfig, DialogRef } from '@tylertech/forge-angular';
+import { Component, Inject } from '@angular/core';
+import { DIALOG_DATA, DialogConfig, DialogRef } from '@tylertech/forge-angular';
+
+export interface IConfirmDialogData {
+  title: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -9,12 +14,10 @@ import { DialogConfig, DialogRef } from '@tylertech/forge-angular';
 export class ConfirmDialogComponent {
   public title: string;
   public message: string;
-  public moveable: boolean;
 
-  constructor(public dialogConfig: DialogConfig, private _dialogRef: DialogRef) {
-    this.title = dialogConfig.data.title;
-    this.message = dialogConfig.data.message;
-    this.moveable = dialogConfig.data.moveable;
+  constructor(@Inject(DIALOG_DATA) public data: IConfirmDialogData, private _dialogRef: DialogRef) {
+    this.title = data.title;
+    this.message = data.message;
   }
 
   public onCancel(): void {

@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { ProfileCardComponent as ProfileCardComponentCustomElement, defineProfileCardComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-profile-card>` custom element. */
+/**  */
 @Component({
   selector: 'forge-profile-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -121,6 +121,11 @@ export class ProfileCardComponent {
 	}
 	public get avatarLetterCount(): ProfileCardComponentCustomElement['avatarLetterCount'] {
 		return this.nativeElement.avatarLetterCount;
+	}
+
+
+	public focus(...args: Parameters<ProfileCardComponentCustomElement['focus']>): ReturnType<ProfileCardComponentCustomElement['focus']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}
 
 	constructor(

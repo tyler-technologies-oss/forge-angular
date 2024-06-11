@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { FilePickerComponent as FilePickerComponentCustomElement, defineFilePickerComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-file-picker>` custom element. */
+/**  */
 @Component({
   selector: 'forge-file-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class FilePickerComponent {
 	/** The forge-file-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets and sets the allowed file types */
+	/** Gets/sets the allowed file types. */
 	@Input()
 	public set accept(value: FilePickerComponentCustomElement['accept']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class FilePickerComponent {
 		return this.nativeElement.accept;
 	}
 
-	/** Gets and sets the maximum allowed file size */
+	/** Gets/sets the maximum allowed file size. */
 	@Input()
 	public set maxSize(value: FilePickerComponentCustomElement['maxSize']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class FilePickerComponent {
 		return this.nativeElement.maxSize;
 	}
 
-	/** Gets and sets the camera to use when capturing video or images */
+	/** Gets/sets the camera to use when capturing video or images. */
 	@Input()
 	public set capture(value: FilePickerComponentCustomElement['capture']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class FilePickerComponent {
 		return this.nativeElement.capture;
 	}
 
-	/** Gets and sets whether multiple files are allowed */
+	/** Gets/sets whether multiple files are allowed. */
 	@Input({ transform: booleanAttribute })
 	public set multiple(value: FilePickerComponentCustomElement['multiple']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class FilePickerComponent {
 		return this.nativeElement.multiple;
 	}
 
-	/** Gets and sets whether the file picker is disabled */
+	/** Gets/sets whether the file picker is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: FilePickerComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class FilePickerComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** Gets and sets whether the file picker is compact */
+	/** Gets/sets whether the file picker uses the compact variant. */
 	@Input({ transform: booleanAttribute })
 	public set compact(value: FilePickerComponentCustomElement['compact']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class FilePickerComponent {
 		return this.nativeElement.compact;
 	}
 
-	/** Gets and sets whether the file picker is borderless */
+	/** Gets and sets whether the file picker is borderless. */
 	@Input({ transform: booleanAttribute })
 	public set borderless(value: FilePickerComponentCustomElement['borderless']) {
 		this.zone.runOutsideAngular(() => {

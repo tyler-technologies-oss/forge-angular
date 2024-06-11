@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { StackComponent as StackComponentCustomElement, defineStackComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-stack>` component. */
+/**  */
 @Component({
   selector: 'forge-stack',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -57,7 +57,7 @@ export class StackComponent {
 		return this.nativeElement.gap;
 	}
 
-	/** Controls if stack items are at the end of the row or column */
+	/** Controls the align-items property of a row or column */
 	@Input()
 	public set alignment(value: StackComponentCustomElement['alignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -66,6 +66,17 @@ export class StackComponent {
 	}
 	public get alignment(): StackComponentCustomElement['alignment'] {
 		return this.nativeElement.alignment;
+	}
+
+	/** Controls the justify-content property of a row or column */
+	@Input()
+	public set justify(value: StackComponentCustomElement['justify']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.justify = value;
+		});
+	}
+	public get justify(): StackComponentCustomElement['justify'] {
+		return this.nativeElement.justify;
 	}
 
 	constructor(

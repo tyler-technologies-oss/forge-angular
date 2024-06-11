@@ -2,7 +2,6 @@ import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@ang
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AUTOCOMPLETE_CONSTANTS, IAutocompleteComponent, IOption } from '@tylertech/forge';
-import { deepQuerySelectorAll } from '@tylertech/forge-core';
 
 export const AUTOCOMPLETE_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -44,7 +43,7 @@ export class AutocompleteValueAccessor implements ControlValueAccessor {
   }
 
   public setDisabledState(isDisabled: boolean): void {
-    const inputEl = this._elementRef.nativeElement.querySelector('input') ?? deepQuerySelectorAll(this._elementRef.nativeElement, 'input')[0];
+    const inputEl = this._elementRef.nativeElement.querySelector('input');
     if (inputEl) {
       this._renderer.setProperty(inputEl, 'disabled', isDisabled);
     }

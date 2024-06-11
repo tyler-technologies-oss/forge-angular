@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { AppBarSearchComponent as AppBarSearchComponentCustomElement, defineAppBarSearchComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-app-bar-search>` custom element. */
+/**  */
 @Component({
   selector: 'forge-app-bar-search',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class AppBarSearchComponent {
 	/** The forge-app-bar-search element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets the value. */
+	/** The value of the input. */
 	@Input()
 	public set value(value: AppBarSearchComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class AppBarSearchComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Gets/sets the disabled state of the search input. */
+	/** A boolean property that, if true, indicates that the input should be disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: AppBarSearchComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,51 +35,7 @@ export class AppBarSearchComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** Gets/sets whether this is a combined search box with search options. */
-	@Input({ transform: booleanAttribute })
-	public set combined(value: AppBarSearchComponentCustomElement['combined']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.combined = value;
-		});
-	}
-	public get combined(): AppBarSearchComponentCustomElement['combined'] {
-		return this.nativeElement.combined;
-	}
-
-	/** Gets/sets seelcted option for the combined search dropdown. */
-	@Input()
-	public set combinedOptions(value: AppBarSearchComponentCustomElement['combinedOptions']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.combinedOptions = value;
-		});
-	}
-	public get combinedOptions(): AppBarSearchComponentCustomElement['combinedOptions'] {
-		return this.nativeElement.combinedOptions;
-	}
-
-	/** Gets/sets selected option for the combined search dropdown. */
-	@Input()
-	public set selectedCombinedOption(value: AppBarSearchComponentCustomElement['selectedCombinedOption']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.selectedCombinedOption = value;
-		});
-	}
-	public get selectedCombinedOption(): AppBarSearchComponentCustomElement['selectedCombinedOption'] {
-		return this.nativeElement.selectedCombinedOption;
-	}
-
-	/** Gets/sets whether the global icon is displayed at the end of the input. */
-	@Input({ transform: booleanAttribute })
-	public set global(value: AppBarSearchComponentCustomElement['global']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.global = value;
-		});
-	}
-	public get global(): AppBarSearchComponentCustomElement['global'] {
-		return this.nativeElement.global;
-	}
-
-	/** Sets the input placeholder value. */
+	/** The placeholder text of the input. */
 	@Input()
 	public set placeholder(value: AppBarSearchComponentCustomElement['placeholder']) {
 		this.zone.runOutsideAngular(() => {

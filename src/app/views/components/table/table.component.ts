@@ -4,7 +4,7 @@ import {
   ICON_CONSTANTS,
   IColumnConfiguration,
   IMenuOption,
-  IPaginatorChangeEvent,
+  IPaginatorChangeEventData,
   ISortedItem,
   ITableFilterEventData,
   ITableRowClickEventData,
@@ -166,7 +166,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     this._toastService.show(`Clicked row: ${evt.detail.index}`);
   }
 
-  public onAdvPageChange(evt: CustomEvent<IPaginatorChangeEvent>): void {
+  public onAdvPageChange(evt: CustomEvent<IPaginatorChangeEventData>): void {
     console.log(evt.detail);
   }
 
@@ -204,17 +204,14 @@ export class TableComponent implements OnInit, AfterViewInit {
    */
   private _createVanillaNavCell(index: number): HTMLElement {
     const iconButton = this._renderer.createElement(ICON_BUTTON_CONSTANTS.elementName);
-    const button = this._renderer.createElement('button');
     const icon = this._renderer.createElement(ICON_CONSTANTS.elementName);
     const tooltip = this._renderer.createElement(TOOLTIP_CONSTANTS.elementName);
 
     this._renderer.appendChild(tooltip, this._renderer.createText('View details'));
     this._renderer.setAttribute(icon, 'name', 'chevron_right');
-    this._renderer.setAttribute(button, 'aria-label', 'View details');
-    this._renderer.setAttribute(button, 'type', 'button');
-    this._renderer.listen(button, 'click', () => this._handleAdvRowNav(index));
-    this._renderer.appendChild(button, icon);
-    this._renderer.appendChild(iconButton, button);
+    this._renderer.setAttribute(iconButton, 'aria-label', 'View details');
+    this._renderer.listen(iconButton, 'click', () => this._handleAdvRowNav(index));
+    this._renderer.appendChild(iconButton, icon);
     this._renderer.appendChild(iconButton, tooltip);
     return iconButton;
   }

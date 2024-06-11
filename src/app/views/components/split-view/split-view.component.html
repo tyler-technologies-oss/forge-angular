@@ -1,88 +1,36 @@
 <app-demo-card headerText="Split View">
-  <forge-split-view
-    style="height: 300px"
-    [orientation]="orientation"
-    [allowClose]="allowClose"
-    [autoClose]="autoClose"
-    [autoCloseThreshold]="autoCloseThreshold"
-    [disabled]="disabled"
-  >
-    <forge-split-view-panel
-      *ngFor="let panel of panels"
-      [resizable]="panel.resizable"
-      [open]="panel.open"
-      (forge-split-view-panel-did-close)="panel.open = false"
-    >
+  <forge-split-view style="height: 300px" [orientation]="orientation" [allowClose]="allowClose" [autoClose]="autoClose" [autoCloseThreshold]="autoCloseThreshold" [disabled]="disabled">
+    <forge-split-view-panel *ngFor="let panel of panels" [resizable]="panel.resizable" [open]="panel.open" (forge-split-view-panel-did-close)="panel.open = false">
       <div>{{ panel.label }}</div>
     </forge-split-view-panel>
   </forge-split-view>
 
   <div>
-    <forge-select
-      id="splitViewOrientation"
-      label="Orientation"
-      [(ngModel)]="orientation"
-    >
+    <forge-select id="splitViewOrientation" label="Orientation" [(ngModel)]="orientation">
       <forge-option value="vertical">Vertical</forge-option>
       <forge-option value="horizontal">Horizontal</forge-option>
     </forge-select>
   </div>
   <div>
-    <forge-checkbox>
-      <input
-        id="splitViewAllowCloseCheckbox"
-        type="checkbox"
-        [(ngModel)]="allowClose"
-      />
-      <label for="splitViewAllowCloseCheckbox">Allow Close</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="allowClose">Allow Close</forge-checkbox>
   </div>
   <div>
-    <forge-checkbox>
-      <input
-        id="splitViewAutoCloseCheckbox"
-        type="checkbox"
-        [(ngModel)]="autoClose"
-      />
-      <label for="splitViewAutoCloseCheckbox">Auto Close</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="autoClose">Auto Close</forge-checkbox>
   </div>
   <div>
-    <forge-checkbox>
-      <input
-        id="splitViewDisabledCheckbox"
-        type="checkbox"
-        [(ngModel)]="disabled"
-      />
-      <label for="splitViewDisabledCheckbox">Disabled</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="disabled">Disabled</forge-checkbox>
   </div>
   <div>
-    <forge-button>
-      <button (click)="addPanel()">Add Panel</button>
-    </forge-button>
-    <forge-button>
-      <button (click)="removePanel()">Remove Panel</button>
-    </forge-button>
+    <forge-button (click)="addPanel()">Add Panel</forge-button>
+    <forge-button (click)="removePanel()">Remove Panel</forge-button>
   </div>
   <fieldset *ngFor="let panel of panels; index as i">
     <legend>{{ panel.label }}</legend>
-    <forge-select
-      id="splitViewPanelResizable{{ i }}"
-      label="Resizable"
-      [(ngModel)]="panel.resizable"
-    >
+    <forge-select id="splitViewPanelResizable{{ i }}" label="Resizable" [(ngModel)]="panel.resizable">
       <forge-option value="start">Start</forge-option>
       <forge-option value="end">End</forge-option>
       <forge-option value="off">Off</forge-option>
     </forge-select>
-    <forge-checkbox>
-      <input
-        id="splitViewDisabledCheckbox"
-        type="checkbox"
-        [(ngModel)]="panel.open"
-      />
-      <label for="splitViewDisabledCheckbox">Open</label>
-    </forge-checkbox>
+    <forge-checkbox [(ngModel)]="panel.open">Open</forge-checkbox>
   </fieldset>
 </app-demo-card>

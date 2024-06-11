@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { BannerComponent as BannerComponentCustomElement, defineBannerComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-banner>` element. */
+/**  */
 @Component({
   selector: 'forge-banner',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class BannerComponent {
 	/** The forge-banner element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Controls whether the component is dismissed (hidden) or not. */
+	/** Controls the visibility of the banner. */
 	@Input({ transform: booleanAttribute })
 	public set dismissed(value: BannerComponentCustomElement['dismissed']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,29 @@ export class BannerComponent {
 		return this.nativeElement.dismissed;
 	}
 
-	/** Controls the visibility of the dismiss button. */
+	/** Controls the visibility of the built-in dismiss button. */
+	@Input({ transform: booleanAttribute })
+	public set persistent(value: BannerComponentCustomElement['persistent']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.persistent = value;
+		});
+	}
+	public get persistent(): BannerComponentCustomElement['persistent'] {
+		return this.nativeElement.persistent;
+	}
+
+	/** The theme of the banner. */
+	@Input()
+	public set theme(value: BannerComponentCustomElement['theme']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.theme = value;
+		});
+	}
+	public get theme(): BannerComponentCustomElement['theme'] {
+		return this.nativeElement.theme;
+	}
+
+
 	@Input({ transform: booleanAttribute })
 	public set canDismiss(value: BannerComponentCustomElement['canDismiss']) {
 		this.zone.runOutsideAngular(() => {

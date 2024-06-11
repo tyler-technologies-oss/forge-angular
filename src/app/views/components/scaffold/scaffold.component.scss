@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dashed var(--forge-theme-border-color);
+  border: 1px dashed var(--forge-theme-outline);
   transition: border-color 200ms linear, background-color 200ms linear;
 
   &:hover {
@@ -30,7 +30,7 @@
   --forge-scaffold-height: 100%;
   --forge-scaffold-width: 100%;
 
-  background-color: var(--mdc-theme-surface);
+  background-color: var(--forge-theme-surface);
 
   .slot-container {
     &:hover {

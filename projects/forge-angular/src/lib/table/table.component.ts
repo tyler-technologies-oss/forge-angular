@@ -2,7 +2,7 @@
 import { booleanAttribute, Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, numberAttribute, Input } from '@angular/core';
 import { TableComponent as TableComponentCustomElement, defineTableComponent } from '@tylertech/forge';
 
-/** The custom element class behind the `<forge-table>` component. */
+/**  */
 @Component({
   selector: 'forge-table',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -68,7 +68,7 @@ export class TableComponent {
 		return this.nativeElement.selectKey;
 	}
 
-
+	/** The tooltip to display when hovering over the select column. */
 	@Input()
 	public set tooltipSelect(value: TableComponentCustomElement['tooltipSelect']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class TableComponent {
 		return this.nativeElement.tooltipSelect;
 	}
 
-
+	/** The tooltip to display when hovering over the select all checkbox. */
 	@Input()
 	public set tooltipSelectAll(value: TableComponentCustomElement['tooltipSelectAll']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class TableComponent {
 		return this.nativeElement.tooltipSelectAll;
 	}
 
-	/** Controls whether the table is dense or not. False by default. */
+	/** Controls whether the table is dense or not. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: TableComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class TableComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Controls whether the table is roomy or not. False by default. */
+	/** Controls whether the table is roomy or not. */
 	@Input({ transform: booleanAttribute })
 	public set roomy(value: TableComponentCustomElement['roomy']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class TableComponent {
 		return this.nativeElement.roomy;
 	}
 
-	/** Controls whether the table filters are visible or not. */
+	/** Controls whether the table shows its column filter row. */
 	@Input({ transform: booleanAttribute })
 	public set filter(value: TableComponentCustomElement['filter']) {
 		this.zone.runOutsideAngular(() => {
@@ -189,7 +189,7 @@ export class TableComponent {
 		return this.nativeElement.allowRowClick;
 	}
 
-
+	/** Gets/sets whether the table supports multi-column sorting. */
 	@Input({ transform: booleanAttribute })
 	public set multiColumnSort(value: TableComponentCustomElement['multiColumnSort']) {
 		this.zone.runOutsideAngular(() => {
@@ -200,7 +200,7 @@ export class TableComponent {
 		return this.nativeElement.multiColumnSort;
 	}
 
-
+	/** Callback for when a row is clicked. This allows for custom logic to run after each `<tr>` is created. */
 	@Input()
 	public set rowCreated(value: TableComponentCustomElement['rowCreated']) {
 		this.zone.runOutsideAngular(() => {
@@ -211,7 +211,7 @@ export class TableComponent {
 		return this.nativeElement.rowCreated;
 	}
 
-
+	/** Callback for when a cell is clicked. This allows for custom logic to run after each `<td>` is created. */
 	@Input()
 	public set cellCreated(value: TableComponentCustomElement['cellCreated']) {
 		this.zone.runOutsideAngular(() => {
@@ -222,7 +222,7 @@ export class TableComponent {
 		return this.nativeElement.cellCreated;
 	}
 
-
+	/** The template to use for the select all checkbox in the header. */
 	@Input()
 	public set selectAllTemplate(value: TableComponentCustomElement['selectAllTemplate']) {
 		this.zone.runOutsideAngular(() => {
@@ -233,7 +233,7 @@ export class TableComponent {
 		return this.nativeElement.selectAllTemplate;
 	}
 
-
+	/** Controls the alignment of the select checkbox. */
 	@Input()
 	public set selectCheckboxAlignment(value: TableComponentCustomElement['selectCheckboxAlignment']) {
 		this.zone.runOutsideAngular(() => {
@@ -242,11 +242,6 @@ export class TableComponent {
 	}
 	public get selectCheckboxAlignment(): TableComponentCustomElement['selectCheckboxAlignment'] {
 		return this.nativeElement.selectCheckboxAlignment;
-	}
-
-
-	public initializedCallback(...args: Parameters<TableComponentCustomElement['initializedCallback']>): ReturnType<TableComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
 	}
 
 	/** Hides a column from the table. */

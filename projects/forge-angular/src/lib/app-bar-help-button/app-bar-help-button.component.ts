@@ -2,7 +2,7 @@
 import { Component, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, Input } from '@angular/core';
 import { AppBarHelpButtonComponent as AppBarHelpButtonComponentCustomElement, defineAppBarHelpButtonComponent } from '@tylertech/forge';
 
-/** The web component class behind the `<forge-app-bar-help-button>` custom element. */
+/**  */
 @Component({
   selector: 'forge-app-bar-help-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class AppBarHelpButtonComponent {
 	/** The forge-app-bar-help-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
+	/** The menu options to display when the button is clicked */
 	@Input()
 	public set options(value: AppBarHelpButtonComponentCustomElement['options']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,9 +24,15 @@ export class AppBarHelpButtonComponent {
 		return this.nativeElement.options;
 	}
 
-
-	public initializedCallback(...args: Parameters<AppBarHelpButtonComponentCustomElement['initializedCallback']>): ReturnType<AppBarHelpButtonComponentCustomElement['initializedCallback']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.initializedCallback(...args));
+	/** The name of an alternative icon to display. */
+	@Input()
+	public set icon(value: AppBarHelpButtonComponentCustomElement['icon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.icon = value;
+		});
+	}
+	public get icon(): AppBarHelpButtonComponentCustomElement['icon'] {
+		return this.nativeElement.icon;
 	}
 
 	constructor(

@@ -1,14 +1,10 @@
-<header class="forge-dialog__header" forge-dialog-move-target>
-  <h5 class="forge-dialog__title">{{title}}</h5>
-</header>
-<section class="forge-dialog__body forge-bottom-sheet__body">
-  <p id="bottom-sheet-desc">{{message}}</p>
-</section>
-<footer class="forge-dialog__footer">
-  <forge-button>
-    <button (click)="onCancel()">Cancel</button>
-  </forge-button>
-  <forge-button>
-    <button forge-bottom-sheet-focus (click)="onConfirm()">Confirm</button>
-  </forge-button>
-</footer>
+<forge-scaffold>
+  <forge-toolbar slot="header" no-border>
+    <h2 slot="start" id="dialog-title" class="forge-typography--heading4">{{title}}</h2>
+  </forge-toolbar>
+  <p slot="body" class="body" id="dialog-desc">{{message}}</p>
+  <forge-toolbar slot="footer" no-border>
+    <forge-button slot="end" autofocus (click)="onCancel()">Cancel</forge-button>
+    <forge-button slot="end" variant="raised" (click)="onConfirm()">Confirm</forge-button>
+  </forge-toolbar>
+</forge-scaffold>
