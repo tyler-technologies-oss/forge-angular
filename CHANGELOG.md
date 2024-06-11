@@ -1,3 +1,23 @@
+# v2.8.0 (Tue Jun 11 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Nick Andrews ([@nickonometry](https://github.com/nickonometry)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat: release ([@nickonometry](https://github.com/nickonometry))
+
+#### 🐛 Bug Fix
+
+- fix: regenerated proxies [#56](https://github.com/tyler-technologies-oss/forge-angular/pull/56) ([@nickonometry](https://github.com/nickonometry))
+
+#### Authors: 1
+
+- Nick Andrews ([@nickonometry](https://github.com/nickonometry))
+
+---
+
 # v2.7.3 (Thu Oct 12 2023)
 
 #### 🐛 Bug Fix
