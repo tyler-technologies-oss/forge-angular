@@ -344,6 +344,11 @@ export class AutocompleteComponent {
 		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.closeDropdown(...args));
 	}
 
+	/** Forces the filter callback to be executed to update the current selection state with new options. */
+	public forceFilter(...args: Parameters<AutocompleteComponentCustomElement['forceFilter']>): ReturnType<AutocompleteComponentCustomElement['forceFilter']> {
+		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.forceFilter(...args));
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<AutocompleteComponentCustomElement>,
