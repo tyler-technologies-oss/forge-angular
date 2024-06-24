@@ -1,3 +1,15 @@
+# v3.7.2 (Mon Jun 24 2024)
+
+#### 🐛 Bug Fix
+
+- fix: regenerate step proxy [#58](https://github.com/tyler-technologies-oss/forge-angular/pull/58) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.7.1 (Tue Jun 11 2024)
 
 :tada: This release contains work from a new contributor! :tada:
