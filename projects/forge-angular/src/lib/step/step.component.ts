@@ -130,16 +130,6 @@ export class StepComponent {
 		return this.elementRef.nativeElement.ignoreUserExpansion;
 	}
 
-
-	public focus(...args: Parameters<StepComponentCustomElement['focus']>): ReturnType<StepComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.focus(...args));
-	}
-
-
-	public setStepTabIndex(...args: Parameters<StepComponentCustomElement['setStepTabIndex']>): ReturnType<StepComponentCustomElement['setStepTabIndex']> {
-		return this.zone.runOutsideAngular(() => this.elementRef.nativeElement.setStepTabIndex(...args));
-	}
-
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<StepComponentCustomElement>,
