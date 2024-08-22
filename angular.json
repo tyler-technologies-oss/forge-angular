@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "forge-angular-demo:build:production"
+              "buildTarget": "forge-angular-demo:build:production"
             },
             "development": {
-              "browserTarget": "forge-angular-demo:build:development"
+              "buildTarget": "forge-angular-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "forge-angular-demo:build"
+            "buildTarget": "forge-angular-demo:build"
           }
         },
         "test": {
