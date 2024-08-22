@@ -1,3 +1,15 @@
+# v3.8.1 (Thu Aug 22 2024)
+
+#### 🐛 Bug Fix
+
+- fix: publish tagged version [#62](https://github.com/tyler-technologies-oss/forge-angular/pull/62) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.8.0 (Thu Aug 22 2024)
 
 #### 🐛 Bug Fix
