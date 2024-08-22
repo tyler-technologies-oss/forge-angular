@@ -1,3 +1,25 @@
+# v3.8.0 (Thu Aug 22 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Dusty ([@dustydang-tyler](https://github.com/dustydang-tyler)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(code): update to angular 17 and update supported dependencies version range [#60](https://github.com/tyler-technologies-oss/forge-angular/pull/60) ([@dustydang-tyler](https://github.com/dustydang-tyler) [@DRiFTy17](https://github.com/DRiFTy17))
+
+#### ⚠️ Pushed to `version-3-ng17`
+
+- chore: update shared workflows ([@DRiFTy17](https://github.com/DRiFTy17))
+- chore: configure prerelease publishing ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 2
+
+- Dusty ([@dustydang-tyler](https://github.com/dustydang-tyler))
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.7.2 (Mon Jun 24 2024)
 
 #### 🐛 Bug Fix
