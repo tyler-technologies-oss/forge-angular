@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-      - version-3
+      - version-3-ng17
     paths:
       - '.github/workflows/**/*'
       - '.eslintrc.json'
@@ -61,7 +61,7 @@ jobs:
           ## We use `auto version` to calculate whether this is a release build or not
           VERSION_RESULT=$(npx auto version)
           echo "Version calculation result: ${VERSION_RESULT}"
-          if [[ "${VERSION_RESULT}" =~ ^(major|minor|patch|release)$ ]]; then
+          if [[ "${VERSION_RESULT}" =~ ^(premajor|preminor|prepatch|release)$ ]]; then
             echo "Release: true"
             echo "release=true" >> $GITHUB_OUTPUT
           else
