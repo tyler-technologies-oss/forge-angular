@@ -1,3 +1,15 @@
+# v4.0.3 (Thu Aug 22 2024)
+
+#### 🐛 Bug Fix
+
+- fix: peer dep version range syntax [#59](https://github.com/tyler-technologies-oss/forge-angular/pull/59) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v3.7.0 (Mon Feb 26 2024)
 
 #### 🚀 Enhancement
