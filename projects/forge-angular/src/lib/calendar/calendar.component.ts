@@ -403,47 +403,47 @@ export class CalendarComponent {
 		return this.nativeElement.yearRange;
 	}
 
-
+	/** Clears the selected date(s). */
 	public clear(...args: Parameters<CalendarComponentCustomElement['clear']>): ReturnType<CalendarComponentCustomElement['clear']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.clear(...args));
 	}
 
-
+	/** Deselects a date. */
 	public deselectDate(...args: Parameters<CalendarComponentCustomElement['deselectDate']>): ReturnType<CalendarComponentCustomElement['deselectDate']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.deselectDate(...args));
 	}
 
-
+	/** Navigates to a specific date. */
 	public goToDate(...args: Parameters<CalendarComponentCustomElement['goToDate']>): ReturnType<CalendarComponentCustomElement['goToDate']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.goToDate(...args));
 	}
 
-
+	/** Handles a keyboard event. */
 	public handleKey(...args: Parameters<CalendarComponentCustomElement['handleKey']>): ReturnType<CalendarComponentCustomElement['handleKey']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.handleKey(...args));
 	}
 
-
+	/** Lays out the calendar. */
 	public layout(...args: Parameters<CalendarComponentCustomElement['layout']>): ReturnType<CalendarComponentCustomElement['layout']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.layout(...args));
 	}
 
-
+	/** Selects a date. */
 	public selectDate(...args: Parameters<CalendarComponentCustomElement['selectDate']>): ReturnType<CalendarComponentCustomElement['selectDate']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.selectDate(...args));
 	}
 
-
+	/** Sets the active date. */
 	public setActiveDate(...args: Parameters<CalendarComponentCustomElement['setActiveDate']>): ReturnType<CalendarComponentCustomElement['setActiveDate']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.setActiveDate(...args));
 	}
 
-
+	/** Sets the calendar to today. */
 	public today(...args: Parameters<CalendarComponentCustomElement['today']>): ReturnType<CalendarComponentCustomElement['today']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.today(...args));
 	}
 
-
+	/** Toggles a date selection. */
 	public toggleDate(...args: Parameters<CalendarComponentCustomElement['toggleDate']>): ReturnType<CalendarComponentCustomElement['toggleDate']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.toggleDate(...args));
 	}

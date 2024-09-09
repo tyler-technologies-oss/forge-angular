@@ -13,28 +13,7 @@ export class RadioGroupComponent {
 	/** The forge-radio-group element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
-	public get form(): RadioGroupComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): RadioGroupComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
-
-	@Input()
-	public set name(value: RadioGroupComponentCustomElement['name']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.name = value;
-		});
-	}
-	public get name(): RadioGroupComponentCustomElement['name'] {
-		return this.nativeElement.name;
-	}
-
-	/** Whether or not the radio group is disabled. */
+	/** Controls whether the radio group is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: RadioGroupComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {

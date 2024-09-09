@@ -13,7 +13,7 @@ export class SwitchComponent {
 	/** The forge-switch element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Whether the switch is on the on or off state. */
+	/** Gets/sets whether the switch is on or off. */
 	@Input({ transform: booleanAttribute })
 	public set on(value: SwitchComponentCustomElement['on']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class SwitchComponent {
 		return this.nativeElement.on;
 	}
 
-	/** Deprecated. Alias for `on`. */
+	/** Alias for `on` _(deprecated)_. */
 	@Input({ transform: booleanAttribute })
 	public set selected(value: SwitchComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class SwitchComponent {
 		return this.nativeElement.selected;
 	}
 
-	/** Whether the switch is on or off by default. */
+	/** Gets/sets whether the switch is on or off by default. */
 	@Input({ transform: booleanAttribute })
 	public set defaultOn(value: SwitchComponentCustomElement['defaultOn']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class SwitchComponent {
 		return this.nativeElement.defaultOn;
 	}
 
-	/** The value of the switch. */
+	/** Gets/sets the value of the switch. */
 	@Input()
 	public set value(value: SwitchComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class SwitchComponent {
 		return this.nativeElement.value;
 	}
 
-	/** The density state. */
+	/** Controls whether the switch is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: SwitchComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class SwitchComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Controls if the switch is disabled. */
+	/** Controls whether the switch is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: SwitchComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class SwitchComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** Controls if the switch is required. */
+	/** Controls whether the switch is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: SwitchComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class SwitchComponent {
 		return this.nativeElement.required;
 	}
 
-	/** Controls if the switch is readonly. */
+	/** Controls whether the switch is readonly. */
 	@Input({ transform: booleanAttribute })
 	public set readonly(value: SwitchComponentCustomElement['readonly']) {
 		this.zone.runOutsideAngular(() => {
@@ -112,7 +112,7 @@ export class SwitchComponent {
 		return this.nativeElement.icon;
 	}
 
-	/** Whether the label appears before or after the switch. */
+	/** Controls whether the label appears before or after the switch. */
 	@Input()
 	public set labelPosition(value: SwitchComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -121,32 +121,6 @@ export class SwitchComponent {
 	}
 	public get labelPosition(): SwitchComponentCustomElement['labelPosition'] {
 		return this.nativeElement.labelPosition;
-	}
-
-
-	public get form(): SwitchComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): SwitchComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
-
-	@Input()
-	public set name(value: SwitchComponentCustomElement['name']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.name = value;
-		});
-	}
-	public get name(): SwitchComponentCustomElement['name'] {
-		return this.nativeElement.name;
-	}
-
-
-	public setFormValue(...args: Parameters<SwitchComponentCustomElement['setFormValue']>): ReturnType<SwitchComponentCustomElement['setFormValue']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.setFormValue(...args));
 	}
 
 	/** Toggles the switch on or off. */

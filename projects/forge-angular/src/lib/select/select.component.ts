@@ -35,6 +35,17 @@ export class SelectComponent {
 		return this.nativeElement.placeholder;
 	}
 
+
+	@Input({ transform: booleanAttribute })
+	public set readonly(value: SelectComponentCustomElement['readonly']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.readonly = value;
+		});
+	}
+	public get readonly(): SelectComponentCustomElement['readonly'] {
+		return this.nativeElement.readonly;
+	}
+
 	/** Whether the label floats above the field. */
 	@Input({ transform: booleanAttribute })
 	public set floatLabel(value: SelectComponentCustomElement['floatLabel']) {
@@ -77,6 +88,17 @@ export class SelectComponent {
 	}
 	public get disabled(): SelectComponentCustomElement['disabled'] {
 		return this.nativeElement.disabled;
+	}
+
+	/** Whether the field is required. */
+	@Input({ transform: booleanAttribute })
+	public set required(value: SelectComponentCustomElement['required']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.required = value;
+		});
+	}
+	public get required(): SelectComponentCustomElement['required'] {
+		return this.nativeElement.required;
 	}
 
 	/** The position of the label. */
@@ -200,17 +222,6 @@ export class SelectComponent {
 		return this.nativeElement.invalid;
 	}
 
-	/** Whether the field is required. */
-	@Input({ transform: booleanAttribute })
-	public set required(value: SelectComponentCustomElement['required']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.required = value;
-		});
-	}
-	public get required(): SelectComponentCustomElement['required'] {
-		return this.nativeElement.required;
-	}
-
 	/** Whether the field is optional. */
 	@Input({ transform: booleanAttribute })
 	public set optional(value: SelectComponentCustomElement['optional']) {
@@ -275,6 +286,11 @@ export class SelectComponent {
 	}
 	public get supportTextInset(): SelectComponentCustomElement['supportTextInset'] {
 		return this.nativeElement.supportTextInset;
+	}
+
+
+	public setFormValue(...args: Parameters<SelectComponentCustomElement['setFormValue']>): ReturnType<SelectComponentCustomElement['setFormValue']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.setFormValue(...args));
 	}
 
 	/** Floats the label without an animation. Only applies when the label is inset. */

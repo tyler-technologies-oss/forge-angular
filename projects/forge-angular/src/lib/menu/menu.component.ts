@@ -252,12 +252,12 @@ export class MenuComponent {
 		return this.nativeElement.wrapOptionText;
 	}
 
-	/** Force propagates the key event from another element this component. */
+	/** Force propagates the key event from another element to this component. */
 	public propagateKeyEvent(...args: Parameters<MenuComponentCustomElement['propagateKeyEvent']>): ReturnType<MenuComponentCustomElement['propagateKeyEvent']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.propagateKeyEvent(...args));
 	}
 
-
+	/** Activates the first option in the menu when open. */
 	public activateFirstOption(...args: Parameters<MenuComponentCustomElement['activateFirstOption']>): ReturnType<MenuComponentCustomElement['activateFirstOption']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.activateFirstOption(...args));
 	}

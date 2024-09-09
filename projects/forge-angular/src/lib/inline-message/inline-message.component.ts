@@ -13,7 +13,7 @@ export class InlineMessageComponent {
 	/** The forge-inline-message element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The theme to apply. Defaults to `"info"`. */
+	/** The theme to apply. */
 	@Input()
 	public set theme(value: InlineMessageComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {

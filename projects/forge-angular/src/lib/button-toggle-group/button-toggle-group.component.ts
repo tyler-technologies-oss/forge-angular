@@ -135,27 +135,6 @@ export class ButtonToggleGroupComponent {
 	}
 
 
-	public get form(): ButtonToggleGroupComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): ButtonToggleGroupComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
-
-	@Input()
-	public set name(value: ButtonToggleGroupComponentCustomElement['name']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.name = value;
-		});
-	}
-	public get name(): ButtonToggleGroupComponentCustomElement['name'] {
-		return this.nativeElement.name;
-	}
-
-
 	public get validity(): ButtonToggleGroupComponentCustomElement['validity'] {
 		return this.nativeElement.validity;
 	}
