@@ -13,7 +13,7 @@ export class RadioComponent {
 	/** The forge-radio element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Indicates whether the radio button is checked. */
+	/** Gets/sets whether the radio is checked. */
 	@Input({ transform: booleanAttribute })
 	public set checked(value: RadioComponentCustomElement['checked']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class RadioComponent {
 		return this.nativeElement.checked;
 	}
 
-	/** Indicates whether the radio button is checked by default. */
+	/** Gets/sets whether the radio is checked by default. */
 	@Input({ transform: booleanAttribute })
 	public set defaultChecked(value: RadioComponentCustomElement['defaultChecked']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class RadioComponent {
 		return this.nativeElement.defaultChecked;
 	}
 
-	/** The value of the radio button when submitted. */
+	/** Gets/sets the value of the radio when submitted as part of a form. */
 	@Input()
 	public set value(value: RadioComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class RadioComponent {
 		return this.nativeElement.value;
 	}
 
-	/** Indicates whether the radio button should be displayed in a dense layout. */
+	/** Controls whether the radio is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: RadioComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class RadioComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Indicates whether the radio button is disabled. */
+	/** Controls whether the radio is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: RadioComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class RadioComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** Indicates whether the radio button is required. */
+	/** Controls whether the radio is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: RadioComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class RadioComponent {
 		return this.nativeElement.required;
 	}
 
-	/** Indicates whether the radio button is read-only. */
+	/** Controls whether the radio is read-only. */
 	@Input({ transform: booleanAttribute })
 	public set readonly(value: RadioComponentCustomElement['readonly']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class RadioComponent {
 		return this.nativeElement.readonly;
 	}
 
-	/** The position of the radio button's label. */
+	/** Controls whether the label appears before or after the radio. */
 	@Input()
 	public set labelPosition(value: RadioComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -99,27 +99,6 @@ export class RadioComponent {
 	}
 	public get labelPosition(): RadioComponentCustomElement['labelPosition'] {
 		return this.nativeElement.labelPosition;
-	}
-
-
-	public get form(): RadioComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): RadioComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
-
-	@Input()
-	public set name(value: RadioComponentCustomElement['name']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.name = value;
-		});
-	}
-	public get name(): RadioComponentCustomElement['name'] {
-		return this.nativeElement.name;
 	}
 
 	constructor(

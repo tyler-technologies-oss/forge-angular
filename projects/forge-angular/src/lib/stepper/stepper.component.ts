@@ -79,7 +79,7 @@ export class StepperComponent {
 		return this.nativeElement.layoutAlign;
 	}
 
-
+	/** Whether the stepper is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: StepperComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class StepperComponent {
 		return this.nativeElement.disabled;
 	}
 
-
+	/** Whether the stepper is vertical. */
 	@Input({ transform: booleanAttribute })
 	public set vertical(value: StepperComponentCustomElement['vertical']) {
 		this.zone.runOutsideAngular(() => {

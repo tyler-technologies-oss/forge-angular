@@ -13,7 +13,7 @@ export class CheckboxComponent {
 	/** The forge-checkbox element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Whether the checkbox is checked. */
+	/** Gets/sets whether the checkbox is checked. */
 	@Input({ transform: booleanAttribute })
 	public set checked(value: CheckboxComponentCustomElement['checked']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +24,7 @@ export class CheckboxComponent {
 		return this.nativeElement.checked;
 	}
 
-	/** Whether the checkbox is checked by default. */
+	/** Gets/sets whether the checkbox is checked by default. */
 	@Input({ transform: booleanAttribute })
 	public set defaultChecked(value: CheckboxComponentCustomElement['defaultChecked']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +35,7 @@ export class CheckboxComponent {
 		return this.nativeElement.defaultChecked;
 	}
 
-	/** Toggles the indeterminate state. This does not affect whether the checkbox is checked or its form submission. */
+	/** Gets/sets the indeterminate state. */
 	@Input({ transform: booleanAttribute })
 	public set indeterminate(value: CheckboxComponentCustomElement['indeterminate']) {
 		this.zone.runOutsideAngular(() => {
@@ -46,7 +46,7 @@ export class CheckboxComponent {
 		return this.nativeElement.indeterminate;
 	}
 
-	/** The value of the checkbox when checked. */
+	/** Controls the value submitted with a form when checked. */
 	@Input()
 	public set value(value: CheckboxComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -57,7 +57,7 @@ export class CheckboxComponent {
 		return this.nativeElement.value;
 	}
 
-	/** The density state. */
+	/** Controls whether the checkbox is dense. */
 	@Input({ transform: booleanAttribute })
 	public set dense(value: CheckboxComponentCustomElement['dense']) {
 		this.zone.runOutsideAngular(() => {
@@ -68,7 +68,7 @@ export class CheckboxComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** Controls if the checkbix is disabled. */
+	/** Controls whether the checkbox is disabled. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: CheckboxComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,7 +79,7 @@ export class CheckboxComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** = Controls if the checkbox is required. */
+	/** Controls whether the checkbox is required. */
 	@Input({ transform: booleanAttribute })
 	public set required(value: CheckboxComponentCustomElement['required']) {
 		this.zone.runOutsideAngular(() => {
@@ -90,7 +90,7 @@ export class CheckboxComponent {
 		return this.nativeElement.required;
 	}
 
-	/** = Controls if the checkbox is readonly. */
+	/** Controls whether the checkbox is readonly. */
 	@Input({ transform: booleanAttribute })
 	public set readonly(value: CheckboxComponentCustomElement['readonly']) {
 		this.zone.runOutsideAngular(() => {
@@ -101,7 +101,7 @@ export class CheckboxComponent {
 		return this.nativeElement.readonly;
 	}
 
-	/** Whether the label appears before or after the checkbox. */
+	/** Controls whether the label appears before or after the checkbox. */
 	@Input()
 	public set labelPosition(value: CheckboxComponentCustomElement['labelPosition']) {
 		this.zone.runOutsideAngular(() => {
@@ -110,32 +110,6 @@ export class CheckboxComponent {
 	}
 	public get labelPosition(): CheckboxComponentCustomElement['labelPosition'] {
 		return this.nativeElement.labelPosition;
-	}
-
-
-	public get form(): CheckboxComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): CheckboxComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
-
-	@Input()
-	public set name(value: CheckboxComponentCustomElement['name']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.name = value;
-		});
-	}
-	public get name(): CheckboxComponentCustomElement['name'] {
-		return this.nativeElement.name;
-	}
-
-
-	public setFormValue(...args: Parameters<CheckboxComponentCustomElement['setFormValue']>): ReturnType<CheckboxComponentCustomElement['setFormValue']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.setFormValue(...args));
 	}
 
 	/** Toggles the checkbox checked or unchecked. */

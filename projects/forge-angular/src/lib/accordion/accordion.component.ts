@@ -13,7 +13,10 @@ export class AccordionComponent {
 	/** The forge-accordion element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets the selector to use for finding the child expansion panels. Defaults to searching the direct children for `<forge-expansion-panel>` elements. */
+	/**
+	 * Gets/sets the selector to use for finding the child expansion panels. Defaults to searching the direct children for `<forge-expansion-panel>` elements.
+	 * Use this if you need to scope this accordion to a specific set of expansion panels, or your expansion panels are not direct children of the accordion.
+	 */
 	@Input()
 	public set panelSelector(value: AccordionComponentCustomElement['panelSelector']) {
 		this.zone.runOutsideAngular(() => {

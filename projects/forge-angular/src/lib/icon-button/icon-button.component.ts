@@ -35,7 +35,7 @@ export class IconButtonComponent {
 		return this.nativeElement.on;
 	}
 
-	/** The theme of the button. Valid values are `primary`, `secondary`, `tertiary`, `success`, `error`, `warning`, `info`. */
+	/** The theme of the button. Valid values are `default`, `primary`, `secondary`, `tertiary`, `success`, `error`, `warning`, `info`. */
 	@Input()
 	public set theme(value: IconButtonComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
