@@ -67,16 +67,14 @@ export class BottomSheetService {
 
       const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
       bottomSheetElement.appendChild(element);
-
-      const sub = bottomSheetRef.afterClosed.subscribe(() => {
-        componentRef.destroy();
-        sub.unsubscribe();
-      });
   
       bottomSheetElement.addEventListener('forge-bottom-sheet-close', () => {
-        bottomSheetRef.close();
+        if (bottomSheetRef.nativeElement.open) {
+          bottomSheetRef.close();
+          return;
+        }
+        
         componentRef.destroy();
-        sub.unsubscribe();
         bottomSheetElement.remove();
       });
     });
