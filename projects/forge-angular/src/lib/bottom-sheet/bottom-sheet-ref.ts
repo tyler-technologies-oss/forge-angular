@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { AsyncSubject, Observable, Subject } from 'rxjs';
-import { BOTTOM_SHEET_CONSTANTS, IBottomSheetComponent } from '@tylertech/forge';
+import { IBottomSheetComponent } from '@tylertech/forge';
 
 export class BottomSheetRef<TComponent = any, TResult = any> {
   private readonly _elementRef: ElementRef<IBottomSheetComponent>;
