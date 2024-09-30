@@ -1,3 +1,16 @@
+# v4.1.1 (Mon Sep 30 2024)
+
+#### 🐛 Bug Fix
+
+- fix(BottomSheetService): fixed a bug where the value provided to `DialogRef.close()` was not being emitted from the `afterClosed` observable [#64](https://github.com/tyler-technologies-oss/forge-angular/pull/64) ([@DRiFTy17](https://github.com/DRiFTy17))
+- fix(DialogService): fixed a bug where the `DialogConfig` token was not injecting if just `data` was provided [#65](https://github.com/tyler-technologies-oss/forge-angular/pull/65) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v4.1.0 (Mon Sep 09 2024)
 
 #### 🚀 Enhancement
