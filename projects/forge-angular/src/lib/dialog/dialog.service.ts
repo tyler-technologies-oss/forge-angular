@@ -71,13 +71,18 @@ export class DialogService {
     // Contains tokens that will be provided to components through our custom dialog injector
     const providers: Provider[] = [];
 
+    // Since config and data can be provided separately, we should create a config with data if only data was provided
+    if (!config && data != null) {
+      config = { data };
+    }
+
     // If we got a config, we should provide it as an injection token
     if (config) {
       providers.push({ provide: DialogConfig, useValue: config });
     }
 
-    // If we got data, we should provide it as an injection token
-    if (data !== null && data !== undefined) {
+    // If we got data, we should also provide it as a injection token on its own
+    if (data != null) {
       providers.push({ provide: DIALOG_DATA, useValue: data });
     }
 
@@ -112,15 +117,11 @@ export class DialogService {
       const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
       dialogElement.appendChild(element);
 
-      const sub = dialogRef.afterClosed.subscribe(() => {
-        componentRef.destroy();
-        sub.unsubscribe();
-      });
-
       dialogElement.addEventListener('forge-dialog-close', () => {
-        dialogRef.close();
+        if (!dialogRef.isClosed) {
+          dialogRef.close();
+        }
         componentRef.destroy();
-        sub.unsubscribe();
         dialogElement.remove();
       });
     });

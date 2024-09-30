@@ -28,4 +28,8 @@ export class DialogRef<TComponent = any, TResult = any> {
   public get nativeElement(): IDialogComponent {
     return this._elementRef.nativeElement;
   }
+
+  public get isClosed(): boolean {
+    return this._afterClosed.closed;
+  }
 }
