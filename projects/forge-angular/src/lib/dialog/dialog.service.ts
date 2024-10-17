@@ -112,6 +112,7 @@ export class DialogService {
       const parentInjector = injector ?? module?.injector ?? this._injector;
       const environmentInjector = createEnvironmentInjector(providers, parentInjector);
       const componentRef = createComponent(component, { environmentInjector });
+      dialogRef.componentInstance = componentRef.instance;
       this._appRef.attachView(componentRef.hostView);
 
       const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
