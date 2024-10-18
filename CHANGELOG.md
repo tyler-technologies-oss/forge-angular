@@ -1,3 +1,15 @@
+# v4.1.2 (Fri Oct 18 2024)
+
+#### 🐛 Bug Fix
+
+- fix(DialogService): fixed a bug where the `componentInstance` was not being set to the dynamic Angular component instance [#66](https://github.com/tyler-technologies-oss/forge-angular/pull/66) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v4.1.1 (Mon Sep 30 2024)
 
 #### 🐛 Bug Fix
