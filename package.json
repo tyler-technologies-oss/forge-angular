@@ -1,6 +1,6 @@
 {
   "name": "@tylertech/forge-angular",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Forge components adapter library for Angular",
   "repository": "tyler-technologies-oss/forge-angular",
   "license": "Apache-2.0",
