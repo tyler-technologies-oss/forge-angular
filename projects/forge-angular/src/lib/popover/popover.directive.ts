@@ -43,7 +43,7 @@ export class PopoverDirective implements OnDestroy {
   }
 
   constructor(
-    private _elementRef: ElementRef,
+    private _elementRef: ElementRef<HTMLElement>,
     private _viewContainerRef: ViewContainerRef) {
     this._elementRef.nativeElement.addEventListener(POPOVER_CONSTANTS.events.TOGGLE, () => {
       window.requestAnimationFrame(() => this.close());
@@ -86,7 +86,14 @@ export class PopoverDirective implements OnDestroy {
       this._popoverElement.persistent = this.persistent;
     }
 
-    this._elementRef.nativeElement.getRootNode().body.appendChild(this._popoverElement);
+    let hostElement: Element | ShadowRoot | null = this._elementRef.nativeElement.closest(POPOVER_CONSTANTS.selectors.HOST);
+    if (!hostElement) {
+      const rootNode = this._elementRef.nativeElement.getRootNode();
+      const hostRootNode = rootNode instanceof ShadowRoot ? rootNode : (this._elementRef.nativeElement.ownerDocument ?? document).body;
+      hostElement = hostRootNode;
+    }
+
+    hostElement.appendChild(this._popoverElement);
     this._popoverElement.anchorElement = this._elementRef.nativeElement;
     this._popoverElement.open = true;
   }
