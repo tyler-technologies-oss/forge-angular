@@ -1,4 +1,4 @@
-import { ApplicationRef, DestroyRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgZone, Provider, createComponent, createEnvironmentInjector, inject } from '@angular/core';
+import { ApplicationRef, DestroyRef, EmbeddedViewRef, EnvironmentInjector, Injectable, Injector, NgZone, Provider, createComponent, createEnvironmentInjector, inject } from '@angular/core';
 import { Type, NgModuleRef } from '@angular/core';
 import { IDialogProperties, defineDialogComponent } from '@tylertech/forge';
 import { DIALOG_DATA, DialogConfig } from './dialog-config';
@@ -19,6 +19,7 @@ export interface IDialogServiceShowConfiguration<TModule = unknown> {
   data?: any;
   module?: NgModuleRef<TModule>;
   injector?: EnvironmentInjector;
+  elementInjector?: Injector;
 }
 
 /**
@@ -34,6 +35,7 @@ export class DialogService {
   constructor(
     private _appRef: ApplicationRef,
     private _injector: EnvironmentInjector,
+    private _elementInjector: Injector,
     private _ngZone: NgZone) {
     defineDialogComponent();
   }
@@ -66,7 +68,7 @@ export class DialogService {
 
   private _showDialog<TComponent, TModule>(
     component: Type<TComponent>,
-    { config, data, injector, module, options }: IDialogServiceShowConfiguration<TModule>
+    { config, data, injector, elementInjector, module, options }: IDialogServiceShowConfiguration<TModule>
   ): DialogRef<TComponent> {
     // Contains tokens that will be provided to components through our custom dialog injector
     const providers: Provider[] = [];
@@ -111,7 +113,8 @@ export class DialogService {
     this._ngZone.run(() => {
       const parentInjector = injector ?? module?.injector ?? this._injector;
       const environmentInjector = createEnvironmentInjector(providers, parentInjector);
-      const componentRef = createComponent(component, { environmentInjector });
+      const localInjector = this._elementInjector === this._injector ? undefined: this._elementInjector;
+      const componentRef = createComponent(component, { environmentInjector, elementInjector: elementInjector ?? localInjector });
       dialogRef.componentInstance = componentRef.instance;
       this._appRef.attachView(componentRef.hostView);
 
