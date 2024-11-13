@@ -1,3 +1,23 @@
+# v4.2.0 (Wed Nov 13 2024)
+
+#### 🚀 Enhancement
+
+- chore: update proxies to match latest version of forge [#69](https://github.com/tyler-technologies-oss/forge-angular/pull/69) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+- feat(dialog): add elementInjector option to config [#70](https://github.com/tyler-technologies-oss/forge-angular/pull/70) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### 🐛 Bug Fix
+
+- fix(skip-link): expose skip link to public api [#68](https://github.com/tyler-technologies-oss/forge-angular/pull/68) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+- fix(PopoverDirective): fixed a bug where dynamically created `<forge-popover>` elements could not be accessed when a `<forge-dialog>` element is open [#67](https://github.com/tyler-technologies-oss/forge-angular/pull/67) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 3
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v4.1.2 (Fri Oct 18 2024)
 
 #### 🐛 Bug Fix
