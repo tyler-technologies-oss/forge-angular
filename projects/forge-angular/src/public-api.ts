@@ -65,6 +65,7 @@ export * from './lib/scaffold';
 export * from './lib/select';
 export * from './lib/select-dropdown';
 export * from './lib/skeleton';
+export * from './lib/skip-link';
 export * from './lib/slider';
 export * from './lib/split-button';
 export * from './lib/split-view';
