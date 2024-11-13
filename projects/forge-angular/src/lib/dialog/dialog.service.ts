@@ -35,7 +35,6 @@ export class DialogService {
   constructor(
     private _appRef: ApplicationRef,
     private _injector: EnvironmentInjector,
-    private _elementInjector: Injector,
     private _ngZone: NgZone) {
     defineDialogComponent();
   }
@@ -113,8 +112,7 @@ export class DialogService {
     this._ngZone.run(() => {
       const parentInjector = injector ?? module?.injector ?? this._injector;
       const environmentInjector = createEnvironmentInjector(providers, parentInjector);
-      const localInjector = this._elementInjector === this._injector ? undefined: this._elementInjector;
-      const componentRef = createComponent(component, { environmentInjector, elementInjector: elementInjector ?? localInjector });
+      const componentRef = createComponent(component, { environmentInjector, elementInjector });
       dialogRef.componentInstance = componentRef.instance;
       this._appRef.attachView(componentRef.hostView);
 
