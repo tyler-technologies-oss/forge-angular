@@ -13,7 +13,7 @@ export class TabComponent {
 	/** The forge-tab element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The disabled state of the tab. */
+	/** The disabled state of the tab. Should not be set if using the disabled property on `forge-tab-bar`. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TabComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {

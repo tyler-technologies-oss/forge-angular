@@ -68,6 +68,17 @@ export class SkipLinkComponent {
 		return this.nativeElement.inline;
 	}
 
+	/** Sets the skip link to skip browser navigation and scroll to the target element. */
+	@Input({ transform: booleanAttribute })
+	public set skipUrlChange(value: SkipLinkComponentCustomElement['skipUrlChange']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.skipUrlChange = value;
+		});
+	}
+	public get skipUrlChange(): SkipLinkComponentCustomElement['skipUrlChange'] {
+		return this.nativeElement.skipUrlChange;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<SkipLinkComponentCustomElement>,

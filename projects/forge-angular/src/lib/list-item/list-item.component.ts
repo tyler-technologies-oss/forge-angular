@@ -112,6 +112,17 @@ export class ListItemComponent {
 		return this.nativeElement.noninteractive;
 	}
 
+	/** Controls whether the interactive element will receive focus if a non-interactive element is clicked within the list item. */
+	@Input({ transform: booleanAttribute })
+	public set focusPropagation(value: ListItemComponentCustomElement['focusPropagation']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.focusPropagation = value;
+		});
+	}
+	public get focusPropagation(): ListItemComponentCustomElement['focusPropagation'] {
+		return this.nativeElement.focusPropagation;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<ListItemComponentCustomElement>,

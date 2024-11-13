@@ -13,7 +13,7 @@ export class TabBarComponent {
 	/** The forge-tab-bar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The disabled state of the tab bar. */
+	/** Sets the disabled state of all child tabs.  If true, any new tabs added to the DOM will be disabled by default. This can be used instead of setting individual tab disabled properties, mixing the two methods of disabling is not supported. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TabBarComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
