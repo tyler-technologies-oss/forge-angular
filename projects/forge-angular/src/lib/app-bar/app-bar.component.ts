@@ -57,7 +57,7 @@ export class AppBarComponent {
 		return this.nativeElement.href;
 	}
 
-
+	/** The `<a>` target of the logo + title area link when `href` is set. */
 	@Input()
 	public set target(value: AppBarComponentCustomElement['target']) {
 		this.zone.runOutsideAngular(() => {

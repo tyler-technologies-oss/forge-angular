@@ -277,6 +277,17 @@ export class DateRangePickerComponent {
 		return this.nativeElement.locale;
 	}
 
+	/** Customized strings to display in the calendar dropdown UI. */
+	@Input()
+	public set calendarText(value: DateRangePickerComponentCustomElement['calendarText']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.calendarText = value;
+		});
+	}
+	public get calendarText(): DateRangePickerComponentCustomElement['calendarText'] {
+		return this.nativeElement.calendarText;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<DateRangePickerComponentCustomElement>,
