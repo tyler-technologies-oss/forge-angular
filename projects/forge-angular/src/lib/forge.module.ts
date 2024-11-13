@@ -63,6 +63,7 @@ import { ForgeScaffoldModule } from './scaffold';
 import { ForgeSelectDropdownModule } from './select-dropdown';
 import { ForgeSelectModule } from './select';
 import { ForgeSkeletonModule } from './skeleton';
+import { ForgeSkipLinkModule } from './skip-link/skip-link.module';
 import { ForgeSliderModule } from './slider';
 import { ForgeSplitButtonModule } from './split-button';
 import { ForgeSplitViewModule } from './split-view';
@@ -148,6 +149,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeSelectModule,
     ForgeSelectDropdownModule,
     ForgeSkeletonModule,
+    ForgeSkipLinkModule,
     ForgeSliderModule,
     ForgeSplitButtonModule,
     ForgeSplitViewModule,
