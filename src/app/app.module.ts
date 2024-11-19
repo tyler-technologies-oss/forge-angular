@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Modules
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 // Standalone components
 import { DemoCardComponent } from './shared/components/demo-card/demo-card.component';
@@ -23,10 +23,15 @@ import { HomeComponent } from './views/home/home.component';
     AppComponent,
     HomeComponent,
     SidenavComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, DemoCardComponent, ForgeModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    DemoCardComponent,
+    ForgeModule
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
