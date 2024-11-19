@@ -22,10 +22,12 @@ from its own Angular module to allow for opting in to include only specific comp
 
 ## Version Compatibility
 
-| `@tylertech/forge-angular`  | Angular              | Forge
-| ----------------------------| ---------------------| --------
-| `^3.0.0`                    | `^16.0.0`            | `^2.0.0`
-| `^2.0.0`                    | `>=13.3.0 < 16.0.0`  | `^2.0.0`
+| `@tylertech/forge-angular` | Angular             | Forge    |
+| -------------------------- | ------------------- | -------- |
+| `^5.0.0`                   | `>=18.0.0 < 20.0.0` | `^3.0.0` |
+| `^4.0.0`                   | `>=17.0.0 < 19.0.0` | `^3.0.0` |
+| `^3.0.0`                   | `>=16.0.0 < 18.0.0` | `^2.0.0` |
+| `^2.0.0`                   | `>=13.3.0 < 16.0.0` | `^2.0.0` |
 
 ## Getting started
 
