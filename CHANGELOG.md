@@ -1,3 +1,15 @@
+# v5.0.0 (Wed Nov 20 2024)
+
+#### 💥 Breaking Change
+
+- Chore/bump ng19 support [#71](https://github.com/tyler-technologies-oss/forge-angular/pull/71) ([@Ross-Blakeney](https://github.com/Ross-Blakeney))
+
+#### Authors: 1
+
+- [@Ross-Blakeney](https://github.com/Ross-Blakeney)
+
+---
+
 # v4.2.0 (Wed Nov 13 2024)
 
 #### 🚀 Enhancement
