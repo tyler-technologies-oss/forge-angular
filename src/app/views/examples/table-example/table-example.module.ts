@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { ForgeBadgeModule, ForgeButtonModule, ForgeDatePickerModule, ForgeDividerModule, ForgeIconButtonModule, ForgeMenuModule, ForgePaginatorModule, ForgeSelectProxyModule, ForgeTableModule, ForgeToolbarModule, ForgeTooltipModule } from '@tylertech/forge-angular';
@@ -16,7 +16,6 @@ import { TableMenuCellComponent } from './table-menu-cell/table-menu-cell.compon
   declarations: [TableExampleComponent, MonthShortPipe, TableMenuCellComponent],
   imports: [
     CommonModule,
-    HttpClientModule,
     TableExampleRoutingModule,
     ForgeButtonModule,
     ForgeDividerModule,
@@ -29,10 +28,12 @@ import { TableMenuCellComponent } from './table-menu-cell/table-menu-cell.compon
     ForgeBadgeModule,
     ForgeDatePickerModule,
     ForgeSelectProxyModule,
-    DemoCardComponent
-  ],
-  providers: [JournalService]
-})
+    DemoCardComponent],
+    providers: [
+      JournalService,
+      provideHttpClient(withInterceptorsFromDi())
+    ]
+  })
 export class TableExampleModule {
   constructor() {
     IconRegistry.define([
