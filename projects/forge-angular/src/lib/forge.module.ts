@@ -15,14 +15,14 @@ import { ForgeBannerModule } from './banner';
 import { ForgeBottomSheetModule } from './bottom-sheet';
 import { ForgeButtonModule } from './button';
 import { ForgeButtonAreaModule } from './button-area';
-import { ForgeButtonToggleGroupModule } from './button-toggle-group';
 import { ForgeButtonToggleModule } from './button-toggle';
+import { ForgeButtonToggleGroupModule } from './button-toggle-group';
 import { ForgeCalendarModule } from './calendar';
 import { ForgeCardModule } from './card';
 import { ForgeCheckboxModule } from './checkbox';
+import { ForgeChipModule } from './chip';
 import { ForgeChipFieldModule } from './chip-field';
 import { ForgeChipSetModule } from './chip-set';
-import { ForgeChipModule } from './chip';
 import { ForgeCircularProgressModule } from './circular-progress';
 import { ForgeColorPickerModule } from './color-picker';
 import { ForgeDatePickerModule } from './date-picker';
@@ -40,6 +40,7 @@ import { ForgeFocusIndicatorModule } from './focus-indicator';
 import { ForgeIconModule } from './icon';
 import { ForgeIconButtonModule } from './icon-button';
 import { ForgeInlineMessageModule } from './inline-message';
+import { ForgeKeyModule } from './key/key.module';
 import { ForgeKeyboardShortcutModule } from './keyboard-shortcut';
 import { ForgeLabelModule } from './label';
 import { ForgeLabelValueModule } from './label-value';
@@ -47,6 +48,7 @@ import { ForgeLinearProgressModule } from './linear-progress';
 import { ForgeListModule } from './list';
 import { ForgeListItemModule } from './list-item';
 import { ForgeMenuModule } from './menu';
+import { ForgeMeterGroupModule } from './meter-group/meter-group.module';
 import { ForgeMiniDrawerModule } from './mini-drawer';
 import { ForgeModalDrawerModule } from './modal-drawer';
 import { ForgeOpenIconModule } from './open-icon';
@@ -60,8 +62,8 @@ import { ForgeProfileCardModule } from './profile-card';
 import { ForgeRadioModule } from './radio';
 import { ForgeRadioGroupModule } from './radio-group';
 import { ForgeScaffoldModule } from './scaffold';
-import { ForgeSelectDropdownModule } from './select-dropdown';
 import { ForgeSelectModule } from './select';
+import { ForgeSelectDropdownModule } from './select-dropdown';
 import { ForgeSkeletonModule } from './skeleton';
 import { ForgeSkipLinkModule } from './skip-link/skip-link.module';
 import { ForgeSliderModule } from './slider';
@@ -126,6 +128,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeIconModule,
     ForgeIconButtonModule,
     ForgeInlineMessageModule,
+    ForgeKeyModule,
     ForgeKeyboardShortcutModule,
     ForgeLabelModule,
     ForgeLabelValueModule,
@@ -133,6 +136,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeListModule,
     ForgeListItemModule,
     ForgeMenuModule,
+    ForgeMeterGroupModule,
     ForgeMiniDrawerModule,
     ForgeModalDrawerModule,
     ForgeOpenIconModule,
