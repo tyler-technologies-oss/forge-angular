@@ -1,3 +1,15 @@
+# v5.1.0 (Thu Jan 30 2025)
+
+#### 🚀 Enhancement
+
+- chore: update to support Forge 3.5.0 [#72](https://github.com/tyler-technologies-oss/forge-angular/pull/72) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 1
+
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v5.0.0 (Wed Nov 20 2024)
 
 #### 💥 Breaking Change
