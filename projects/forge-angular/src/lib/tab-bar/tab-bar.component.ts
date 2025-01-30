@@ -68,7 +68,7 @@ export class TabBarComponent {
 		return this.nativeElement.stacked;
 	}
 
-	/** Controls whether the tabs are styled as secondary tab navigation. */
+	/** Deprecated. Controls whether the tabs are styled as secondary tab navigation. */
 	@Input({ transform: booleanAttribute })
 	public set secondary(value: TabBarComponentCustomElement['secondary']) {
 		this.zone.runOutsideAngular(() => {

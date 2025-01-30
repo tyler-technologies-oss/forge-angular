@@ -145,11 +145,6 @@ export class IconButtonComponent {
 		return this.nativeElement.value;
 	}
 
-	/** The form reference of the button if within a `<form>` element. */
-	public get form(): IconButtonComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
 	/** Clicks the button. */
 	public click(...args: Parameters<IconButtonComponentCustomElement['click']>): ReturnType<IconButtonComponentCustomElement['click']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));

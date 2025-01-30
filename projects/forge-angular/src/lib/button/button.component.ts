@@ -123,11 +123,6 @@ export class ButtonComponent {
 		return this.nativeElement.dense;
 	}
 
-	/** The form reference of the button if within a `<form>` element. */
-	public get form(): ButtonComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
 	/** Clicks the button. */
 	public click(...args: Parameters<ButtonComponentCustomElement['click']>): ReturnType<ButtonComponentCustomElement['click']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.click(...args));

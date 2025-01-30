@@ -13,16 +13,6 @@ export class SliderComponent {
 	/** The forge-slider element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-
-	public get form(): SliderComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
-
-	public get labels(): SliderComponentCustomElement['labels'] {
-		return this.nativeElement.labels;
-	}
-
 	/** The form control name. */
 	@Input()
 	public set name(value: SliderComponentCustomElement['name']) {
