@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core'; 
 import { defineMeterGroupComponent } from '@tylertech/forge';
 
+import { ForgeMeterModule } from '../meter/meter.module';
 import { MeterGroupComponent } from './meter-group.component';
 
 @NgModule({
-	imports: [CommonModule],
+	imports: [CommonModule, ForgeMeterModule],
 	declarations: [MeterGroupComponent],
-	exports: [MeterGroupComponent]
+	exports: [MeterGroupComponent, ForgeMeterModule]
 })
 export class ForgeMeterGroupModule {
 	constructor() {

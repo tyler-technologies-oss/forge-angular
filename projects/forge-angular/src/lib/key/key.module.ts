@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core'; 
 import { defineKeyComponent } from '@tylertech/forge';
 
+import { ForgeKeyItemModule } from '../key-item/key-item.module';
 import { KeyComponent } from './key.component';
 
 @NgModule({
-	imports: [CommonModule],
+	imports: [CommonModule, ForgeKeyItemModule],
 	declarations: [KeyComponent],
-	exports: [KeyComponent]
+	exports: [KeyComponent, ForgeKeyItemModule]
 })
 export class ForgeKeyModule {
 	constructor() {
