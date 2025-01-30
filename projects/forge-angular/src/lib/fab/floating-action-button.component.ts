@@ -46,11 +46,6 @@ export class FloatingActionButtonComponent {
 		return this.nativeElement.elevation;
 	}
 
-
-	public get form(): FloatingActionButtonComponentCustomElement['form'] {
-		return this.nativeElement.form;
-	}
-
 	/** The name of the button. */
 	@Input()
 	public set name(value: FloatingActionButtonComponentCustomElement['name']) {
