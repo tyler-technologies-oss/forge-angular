@@ -13,7 +13,18 @@ export class SwitchComponent {
 	/** The forge-switch element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Gets/sets whether the switch is on or off. */
+	/** Gets/sets whether the switch is checked or not. */
+	@Input({ transform: booleanAttribute })
+	public set checked(value: SwitchComponentCustomElement['checked']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.checked = value;
+		});
+	}
+	public get checked(): SwitchComponentCustomElement['checked'] {
+		return this.nativeElement.checked;
+	}
+
+	/** Alias for `checked` _(deprecated)_. Gets/sets whether the switch is checked or not. */
 	@Input({ transform: booleanAttribute })
 	public set on(value: SwitchComponentCustomElement['on']) {
 		this.zone.runOutsideAngular(() => {
@@ -24,7 +35,7 @@ export class SwitchComponent {
 		return this.nativeElement.on;
 	}
 
-	/** Alias for `on` _(deprecated)_. */
+	/** Alias for `checked` _(deprecated)_. */
 	@Input({ transform: booleanAttribute })
 	public set selected(value: SwitchComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +46,18 @@ export class SwitchComponent {
 		return this.nativeElement.selected;
 	}
 
-	/** Gets/sets whether the switch is on or off by default. */
+	/** Gets/sets whether the switch is checked by default. */
+	@Input({ transform: booleanAttribute })
+	public set defaultChecked(value: SwitchComponentCustomElement['defaultChecked']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.defaultChecked = value;
+		});
+	}
+	public get defaultChecked(): SwitchComponentCustomElement['defaultChecked'] {
+		return this.nativeElement.defaultChecked;
+	}
+
+	/** Alias for `defaultChecked` _(deprecated)_. Gets/sets whether the switch is checked by default. */
 	@Input({ transform: booleanAttribute })
 	public set defaultOn(value: SwitchComponentCustomElement['defaultOn']) {
 		this.zone.runOutsideAngular(() => {

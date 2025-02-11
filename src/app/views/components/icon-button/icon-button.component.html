@@ -23,7 +23,7 @@
 
   <h2>Icon Button Toggle</h2>
   <div class="container">
-    <forge-icon-button variant="outlined" toggle [on]="isToggleOn" (forge-icon-button-toggle)="onToggleChanged($event)">
+    <forge-icon-button variant="outlined" toggle [pressed]="isToggleOn" (forge-icon-button-toggle)="onToggleChanged($event)">
       <forge-icon name="favorite_border"></forge-icon>
       <forge-icon slot="on" name="favorite"></forge-icon>
     </forge-icon-button>

@@ -79,6 +79,11 @@ export class TabComponent {
 		return this.nativeElement.inverted;
 	}
 
+
+	public focus(...args: Parameters<TabComponentCustomElement['focus']>): ReturnType<TabComponentCustomElement['focus']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<TabComponentCustomElement>,
