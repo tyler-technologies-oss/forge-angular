@@ -29,7 +29,7 @@ export class SwitchValueAccessor implements ControlValueAccessor {
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
   public writeValue(value: boolean): void {
-    this._renderer.setProperty(this._elementRef.nativeElement, 'on', Boolean(value));
+    this._renderer.setProperty(this._elementRef.nativeElement, 'checked', Boolean(value));
   }
 
   public registerOnChange(fn: (_: boolean) => void): void {

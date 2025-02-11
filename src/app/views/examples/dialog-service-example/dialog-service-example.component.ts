@@ -16,7 +16,7 @@ export class DialogServiceExampleComponent {
   constructor(private _dialogService: DialogService, private _toastService: ToastService) {}
 
   public async showDialog(): Promise<void> {
-    this._dialogService.show(DialogComponent);
+    this._dialogService.open(DialogComponent);
 
     setTimeout(() => {
       this._openCountDownDialog();
@@ -24,25 +24,20 @@ export class DialogServiceExampleComponent {
   }
 
   private _openCountDownDialog(): void {
-    const dialogOptions: IDialogOptions = {
+    const options: IDialogOptions = {
       persistent: false,
-      attributes: new Map([
-        ['aria-labelledby', 'dialog-title'],
-        ['aria-describedby', 'dialog-desc']
-      ])
+      label: 'Countdown Dialog',
+      description: 'This is a countdown dialog'
     };
     
-    const dialogConfig = {
-      data: {
-        counter: 5
-      }
+    const data = {
+      counter: 5
     };
     
-    const countDownDialogRef = this._dialogService.show(
+    const countDownDialogRef = this._dialogService.open(
       CountDownDialogComponent,
-      dialogOptions,
-      dialogConfig
-      );
+      { options, data }
+    );
     console.log('Native Forge dialog instance', countDownDialogRef.nativeElement);
     console.log('[DialogRef] Angular componentInstance', countDownDialogRef.componentInstance);
 

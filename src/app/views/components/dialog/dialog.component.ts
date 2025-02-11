@@ -32,10 +32,8 @@ export class DialogComponent {
       fullscreen: this.fullscreen,
       dialogClass: this.dialogClass,
       moveable: this.moveable,
-      attributes: new Map([
-        ['aria-labelledby', 'dialog-title'],
-        ['aria-describedby', 'dialog-desc']
-      ])
+      label: 'Confirm Dialog',
+      description: 'This is a confirm dialog'
     };
 
     const data = {
