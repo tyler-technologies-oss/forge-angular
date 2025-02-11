@@ -24,7 +24,18 @@ export class IconButtonComponent {
 		return this.nativeElement.toggle;
 	}
 
-	/** Whether or not the button is on. Only applies when `toggle` is `true`. */
+	/** Whether or not the toggle button is pressed. Only applies when `toggle` is `true`. */
+	@Input({ transform: booleanAttribute })
+	public set pressed(value: IconButtonComponentCustomElement['pressed']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.pressed = value;
+		});
+	}
+	public get pressed(): IconButtonComponentCustomElement['pressed'] {
+		return this.nativeElement.pressed;
+	}
+
+	/** Alias for `pressed` _(deprecated)_. Whether or not the toggle button is pressed. Only applies when `toggle` is `true`. */
 	@Input({ transform: booleanAttribute })
 	public set on(value: IconButtonComponentCustomElement['on']) {
 		this.zone.runOutsideAngular(() => {
@@ -35,7 +46,7 @@ export class IconButtonComponent {
 		return this.nativeElement.on;
 	}
 
-	/** The theme of the button. Valid values are `default`, `primary`, `secondary`, `tertiary`, `success`, `error`, `warning`, `info`. */
+	/** The variant of the button. Valid values are `text`, `outlined`, `filled`, and `raised`. */
 	@Input()
 	public set theme(value: IconButtonComponentCustomElement['theme']) {
 		this.zone.runOutsideAngular(() => {
@@ -79,50 +90,6 @@ export class IconButtonComponent {
 		return this.nativeElement.density;
 	}
 
-	/** The type of button. Defaults to `button`. Valid values are `button`, `submit`, and `reset`. */
-	@Input()
-	public set type(value: IconButtonComponentCustomElement['type']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.type = value;
-		});
-	}
-	public get type(): IconButtonComponentCustomElement['type'] {
-		return this.nativeElement.type;
-	}
-
-	/** Whether or not the button is disabled. */
-	@Input({ transform: booleanAttribute })
-	public set disabled(value: IconButtonComponentCustomElement['disabled']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.disabled = value;
-		});
-	}
-	public get disabled(): IconButtonComponentCustomElement['disabled'] {
-		return this.nativeElement.disabled;
-	}
-
-	/** Whether or not the button shows a built-in popover icon. */
-	@Input({ transform: booleanAttribute })
-	public set popoverIcon(value: IconButtonComponentCustomElement['popoverIcon']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.popoverIcon = value;
-		});
-	}
-	public get popoverIcon(): IconButtonComponentCustomElement['popoverIcon'] {
-		return this.nativeElement.popoverIcon;
-	}
-
-	/** Whether or not the button is dense. */
-	@Input({ transform: booleanAttribute })
-	public set dense(value: IconButtonComponentCustomElement['dense']) {
-		this.zone.runOutsideAngular(() => {
-			this.nativeElement.dense = value;
-		});
-	}
-	public get dense(): IconButtonComponentCustomElement['dense'] {
-		return this.nativeElement.dense;
-	}
-
 	/** The name of the button. */
 	@Input()
 	public set name(value: IconButtonComponentCustomElement['name']) {
@@ -134,7 +101,7 @@ export class IconButtonComponent {
 		return this.nativeElement.name;
 	}
 
-	/** The form value of the button. */
+	/** The value of the button. */
 	@Input()
 	public set value(value: IconButtonComponentCustomElement['value']) {
 		this.zone.runOutsideAngular(() => {
@@ -145,9 +112,48 @@ export class IconButtonComponent {
 		return this.nativeElement.value;
 	}
 
-	/** The form reference of the button if within a `<form>` element. */
-	public get form(): IconButtonComponentCustomElement['form'] {
-		return this.nativeElement.form;
+	/** Sets the type of the button. Possible values are `button`, `submit`, and `reset`. */
+	@Input()
+	public set type(value: IconButtonComponentCustomElement['type']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.type = value;
+		});
+	}
+	public get type(): IconButtonComponentCustomElement['type'] {
+		return this.nativeElement.type;
+	}
+
+	/** Disables the button. */
+	@Input({ transform: booleanAttribute })
+	public set disabled(value: IconButtonComponentCustomElement['disabled']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.disabled = value;
+		});
+	}
+	public get disabled(): IconButtonComponentCustomElement['disabled'] {
+		return this.nativeElement.disabled;
+	}
+
+	/** Shows a popover icon on the button. */
+	@Input({ transform: booleanAttribute })
+	public set popoverIcon(value: IconButtonComponentCustomElement['popoverIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverIcon = value;
+		});
+	}
+	public get popoverIcon(): IconButtonComponentCustomElement['popoverIcon'] {
+		return this.nativeElement.popoverIcon;
+	}
+
+	/** Sets the density of the button. */
+	@Input({ transform: booleanAttribute })
+	public set dense(value: IconButtonComponentCustomElement['dense']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dense = value;
+		});
+	}
+	public get dense(): IconButtonComponentCustomElement['dense'] {
+		return this.nativeElement.dense;
 	}
 
 	/** Clicks the button. */

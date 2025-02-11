@@ -167,6 +167,28 @@ export class DialogComponent {
 		return this.nativeElement.placement;
 	}
 
+	/** The accessible label of the dialog. */
+	@Input()
+	public set label(value: DialogComponentCustomElement['label']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.label = value;
+		});
+	}
+	public get label(): DialogComponentCustomElement['label'] {
+		return this.nativeElement.label;
+	}
+
+	/** The accessible description of the dialog. */
+	@Input()
+	public set description(value: DialogComponentCustomElement['description']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.description = value;
+		});
+	}
+	public get description(): DialogComponentCustomElement['description'] {
+		return this.nativeElement.description;
+	}
+
 	/** Shows the dialog. */
 	public show(...args: Parameters<DialogComponentCustomElement['show']>): ReturnType<DialogComponentCustomElement['show']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.show(...args));
