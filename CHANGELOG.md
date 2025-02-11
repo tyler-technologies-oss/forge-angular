@@ -1,3 +1,15 @@
+# v5.2.0 (Tue Feb 11 2025)
+
+#### 🚀 Enhancement
+
+- feat: upgrade to support Forge 3.6.0 [#73](https://github.com/tyler-technologies-oss/forge-angular/pull/73) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v5.1.0 (Thu Jan 30 2025)
 
 #### 🚀 Enhancement
