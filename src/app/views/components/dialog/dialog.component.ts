@@ -44,6 +44,7 @@ export class DialogComponent {
     if (!this.lazyload) {
       const dialogRef = this._dialogService.open(ConfirmDialogComponent, { options, data });
       console.log('Native Forge dialog instance', dialogRef.nativeElement);
+      console.log('[DialogRef] Angular componentRef', dialogRef.componentRef);
       console.log('[DialogRef] Angular componentInstance', dialogRef.componentInstance);
       dialogRef.afterClosed.pipe(take(1)).subscribe(result => {
         this._toastService.show(`Dialog closed with result: ${result}`);
