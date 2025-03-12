@@ -8,7 +8,7 @@
   "peerDependencies": {
     "@angular/common": ">=18.0.0 < 20.0.0",
     "@angular/core": ">=18.0.0 < 20.0.0",
-    "@tylertech/forge": "^3.6.0"
+    "@tylertech/forge": "^3.7.0"
   },
   "dependencies": {
     "tslib": "^2.6.3"
