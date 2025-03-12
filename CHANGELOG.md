@@ -1,3 +1,15 @@
+# v5.3.0 (Wed Mar 12 2025)
+
+#### 🚀 Enhancement
+
+- feat(dialog-ref): expose component reference [#75](https://github.com/tyler-technologies-oss/forge-angular/pull/75) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v5.2.0 (Tue Feb 11 2025)
 
 #### 🚀 Enhancement
