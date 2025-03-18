@@ -1,5 +1,5 @@
 import { Observable, Subject } from 'rxjs';
-import { ElementRef } from '@angular/core';
+import { ComponentRef, ElementRef } from '@angular/core';
 import { IDialogComponent } from '@tylertech/forge';
 
 export class DialogRef<TComponent = any, TResult = any> {
@@ -12,6 +12,7 @@ export class DialogRef<TComponent = any, TResult = any> {
   public beforeClose: Observable<CustomEvent<void>> = this._beforeClose.asObservable();
 
   public componentInstance: TComponent;
+  public componentRef: ComponentRef<TComponent>;
 
   constructor(instance: IDialogComponent) {
     this._elementRef = new ElementRef(instance);
