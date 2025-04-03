@@ -124,7 +124,7 @@ export class OverlayComponent {
 	}
 
 	/** Whether or not the anchor element should shift along the side of the overlay when scrolling. */
-	@Input({ transform: booleanAttribute })
+	@Input()
 	public set shift(value: OverlayComponentCustomElement['shift']) {
 		this.zone.runOutsideAngular(() => {
 			this.nativeElement.shift = value;

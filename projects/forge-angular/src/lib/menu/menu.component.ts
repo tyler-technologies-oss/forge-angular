@@ -252,6 +252,61 @@ export class MenuComponent {
 		return this.nativeElement.wrapOptionText;
 	}
 
+	/** Gets/sets the placement of the popover. */
+	@Input()
+	public set popoverPlacement(value: MenuComponentCustomElement['popoverPlacement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverPlacement = value;
+		});
+	}
+	public get popoverPlacement(): MenuComponentCustomElement['popoverPlacement'] {
+		return this.nativeElement.popoverPlacement;
+	}
+
+	/** Gets/sets the offset of the popover. */
+	@Input()
+	public set popoverOffset(value: MenuComponentCustomElement['popoverOffset']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverOffset = value;
+		});
+	}
+	public get popoverOffset(): MenuComponentCustomElement['popoverOffset'] {
+		return this.nativeElement.popoverOffset;
+	}
+
+	/** Gets/sets the flip state of the popover. */
+	@Input()
+	public set popoverFlip(value: MenuComponentCustomElement['popoverFlip']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFlip = value;
+		});
+	}
+	public get popoverFlip(): MenuComponentCustomElement['popoverFlip'] {
+		return this.nativeElement.popoverFlip;
+	}
+
+	/** Gets/sets whether the popover should shift to fit within the viewport. */
+	@Input()
+	public set popoverShift(value: MenuComponentCustomElement['popoverShift']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverShift = value;
+		});
+	}
+	public get popoverShift(): MenuComponentCustomElement['popoverShift'] {
+		return this.nativeElement.popoverShift;
+	}
+
+	/** Gets/sets the fallback placements of the popover. */
+	@Input()
+	public set popoverFallbackPlacements(value: MenuComponentCustomElement['popoverFallbackPlacements']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFallbackPlacements = value;
+		});
+	}
+	public get popoverFallbackPlacements(): MenuComponentCustomElement['popoverFallbackPlacements'] {
+		return this.nativeElement.popoverFallbackPlacements;
+	}
+
 	/** Force propagates the key event from another element to this component. */
 	public propagateKeyEvent(...args: Parameters<MenuComponentCustomElement['propagateKeyEvent']>): ReturnType<MenuComponentCustomElement['propagateKeyEvent']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.propagateKeyEvent(...args));

@@ -195,7 +195,7 @@ export class PopoverComponent {
 	}
 
 	/** Whether the overlay should shift to fit within the viewport. */
-	@Input({ transform: booleanAttribute })
+	@Input()
 	public set shift(value: PopoverComponentCustomElement['shift']) {
 		this.zone.runOutsideAngular(() => {
 			this.nativeElement.shift = value;
