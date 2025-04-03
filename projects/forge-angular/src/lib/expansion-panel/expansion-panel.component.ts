@@ -46,6 +46,28 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.animationType;
 	}
 
+	/** The id of the element that the expansion panel should be toggled by. */
+	@Input()
+	public set trigger(value: ExpansionPanelComponentCustomElement['trigger']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.trigger = value;
+		});
+	}
+	public get trigger(): ExpansionPanelComponentCustomElement['trigger'] {
+		return this.nativeElement.trigger;
+	}
+
+	/** The element that the expansion panel should be toggled by. */
+	@Input()
+	public set triggerElement(value: ExpansionPanelComponentCustomElement['triggerElement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.triggerElement = value;
+		});
+	}
+	public get triggerElement(): ExpansionPanelComponentCustomElement['triggerElement'] {
+		return this.nativeElement.triggerElement;
+	}
+
 	/** Toggles the open state of the panel. */
 	public toggle(...args: Parameters<ExpansionPanelComponentCustomElement['toggle']>): ReturnType<ExpansionPanelComponentCustomElement['toggle']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.toggle(...args));
