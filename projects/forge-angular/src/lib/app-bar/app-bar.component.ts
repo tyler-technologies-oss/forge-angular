@@ -68,6 +68,17 @@ export class AppBarComponent {
 		return this.nativeElement.target;
 	}
 
+	/** Controls how the theme is applied. `inherit` will apply the global theme to the app bar and all child components. `scoped` will only apply the theme to the app bar and not set any global tokens. */
+	@Input()
+	public set themeMode(value: AppBarComponentCustomElement['themeMode']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.themeMode = value;
+		});
+	}
+	public get themeMode(): AppBarComponentCustomElement['themeMode'] {
+		return this.nativeElement.themeMode;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<AppBarComponentCustomElement>,

@@ -189,6 +189,17 @@ export class OptionComponent {
 		return this.nativeElement.trailingBuilder;
 	}
 
+	/** Gets/sets the tooltip configuration for this option. */
+	@Input()
+	public set tooltip(value: OptionComponentCustomElement['tooltip']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.tooltip = value;
+		});
+	}
+	public get tooltip(): OptionComponentCustomElement['tooltip'] {
+		return this.nativeElement.tooltip;
+	}
+
 	constructor(
 		changeDetectorRef: ChangeDetectorRef,
 		protected elementRef: ElementRef<OptionComponentCustomElement>,
