@@ -1,6 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { ComponentRef, ElementRef } from '@angular/core';
-import { IDialogComponent } from '@tylertech/forge';
+import { IDialogBeforeCloseEventData, IDialogComponent } from '@tylertech/forge';
 
 export class DialogRef<TComponent = any, TResult = any> {
   private readonly _elementRef: ElementRef<IDialogComponent>;
@@ -8,8 +8,8 @@ export class DialogRef<TComponent = any, TResult = any> {
   private readonly _afterClosed = new Subject<TResult | undefined>();
   public afterClosed: Observable<TResult | undefined> = this._afterClosed.asObservable();
 
-  private readonly _beforeClose = new Subject<CustomEvent<void>>();
-  public beforeClose: Observable<CustomEvent<void>> = this._beforeClose.asObservable();
+  private readonly _beforeClose = new Subject<CustomEvent<IDialogBeforeCloseEventData>>();
+  public beforeClose: Observable<CustomEvent<IDialogBeforeCloseEventData>> = this._beforeClose.asObservable();
 
   public componentInstance: TComponent;
   public componentRef: ComponentRef<TComponent>;

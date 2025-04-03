@@ -241,6 +241,61 @@ export class SelectDropdownComponent {
 		return this.nativeElement.wrapOptionText;
 	}
 
+	/** Gets/sets the placement of the popover. */
+	@Input()
+	public set popoverPlacement(value: SelectDropdownComponentCustomElement['popoverPlacement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverPlacement = value;
+		});
+	}
+	public get popoverPlacement(): SelectDropdownComponentCustomElement['popoverPlacement'] {
+		return this.nativeElement.popoverPlacement;
+	}
+
+	/** Gets/sets the offset of the popover. */
+	@Input()
+	public set popoverOffset(value: SelectDropdownComponentCustomElement['popoverOffset']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverOffset = value;
+		});
+	}
+	public get popoverOffset(): SelectDropdownComponentCustomElement['popoverOffset'] {
+		return this.nativeElement.popoverOffset;
+	}
+
+	/** Gets/sets the flip state of the popover. */
+	@Input()
+	public set popoverFlip(value: SelectDropdownComponentCustomElement['popoverFlip']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFlip = value;
+		});
+	}
+	public get popoverFlip(): SelectDropdownComponentCustomElement['popoverFlip'] {
+		return this.nativeElement.popoverFlip;
+	}
+
+	/** Gets/sets whether the popover should shift to fit within the viewport. */
+	@Input()
+	public set popoverShift(value: SelectDropdownComponentCustomElement['popoverShift']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverShift = value;
+		});
+	}
+	public get popoverShift(): SelectDropdownComponentCustomElement['popoverShift'] {
+		return this.nativeElement.popoverShift;
+	}
+
+	/** Gets/sets the fallback placements of the popover. */
+	@Input()
+	public set popoverFallbackPlacements(value: SelectDropdownComponentCustomElement['popoverFallbackPlacements']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFallbackPlacements = value;
+		});
+	}
+	public get popoverFallbackPlacements(): SelectDropdownComponentCustomElement['popoverFallbackPlacements'] {
+		return this.nativeElement.popoverFallbackPlacements;
+	}
+
 	/** Dynamically appends options to the dropdown while it's open. */
 	public appendOptions(...args: Parameters<SelectDropdownComponentCustomElement['appendOptions']>): ReturnType<SelectDropdownComponentCustomElement['appendOptions']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.appendOptions(...args));

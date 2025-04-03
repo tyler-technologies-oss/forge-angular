@@ -294,6 +294,61 @@ export class AutocompleteComponent {
 		return this.nativeElement.wrapOptionText;
 	}
 
+	/** Gets/sets the placement of the popover. */
+	@Input()
+	public set popoverPlacement(value: AutocompleteComponentCustomElement['popoverPlacement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverPlacement = value;
+		});
+	}
+	public get popoverPlacement(): AutocompleteComponentCustomElement['popoverPlacement'] {
+		return this.nativeElement.popoverPlacement;
+	}
+
+	/** Gets/sets the offset of the popover. */
+	@Input()
+	public set popoverOffset(value: AutocompleteComponentCustomElement['popoverOffset']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverOffset = value;
+		});
+	}
+	public get popoverOffset(): AutocompleteComponentCustomElement['popoverOffset'] {
+		return this.nativeElement.popoverOffset;
+	}
+
+	/** Gets/sets the flip state of the popover. */
+	@Input()
+	public set popoverFlip(value: AutocompleteComponentCustomElement['popoverFlip']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFlip = value;
+		});
+	}
+	public get popoverFlip(): AutocompleteComponentCustomElement['popoverFlip'] {
+		return this.nativeElement.popoverFlip;
+	}
+
+	/** Gets/sets whether the popover should shift to fit within the viewport. */
+	@Input()
+	public set popoverShift(value: AutocompleteComponentCustomElement['popoverShift']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverShift = value;
+		});
+	}
+	public get popoverShift(): AutocompleteComponentCustomElement['popoverShift'] {
+		return this.nativeElement.popoverShift;
+	}
+
+	/** Gets/sets the fallback placements of the popover. */
+	@Input()
+	public set popoverFallbackPlacements(value: AutocompleteComponentCustomElement['popoverFallbackPlacements']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popoverFallbackPlacements = value;
+		});
+	}
+	public get popoverFallbackPlacements(): AutocompleteComponentCustomElement['popoverFallbackPlacements'] {
+		return this.nativeElement.popoverFallbackPlacements;
+	}
+
 	/** Adds options to the dropdown while it is open. Has no effect if the dropdown is closed. */
 	public appendOptions(...args: Parameters<AutocompleteComponentCustomElement['appendOptions']>): ReturnType<AutocompleteComponentCustomElement['appendOptions']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.appendOptions(...args));
