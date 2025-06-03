@@ -1,3 +1,15 @@
+# v5.5.0 (Tue Jun 03 2025)
+
+#### 🚀 Enhancement
+
+- feat: bump peer dep range to include ng 20 [#87](https://github.com/tyler-technologies-oss/forge-angular/pull/87) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v5.4.0 (Thu Apr 03 2025)
 
 #### 🚀 Enhancement
