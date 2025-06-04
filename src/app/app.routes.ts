@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import { Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { AccordionComponent } from './views/components/accordion/accordion.component';
 import { AutocompleteComponent } from './views/components/autocomplete/autocomplete.component';
@@ -47,7 +45,7 @@ import { ToolbarExampleComponent } from './views/examples/toolbar-example/toolba
 import { DialogServiceExampleComponent } from './views/examples/dialog-service-example/dialog-service-example.component';
 import { TwoColumnGridComponent } from './views/examples/two-column-grid/two-column-grid.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'component', children: [
     { path: 'accordion', component: AccordionComponent },
@@ -98,9 +96,3 @@ const routes: Routes = [
     { path: 'two-column-grid', component: TwoColumnGridComponent }
   ]}
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
