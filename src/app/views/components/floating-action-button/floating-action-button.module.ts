@@ -10,13 +10,13 @@ import { FloatingActionButtonComponent } from './floating-action-button.componen
 defineFloatingActionButtonComponent();
 
 @NgModule({
-  declarations: [FloatingActionButtonComponent],
-  imports: [
-    CommonModule,
-    FloatingActionButtonRoutingModule,
-    ForgeFloatingActionButtonModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        FloatingActionButtonRoutingModule,
+        ForgeFloatingActionButtonModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        FloatingActionButtonComponent
+    ]
 })
 export class FloatingActionButtonModule {}

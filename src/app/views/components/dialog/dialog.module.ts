@@ -12,21 +12,19 @@ import { DialogComponent } from './dialog.component';
 defineDialogComponent();
 
 @NgModule({
-  declarations: [
-    DialogComponent,
-    ConfirmDialogComponent
-  ],
-  imports: [
-    CommonModule,
-    DialogRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeTextFieldModule,
-    ForgeScaffoldModule,
-    ForgeToolbarModule,
-    ForgeDialogModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        DialogRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeTextFieldModule,
+        ForgeScaffoldModule,
+        ForgeToolbarModule,
+        ForgeDialogModule,
+        DemoCardComponent,
+        DialogComponent,
+        ConfirmDialogComponent
+    ]
 })
 export class DialogModule {}

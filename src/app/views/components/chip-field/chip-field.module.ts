@@ -14,28 +14,26 @@ import { ChipFieldSimpleComponent } from './chip-field-simple/chip-field-simple.
 import { ChipFieldComponent } from './chip-field.component';
 
 @NgModule({
-  declarations: [
-    ChipFieldComponent,
-    ChipFieldSimpleComponent,
-    ChipFieldSimpleReactiveFormComponent,
-    ChipFieldAutocompleteComponent,
-    ChipFieldAutocompleteReactiveFormComponent
-  ],
-  imports: [
-    CommonModule,
-    ChipFieldRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ForgeAutocompleteModule,
-    ForgeAutocompleteProxyModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeChipFieldModule,
-    ForgeChipProxyModule,
-    ForgeDividerModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ChipFieldRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ForgeAutocompleteModule,
+        ForgeAutocompleteProxyModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeChipFieldModule,
+        ForgeChipProxyModule,
+        ForgeDividerModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        ChipFieldComponent,
+        ChipFieldSimpleComponent,
+        ChipFieldSimpleReactiveFormComponent,
+        ChipFieldAutocompleteComponent,
+        ChipFieldAutocompleteReactiveFormComponent
+    ]
 })
 export class ChipFieldModule {
   constructor() {

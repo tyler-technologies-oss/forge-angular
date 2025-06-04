@@ -7,12 +7,12 @@ import { PaginatorRoutingModule } from './paginator-routing.module';
 import { PaginatorComponent } from './paginator.component';
 
 @NgModule({
-  declarations: [PaginatorComponent],
-  imports: [
-    CommonModule,
-    PaginatorRoutingModule,
-    ForgePaginatorModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        PaginatorRoutingModule,
+        ForgePaginatorModule,
+        DemoCardComponent,
+        PaginatorComponent
+    ]
 })
 export class PaginatorModule {}

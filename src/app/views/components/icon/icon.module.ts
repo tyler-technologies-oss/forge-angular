@@ -23,14 +23,12 @@ setTimeout(() => {
   ]);
 }, 3000);
 @NgModule({
-  declarations: [
-    IconComponent
-  ],
-  imports: [
-    CommonModule,
-    IconRoutingModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        IconRoutingModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        IconComponent
+    ]
 })
 export class IconModule { }

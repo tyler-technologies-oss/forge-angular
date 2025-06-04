@@ -11,15 +11,15 @@ import { TextFieldComponent } from './text-field.component';
 
 
 @NgModule({
-  declarations: [TextFieldComponent],
-  imports: [
-    CommonModule,
-    TextFieldRoutingModule,
-    FormsModule,
-    ForgeTextFieldModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TextFieldRoutingModule,
+        FormsModule,
+        ForgeTextFieldModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        TextFieldComponent
+    ]
 })
 export class TextFieldModule {
   constructor() {

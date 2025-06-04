@@ -4,13 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ForgeButtonModule } from '@tylertech/forge-angular';
 
 @NgModule({
-  declarations: [
-    LazyBottomSheetComponent
-  ],
-  imports: [
-    CommonModule,
-    ForgeButtonModule
-  ]
+    imports: [
+        CommonModule,
+        ForgeButtonModule,
+        LazyBottomSheetComponent
+    ]
 })
 export class LazyBottomSheetModule {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}

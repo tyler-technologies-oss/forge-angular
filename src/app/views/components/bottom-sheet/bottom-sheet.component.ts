@@ -1,13 +1,15 @@
 import { Compiler, Component, Injector } from '@angular/core';
-import { BottomSheetService, IBottomSheetOptions, ToastService } from '@tylertech/forge-angular';
+import { BottomSheetService, IBottomSheetOptions, ToastService, ForgeButtonModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
 import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-bottom-sheet',
     templateUrl: './bottom-sheet.component.html',
-    standalone: false
+    imports: [DemoCardComponent, ForgeButtonModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeTextFieldModule]
 })
 export class BottomSheetComponent {
   public persistent = false;

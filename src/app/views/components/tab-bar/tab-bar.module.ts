@@ -8,12 +8,12 @@ import { TabBarComponent } from './tab-bar.component';
 
 
 @NgModule({
-  declarations: [TabBarComponent],
-  imports: [
-    CommonModule,
-    TabBarRoutingModule,
-    ForgeTabBarModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TabBarRoutingModule,
+        ForgeTabBarModule,
+        DemoCardComponent,
+        TabBarComponent
+    ]
 })
 export class TabBarModule { }

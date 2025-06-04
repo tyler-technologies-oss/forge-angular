@@ -9,14 +9,14 @@ import { SliderComponent } from './slider.component';
 
 
 @NgModule({
-  declarations: [SliderComponent],
-  imports: [
-    CommonModule,
-    SliderRoutingModule,
-    FormsModule,
-    ForgeSliderModule,
-    ForgeSliderProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        SliderRoutingModule,
+        FormsModule,
+        ForgeSliderModule,
+        ForgeSliderProxyModule,
+        DemoCardComponent,
+        SliderComponent
+    ]
 })
 export class SliderModule { }

@@ -8,15 +8,13 @@ import { DemoCardComponent } from '../../../shared/components/demo-card/demo-car
 import { ListRoutingModule } from './list-routing.module';
 
 @NgModule({
-  declarations: [
-    ListComponent
-  ],
-  imports: [
-    CommonModule,
-    ListRoutingModule,
-    ForgeListModule,
-    ForgeListItemModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ListRoutingModule,
+        ForgeListModule,
+        ForgeListItemModule,
+        DemoCardComponent,
+        ListComponent
+    ]
 })
 export class ListModule { }

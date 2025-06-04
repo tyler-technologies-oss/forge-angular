@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { BottomSheetConfig, BottomSheetRef } from '@tylertech/forge-angular';
+import { BottomSheetConfig, BottomSheetRef, ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'app-confirm-bottom-sheet',
     templateUrl: './confirm-bottom-sheet.component.html',
     styleUrls: ['./confirm-bottom-sheet.component.scss'],
-    standalone: false
+    imports: [ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule]
 })
 export class ConfirmBottomSheetComponent {
   public title: string;

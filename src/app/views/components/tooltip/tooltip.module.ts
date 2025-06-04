@@ -11,18 +11,18 @@ import { TooltipComponent } from './tooltip.component';
 defineAvatarComponent();
 
 @NgModule({
-  declarations: [TooltipComponent],
-  imports: [
-    CommonModule,
-    TooltipRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeTextFieldModule,
-    ForgeTooltipModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TooltipRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeTextFieldModule,
+        ForgeTooltipModule,
+        DemoCardComponent,
+        TooltipComponent
+    ]
 })
 export class TooltipModule { }

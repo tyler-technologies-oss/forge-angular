@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { DemoCardComponent } from '../../shared/components/demo-card/demo-card.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent]
 })
 export class HomeComponent {}

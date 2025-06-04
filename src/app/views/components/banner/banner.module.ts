@@ -8,14 +8,14 @@ import { DemoCardComponent } from '../../../shared/components/demo-card/demo-car
 
 
 @NgModule({
-  declarations: [BannerComponent],
-  imports: [
-    CommonModule,
-    BannerRoutingModule,
-    ForgeBannerModule,
-    ForgeButtonModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ],
+    imports: [
+        CommonModule,
+        BannerRoutingModule,
+        ForgeBannerModule,
+        ForgeButtonModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        BannerComponent
+    ],
 })
 export class BannerModule { }

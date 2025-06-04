@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { DialogConfig } from '@tylertech/forge-angular';
+import { DialogConfig, ForgeToolbarModule } from '@tylertech/forge-angular';
 import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-count-down-dialog',
     templateUrl: './count-down-dialog.component.html',
     styleUrls: ['./count-down-dialog.component.scss'],
-    standalone: false
+    imports: [ForgeToolbarModule, AsyncPipe]
 })
 export class CountDownDialogComponent {
   public counter$: Observable<number>;

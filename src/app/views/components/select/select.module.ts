@@ -8,15 +8,15 @@ import { SelectRoutingModule } from './select-routing.module';
 import { SelectComponent } from './select.component';
 
 @NgModule({
-  declarations: [SelectComponent],
-  imports: [
-    CommonModule,
-    SelectRoutingModule,
-    FormsModule,
-    ForgeOptionModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        SelectRoutingModule,
+        FormsModule,
+        ForgeOptionModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        DemoCardComponent,
+        SelectComponent
+    ]
 })
 export class SelectModule {}

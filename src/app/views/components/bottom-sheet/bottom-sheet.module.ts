@@ -12,20 +12,18 @@ import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.comp
 defineBottomSheetComponent();
 
 @NgModule({
-  declarations: [
-    BottomSheetComponent,
-    ConfirmBottomSheetComponent
-  ],
-  imports: [
-    BottomSheetRoutingModule,
-    CommonModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeTextFieldModule,
-    ForgeScaffoldModule,
-    ForgeToolbarModule,
-    DemoCardComponent
-  ]
+    imports: [
+        BottomSheetRoutingModule,
+        CommonModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeTextFieldModule,
+        ForgeScaffoldModule,
+        ForgeToolbarModule,
+        DemoCardComponent,
+        BottomSheetComponent,
+        ConfirmBottomSheetComponent
+    ]
 })
 export class BottomSheetModule { }

@@ -12,30 +12,28 @@ import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-
 import { DateRangePickerComponent } from './date-range-picker.component';
 
 @NgModule({
-  declarations: [
-    DateRangePickerComponent,
-    DateRangePickerSimpleComponent,
-    DateRangePickerReactiveFormComponent
-  ],
-  imports: [
-    CommonModule,
-    DateRangePickerRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeDateRangePickerModule,
-    ForgeDateRangePickerProxyModule,
-    ForgeDividerModule,
-    ForgeLabelValueModule,
-    ForgeOptionModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeTextFieldModule,
-    ForgeTooltipModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        DateRangePickerRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeDateRangePickerModule,
+        ForgeDateRangePickerProxyModule,
+        ForgeDividerModule,
+        ForgeLabelValueModule,
+        ForgeOptionModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeTextFieldModule,
+        ForgeTooltipModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        DateRangePickerComponent,
+        DateRangePickerSimpleComponent,
+        DateRangePickerReactiveFormComponent
+    ]
 })
 export class DateRangePickerModule {
   constructor() {

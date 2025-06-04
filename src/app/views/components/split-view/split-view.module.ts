@@ -6,21 +6,19 @@ import { ForgeSplitViewModule, ForgeSplitViewPanelModule } from 'projects/forge-
 
 import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 import { StepperRoutingModule } from './split-view-routing.module';
-import { SplitViewComponent } from './split-view.component';
 
 @NgModule({
-  declarations: [SplitViewComponent],
-  imports: [
-    CommonModule,
-    StepperRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeSplitViewModule,
-    ForgeSplitViewPanelModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        StepperRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeSplitViewModule,
+        ForgeSplitViewPanelModule,
+        DemoCardComponent
+    ]
 })
 export class SplitViewModule {}

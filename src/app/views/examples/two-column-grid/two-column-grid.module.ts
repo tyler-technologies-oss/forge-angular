@@ -7,21 +7,21 @@ import { TwoColumnGridComponent } from './two-column-grid.component';
 import { TwoColumnGridRoutingModule } from './two-column-grid.routing-module';
 
 @NgModule({
-  declarations: [TwoColumnGridComponent],
-  imports: [
-    CommonModule,
-    TwoColumnGridRoutingModule,
-    ForgeBadgeModule,
-    ForgeButtonModule,
-    ForgeCardModule,
-    ForgeFilePickerModule,
-    ForgeIconButtonModule,
-    ForgeMenuModule,
-    ForgeScaffoldModule,
-    ForgeTextFieldModule,
-    ForgeToolbarModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TwoColumnGridRoutingModule,
+        ForgeBadgeModule,
+        ForgeButtonModule,
+        ForgeCardModule,
+        ForgeFilePickerModule,
+        ForgeIconButtonModule,
+        ForgeMenuModule,
+        ForgeScaffoldModule,
+        ForgeTextFieldModule,
+        ForgeToolbarModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        TwoColumnGridComponent
+    ]
 })
 export class TwoColumnGridModule { }

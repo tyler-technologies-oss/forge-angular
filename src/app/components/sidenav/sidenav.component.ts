@@ -1,9 +1,10 @@
-import { Location } from '@angular/common';
+import { Location, NgIf, NgTemplateOutlet, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
+import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
 
 IconRegistry.define([
   tylIconHome,
@@ -20,7 +21,7 @@ export interface IMenuItem {
     selector: 'app-sidenav',
     styleUrls: ['./sidenav.component.scss'],
     templateUrl: './sidenav.component.html',
-    standalone: false
+    imports: [NgIf, ForgeDialogModule, NgTemplateOutlet, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, RouterLink, RouterLinkActive, ForgeExpansionPanelModule, ForgeOpenIconModule, NgFor]
 })
 export class SidenavComponent implements OnInit {
   public selectedPath: string;

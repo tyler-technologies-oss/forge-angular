@@ -16,10 +16,12 @@ import {
   TOOLTIP_CONSTANTS,
   TextFieldComponentDelegate
 } from '@tylertech/forge';
-import { DynamicComponentService, IDynamicComponentRef, ToastService } from '@tylertech/forge-angular';
+import { DynamicComponentService, IDynamicComponentRef, ToastService, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
 import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
 import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { AsyncPipe } from '@angular/common';
 
 interface IPlayer {
   [key: string]: any;
@@ -42,7 +44,7 @@ const players: IPlayer[] = [
     selector: 'app-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule, AsyncPipe]
 })
 export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild('selectAllTemplate', { read: ElementRef })

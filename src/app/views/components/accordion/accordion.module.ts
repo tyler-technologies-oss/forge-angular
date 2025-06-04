@@ -7,14 +7,14 @@ import { AccordionRoutingModule } from './accordion-routing.module';
 import { AccordionComponent } from './accordion.component';
 
 @NgModule({
-  declarations: [AccordionComponent],
-  imports: [
-    CommonModule,
-    AccordionRoutingModule,
-    ForgeAccordionModule,
-    ForgeButtonAreaModule,
-    ForgeDividerModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        AccordionRoutingModule,
+        ForgeAccordionModule,
+        ForgeButtonAreaModule,
+        ForgeDividerModule,
+        DemoCardComponent,
+        AccordionComponent
+    ]
 })
 export class AccordionModule {}

@@ -12,29 +12,29 @@ import { ReactiveFormExampleRoutingModule } from './reactive-form-example-routin
 import { ReactiveFormExampleComponent } from './reactive-form-example.component';
 
 @NgModule({
-  declarations: [ReactiveFormExampleComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ReactiveFormExampleRoutingModule,
-    ForgeAutocompleteModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeChipSetModule,
-    ForgeChipModule,
-    ForgeDatePickerModule,
-    ForgeIconButtonModule,
-    ForgeRadioGroupModule,
-    ForgeRadioModule,
-    ForgeSelectModule,
-    ForgeSliderModule,
-    ForgeSwitchModule,
-    ForgeTextFieldModule,
-    ForgeTimePickerModule,
-    ForgeIconModule,
-    ForgeListModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        ReactiveFormExampleRoutingModule,
+        ForgeAutocompleteModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeChipSetModule,
+        ForgeChipModule,
+        ForgeDatePickerModule,
+        ForgeIconButtonModule,
+        ForgeRadioGroupModule,
+        ForgeRadioModule,
+        ForgeSelectModule,
+        ForgeSliderModule,
+        ForgeSwitchModule,
+        ForgeTextFieldModule,
+        ForgeTimePickerModule,
+        ForgeIconModule,
+        ForgeListModule,
+        DemoCardComponent,
+        ReactiveFormExampleComponent
+    ]
 })
 export class ReactiveFormExampleModule {
   constructor() {

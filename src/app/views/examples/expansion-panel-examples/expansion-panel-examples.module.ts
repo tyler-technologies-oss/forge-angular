@@ -11,24 +11,24 @@ import { ExpansionPanelExamplesRoutingModule } from './expansion-panel-examples-
 import { ExpansionPanelExamplesComponent } from './expansion-panel-examples.component';
 
 @NgModule({
-  declarations: [ExpansionPanelExamplesComponent, ViewSwitcherDemoComponent],
-  imports: [
-    ExpansionPanelExamplesRoutingModule,
-    CommonModule,
-    ForgeCardModule,
-    ForgeCheckboxModule,
-    ForgeExpansionPanelModule,
-    ForgeIconButtonModule,
-    ForgeLabelValueModule,
-    ForgePageStateModule,
-    ForgeScaffoldModule,
-    ForgeTabBarModule,
-    ForgeToolbarModule,
-    ForgeViewSwitcherModule,
-    ForgeIconModule,
-    ForgeTooltipModule,
-    DemoCardComponent
-  ]
+    imports: [
+        ExpansionPanelExamplesRoutingModule,
+        CommonModule,
+        ForgeCardModule,
+        ForgeCheckboxModule,
+        ForgeExpansionPanelModule,
+        ForgeIconButtonModule,
+        ForgeLabelValueModule,
+        ForgePageStateModule,
+        ForgeScaffoldModule,
+        ForgeTabBarModule,
+        ForgeToolbarModule,
+        ForgeViewSwitcherModule,
+        ForgeIconModule,
+        ForgeTooltipModule,
+        DemoCardComponent,
+        ExpansionPanelExamplesComponent, ViewSwitcherDemoComponent
+    ]
 })
 export class ExpansionPanelExamplesModule {
   constructor() {

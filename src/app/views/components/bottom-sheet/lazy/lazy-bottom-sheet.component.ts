@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { BottomSheetConfig, BottomSheetRef } from '@tylertech/forge-angular';
+import { BottomSheetConfig, BottomSheetRef, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'lazy-bottom-sheet',
     templateUrl: './lazy-bottom-sheet.component.html',
     styleUrls: ['./lazy-bottom-sheet.component.scss'],
-    standalone: false
+    imports: [ForgeButtonModule]
 })
 export class LazyBottomSheetComponent {
   public title: string;

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IMenuOption, IMenuSelectEventData } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeMenuModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeMenuModule, ForgeButtonModule]
 })
 export class MenuComponent {
   public lastSelectedValue: string;

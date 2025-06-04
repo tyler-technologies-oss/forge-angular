@@ -7,14 +7,14 @@ import { DemoCardComponent } from '../../../shared/components/demo-card/demo-car
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { CheckboxComponent } from './checkbox.component';
 @NgModule({
-  declarations: [CheckboxComponent],
-  imports: [
-    CommonModule,
-    CheckboxRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        CheckboxRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        DemoCardComponent,
+        CheckboxComponent
+    ]
 })
 export class CheckboxModule {}

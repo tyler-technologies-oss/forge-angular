@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeListModule, ForgeListItemModule } from '@tylertech/forge-angular';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-list',
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeListModule, NgFor, ForgeListItemModule]
 })
 export class ListComponent {
   public items = [

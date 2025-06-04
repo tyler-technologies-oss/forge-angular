@@ -9,16 +9,18 @@ import {
 import { ItemManager } from '@tylertech/forge-core';
 import { BehaviorSubject } from 'rxjs';
 
-import { DynamicComponentService, IDynamicComponentRef } from '@tylertech/forge-angular';
+import { DynamicComponentService, IDynamicComponentRef, ForgeDividerModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule } from '@tylertech/forge-angular';
 import { getJournalColumnConfig } from './journal-table-utils';
 import { JournalService } from './journal.service';
 import { IJournal } from './types';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-table-example',
     templateUrl: './table-example.component.html',
     styleUrls: ['./table-example.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeDividerModule, NgIf, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe]
 })
 export class TableExampleComponent implements OnInit {
   @ViewChild('journalTable', {read: ElementRef})

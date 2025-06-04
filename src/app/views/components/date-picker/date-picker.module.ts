@@ -12,19 +12,19 @@ defineDatePickerComponent();
 defineLabelValueComponent();
 
 @NgModule({
-  declarations: [DatePickerComponent],
-  imports: [
-    CommonModule,
-    DatePickerRoutingModule,
-    FormsModule,
-    ForgeDatePickerModule,
-    ForgeDatePickerProxyModule,
-    ForgeDividerModule,
-    ForgeLabelValueModule,
-    ForgeOptionModule,
-    ForgeSelectProxyModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        DatePickerRoutingModule,
+        FormsModule,
+        ForgeDatePickerModule,
+        ForgeDatePickerProxyModule,
+        ForgeDividerModule,
+        ForgeLabelValueModule,
+        ForgeOptionModule,
+        ForgeSelectProxyModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        DatePickerComponent
+    ]
 })
 export class DatePickerModule { }

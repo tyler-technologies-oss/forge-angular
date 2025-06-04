@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
-import { ToastService } from '@tylertech/forge-angular';
+import { ToastService, ForgeIconButtonModule, ForgeIconModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/tyler-icons/standard';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 
 @Component({
     selector: 'app-icon-button',
     styleUrls: ['./icon-button.component.scss'],
     templateUrl: './icon-button.component.html',
-    standalone: false
+    imports: [DemoCardComponent, ForgeIconButtonModule, ForgeIconModule, ForgeButtonModule]
 })
 export class IconButtonComponent {
   public isToggleOn = false;

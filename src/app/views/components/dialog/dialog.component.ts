@@ -1,14 +1,16 @@
 import { Component, Compiler, Injector } from '@angular/core';
-import { DialogService, ToastService, IDialogOptions } from '@tylertech/forge-angular';
+import { DialogService, ToastService, IDialogOptions, ForgeButtonModule, ForgeDialogModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-dialog',
     styleUrls: ['./dialog.component.scss'],
     templateUrl: './dialog.component.html',
-    standalone: false
+    imports: [DemoCardComponent, ForgeButtonModule, ForgeDialogModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeTextFieldModule]
 })
 export class DialogComponent {
   public nonmodal = false;

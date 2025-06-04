@@ -7,14 +7,12 @@ import { ScaffoldRoutingModule } from './scaffold-routing.module';
 import { ScaffoldComponent } from './scaffold.component';
 
 @NgModule({
-  declarations: [
-    ScaffoldComponent
-  ],
-  imports: [
-    CommonModule,
-    ScaffoldRoutingModule,
-    ForgeScaffoldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ScaffoldRoutingModule,
+        ForgeScaffoldModule,
+        DemoCardComponent,
+        ScaffoldComponent
+    ]
 })
 export class ScaffoldModule {}

@@ -7,13 +7,13 @@ import { AvatarRoutingModule } from './avatar-routing.module';
 import { AvatarComponent } from './avatar.component';
 
 @NgModule({
-  declarations: [AvatarComponent],
-  imports: [
-    CommonModule,
-    AvatarRoutingModule,
-    ForgeAvatarModule,
-    ForgeButtonModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        AvatarRoutingModule,
+        ForgeAvatarModule,
+        ForgeButtonModule,
+        DemoCardComponent,
+        AvatarComponent
+    ]
 })
 export class AvatarModule { }

@@ -8,16 +8,16 @@ import { CircularProgressRoutingModule } from './circular-progress-routing.modul
 import { CircularProgressComponent } from './circular-progress.component';
 
 @NgModule({
-  declarations: [CircularProgressComponent],
-  imports: [
-    CommonModule,
-    CircularProgressRoutingModule,
-    FormsModule,
-    ForgeCircularProgressModule,
-    ForgeOptionModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        CircularProgressRoutingModule,
+        FormsModule,
+        ForgeCircularProgressModule,
+        ForgeOptionModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        DemoCardComponent,
+        CircularProgressComponent
+    ]
 })
 export class CircularProgressModule {}

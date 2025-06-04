@@ -10,13 +10,13 @@ import { IconButtonComponent } from './icon-button.component';
 defineIconButtonComponent();
 
 @NgModule({
-  declarations: [IconButtonComponent],
-  imports: [
-    CommonModule,
-    IconButtonRoutingModule,
-    ForgeButtonModule,
-    ForgeIconButtonModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        IconButtonRoutingModule,
+        ForgeButtonModule,
+        ForgeIconButtonModule,
+        DemoCardComponent,
+        IconButtonComponent
+    ]
 })
 export class IconButtonModule {}

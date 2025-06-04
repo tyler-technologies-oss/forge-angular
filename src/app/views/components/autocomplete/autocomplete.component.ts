@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AutocompleteFilterCallback, IOption, IconRegistry } from '@tylertech/forge';
 import { tylIconArrowDropDown } from '@tylertech/tyler-icons/standard';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeTextFieldModule, ForgeIconModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
     selector: 'app-autocomplete',
     templateUrl: './autocomplete.component.html',
     styleUrls: ['./autocomplete.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, FormsModule, ForgeTextFieldModule, ForgeIconModule, JsonPipe]
 })
 export class AutocompleteComponent implements OnInit {
   public selectedState?: IOption<string>;

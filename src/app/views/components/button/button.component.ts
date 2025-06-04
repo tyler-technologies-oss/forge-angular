@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { tylIconFavorite } from '@tylertech/tyler-icons/standard';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'app-button',
     templateUrl: './button.component.html',
     styleUrls: ['./button.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeButtonModule, ForgeIconModule]
 })
 export class ButtonComponent {
   constructor() {

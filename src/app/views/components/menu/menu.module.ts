@@ -7,15 +7,13 @@ import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
 
 @NgModule({
-  declarations: [
-    MenuComponent
-  ],
-  imports: [
-    CommonModule,
-    MenuRoutingModule,
-    ForgeButtonModule,
-    ForgeMenuModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        MenuRoutingModule,
+        ForgeButtonModule,
+        ForgeMenuModule,
+        DemoCardComponent,
+        MenuComponent
+    ]
 })
 export class MenuModule { }

@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IAutocompleteComponent, IOption } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeTextFieldModule, ForgeSwitchProxyModule, ForgeSwitchModule, ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeRadioGroupModule, ForgeRadioProxyModule, ForgeRadioModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeSliderProxyModule, ForgeSliderModule, ForgeChipSetModule, ForgeChipProxyModule, ForgeChipModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule } from '@tylertech/forge-angular';
+import { JsonPipe } from '@angular/common';
 
 interface DemoForm {
   firstName: FormControl<string>;
@@ -22,7 +25,7 @@ interface DemoForm {
     selector: 'app-form',
     templateUrl: './reactive-form-example.component.html',
     styleUrls: ['./reactive-form-example.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, FormsModule, ReactiveFormsModule, ForgeTextFieldModule, ForgeSwitchProxyModule, ForgeSwitchModule, ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeRadioGroupModule, ForgeRadioProxyModule, ForgeRadioModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeSliderProxyModule, ForgeSliderModule, ForgeChipSetModule, ForgeChipProxyModule, ForgeChipModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, JsonPipe]
 })
 export class ReactiveFormExampleComponent implements OnInit {
   @ViewChild('stateAutocomplete', { static: true, read: ElementRef })

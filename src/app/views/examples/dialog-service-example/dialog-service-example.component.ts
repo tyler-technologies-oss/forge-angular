@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { DialogService, IDialogOptions, ToastService } from '@tylertech/forge-angular';
+import { DialogService, IDialogOptions, ToastService, ForgeDividerModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { DialogComponent } from './dialog/dialog.component';
 import { take } from 'rxjs';
 import { CountDownDialogComponent } from './count-down-dialog/count-down-dialog.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-dialog-service-example',
     templateUrl: './dialog-service-example.component.html',
     styleUrls: ['./dialog-service-example.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeDividerModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeButtonModule]
 })
 export class DialogServiceExampleComponent {
   public result = false;

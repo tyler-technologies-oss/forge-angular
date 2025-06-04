@@ -8,15 +8,15 @@ import { SwitchRoutingModule } from './switch-routing.module';
 import { SwitchComponent } from './switch.component';
 
 @NgModule({
-  declarations: [SwitchComponent],
-  imports: [
-    CommonModule,
-    SwitchRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeSwitchModule,
-    ForgeSwitchProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        SwitchRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeSwitchModule,
+        ForgeSwitchProxyModule,
+        DemoCardComponent,
+        SwitchComponent
+    ]
 })
 export class SwitchModule {}

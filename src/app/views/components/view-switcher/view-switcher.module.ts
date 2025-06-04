@@ -7,14 +7,14 @@ import { ViewSwitcherRoutingModule } from './view-switcher-routing.module';
 import { ViewSwitcherComponent } from './view-switcher.component';
 
 @NgModule({
-  declarations: [ViewSwitcherComponent],
-  imports: [
-    CommonModule,
-    ViewSwitcherRoutingModule,
-    ForgeButtonModule,
-    ForgeTabBarModule,
-    ForgeViewSwitcherModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ViewSwitcherRoutingModule,
+        ForgeButtonModule,
+        ForgeTabBarModule,
+        ForgeViewSwitcherModule,
+        DemoCardComponent,
+        ViewSwitcherComponent
+    ]
 })
 export class ViewSwitcherModule { }

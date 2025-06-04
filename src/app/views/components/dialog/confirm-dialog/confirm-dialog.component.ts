@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { DIALOG_DATA, DialogConfig, DialogRef } from '@tylertech/forge-angular';
+import { DIALOG_DATA, DialogConfig, DialogRef, ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 export interface IConfirmDialogData {
   title: string;
@@ -10,7 +10,7 @@ export interface IConfirmDialogData {
     selector: 'app-confirm-dialog',
     templateUrl: './confirm-dialog.component.html',
     styleUrls: ['./confirm-dialog.component.scss'],
-    standalone: false
+    imports: [ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule]
 })
 export class ConfirmDialogComponent {
   public title: string;

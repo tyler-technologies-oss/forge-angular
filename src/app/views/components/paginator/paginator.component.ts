@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IPaginatorChangeEventData } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgePaginatorModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'app-paginator',
     templateUrl: './paginator.component.html',
-    standalone: false
+    imports: [DemoCardComponent, ForgePaginatorModule]
 })
 export class PaginatorComponent {
   public total = 100;

@@ -8,18 +8,18 @@ import { TimePickerRoutingModule } from './time-picker-routing.module';
 import { TimePickerComponent } from './time-picker.component';
 
 @NgModule({
-  declarations: [TimePickerComponent],
-  imports: [
-    CommonModule,
-    TimePickerRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ForgeDatePickerModule,
-    ForgeDatePickerProxyModule,
-    ForgeTextFieldModule,
-    ForgeTimePickerModule,
-    ForgeTimePickerProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TimePickerRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ForgeDatePickerModule,
+        ForgeDatePickerProxyModule,
+        ForgeTextFieldModule,
+        ForgeTimePickerModule,
+        ForgeTimePickerProxyModule,
+        DemoCardComponent,
+        TimePickerComponent
+    ]
 })
 export class TimePickerModule {}

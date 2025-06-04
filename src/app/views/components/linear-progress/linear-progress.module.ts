@@ -8,15 +8,15 @@ import { LinearProgressRoutingModule } from './linear-progress-routing.module';
 import { LinearProgressComponent } from './linear-progress.component';
 
 @NgModule({
-  declarations: [LinearProgressComponent],
-  imports: [
-    CommonModule,
-    LinearProgressRoutingModule,
-    FormsModule,
-    ForgeCheckboxModule,
-    ForgeLinearProgressModule,
-    ForgeSliderProxyModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        LinearProgressRoutingModule,
+        FormsModule,
+        ForgeCheckboxModule,
+        ForgeLinearProgressModule,
+        ForgeSliderProxyModule,
+        DemoCardComponent,
+        LinearProgressComponent
+    ]
 })
 export class LinearProgressModule {}

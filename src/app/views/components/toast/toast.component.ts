@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { ToastService, ToastConfig, IToastConfig } from '@tylertech/forge-angular';
+import { ToastService, ToastConfig, IToastConfig, ForgeButtonModule, ForgeTextFieldModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule } from '@tylertech/forge-angular';
 import { ToastPlacement } from '@tylertech/forge';
 import { CustomToastComponent } from './custom-toast/custom-toast.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-toast',
     templateUrl: './toast.component.html',
     styleUrls: ['./toast.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeButtonModule, ForgeTextFieldModule, FormsModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule]
 })
 export class ToastComponent {
   public message = 'Save successful';

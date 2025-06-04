@@ -19,19 +19,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SidenavComponent,
-    HeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    DemoCardComponent,
-    ForgeModule
-  ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        DemoCardComponent,
+        ForgeModule,
+        HomeComponent,
+        SidenavComponent,
+        HeaderComponent
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

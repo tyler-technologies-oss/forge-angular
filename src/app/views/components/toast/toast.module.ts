@@ -11,18 +11,18 @@ import { ToastComponent } from './toast.component';
 defineToastComponent();
 
 @NgModule({
-  declarations: [ToastComponent],
-  imports: [
-    CommonModule,
-    ToastRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeSliderProxyModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ToastRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeSliderProxyModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        ToastComponent
+    ]
 })
 export class ToastModule {}

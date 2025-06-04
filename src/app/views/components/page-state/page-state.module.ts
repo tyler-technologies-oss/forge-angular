@@ -7,13 +7,13 @@ import { PageStateRoutingModule } from './page-state-routing.module';
 import { PageStateComponent } from './page-state.component';
 
 @NgModule({
-  declarations: [PageStateComponent],
-  imports: [
-    CommonModule,
-    PageStateRoutingModule,
-    ForgeButtonModule,
-    ForgePageStateModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        PageStateRoutingModule,
+        ForgeButtonModule,
+        ForgePageStateModule,
+        DemoCardComponent,
+        PageStateComponent
+    ]
 })
 export class PageStateModule {}

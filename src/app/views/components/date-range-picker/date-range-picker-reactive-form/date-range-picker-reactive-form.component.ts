@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IDatePickerRange } from '@tylertech/forge';
 import { isDate } from '@tylertech/forge-core';
+import { ForgeDateRangePickerProxyModule, ForgeDateRangePickerModule, ForgeTextFieldModule, ForgeButtonModule, ForgeLabelValueModule, ForgeTooltipModule, ForgeIconModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
+import { NgIf, JsonPipe } from '@angular/common';
 
 interface DemoForm {
   dateRange: FormControl<IDatePickerRange>;
@@ -11,7 +13,7 @@ interface DemoForm {
     selector: 'app-date-range-picker-reactive-form',
     templateUrl: './date-range-picker-reactive-form.component.html',
     styleUrls: ['./date-range-picker-reactive-form.component.scss'],
-    standalone: false
+    imports: [FormsModule, ReactiveFormsModule, ForgeDateRangePickerProxyModule, ForgeDateRangePickerModule, ForgeTextFieldModule, NgIf, ForgeButtonModule, ForgeLabelValueModule, ForgeTooltipModule, ForgeIconModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, JsonPipe]
 })
 export class DateRangePickerReactiveFormComponent implements OnInit {
 

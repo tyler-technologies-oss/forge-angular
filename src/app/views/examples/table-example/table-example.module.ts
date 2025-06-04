@@ -13,27 +13,28 @@ import { TableExampleComponent } from './table-example.component';
 import { TableMenuCellComponent } from './table-menu-cell/table-menu-cell.component';
 
 @NgModule({
-  declarations: [TableExampleComponent, MonthShortPipe, TableMenuCellComponent],
-  imports: [
-    CommonModule,
-    TableExampleRoutingModule,
-    ForgeButtonModule,
-    ForgeDividerModule,
-    ForgeIconButtonModule,
-    ForgeTooltipModule,
-    ForgeTableModule,
-    ForgeToolbarModule,
-    ForgePaginatorModule,
-    ForgeMenuModule,
-    ForgeBadgeModule,
-    ForgeDatePickerModule,
-    ForgeSelectProxyModule,
-    DemoCardComponent],
+    imports: [
+        CommonModule,
+        TableExampleRoutingModule,
+        ForgeButtonModule,
+        ForgeDividerModule,
+        ForgeIconButtonModule,
+        ForgeTooltipModule,
+        ForgeTableModule,
+        ForgeToolbarModule,
+        ForgePaginatorModule,
+        ForgeMenuModule,
+        ForgeBadgeModule,
+        ForgeDatePickerModule,
+        ForgeSelectProxyModule,
+        DemoCardComponent,
+        TableExampleComponent, MonthShortPipe, TableMenuCellComponent
+    ],
     providers: [
-      JournalService,
-      provideHttpClient(withInterceptorsFromDi())
+        JournalService,
+        provideHttpClient(withInterceptorsFromDi())
     ]
-  })
+})
 export class TableExampleModule {
   constructor() {
     IconRegistry.define([

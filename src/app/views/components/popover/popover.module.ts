@@ -8,16 +8,16 @@ import { PopoverRoutingModule } from './popover-routing.module';
 import { PopoverComponent } from './popover.component';
 
 @NgModule({
-  declarations: [PopoverComponent],
-  imports: [
-    CommonModule,
-    PopoverRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgePopoverModule,
-    ForgePopoverProxyModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        PopoverRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgePopoverModule,
+        ForgePopoverProxyModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        PopoverComponent
+    ]
 })
 export class PopoverModule {}

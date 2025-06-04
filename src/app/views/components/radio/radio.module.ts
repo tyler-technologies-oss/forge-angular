@@ -8,13 +8,13 @@ import { RadioRoutingModule } from './radio-routing.module';
 import { RadioComponent } from './radio.component';
 
 @NgModule({
-  declarations: [RadioComponent],
-  imports: [
-    CommonModule,
-    RadioRoutingModule,
-    FormsModule,
-    ForgeRadioModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        RadioRoutingModule,
+        FormsModule,
+        ForgeRadioModule,
+        DemoCardComponent,
+        RadioComponent
+    ]
 })
 export class RadioModule { }

@@ -7,14 +7,14 @@ import { ExpansionPanelRoutingModule } from './expansion-panel-routing.module';
 import { ExpansionPanelComponent } from './expansion-panel.component';
 
 @NgModule({
-  declarations: [ExpansionPanelComponent],
-  imports: [
-    CommonModule,
-    ExpansionPanelRoutingModule,
-    ForgeCardModule,
-    ForgeExpansionPanelModule,
-    ForgeButtonAreaModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ExpansionPanelRoutingModule,
+        ForgeCardModule,
+        ForgeExpansionPanelModule,
+        ForgeButtonAreaModule,
+        DemoCardComponent,
+        ExpansionPanelComponent
+    ]
 })
 export class ExpansionPanelModule {}

@@ -7,19 +7,19 @@ import { ToolbarExampleComponent } from './toolbar-example.component';
 import { ToolbarExampleRoutingModule } from './toolbar-example.routing-module';
 
 @NgModule({
-  declarations: [ToolbarExampleComponent],
-  imports: [
-    CommonModule,
-    ToolbarExampleRoutingModule,
-    ForgeBadgeModule,
-    ForgeButtonModule,
-    ForgeCardModule,
-    ForgeDividerModule,
-    ForgeLabelValueModule,
-    ForgePaginatorModule,
-    ForgeScaffoldModule,
-    ForgeToolbarModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ToolbarExampleRoutingModule,
+        ForgeBadgeModule,
+        ForgeButtonModule,
+        ForgeCardModule,
+        ForgeDividerModule,
+        ForgeLabelValueModule,
+        ForgePaginatorModule,
+        ForgeScaffoldModule,
+        ForgeToolbarModule,
+        DemoCardComponent,
+        ToolbarExampleComponent
+    ]
 })
 export class ToolbarExampleModule {}

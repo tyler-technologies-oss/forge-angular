@@ -9,17 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { CountDownDialogComponent } from './count-down-dialog/count-down-dialog.component';
 
 @NgModule({
-  declarations: [DialogServiceExampleComponent, DialogComponent, CountDownDialogComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    DialogServiceExampleRoutingModule,
-    DemoCardComponent,
-    ForgeButtonModule,
-    ForgeTextFieldModule,
-    ForgeDividerModule,
-    ForgeCheckboxModule,
-    ForgeToolbarModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        DialogServiceExampleRoutingModule,
+        DemoCardComponent,
+        ForgeButtonModule,
+        ForgeTextFieldModule,
+        ForgeDividerModule,
+        ForgeCheckboxModule,
+        ForgeToolbarModule,
+        DialogServiceExampleComponent, DialogComponent, CountDownDialogComponent
+    ]
 })
 export class DialogServiceExampleModule {}

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { ToastService } from '@tylertech/forge-angular';
+import { ToastService, ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
 import { tylIconTylerTalkingTLogo } from '@tylertech/tyler-icons/custom';
@@ -9,7 +9,7 @@ import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    standalone: false
+    imports: [ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule]
 })
 export class HeaderComponent {
   private _isDark = false;

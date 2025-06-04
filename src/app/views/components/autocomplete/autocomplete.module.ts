@@ -8,16 +8,16 @@ import { AutocompleteComponent } from './autocomplete.component';
 import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 
 @NgModule({
-  declarations: [AutocompleteComponent],
-  imports: [
-    CommonModule,
-    AutocompleteRoutingModule,
-    FormsModule,
-    ForgeAutocompleteModule,
-    ForgeAutocompleteProxyModule,
-    ForgeIconModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        AutocompleteRoutingModule,
+        FormsModule,
+        ForgeAutocompleteModule,
+        ForgeAutocompleteProxyModule,
+        ForgeIconModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        AutocompleteComponent
+    ]
 })
 export class AutocompleteModule { }

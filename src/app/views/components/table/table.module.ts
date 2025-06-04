@@ -10,21 +10,19 @@ import { TableRoutingModule } from './table-routing.module';
 import { TableComponent } from './table.component';
 
 @NgModule({
-  declarations: [
-    TableComponent,
-    TableCellMenuComponent
-  ],
-  imports: [
-    CommonModule,
-    TableRoutingModule,
-    ForgeCheckboxModule,
-    ForgeIconButtonModule,
-    ForgeIconModule,
-    ForgeMenuModule,
-    ForgePaginatorModule,
-    ForgeTableModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        TableRoutingModule,
+        ForgeCheckboxModule,
+        ForgeIconButtonModule,
+        ForgeIconModule,
+        ForgeMenuModule,
+        ForgePaginatorModule,
+        ForgeTableModule,
+        DemoCardComponent,
+        TableComponent,
+        TableCellMenuComponent
+    ]
 })
 export class TableModule {
   constructor() {

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { tylIconAddAlert } from '@tylertech/tyler-icons/standard';
+import { ForgeBannerModule, ForgeIconModule, ForgeButtonModule } from '@tylertech/forge-angular';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
 
 @Component({
     selector: 'app-banner',
     templateUrl: './banner.component.html',
     styleUrls: ['./banner.component.scss'],
-    standalone: false
+    imports: [ForgeBannerModule, ForgeIconModule, ForgeButtonModule, DemoCardComponent]
 })
 export class BannerComponent {
   public isDismissed = false;

@@ -5,15 +5,13 @@ import { ForgeButtonModule, ForgeScaffoldModule, ForgeToolbarModule } from '@tyl
 import { LazyLoadedDialogComponent } from './lazyLoadedDialog.component';
 
 @NgModule({
-  declarations: [
-    LazyLoadedDialogComponent
-  ],
-  imports: [
-    CommonModule,
-    ForgeButtonModule,
-    ForgeScaffoldModule,
-    ForgeToolbarModule
-  ]
+    imports: [
+        CommonModule,
+        ForgeButtonModule,
+        ForgeScaffoldModule,
+        ForgeToolbarModule,
+        LazyLoadedDialogComponent
+    ]
 })
 export class LazyLoadedModule {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}

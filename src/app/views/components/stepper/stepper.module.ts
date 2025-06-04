@@ -8,17 +8,17 @@ import { StepperRoutingModule } from './stepper-routing.module';
 import { StepperComponent } from './stepper.component';
 
 @NgModule({
-  declarations: [StepperComponent],
-  imports: [
-    CommonModule,
-    StepperRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeStepperModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        StepperRoutingModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeStepperModule,
+        DemoCardComponent,
+        StepperComponent
+    ]
 })
 export class StepperModule {}

@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
+import { ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeIconModule, ForgeCheckboxProxyModule, ForgeCheckboxModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-chip-field-autocomplete',
     templateUrl: './chip-field-autocomplete.component.html',
     styleUrls: ['./chip-field-autocomplete.component.scss'],
-    standalone: false
+    imports: [ForgeAutocompleteProxyModule, ForgeAutocompleteModule, FormsModule, ForgeChipFieldModule, NgFor, ForgeChipProxyModule, ForgeIconModule, ForgeCheckboxProxyModule, ForgeCheckboxModule]
 })
 export class ChipFieldAutocompleteComponent {
 

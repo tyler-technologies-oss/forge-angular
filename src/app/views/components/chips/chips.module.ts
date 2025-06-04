@@ -7,15 +7,15 @@ import { ChipsRoutingModule } from './chips-routing.module';
 import { ChipsComponent } from './chips.component';
 
 @NgModule({
-  declarations: [ChipsComponent],
-  imports: [
-    CommonModule,
-    ChipsRoutingModule,
-    ForgeChipProxyModule,
-    ForgeChipSetModule,
-    ForgeIconButtonModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ChipsRoutingModule,
+        ForgeChipProxyModule,
+        ForgeChipSetModule,
+        ForgeIconButtonModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        ChipsComponent
+    ]
 })
 export class ChipsModule { }

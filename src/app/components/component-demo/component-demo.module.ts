@@ -5,10 +5,10 @@ import { ComponentDemoRoutingModule } from './component-demo-routing.module';
 import { ComponentDemoComponent } from './component-demo.component';
 
 @NgModule({
-  declarations: [ComponentDemoComponent],
-  imports: [
-    CommonModule,
-    ComponentDemoRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        ComponentDemoRoutingModule,
+        ComponentDemoComponent
+    ]
 })
 export class ComponentDemoModule { }

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { PopoverDirective, PopoverService, IPopoverOptions, ToastService, PopoverRef } from '@tylertech/forge-angular';
+import { PopoverDirective, PopoverService, IPopoverOptions, ToastService, PopoverRef, ForgeButtonModule, ForgePopoverProxyModule, ForgePopoverModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { ExamplePopupComponent } from './example-popup.component';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-popover',
     styleUrls: ['./popover.component.scss'],
     templateUrl: './popover.component.html',
-    standalone: false
+    imports: [DemoCardComponent, ForgeButtonModule, ForgePopoverProxyModule, ForgePopoverModule, ForgeTextFieldModule, FormsModule]
 })
 export class PopoverComponent {
   constructor(private _popupService: PopoverService, private _toastService: ToastService) { }

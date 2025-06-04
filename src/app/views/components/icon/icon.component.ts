@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { tylIconAccount } from '@tylertech/tyler-icons/extended';
+import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { ForgeIconModule } from '@tylertech/forge-angular';
 
 @Component({
     selector: 'app-icon',
     templateUrl: './icon.component.html',
     styleUrls: ['./icon.component.scss'],
-    standalone: false
+    imports: [DemoCardComponent, ForgeIconModule]
 })
 export class IconComponent {
   public accountSrc = tylIconAccount.data;
