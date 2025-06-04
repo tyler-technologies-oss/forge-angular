@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { ExpansionPanelExamplesService } from './expansion-panel-examples.service';
 import { IData } from './IData';
@@ -13,10 +13,10 @@ import { ViewSwitcherDemoComponent } from './components/view-switcher/view-switc
     imports: [ForgeCardModule, NgClass, ForgeOpenIconModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeExpansionPanelModule, ViewSwitcherDemoComponent]
 })
 export class ExpansionPanelExamplesComponent implements OnInit {
+  private _expansionService = inject(ExpansionPanelExamplesService);
+
   public data: IData[];
   public showFlexboxOutlines = false;
-
-  constructor(private _expansionService: ExpansionPanelExamplesService) {}
 
   public ngOnInit(): void {
     this._expansionService.getData().subscribe({

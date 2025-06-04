@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DialogConfig, ForgeToolbarModule } from '@tylertech/forge-angular';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -10,11 +10,17 @@ import { AsyncPipe } from '@angular/common';
     imports: [ForgeToolbarModule, AsyncPipe]
 })
 export class CountDownDialogComponent {
+  private _dialogConfig = inject<DialogConfig<{
+      counter: number;
+  }>>(DialogConfig);
+
   public counter$: Observable<number>;
 
-  constructor(public dialogConfig: DialogConfig<{ counter: number }>) {
+  constructor() {
+    const dialogConfig = this._dialogConfig;
+
     let localCounter = dialogConfig.data.counter;
-    
+
     this.counter$ = new Observable(observer => {
       const interval = setInterval(() => {
         observer.next(localCounter);

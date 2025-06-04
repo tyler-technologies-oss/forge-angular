@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ToastConfig } from '@tylertech/forge-angular';
 
 @Component({
@@ -8,9 +8,13 @@ import { ToastConfig } from '@tylertech/forge-angular';
     standalone: false
 })
 export class CustomToastComponent {
+  private _toastConfig = inject(ToastConfig);
+
   public message = 'custom-toast works!';
 
-  constructor(public toastConfig: ToastConfig) {
+  constructor() {
+    const toastConfig = this._toastConfig;
+
     if (toastConfig && toastConfig.data && toastConfig.data.message) {
       this.message = toastConfig.data.message;
     }

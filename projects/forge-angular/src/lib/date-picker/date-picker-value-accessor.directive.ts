@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IDatePickerComponent } from '@tylertech/forge';
@@ -15,6 +15,9 @@ export const DATEPICKER_VALUE_ACCESSOR: StaticProvider = {
     standalone: false
 })
 export class DatePickerValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject<ElementRef<IDatePickerComponent>>(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-date-picker-change', ['$event'])
   public datePickerChange(event: CustomEvent<string | Date | null | undefined>): void {
     this.change(event.detail);
@@ -27,8 +30,6 @@ export class DatePickerValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef<IDatePickerComponent>, private _renderer: Renderer2) {}
 
   public writeValue(value: any): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);

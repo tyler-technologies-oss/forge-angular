@@ -1,4 +1,4 @@
-import { Compiler, Component, Injector } from '@angular/core';
+import { Compiler, Component, Injector, inject } from '@angular/core';
 import { BottomSheetService, IBottomSheetOptions, ToastService, ForgeButtonModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
     imports: [DemoCardComponent, ForgeButtonModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeTextFieldModule]
 })
 export class BottomSheetComponent {
+  private _bottomSheetService = inject(BottomSheetService);
+  private _toastService = inject(ToastService);
+  private _compiler = inject(Compiler);
+  private _injector = inject(Injector);
+
   public persistent = false;
   public fullscreen = false;
   public lazyload = false;
@@ -20,13 +25,6 @@ export class BottomSheetComponent {
   public preventClose = false;
   public scrollable = false;
   public options: IBottomSheetOptions = {};
-
-  constructor(
-    private _bottomSheetService: BottomSheetService,
-    private _toastService: ToastService,
-    private _compiler: Compiler,
-    private _injector: Injector) {
-  }
 
   public async showConfirmBottomSheet(): Promise<void> {
     const bottomSheetOptions: IBottomSheetOptions = {

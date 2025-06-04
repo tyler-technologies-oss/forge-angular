@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ISliderChangeEventData, ISliderRangeChangeEventData } from '@tylertech/forge';
@@ -16,6 +16,9 @@ export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
     standalone: false
 })
 export class SliderValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-slider-change', ['$event'])
   public sliderChange(event: CustomEvent<ISliderChangeEventData>): void {
     this.change(event.detail.value);
@@ -43,8 +46,6 @@ export class SliderValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
   public writeValue(value: number | ISliderRangeChangeEventData): void {
     if (this._elementRef.nativeElement.range) {

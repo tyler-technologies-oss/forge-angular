@@ -1,4 +1,4 @@
-import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
 import {
   ICON_BUTTON_CONSTANTS,
   ICON_CONSTANTS,
@@ -47,6 +47,11 @@ const players: IPlayer[] = [
     imports: [DemoCardComponent, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule, AsyncPipe]
 })
 export class TableComponent implements OnInit, AfterViewInit {
+  private _toastService = inject(ToastService);
+  private _dcs = inject(DynamicComponentService);
+  private _appRef = inject(ApplicationRef);
+  private _renderer = inject(Renderer2);
+
   @ViewChild('selectAllTemplate', { read: ElementRef })
   public selectAllTemplate: ElementRef;
 
@@ -96,7 +101,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     { label: 'Action 3', value: 'action3' }
   ];
 
-  constructor(private _toastService: ToastService, private _dcs: DynamicComponentService, private _appRef: ApplicationRef, private _renderer: Renderer2) {
+  constructor() {
     IconRegistry.define([
       tylIconChevronRight,
       tylIconSettings

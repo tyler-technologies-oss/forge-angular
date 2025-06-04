@@ -1,4 +1,4 @@
-import { ApplicationRef, ComponentRef, EmbeddedViewRef, EnvironmentInjector, Injectable, Type, createComponent, createEnvironmentInjector } from '@angular/core';
+import { ApplicationRef, ComponentRef, EmbeddedViewRef, EnvironmentInjector, Injectable, Type, createComponent, createEnvironmentInjector, inject } from '@angular/core';
 import { IToastComponent, IToastPresentConfiguration, TOAST_CONSTANTS, ToastComponent, defineToastComponent } from '@tylertech/forge';
 import { ToastConfig } from './toast-config';
 
@@ -17,7 +17,10 @@ export interface IToastRef {
   providedIn: 'root'
 })
 export class ToastService {
-  constructor(private _appRef: ApplicationRef, private _injector: EnvironmentInjector) {
+  private _appRef = inject(ApplicationRef);
+  private _injector = inject(EnvironmentInjector);
+
+  constructor() {
     defineToastComponent();
   }
 

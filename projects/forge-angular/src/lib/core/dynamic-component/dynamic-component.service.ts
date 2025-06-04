@@ -1,4 +1,4 @@
-import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector, ViewContainerRef } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector, ViewContainerRef, inject } from '@angular/core';
 import { Type, EmbeddedViewRef, NgModuleRef, ComponentRef, ComponentFactory } from '@angular/core';
 
 export interface IDynamicComponentRef<T> {
@@ -12,7 +12,11 @@ export interface IDynamicComponentRef<T> {
   providedIn: 'root'
 })
 export class DynamicComponentService {
-  constructor(private _cfr: ComponentFactoryResolver, private _injector: Injector, private _appRef: ApplicationRef) {}
+  private _cfr = inject(ComponentFactoryResolver);
+  private _injector = inject(Injector);
+  private _appRef = inject(ApplicationRef);
+
+  constructor() {}
 
   /**
    * Creates an Angular component dynamically, and optionally attaches the component instance to a given element.

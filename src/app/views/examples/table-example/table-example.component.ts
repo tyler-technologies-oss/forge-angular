@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
@@ -23,6 +23,9 @@ import { AsyncPipe } from '@angular/common';
     providers: [JournalService]
 })
 export class TableExampleComponent implements OnInit {
+  private _journalService = inject(JournalService);
+  public dcs = inject(DynamicComponentService);
+
   @ViewChild('journalTable', {read: ElementRef})
   public tableRef: ElementRef<ITableComponent>;
   private _columnConfigurations: IColumnConfiguration[] = getJournalColumnConfig(this);
@@ -36,8 +39,6 @@ export class TableExampleComponent implements OnInit {
   public availableColumns: IMenuOption[] = [];
   public dynamicComponentCache = new Map<number, IDynamicComponentRef<any>>();
   private _columnSelectionManager = new ItemManager<IColumnConfiguration>();
-
-  constructor(private _journalService: JournalService, public dcs: DynamicComponentService) {}
 
   public ngOnInit(): void {
     this._journalService.getJournals().subscribe(data => {

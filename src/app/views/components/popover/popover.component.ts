@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PopoverDirective, PopoverService, IPopoverOptions, ToastService, PopoverRef, ForgeButtonModule, ForgePopoverProxyModule, ForgePopoverModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { ExamplePopupComponent } from './example-popup.component';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
     imports: [DemoCardComponent, ForgeButtonModule, ForgePopoverProxyModule, ForgePopoverModule, ForgeTextFieldModule, FormsModule]
 })
 export class PopoverComponent {
-  constructor(private _popupService: PopoverService, private _toastService: ToastService) { }
+  private _popupService = inject(PopoverService);
+  private _toastService = inject(ToastService);
 
   public popupTextValue = 'Popup text field';
 

@@ -1,5 +1,5 @@
 import { Location, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
@@ -24,6 +24,9 @@ export interface IMenuItem {
     imports: [ForgeDialogModule, NgTemplateOutlet, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, RouterLink, RouterLinkActive, ForgeExpansionPanelModule, ForgeOpenIconModule]
 })
 export class SidenavComponent implements OnInit {
+  private _location = inject(Location);
+  private _cd = inject(ChangeDetectorRef);
+
   public selectedPath: string;
 
   @ViewChild('componentExpansionPanel', { static: false, read: ElementRef })
@@ -95,7 +98,9 @@ export class SidenavComponent implements OnInit {
     { label: 'Two column layout', value: '/example/two-column-grid' }
   ];
 
-  constructor(router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
+  constructor() {
+    const router = inject(Router);
+
     router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (this.open) {

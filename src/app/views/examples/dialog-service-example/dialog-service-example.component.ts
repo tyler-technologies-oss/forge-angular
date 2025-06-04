@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DialogService, IDialogOptions, ToastService, ForgeDividerModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { DialogComponent } from './dialog/dialog.component';
 import { take } from 'rxjs';
@@ -13,10 +13,10 @@ import { FormsModule } from '@angular/forms';
     imports: [DemoCardComponent, ForgeDividerModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeButtonModule]
 })
 export class DialogServiceExampleComponent {
+  private _dialogService = inject(DialogService);
+  private _toastService = inject(ToastService);
+
   public result = false;
-
-
-  constructor(private _dialogService: DialogService, private _toastService: ToastService) {}
 
   public async showDialog(): Promise<void> {
     this._dialogService.open(DialogComponent);

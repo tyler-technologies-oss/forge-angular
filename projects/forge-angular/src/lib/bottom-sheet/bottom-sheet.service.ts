@@ -1,4 +1,4 @@
-import { ApplicationRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgModuleRef, NgZone, Provider, Type, createComponent, createEnvironmentInjector } from '@angular/core';
+import { ApplicationRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgModuleRef, NgZone, Provider, Type, createComponent, createEnvironmentInjector, inject } from '@angular/core';
 import { IBottomSheetComponent, defineBottomSheetComponent } from '@tylertech/forge';
 import { BottomSheetConfig } from './bottom-sheet-config';
 import { BottomSheetRef } from './bottom-sheet-ref';
@@ -12,10 +12,11 @@ export interface IBottomSheetOptions extends Omit<Partial<IBottomSheetComponent>
   providedIn: 'root'
 })
 export class BottomSheetService {
-  constructor(
-    private _appRef: ApplicationRef,
-    private _injector: EnvironmentInjector,
-    private _ngZone: NgZone) {
+  private _appRef = inject(ApplicationRef);
+  private _injector = inject(EnvironmentInjector);
+  private _ngZone = inject(NgZone);
+
+  constructor() {
     defineBottomSheetComponent();
   }
 
@@ -67,13 +68,13 @@ export class BottomSheetService {
 
       const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
       bottomSheetElement.appendChild(element);
-  
+
       bottomSheetElement.addEventListener('forge-bottom-sheet-close', () => {
         if (bottomSheetRef.nativeElement.open) {
           bottomSheetRef.close();
           return;
         }
-        
+
         componentRef.destroy();
         bottomSheetElement.remove();
       });

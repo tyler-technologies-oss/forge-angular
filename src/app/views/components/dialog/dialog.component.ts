@@ -1,4 +1,4 @@
-import { Component, Compiler, Injector } from '@angular/core';
+import { Component, Compiler, Injector, inject } from '@angular/core';
 import { DialogService, ToastService, IDialogOptions, ForgeButtonModule, ForgeDialogModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -13,6 +13,11 @@ import { FormsModule } from '@angular/forms';
     imports: [DemoCardComponent, ForgeButtonModule, ForgeDialogModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeTextFieldModule]
 })
 export class DialogComponent {
+  private _dialogService = inject(DialogService);
+  private _toastService = inject(ToastService);
+  private _compiler = inject(Compiler);
+  private _injector = inject(Injector);
+
   public nonmodal = false;
   public persistent = false;
   public fullscreen = false;
@@ -20,13 +25,6 @@ export class DialogComponent {
   public lazyload = false;
   public dialogClass = '';
   public preventClose = false;
-
-  constructor(
-    private _dialogService: DialogService,
-    private _toastService: ToastService,
-    private _compiler: Compiler,
-    private _injector: Injector) {
-  }
 
   public async showConfirmDialog(): Promise<void> {
     const options: IDialogOptions = {
