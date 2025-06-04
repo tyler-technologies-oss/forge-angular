@@ -3,7 +3,7 @@ import { DialogService, IDialogOptions, ToastService, ForgeDividerModule, ForgeC
 import { DialogComponent } from './dialog/dialog.component';
 import { take } from 'rxjs';
 import { CountDownDialogComponent } from './count-down-dialog/count-down-dialog.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -32,11 +32,11 @@ export class DialogServiceExampleComponent {
       label: 'Countdown Dialog',
       description: 'This is a countdown dialog'
     };
-    
+
     const data = {
       counter: 5
     };
-    
+
     const countDownDialogRef = this._dialogService.open(
       CountDownDialogComponent,
       { options, data }
@@ -47,7 +47,7 @@ export class DialogServiceExampleComponent {
     countDownDialogRef.afterClosed.pipe(take(1)).subscribe(result => {
       this._toastService.show(`Dialog closed with result: ${result}`);
     });
-    
+
     let localCounter = 5;
     const interval = setInterval(() => {
       localCounter--;

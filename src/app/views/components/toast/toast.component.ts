@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ToastService, ToastConfig, IToastConfig, ForgeButtonModule, ForgeTextFieldModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule } from '@tylertech/forge-angular';
 import { ToastPlacement } from '@tylertech/forge';
 import { CustomToastComponent } from './custom-toast/custom-toast.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

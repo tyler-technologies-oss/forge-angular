@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SplitViewOrientation, SplitViewPanelResizable } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { NgFor } from '@angular/common';
 import { ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, ForgeSplitViewModule } from '@tylertech/forge-angular';
 import { FormsModule } from '@angular/forms';

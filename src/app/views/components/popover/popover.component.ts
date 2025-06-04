@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PopoverDirective, PopoverService, IPopoverOptions, ToastService, PopoverRef, ForgeButtonModule, ForgePopoverProxyModule, ForgePopoverModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { ExamplePopupComponent } from './example-popup.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

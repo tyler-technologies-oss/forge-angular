@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IStepConfiguration, StepperLayoutAlign, StepperLayoutMode } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeStepperModule, ForgeStepModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';

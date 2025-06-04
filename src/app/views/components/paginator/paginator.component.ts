@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IPaginatorChangeEventData } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgePaginatorModule } from '@tylertech/forge-angular';
 
 @Component({

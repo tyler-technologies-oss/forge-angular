@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectBeforeValueChangeCallback } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule } from '@tylertech/forge-angular';
 import { FormsModule } from '@angular/forms';
 

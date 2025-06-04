@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IAutocompleteComponent, IOption } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeTextFieldModule, ForgeSwitchProxyModule, ForgeSwitchModule, ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeRadioGroupModule, ForgeRadioProxyModule, ForgeRadioModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeSliderProxyModule, ForgeSliderModule, ForgeChipSetModule, ForgeChipProxyModule, ForgeChipModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { JsonPipe } from '@angular/common';
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TOOLTIP_CONSTANTS } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeButtonModule, ForgeTooltipModule, ForgeTextFieldModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule } from '@tylertech/forge-angular';
 import { FormsModule } from '@angular/forms';
 

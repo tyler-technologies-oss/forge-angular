@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { tylIconAdd, tylIconDelete, tylIconFavorite } from '@tylertech/tyler-icons/standard';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeFloatingActionButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
 @Component({

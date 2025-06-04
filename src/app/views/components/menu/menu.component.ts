@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IMenuOption, IMenuSelectEventData } from '@tylertech/forge';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeMenuModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({

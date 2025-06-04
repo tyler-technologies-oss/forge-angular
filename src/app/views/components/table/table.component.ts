@@ -20,7 +20,7 @@ import { DynamicComponentService, IDynamicComponentRef, ToastService, ForgeTable
 import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
 import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { AsyncPipe } from '@angular/common';
 
 interface IPlayer {

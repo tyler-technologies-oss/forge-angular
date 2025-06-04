@@ -3,7 +3,7 @@ import { BottomSheetService, IBottomSheetOptions, ToastService, ForgeButtonModul
 import { take, takeUntil } from 'rxjs/operators';
 
 import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

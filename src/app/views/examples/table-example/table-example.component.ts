@@ -3,7 +3,6 @@ import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
   ITableSelectAllEventData, ITableSelectEventData,
-  IconComponent,
   IconComponentDelegate
 } from '@tylertech/forge';
 import { ItemManager } from '@tylertech/forge-core';
@@ -13,14 +12,15 @@ import { DynamicComponentService, IDynamicComponentRef, ForgeDividerModule, Forg
 import { getJournalColumnConfig } from './journal-table-utils';
 import { JournalService } from './journal.service';
 import { IJournal } from './types';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-table-example',
     templateUrl: './table-example.component.html',
     styleUrls: ['./table-example.component.scss'],
-    imports: [DemoCardComponent, ForgeDividerModule, NgIf, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe]
+    imports: [DemoCardComponent, ForgeDividerModule, NgIf, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe],
+    providers: [JournalService]
 })
 export class TableExampleComponent implements OnInit {
   @ViewChild('journalTable', {read: ElementRef})

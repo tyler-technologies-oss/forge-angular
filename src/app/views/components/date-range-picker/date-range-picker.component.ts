@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-range-picker-simple.component';
 import { ForgeDividerModule } from '@tylertech/forge-angular';
 import { DateRangePickerReactiveFormComponent } from './date-range-picker-reactive-form/date-range-picker-reactive-form.component';

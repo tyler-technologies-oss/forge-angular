@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ChipFieldSimpleComponent } from './chip-field-simple/chip-field-simple.component';
 import { ForgeDividerModule } from '@tylertech/forge-angular';
 import { ChipFieldSimpleReactiveFormComponent } from './chip-field-simple-reactive-form/chip-field-simple-reactive-form.component';

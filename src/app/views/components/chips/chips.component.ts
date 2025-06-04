@@ -3,7 +3,7 @@ import { IChipSelectEventData, IconRegistry } from '@tylertech/forge';
 import { ToastService, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
 import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons/standard';
 import { BehaviorSubject } from 'rxjs';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { NgFor, AsyncPipe } from '@angular/common';
 
 interface IChip {

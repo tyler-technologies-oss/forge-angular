@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeListModule, ForgeListItemModule } from '@tylertech/forge-angular';
 import { NgFor } from '@angular/common';
 

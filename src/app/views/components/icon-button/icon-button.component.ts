@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { ToastService, ForgeIconButtonModule, ForgeIconModule, ForgeButtonModule } from '@tylertech/forge-angular';
 import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/tyler-icons/standard';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 
 @Component({
     selector: 'app-icon-button',

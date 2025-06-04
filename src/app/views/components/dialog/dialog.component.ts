@@ -3,7 +3,7 @@ import { DialogService, ToastService, IDialogOptions, ForgeButtonModule, ForgeDi
 import { take, takeUntil } from 'rxjs/operators';
 
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
