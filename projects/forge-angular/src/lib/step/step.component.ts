@@ -6,7 +6,7 @@ import { StepComponent as StepComponentCustomElement, defineStepComponent } from
 @Component({
     selector: 'forge-step',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class StepComponent {

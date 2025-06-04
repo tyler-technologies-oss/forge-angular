@@ -6,7 +6,7 @@ import { TableComponent as TableComponentCustomElement, defineTableComponent } f
 @Component({
     selector: 'forge-table',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class TableComponent {

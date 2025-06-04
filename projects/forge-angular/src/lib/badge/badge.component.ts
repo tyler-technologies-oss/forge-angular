@@ -6,7 +6,7 @@ import { BadgeComponent as BadgeComponentCustomElement, defineBadgeComponent } f
 @Component({
     selector: 'forge-badge',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class BadgeComponent {

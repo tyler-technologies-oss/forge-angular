@@ -6,7 +6,7 @@ import { AvatarComponent as AvatarComponentCustomElement, defineAvatarComponent 
 @Component({
     selector: 'forge-avatar',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class AvatarComponent {

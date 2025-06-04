@@ -6,7 +6,7 @@ import { DrawerComponent as DrawerComponentCustomElement, defineDrawerComponent 
 @Component({
     selector: 'forge-drawer',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class DrawerComponent {

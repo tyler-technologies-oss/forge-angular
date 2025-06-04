@@ -6,7 +6,7 @@ import { AppBarSearchComponent as AppBarSearchComponentCustomElement, defineAppB
 @Component({
     selector: 'forge-app-bar-search',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class AppBarSearchComponent {

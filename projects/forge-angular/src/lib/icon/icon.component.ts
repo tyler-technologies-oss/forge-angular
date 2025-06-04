@@ -6,7 +6,7 @@ import { IconComponent as IconComponentCustomElement, defineIconComponent } from
 @Component({
     selector: 'forge-icon',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class IconComponent {

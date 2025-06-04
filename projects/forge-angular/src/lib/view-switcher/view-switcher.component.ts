@@ -6,7 +6,7 @@ import { ViewSwitcherComponent as ViewSwitcherComponentCustomElement, defineView
 @Component({
     selector: 'forge-view-switcher',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ViewSwitcherComponent {

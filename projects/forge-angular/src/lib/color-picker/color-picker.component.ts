@@ -6,7 +6,7 @@ import { ColorPickerComponent as ColorPickerComponentCustomElement, defineColorP
 @Component({
     selector: 'forge-color-picker',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ColorPickerComponent {

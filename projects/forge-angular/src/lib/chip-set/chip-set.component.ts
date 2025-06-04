@@ -6,7 +6,7 @@ import { ChipSetComponent as ChipSetComponentCustomElement, defineChipSetCompone
 @Component({
     selector: 'forge-chip-set',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ChipSetComponent {

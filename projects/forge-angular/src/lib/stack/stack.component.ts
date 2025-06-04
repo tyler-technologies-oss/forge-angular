@@ -6,7 +6,7 @@ import { StackComponent as StackComponentCustomElement, defineStackComponent } f
 @Component({
     selector: 'forge-stack',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class StackComponent {

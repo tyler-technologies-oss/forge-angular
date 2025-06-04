@@ -6,7 +6,7 @@ import { OptionGroupComponent as OptionGroupComponentCustomElement, defineOption
 @Component({
     selector: 'forge-option-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class OptionGroupComponent {

@@ -6,7 +6,7 @@ import { SkipLinkComponent as SkipLinkComponentCustomElement, defineSkipLinkComp
 @Component({
     selector: 'forge-skip-link',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class SkipLinkComponent {

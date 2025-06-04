@@ -6,7 +6,7 @@ import { ChipComponent as ChipComponentCustomElement, defineChipComponent } from
 @Component({
     selector: 'forge-chip',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ChipComponent {

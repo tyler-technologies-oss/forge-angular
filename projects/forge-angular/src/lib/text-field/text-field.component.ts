@@ -6,7 +6,7 @@ import { TextFieldComponent as TextFieldComponentCustomElement, defineTextFieldC
 @Component({
     selector: 'forge-text-field',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class TextFieldComponent {

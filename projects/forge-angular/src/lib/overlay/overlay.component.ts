@@ -6,7 +6,7 @@ import { OverlayComponent as OverlayComponentCustomElement, defineOverlayCompone
 @Component({
     selector: 'forge-overlay',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class OverlayComponent {

@@ -6,7 +6,7 @@ import { DialogComponent as DialogComponentCustomElement, defineDialogComponent 
 @Component({
     selector: 'forge-dialog',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class DialogComponent {

@@ -4,7 +4,7 @@
     <label slot="label" for="autocomplete-chip-field-input">Favorite states</label>
     @for (state of selectedStates; track state) {
       <forge-chip slot="member" type="field" dense (forge-chip-delete)="deselectState($event)" [value]="state" [dense]="isDense" [invalid]="isInvalid" [disabled]="isDisabled">
-        <forge-icon slot="leading" name="place"></forge-icon>
+        <forge-icon slot="leading" name="place" />
         {{state}}
       </forge-chip>
     }

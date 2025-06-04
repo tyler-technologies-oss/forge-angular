@@ -6,7 +6,7 @@ import { DeprecatedButtonComponent as DeprecatedButtonComponentCustomElement, de
 @Component({
     selector: 'forge-deprecated-button',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class DeprecatedButtonComponent {

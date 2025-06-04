@@ -6,7 +6,7 @@ import { ListItemComponent as ListItemComponentCustomElement, defineListItemComp
 @Component({
     selector: 'forge-list-item',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ListItemComponent {

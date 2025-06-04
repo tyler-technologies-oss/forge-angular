@@ -6,7 +6,7 @@ import { SkeletonComponent as SkeletonComponentCustomElement, defineSkeletonComp
 @Component({
     selector: 'forge-skeleton',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class SkeletonComponent {

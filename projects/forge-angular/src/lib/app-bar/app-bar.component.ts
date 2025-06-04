@@ -6,7 +6,7 @@ import { AppBarComponent as AppBarComponentCustomElement, defineAppBarComponent 
 @Component({
     selector: 'forge-app-bar',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class AppBarComponent {

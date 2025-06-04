@@ -15,14 +15,14 @@
 <ng-template #sidenavContent>
   <forge-list navlist>
     <forge-list-item [selected]="homeLink.isActive">
-      <forge-icon name="home" slot="start"></forge-icon>
+      <forge-icon name="home" slot="start" />
       <a routerLink="/" #homeLink="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page">Home</a>
     </forge-list-item>
     <forge-expansion-panel #componentExpansionPanel>
       <forge-list-item slot="header">
-        <forge-icon name="settings_input_component" slot="start"></forge-icon>
+        <forge-icon name="settings_input_component" slot="start" />
         <button>Components</button>
-        <forge-open-icon slot="end"></forge-open-icon>
+        <forge-open-icon slot="end" />
       </forge-list-item>
       @for (item of componentMenuItems; track item) {
         <forge-list-item indented [selected]="componentMenuLink.isActive">
@@ -32,9 +32,9 @@
     </forge-expansion-panel>
     <forge-expansion-panel #exampleExpansionPanel>
       <forge-list-item slot="header">
-        <forge-icon name="settings" slot="start"></forge-icon>
+        <forge-icon name="settings" slot="start" />
         <button>Examples</button>
-        <forge-open-icon slot="end"></forge-open-icon>
+        <forge-open-icon slot="end" />
       </forge-list-item>
       @for (item of exampleMenuItems; track item) {
         <forge-list-item indented [selected]="exampleLink.isActive">

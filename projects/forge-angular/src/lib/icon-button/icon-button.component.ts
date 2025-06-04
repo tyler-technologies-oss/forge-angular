@@ -6,7 +6,7 @@ import { IconButtonComponent as IconButtonComponentCustomElement, defineIconButt
 @Component({
     selector: 'forge-icon-button',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class IconButtonComponent {

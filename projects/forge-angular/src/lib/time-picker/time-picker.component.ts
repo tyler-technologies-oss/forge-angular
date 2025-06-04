@@ -6,7 +6,7 @@ import { TimePickerComponent as TimePickerComponentCustomElement, defineTimePick
 @Component({
     selector: 'forge-time-picker',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class TimePickerComponent {

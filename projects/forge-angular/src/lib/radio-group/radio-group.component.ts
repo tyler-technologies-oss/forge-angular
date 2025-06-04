@@ -6,7 +6,7 @@ import { RadioGroupComponent as RadioGroupComponentCustomElement, defineRadioGro
 @Component({
     selector: 'forge-radio-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class RadioGroupComponent {

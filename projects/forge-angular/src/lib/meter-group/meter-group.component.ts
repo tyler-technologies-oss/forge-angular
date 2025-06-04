@@ -6,7 +6,7 @@ import { MeterGroupComponent as MeterGroupComponentCustomElement, defineMeterGro
 @Component({
     selector: 'forge-meter-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class MeterGroupComponent {

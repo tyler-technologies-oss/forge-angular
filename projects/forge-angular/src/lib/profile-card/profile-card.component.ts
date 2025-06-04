@@ -6,7 +6,7 @@ import { ProfileCardComponent as ProfileCardComponentCustomElement, defineProfil
 @Component({
     selector: 'forge-profile-card',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content></ng-content>',
+    template: '<ng-content />',
     standalone: false
 })
 export class ProfileCardComponent {
