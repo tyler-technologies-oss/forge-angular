@@ -4,9 +4,10 @@ import { SplitButtonComponent as SplitButtonComponentCustomElement, defineSplitB
 
 /**  */
 @Component({
-  selector: 'forge-split-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-split-button',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SplitButtonComponent {
 

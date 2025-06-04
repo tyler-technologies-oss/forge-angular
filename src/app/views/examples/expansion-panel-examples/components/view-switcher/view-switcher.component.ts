@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ev-view-switcher',
-  templateUrl: './view-switcher.component.html',
-  styleUrls: ['./view-switcher.component.scss']
+    selector: 'ev-view-switcher',
+    templateUrl: './view-switcher.component.html',
+    styleUrls: ['./view-switcher.component.scss'],
+    standalone: false
 })
 export class ViewSwitcherDemoComponent implements OnInit {
   @Input()

@@ -10,8 +10,9 @@ export const CHIP_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-chip[value][formControlName],forge-chip[value][formControl],forge-chip[value][ngModel]',
-  providers: [CHIP_VALUE_ACCESSOR]
+    selector: 'forge-chip[value][formControlName],forge-chip[value][formControl],forge-chip[value][ngModel]',
+    providers: [CHIP_VALUE_ACCESSOR],
+    standalone: false
 })
 export class ChipValueAccessor implements ControlValueAccessor {
   @HostListener('forge-chip-select', ['$event'])

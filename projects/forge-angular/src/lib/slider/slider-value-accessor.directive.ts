@@ -11,8 +11,9 @@ export const SLIDER_VALUE_ACCESSOR: StaticProvider = {
 
 
 @Directive({
-  selector: 'forge-slider[formControlName],forge-slider[formControl],forge-slider[ngModel]',
-  providers: [SLIDER_VALUE_ACCESSOR]
+    selector: 'forge-slider[formControlName],forge-slider[formControl],forge-slider[ngModel]',
+    providers: [SLIDER_VALUE_ACCESSOR],
+    standalone: false
 })
 export class SliderValueAccessor implements ControlValueAccessor {
   @HostListener('forge-slider-change', ['$event'])

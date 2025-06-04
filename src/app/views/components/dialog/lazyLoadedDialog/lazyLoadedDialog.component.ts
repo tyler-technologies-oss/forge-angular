@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { DialogConfig, DialogRef } from '@tylertech/forge-angular';
 
 @Component({
-  selector: 'lazy-loaded-dialog',
-  templateUrl: './lazyLoadedDialog.component.html',
-  styleUrls: ['./lazyLoadedDialog.component.scss']
+    selector: 'lazy-loaded-dialog',
+    templateUrl: './lazyLoadedDialog.component.html',
+    styleUrls: ['./lazyLoadedDialog.component.scss'],
+    standalone: false
 })
 export class LazyLoadedDialogComponent {
   public title: string;

@@ -3,9 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-chip-field-autocomplete-reactive-form',
-  templateUrl: './chip-field-autocomplete-reactive-form.component.html',
-  styleUrls: ['./chip-field-autocomplete-reactive-form.component.scss']
+    selector: 'app-chip-field-autocomplete-reactive-form',
+    templateUrl: './chip-field-autocomplete-reactive-form.component.html',
+    styleUrls: ['./chip-field-autocomplete-reactive-form.component.scss'],
+    standalone: false
 })
 export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
 

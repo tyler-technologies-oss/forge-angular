@@ -4,9 +4,10 @@ import { StateLayerComponent as StateLayerComponentCustomElement, defineStateLay
 
 /**  */
 @Component({
-  selector: 'forge-state-layer',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-state-layer',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class StateLayerComponent {
 

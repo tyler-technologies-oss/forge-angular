@@ -4,9 +4,10 @@ import { BackdropComponent as BackdropComponentCustomElement, defineBackdropComp
 
 /**  */
 @Component({
-  selector: 'forge-backdrop',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-backdrop',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class BackdropComponent {
 

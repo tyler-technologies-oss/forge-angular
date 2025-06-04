@@ -3,9 +3,10 @@ import { IconRegistry } from '@tylertech/forge';
 import { tylIconAddAlert } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    styleUrls: ['./banner.component.scss'],
+    standalone: false
 })
 export class BannerComponent {
   public isDismissed = false;

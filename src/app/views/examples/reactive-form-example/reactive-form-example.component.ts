@@ -19,9 +19,10 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './reactive-form-example.component.html',
-  styleUrls: ['./reactive-form-example.component.scss']
+    selector: 'app-form',
+    templateUrl: './reactive-form-example.component.html',
+    styleUrls: ['./reactive-form-example.component.scss'],
+    standalone: false
 })
 export class ReactiveFormExampleComponent implements OnInit {
   @ViewChild('stateAutocomplete', { static: true, read: ElementRef })

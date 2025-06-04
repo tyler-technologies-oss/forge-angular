@@ -3,9 +3,10 @@ import { IMenuOption, IMenuSelectEventData, IconRegistry } from '@tylertech/forg
 import { tylIconArrowBack, tylIconDelete, tylIconInfoOutline, tylIconMoreVert } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-two-column-grid',
-  templateUrl: './two-column-grid.component.html',
-  styleUrls: ['./two-column-grid.component.scss']
+    selector: 'app-two-column-grid',
+    templateUrl: './two-column-grid.component.html',
+    styleUrls: ['./two-column-grid.component.scss'],
+    standalone: false
 })
 export class TwoColumnGridComponent {
   public lastSelectedValue: string;

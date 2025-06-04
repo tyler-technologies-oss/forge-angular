@@ -10,8 +10,9 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-autocomplete[formControlName],forge-autocomplete[formControl],forge-autocomplete[ngModel]',
-  providers: [AUTOCOMPLETE_VALUE_ACCESSOR]
+    selector: 'forge-autocomplete[formControlName],forge-autocomplete[formControl],forge-autocomplete[ngModel]',
+    providers: [AUTOCOMPLETE_VALUE_ACCESSOR],
+    standalone: false
 })
 export class AutocompleteValueAccessor implements ControlValueAccessor {
   @HostListener('forge-autocomplete-change', ['$event'])

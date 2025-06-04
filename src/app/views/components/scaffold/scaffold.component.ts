@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-scaffold',
-  templateUrl: './scaffold.component.html',
-  styleUrls: ['./scaffold.component.scss']
+    selector: 'app-scaffold',
+    templateUrl: './scaffold.component.html',
+    styleUrls: ['./scaffold.component.scss'],
+    standalone: false
 })
 export class ScaffoldComponent {
   public handleClick(target: EventTarget | null): void {

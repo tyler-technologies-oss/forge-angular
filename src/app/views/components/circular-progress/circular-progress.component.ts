@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CircularProgressTheme } from '@tylertech/forge';
 @Component({
-  selector: 'app-circular-progress',
-  templateUrl: './circular-progress.component.html'
+    selector: 'app-circular-progress',
+    templateUrl: './circular-progress.component.html',
+    standalone: false
 })
 export class CircularProgressComponent {
   public determinate = false;

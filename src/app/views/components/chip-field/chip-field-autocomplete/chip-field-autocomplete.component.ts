@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-chip-field-autocomplete',
-  templateUrl: './chip-field-autocomplete.component.html',
-  styleUrls: ['./chip-field-autocomplete.component.scss']
+    selector: 'app-chip-field-autocomplete',
+    templateUrl: './chip-field-autocomplete.component.html',
+    styleUrls: ['./chip-field-autocomplete.component.scss'],
+    standalone: false
 })
 export class ChipFieldAutocompleteComponent {
 

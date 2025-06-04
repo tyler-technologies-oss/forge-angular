@@ -4,9 +4,10 @@ import { ListComponent as ListComponentCustomElement, defineListComponent } from
 
 /**  */
 @Component({
-  selector: 'forge-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-list',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ListComponent {
 

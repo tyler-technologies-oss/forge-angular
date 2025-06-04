@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IMenuOption } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-table-cell-menu',
-  templateUrl: './table-cell-menu.component.html'
+    selector: 'app-table-cell-menu',
+    templateUrl: './table-cell-menu.component.html',
+    standalone: false
 })
 export class TableCellMenuComponent {
   @Input()

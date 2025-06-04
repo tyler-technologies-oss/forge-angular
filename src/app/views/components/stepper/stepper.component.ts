@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IStepConfiguration, StepperLayoutAlign, StepperLayoutMode } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-stepper',
-  templateUrl: './stepper.component.html'
+    selector: 'app-stepper',
+    templateUrl: './stepper.component.html',
+    standalone: false
 })
 export class StepperComponent {
   public selectedStepIndex = 2;

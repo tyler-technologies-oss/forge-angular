@@ -4,9 +4,10 @@ import { ButtonToggleGroupComponent as ButtonToggleGroupComponentCustomElement, 
 
 /**  */
 @Component({
-  selector: 'forge-button-toggle-group',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-button-toggle-group',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ButtonToggleGroupComponent {
 

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IDatePickerRange } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-date-range-picker-simple',
-  templateUrl: './date-range-picker-simple.component.html',
-  styleUrls: ['./date-range-picker-simple.component.scss']
+    selector: 'app-date-range-picker-simple',
+    templateUrl: './date-range-picker-simple.component.html',
+    styleUrls: ['./date-range-picker-simple.component.scss'],
+    standalone: false
 })
 export class DateRangePickerSimpleComponent implements OnInit {
 

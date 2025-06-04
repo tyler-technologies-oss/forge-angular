@@ -4,9 +4,10 @@ import { ChipFieldComponent as ChipFieldComponentCustomElement, defineChipFieldC
 
 /**  */
 @Component({
-  selector: 'forge-chip-field',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-chip-field',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ChipFieldComponent {
 

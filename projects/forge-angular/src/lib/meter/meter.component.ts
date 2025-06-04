@@ -4,9 +4,10 @@ import { MeterComponent as MeterComponentCustomElement, defineMeterComponent } f
 
 /**  */
 @Component({
-  selector: 'forge-meter',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-meter',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class MeterComponent {
 

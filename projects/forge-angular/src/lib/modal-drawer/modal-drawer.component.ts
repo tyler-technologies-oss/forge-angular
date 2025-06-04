@@ -4,9 +4,10 @@ import { ModalDrawerComponent as ModalDrawerComponentCustomElement, defineModalD
 
 /**  */
 @Component({
-  selector: 'forge-modal-drawer',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-modal-drawer',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ModalDrawerComponent {
 

@@ -4,9 +4,10 @@ import { ToolbarComponent as ToolbarComponentCustomElement, defineToolbarCompone
 
 /**  */
 @Component({
-  selector: 'forge-toolbar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-toolbar',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ToolbarComponent {
 

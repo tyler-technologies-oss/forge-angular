@@ -4,9 +4,10 @@ import { SelectComponent as SelectComponentCustomElement, defineSelectComponent 
 
 /**  */
 @Component({
-  selector: 'forge-select',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-select',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SelectComponent {
 

@@ -4,9 +4,10 @@ import { ToastService } from '@tylertech/forge-angular';
 import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-icon-button',
-  styleUrls: ['./icon-button.component.scss'],
-  templateUrl: './icon-button.component.html'
+    selector: 'app-icon-button',
+    styleUrls: ['./icon-button.component.scss'],
+    templateUrl: './icon-button.component.html',
+    standalone: false
 })
 export class IconButtonComponent {
   public isToggleOn = false;

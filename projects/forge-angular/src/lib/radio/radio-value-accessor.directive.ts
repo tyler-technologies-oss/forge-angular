@@ -9,8 +9,9 @@ export const RADIO_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-radio[formControlName],forge-radio[formControl],forge-radio[ngModel]',
-  providers: [RADIO_VALUE_ACCESSOR]
+    selector: 'forge-radio[formControlName],forge-radio[formControl],forge-radio[ngModel]',
+    providers: [RADIO_VALUE_ACCESSOR],
+    standalone: false
 })
 export class RadioValueAccessor implements ControlValueAccessor {
   @HostListener('change', ['$event'])

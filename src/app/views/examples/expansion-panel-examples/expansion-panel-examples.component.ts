@@ -4,9 +4,10 @@ import { ExpansionPanelExamplesService } from './expansion-panel-examples.servic
 import { IData } from './IData';
 
 @Component({
-  selector: 'app-expansion-panel-examples',
-  templateUrl: './expansion-panel-examples.component.html',
-  styleUrls: ['./expansion-panel-examples.component.scss'],
+    selector: 'app-expansion-panel-examples',
+    templateUrl: './expansion-panel-examples.component.html',
+    styleUrls: ['./expansion-panel-examples.component.scss'],
+    standalone: false
 })
 export class ExpansionPanelExamplesComponent implements OnInit {
   public data: IData[];

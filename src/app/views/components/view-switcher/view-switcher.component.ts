@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-view-switcher',
-  templateUrl: './view-switcher.component.html',
-  styleUrls: ['./view-switcher.component.scss']
+    selector: 'app-view-switcher',
+    templateUrl: './view-switcher.component.html',
+    styleUrls: ['./view-switcher.component.scss'],
+    standalone: false
 })
 export class ViewSwitcherComponent implements OnInit {
   public tabs: string[] = [];

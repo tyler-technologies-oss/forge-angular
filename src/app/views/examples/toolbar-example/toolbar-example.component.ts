@@ -33,9 +33,10 @@ const data: IFeedbackData[] = [
 ];
 
 @Component({
-  selector: 'app-toolbar-example',
-  templateUrl: './toolbar-example.component.html',
-  styleUrls: ['./toolbar-example.component.scss']
+    selector: 'app-toolbar-example',
+    templateUrl: './toolbar-example.component.html',
+    styleUrls: ['./toolbar-example.component.scss'],
+    standalone: false
 })
 
 export class ToolbarExampleComponent {

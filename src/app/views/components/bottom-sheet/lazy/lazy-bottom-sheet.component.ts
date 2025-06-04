@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { BottomSheetConfig, BottomSheetRef } from '@tylertech/forge-angular';
 
 @Component({
-  selector: 'lazy-bottom-sheet',
-  templateUrl: './lazy-bottom-sheet.component.html',
-  styleUrls: ['./lazy-bottom-sheet.component.scss']
+    selector: 'lazy-bottom-sheet',
+    templateUrl: './lazy-bottom-sheet.component.html',
+    styleUrls: ['./lazy-bottom-sheet.component.scss'],
+    standalone: false
 })
 export class LazyBottomSheetComponent {
   public title: string;

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { SelectBeforeValueChangeCallback } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html'
+    selector: 'app-select',
+    templateUrl: './select.component.html',
+    standalone: false
 })
 export class SelectComponent {
   public selected = 'grains';

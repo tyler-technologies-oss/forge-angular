@@ -3,8 +3,9 @@ import { IconRegistry } from '@tylertech/forge';
 import { tylIconAdd, tylIconDelete, tylIconFavorite } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-floating-action-button',
-  templateUrl: './floating-action-button.component.html'
+    selector: 'app-floating-action-button',
+    templateUrl: './floating-action-button.component.html',
+    standalone: false
 })
 export class FloatingActionButtonComponent {
   constructor() {

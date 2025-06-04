@@ -4,9 +4,10 @@ import { MiniDrawerComponent as MiniDrawerComponentCustomElement, defineMiniDraw
 
 /**  */
 @Component({
-  selector: 'forge-mini-drawer',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-mini-drawer',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class MiniDrawerComponent {
 

@@ -4,9 +4,10 @@ import { DividerComponent as DividerComponentCustomElement, defineDividerCompone
 
 /**  */
 @Component({
-  selector: 'forge-divider',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-divider',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class DividerComponent {
 

@@ -4,9 +4,10 @@ import { KeyItemComponent as KeyItemComponentCustomElement, defineKeyItemCompone
 
 /**  */
 @Component({
-  selector: 'forge-key-item',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-key-item',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class KeyItemComponent {
 

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { SplitViewOrientation, SplitViewPanelResizable } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-split-view',
-  templateUrl: './split-view.component.html'
+    selector: 'app-split-view',
+    templateUrl: './split-view.component.html',
+    standalone: false
 })
 export class SplitViewComponent {
   public panels: {label: string; resizable: SplitViewPanelResizable; open: boolean }[] = [

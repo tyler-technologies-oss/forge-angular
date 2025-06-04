@@ -4,9 +4,10 @@ import { CircularProgressComponent as CircularProgressComponentCustomElement, de
 
 /**  */
 @Component({
-  selector: 'forge-circular-progress',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-circular-progress',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class CircularProgressComponent {
 

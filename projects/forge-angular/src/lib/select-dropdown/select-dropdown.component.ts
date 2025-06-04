@@ -4,9 +4,10 @@ import { SelectDropdownComponent as SelectDropdownComponentCustomElement, define
 
 /**  */
 @Component({
-  selector: 'forge-select-dropdown',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-select-dropdown',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SelectDropdownComponent {
 

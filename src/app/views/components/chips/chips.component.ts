@@ -18,8 +18,9 @@ const inputChipsSource: IChip[] = [
 ];
 
 @Component({
-  selector: 'app-chips',
-  templateUrl: './chips.component.html'
+    selector: 'app-chips',
+    templateUrl: './chips.component.html',
+    standalone: false
 })
 export class ChipsComponent {
   public inputChips$ = new BehaviorSubject<IChip[]>([...inputChipsSource]);

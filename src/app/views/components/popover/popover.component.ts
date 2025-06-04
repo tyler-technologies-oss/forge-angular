@@ -3,9 +3,10 @@ import { PopoverDirective, PopoverService, IPopoverOptions, ToastService, Popove
 import { ExamplePopupComponent } from './example-popup.component';
 
 @Component({
-  selector: 'app-popover',
-  styleUrls: ['./popover.component.scss'],
-  templateUrl: './popover.component.html'
+    selector: 'app-popover',
+    styleUrls: ['./popover.component.scss'],
+    templateUrl: './popover.component.html',
+    standalone: false
 })
 export class PopoverComponent {
   constructor(private _popupService: PopoverService, private _toastService: ToastService) { }

@@ -4,9 +4,10 @@ import { TimePickerComponent as TimePickerComponentCustomElement, defineTimePick
 
 /**  */
 @Component({
-  selector: 'forge-time-picker',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-time-picker',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class TimePickerComponent {
 

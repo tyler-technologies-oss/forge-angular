@@ -10,8 +10,9 @@ export const CHECKBOX_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-checkbox[formControlName],forge-checkbox[formControl],forge-checkbox[ngModel]',
-  providers: [CHECKBOX_VALUE_ACCESSOR]
+    selector: 'forge-checkbox[formControlName],forge-checkbox[formControl],forge-checkbox[ngModel]',
+    providers: [CHECKBOX_VALUE_ACCESSOR],
+    standalone: false
 })
 export class CheckboxValueAccessor implements ControlValueAccessor {
   @HostListener('change', ['$event'])

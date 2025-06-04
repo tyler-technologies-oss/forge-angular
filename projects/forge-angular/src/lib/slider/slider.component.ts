@@ -4,9 +4,10 @@ import { SliderComponent as SliderComponentCustomElement, defineSliderComponent 
 
 /**  */
 @Component({
-  selector: 'forge-slider',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-slider',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SliderComponent {
 

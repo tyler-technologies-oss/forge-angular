@@ -15,9 +15,10 @@ import { JournalService } from './journal.service';
 import { IJournal } from './types';
 
 @Component({
-  selector: 'app-table-example',
-  templateUrl: './table-example.component.html',
-  styleUrls: ['./table-example.component.scss']
+    selector: 'app-table-example',
+    templateUrl: './table-example.component.html',
+    styleUrls: ['./table-example.component.scss'],
+    standalone: false
 })
 export class TableExampleComponent implements OnInit {
   @ViewChild('journalTable', {read: ElementRef})

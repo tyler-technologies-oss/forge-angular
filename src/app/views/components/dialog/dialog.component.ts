@@ -5,9 +5,10 @@ import { take, takeUntil } from 'rxjs/operators';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @Component({
-  selector: 'app-dialog',
-  styleUrls: ['./dialog.component.scss'],
-  templateUrl: './dialog.component.html'
+    selector: 'app-dialog',
+    styleUrls: ['./dialog.component.scss'],
+    templateUrl: './dialog.component.html',
+    standalone: false
 })
 export class DialogComponent {
   public nonmodal = false;

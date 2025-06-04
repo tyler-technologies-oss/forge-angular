@@ -5,9 +5,10 @@ import { take } from 'rxjs';
 import { CountDownDialogComponent } from './count-down-dialog/count-down-dialog.component';
 
 @Component({
-  selector: 'app-dialog-service-example',
-  templateUrl: './dialog-service-example.component.html',
-  styleUrls: ['./dialog-service-example.component.scss']
+    selector: 'app-dialog-service-example',
+    templateUrl: './dialog-service-example.component.html',
+    styleUrls: ['./dialog-service-example.component.scss'],
+    standalone: false
 })
 export class DialogServiceExampleComponent {
   public result = false;

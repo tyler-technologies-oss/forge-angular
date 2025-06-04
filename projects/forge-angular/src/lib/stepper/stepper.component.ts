@@ -4,9 +4,10 @@ import { StepperComponent as StepperComponentCustomElement, defineStepperCompone
 
 /**  */
 @Component({
-  selector: 'forge-stepper',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-stepper',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class StepperComponent {
 

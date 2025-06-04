@@ -9,8 +9,9 @@ export const BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-button-toggle-group[formControlName],forge-button-toggle-group[formControl],forge-button-toggle-group[ngModel]',
-  providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR]
+    selector: 'forge-button-toggle-group[formControlName],forge-button-toggle-group[formControl],forge-button-toggle-group[ngModel]',
+    providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR],
+    standalone: false
 })
 export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
   @HostListener('forge-button-toggle-group-change', ['$event'])

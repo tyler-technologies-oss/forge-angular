@@ -4,9 +4,10 @@ import { CheckboxComponent as CheckboxComponentCustomElement, defineCheckboxComp
 
 /**  */
 @Component({
-  selector: 'forge-checkbox',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-checkbox',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class CheckboxComponent {
 

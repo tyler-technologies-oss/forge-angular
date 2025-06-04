@@ -4,9 +4,10 @@ import { FloatingActionButtonComponent as FloatingActionButtonComponentCustomEle
 
 /**  */
 @Component({
-  selector: 'forge-fab',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-fab',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class FloatingActionButtonComponent {
 

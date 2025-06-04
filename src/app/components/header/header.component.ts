@@ -7,8 +7,9 @@ import { tylIconBrightness3 } from '@tylertech/tyler-icons/extended';
 import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html'
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    standalone: false
 })
 export class HeaderComponent {
   private _isDark = false;

@@ -4,9 +4,10 @@ import { FocusIndicatorComponent as FocusIndicatorComponentCustomElement, define
 
 /**  */
 @Component({
-  selector: 'forge-focus-indicator',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-focus-indicator',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class FocusIndicatorComponent {
 

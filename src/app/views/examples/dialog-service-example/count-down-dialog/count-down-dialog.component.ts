@@ -3,9 +3,10 @@ import { DialogConfig } from '@tylertech/forge-angular';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-count-down-dialog',
-  templateUrl: './count-down-dialog.component.html',
-  styleUrls: ['./count-down-dialog.component.scss']
+    selector: 'app-count-down-dialog',
+    templateUrl: './count-down-dialog.component.html',
+    styleUrls: ['./count-down-dialog.component.scss'],
+    standalone: false
 })
 export class CountDownDialogComponent {
   public counter$: Observable<number>;

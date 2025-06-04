@@ -4,9 +4,10 @@ import { PaginatorComponent as PaginatorComponentCustomElement, definePaginatorC
 
 /**  */
 @Component({
-  selector: 'forge-paginator',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-paginator',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class PaginatorComponent {
 

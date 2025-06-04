@@ -4,9 +4,10 @@ import { MeterGroupComponent as MeterGroupComponentCustomElement, defineMeterGro
 
 /**  */
 @Component({
-  selector: 'forge-meter-group',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-meter-group',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class MeterGroupComponent {
 

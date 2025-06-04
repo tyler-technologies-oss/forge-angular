@@ -10,8 +10,9 @@ export const DATEPICKER_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-date-picker[formControlName],forge-date-picker[formControl],forge-date-picker[ngModel]',
-  providers: [DATEPICKER_VALUE_ACCESSOR]
+    selector: 'forge-date-picker[formControlName],forge-date-picker[formControl],forge-date-picker[ngModel]',
+    providers: [DATEPICKER_VALUE_ACCESSOR],
+    standalone: false
 })
 export class DatePickerValueAccessor implements ControlValueAccessor {
   @HostListener('forge-date-picker-change', ['$event'])

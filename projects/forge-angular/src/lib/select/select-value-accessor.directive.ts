@@ -10,8 +10,9 @@ export const SELECT_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-select[formControlName],forge-select[formControl],forge-select[ngModel]',
-  providers: [SELECT_VALUE_ACCESSOR]
+    selector: 'forge-select[formControlName],forge-select[formControl],forge-select[ngModel]',
+    providers: [SELECT_VALUE_ACCESSOR],
+    standalone: false
 })
 export class SelectValueAccessor implements ControlValueAccessor {
   @HostListener('change', ['$event'])

@@ -7,8 +7,9 @@ import { POPOVER_CONSTANTS, OverlayPlacement, PopoverComponent } from '@tylertec
  * from the provided `TemplateRef`.
  */
 @Directive({
-  selector: '[forgePopover]',
-  exportAs: 'forgePopover'
+    selector: '[forgePopover]',
+    exportAs: 'forgePopover',
+    standalone: false
 })
 export class PopoverDirective implements OnDestroy {
   private _popoverElement?: PopoverComponent;

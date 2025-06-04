@@ -4,9 +4,10 @@ import { PopoverComponent as PopoverComponentCustomElement, definePopoverCompone
 
 /**  */
 @Component({
-  selector: 'forge-popover',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-popover',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class PopoverComponent {
 

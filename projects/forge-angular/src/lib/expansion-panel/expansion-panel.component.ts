@@ -4,9 +4,10 @@ import { ExpansionPanelComponent as ExpansionPanelComponentCustomElement, define
 
 /**  */
 @Component({
-  selector: 'forge-expansion-panel',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-expansion-panel',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ExpansionPanelComponent {
 

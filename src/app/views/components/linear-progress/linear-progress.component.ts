@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-linear-progress',
-  styleUrls: ['./linear-progress.component.scss'],
-  templateUrl: './linear-progress.component.html'
+    selector: 'app-linear-progress',
+    styleUrls: ['./linear-progress.component.scss'],
+    templateUrl: './linear-progress.component.html',
+    standalone: false
 })
 export class LinearProgressComponent {
   public isDeterminate = false;

@@ -4,9 +4,10 @@ import { ViewComponent as ViewComponentCustomElement, defineViewComponent } from
 
 /**  */
 @Component({
-  selector: 'forge-view',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-view',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ViewComponent {
 

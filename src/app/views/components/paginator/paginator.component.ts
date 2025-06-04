@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IPaginatorChangeEventData } from '@tylertech/forge';
 
 @Component({
-  selector: 'app-paginator',
-  templateUrl: './paginator.component.html'
+    selector: 'app-paginator',
+    templateUrl: './paginator.component.html',
+    standalone: false
 })
 export class PaginatorComponent {
   public total = 100;

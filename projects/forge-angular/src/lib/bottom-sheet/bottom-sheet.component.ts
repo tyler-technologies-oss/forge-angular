@@ -4,9 +4,10 @@ import { BottomSheetComponent as BottomSheetComponentCustomElement, defineBottom
 
 /**  */
 @Component({
-  selector: 'forge-bottom-sheet',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-bottom-sheet',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class BottomSheetComponent {
 

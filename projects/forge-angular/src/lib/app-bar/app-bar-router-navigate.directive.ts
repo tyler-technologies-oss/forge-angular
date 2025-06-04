@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { IAppBarComponent } from '@tylertech/forge';
 
 @Directive({
-  selector: 'forge-app-bar[href]'
+    selector: 'forge-app-bar[href]',
+    standalone: false
 })
 export class AppBarRouterNavigateDirective {
   private _listener: (evt: CustomEvent<void>) => void = this._onNavigate.bind(this);

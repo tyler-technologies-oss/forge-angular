@@ -4,9 +4,10 @@ import { ScaffoldComponent as ScaffoldComponentCustomElement, defineScaffoldComp
 
 /**  */
 @Component({
-  selector: 'forge-scaffold',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-scaffold',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ScaffoldComponent {
 

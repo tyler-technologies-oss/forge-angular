@@ -8,9 +8,10 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-date-range-picker-reactive-form',
-  templateUrl: './date-range-picker-reactive-form.component.html',
-  styleUrls: ['./date-range-picker-reactive-form.component.scss']
+    selector: 'app-date-range-picker-reactive-form',
+    templateUrl: './date-range-picker-reactive-form.component.html',
+    styleUrls: ['./date-range-picker-reactive-form.component.scss'],
+    standalone: false
 })
 export class DateRangePickerReactiveFormComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { TooltipComponent as TooltipComponentCustomElement, defineTooltipCompone
 
 /**  */
 @Component({
-  selector: 'forge-tooltip',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-tooltip',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class TooltipComponent {
 

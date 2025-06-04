@@ -4,9 +4,10 @@ import { TabBarComponent as TabBarComponentCustomElement, defineTabBarComponent 
 
 /**  */
 @Component({
-  selector: 'forge-tab-bar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-tab-bar',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class TabBarComponent {
 

@@ -3,9 +3,10 @@ import { AutocompleteFilterCallback, IOption, IconRegistry } from '@tylertech/fo
 import { tylIconArrowDropDown } from '@tylertech/tyler-icons/standard';
 
 @Component({
-  selector: 'app-autocomplete',
-  templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss']
+    selector: 'app-autocomplete',
+    templateUrl: './autocomplete.component.html',
+    styleUrls: ['./autocomplete.component.scss'],
+    standalone: false
 })
 export class AutocompleteComponent implements OnInit {
   public selectedState?: IOption<string>;

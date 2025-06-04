@@ -4,9 +4,10 @@ import { ToastComponent as ToastComponentCustomElement, defineToastComponent } f
 
 /**  */
 @Component({
-  selector: 'forge-toast',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-toast',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ToastComponent {
 

@@ -5,8 +5,9 @@ import { take, takeUntil } from 'rxjs/operators';
 import { ConfirmBottomSheetComponent } from './confirm/confirm-bottom-sheet.component';
 
 @Component({
-  selector: 'app-bottom-sheet',
-  templateUrl: './bottom-sheet.component.html'
+    selector: 'app-bottom-sheet',
+    templateUrl: './bottom-sheet.component.html',
+    standalone: false
 })
 export class BottomSheetComponent {
   public persistent = false;

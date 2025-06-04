@@ -4,9 +4,10 @@ import { StepComponent as StepComponentCustomElement, defineStepComponent } from
 
 /**  */
 @Component({
-  selector: 'forge-step',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-step',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class StepComponent {
 

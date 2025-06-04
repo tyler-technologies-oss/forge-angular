@@ -4,9 +4,10 @@ import { InlineMessageComponent as InlineMessageComponentCustomElement, defineIn
 
 /**  */
 @Component({
-  selector: 'forge-inline-message',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-inline-message',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class InlineMessageComponent {
 

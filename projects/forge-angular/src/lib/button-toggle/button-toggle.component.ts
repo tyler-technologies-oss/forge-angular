@@ -4,9 +4,10 @@ import { ButtonToggleComponent as ButtonToggleComponentCustomElement, defineButt
 
 /**  */
 @Component({
-  selector: 'forge-button-toggle',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-button-toggle',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ButtonToggleComponent {
 

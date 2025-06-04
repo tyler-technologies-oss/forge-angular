@@ -4,9 +4,10 @@ import { FilePickerComponent as FilePickerComponentCustomElement, defineFilePick
 
 /**  */
 @Component({
-  selector: 'forge-file-picker',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-file-picker',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class FilePickerComponent {
 

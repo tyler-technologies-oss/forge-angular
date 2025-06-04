@@ -4,9 +4,10 @@ import { MenuComponent as MenuComponentCustomElement, defineMenuComponent } from
 
 /**  */
 @Component({
-  selector: 'forge-menu',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-menu',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class MenuComponent {
 

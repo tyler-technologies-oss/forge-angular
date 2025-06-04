@@ -4,9 +4,10 @@ import { ButtonAreaComponent as ButtonAreaComponentCustomElement, defineButtonAr
 
 /**  */
 @Component({
-  selector: 'forge-button-area',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-button-area',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class ButtonAreaComponent {
 

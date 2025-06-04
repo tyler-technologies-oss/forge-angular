@@ -4,9 +4,10 @@ import { SwitchComponent as SwitchComponentCustomElement, defineSwitchComponent 
 
 /**  */
 @Component({
-  selector: 'forge-switch',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-switch',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SwitchComponent {
 

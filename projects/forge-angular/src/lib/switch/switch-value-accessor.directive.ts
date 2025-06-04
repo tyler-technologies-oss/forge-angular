@@ -9,8 +9,9 @@ export const SWITCH_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-switch[formControlName],forge-switch[formControl],forge-switch[ngModel]',
-  providers: [SWITCH_VALUE_ACCESSOR]
+    selector: 'forge-switch[formControlName],forge-switch[formControl],forge-switch[ngModel]',
+    providers: [SWITCH_VALUE_ACCESSOR],
+    standalone: false
 })
 export class SwitchValueAccessor implements ControlValueAccessor {
   @HostListener('forge-switch-change', ['$event'])

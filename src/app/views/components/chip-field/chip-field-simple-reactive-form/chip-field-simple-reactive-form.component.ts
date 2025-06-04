@@ -9,9 +9,10 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-chip-field-simple-reactive-form',
-  templateUrl: './chip-field-simple-reactive-form.component.html',
-  styleUrls: ['./chip-field-simple-reactive-form.component.scss']
+    selector: 'app-chip-field-simple-reactive-form',
+    templateUrl: './chip-field-simple-reactive-form.component.html',
+    styleUrls: ['./chip-field-simple-reactive-form.component.scss'],
+    standalone: false
 })
 export class ChipFieldSimpleReactiveFormComponent implements OnInit {
 

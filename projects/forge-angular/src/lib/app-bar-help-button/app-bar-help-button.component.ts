@@ -4,9 +4,10 @@ import { AppBarHelpButtonComponent as AppBarHelpButtonComponentCustomElement, de
 
 /**  */
 @Component({
-  selector: 'forge-app-bar-help-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-app-bar-help-button',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class AppBarHelpButtonComponent {
 

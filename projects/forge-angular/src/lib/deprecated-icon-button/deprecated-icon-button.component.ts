@@ -4,9 +4,10 @@ import { DeprecatedIconButtonComponent as DeprecatedIconButtonComponentCustomEle
 
 /**  */
 @Component({
-  selector: 'forge-deprecated-icon-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-deprecated-icon-button',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class DeprecatedIconButtonComponent {
 

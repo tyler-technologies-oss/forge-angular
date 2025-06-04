@@ -10,8 +10,9 @@ export const TIME_PICKER_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-time-picker[formControlName],forge-time-picker[formControl],forge-time-picker[ngModel]',
-  providers: [TIME_PICKER_VALUE_ACCESSOR]
+    selector: 'forge-time-picker[formControlName],forge-time-picker[formControl],forge-time-picker[ngModel]',
+    providers: [TIME_PICKER_VALUE_ACCESSOR],
+    standalone: false
 })
 export class TimePickerValueAccessor implements ControlValueAccessor {
   @HostListener('forge-time-picker-change', ['$event'])

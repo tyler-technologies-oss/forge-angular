@@ -4,9 +4,10 @@ import { AppBarProfileButtonComponent as AppBarProfileButtonComponentCustomEleme
 
 /**  */
 @Component({
-  selector: 'forge-app-bar-profile-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-app-bar-profile-button',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class AppBarProfileButtonComponent {
 

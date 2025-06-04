@@ -4,9 +4,10 @@ import { LabelComponent as LabelComponentCustomElement, defineLabelComponent } f
 
 /**  */
 @Component({
-  selector: 'forge-label',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-label',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class LabelComponent {
 

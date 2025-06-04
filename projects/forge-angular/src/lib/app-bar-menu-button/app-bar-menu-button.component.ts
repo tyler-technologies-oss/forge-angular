@@ -4,9 +4,10 @@ import { AppBarMenuButtonComponent as AppBarMenuButtonComponentCustomElement, de
 
 /**  */
 @Component({
-  selector: 'forge-app-bar-menu-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+    selector: 'forge-app-bar-menu-button',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class AppBarMenuButtonComponent {
 
