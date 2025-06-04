@@ -1,98 +1,53 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
-import { AccordionComponent } from './views/components/accordion/accordion.component';
-import { AutocompleteComponent } from './views/components/autocomplete/autocomplete.component';
-import { BannerComponent } from './views/components/banner/banner.component';
-import { BottomSheetComponent } from './views/components/bottom-sheet/bottom-sheet.component';
-import { ChipsComponent } from './views/components/chips/chips.component';
-import { InlineMessageComponent } from './views/components/inline-message/inline-message.component';
-import { SplitViewComponent } from './views/components/split-view/split-view.component';
-import { AvatarComponent } from './views/components/avatar/avatar.component';
-import { DialogComponent } from './views/components/dialog/dialog.component';
-import { ListComponent } from './views/components/list/list.component';
-import { SliderComponent } from './views/components/slider/slider.component';
-import { LinearProgressComponent } from './views/components/linear-progress/linear-progress.component';
-import { SelectComponent } from './views/components/select/select.component';
-import { ChipFieldComponent } from './views/components/chip-field/chip-field.component';
-import { CircularProgressComponent } from './views/components/circular-progress/circular-progress.component';
-import { ToastComponent } from './views/components/toast/toast.component';
-import { TextFieldComponent } from './views/components/text-field/text-field.component';
-import { IconComponent } from './views/components/icon/icon.component';
-import { ScaffoldComponent } from './views/components/scaffold/scaffold.component';
-import { PopoverComponent } from './views/components/popover/popover.component';
-import { TabBarComponent } from './views/components/tab-bar/tab-bar.component';
-import { StepperComponent } from './views/components/stepper/stepper.component';
-import { SwitchComponent } from './views/components/switch/switch.component';
-import { TableComponent } from './views/components/table/table.component';
-import { TooltipComponent } from './views/components/tooltip/tooltip.component';
-import { ViewSwitcherComponent } from './views/components/view-switcher/view-switcher.component';
-import { PaginatorComponent } from './views/components/paginator/paginator.component';
-import { MenuComponent } from './views/components/menu/menu.component';
-import { RadioComponent } from './views/components/radio/radio.component';
-import { PageStateComponent } from './views/components/page-state/page-state.component';
-import { ExpansionPanelComponent } from './views/components/expansion-panel/expansion-panel.component';
-import { FloatingActionButtonComponent } from './views/components/floating-action-button/floating-action-button.component';
-import { DatePickerComponent } from './views/components/date-picker/date-picker.component';
-import { DateRangePickerComponent } from './views/components/date-range-picker/date-range-picker.component';
-import { ButtonComponent } from './views/components/button/button.component';
-import { CheckboxComponent } from './views/components/checkbox/checkbox.component';
-import { TimePickerComponent } from './views/components/time-picker/time-picker.component';
-import { IconButtonComponent } from './views/components/icon-button/icon-button.component';
-import { ReactiveFormExampleComponent } from './views/examples/reactive-form-example/reactive-form-example.component';
-import { TableExampleComponent } from './views/examples/table-example/table-example.component';
-import { ExpansionPanelExamplesComponent } from './views/examples/expansion-panel-examples/expansion-panel-examples.component';
-import { ToolbarExampleComponent } from './views/examples/toolbar-example/toolbar-example.component';
-import { DialogServiceExampleComponent } from './views/examples/dialog-service-example/dialog-service-example.component';
-import { TwoColumnGridComponent } from './views/examples/two-column-grid/two-column-grid.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: '', pathMatch: 'full', loadComponent: () => import('./views/home/home.component').then(m => m.HomeComponent) },
   { path: 'component', children: [
-    { path: 'accordion', component: AccordionComponent },
-    { path: 'autocomplete', component: AutocompleteComponent },
-    { path: 'avatar', component: AvatarComponent },
-    { path: 'banner', component: BannerComponent },
-    { path: 'bottom-sheet', component: BottomSheetComponent },
-    { path: 'button', component: ButtonComponent },
-    { path: 'checkbox', component: CheckboxComponent },
-    { path: 'chip-field', component: ChipFieldComponent },
-    { path: 'chips', component: ChipsComponent },
-    { path: 'circular-progress', component: CircularProgressComponent },
-    { path: 'date-picker', component: DatePickerComponent },
-    { path: 'date-range-picker', component: DateRangePickerComponent },
-    { path: 'dialog', component: DialogComponent },
-    { path: 'expansion-panel', component: ExpansionPanelComponent },
-    { path: 'floating-action-button', component: FloatingActionButtonComponent },
-    { path: 'icon', component: IconComponent },
-    { path: 'icon-button', component: IconButtonComponent },
-    { path: 'inline-message', component: InlineMessageComponent },
-    { path: 'linear-progress', component: LinearProgressComponent },
-    { path: 'list', component: ListComponent },
-    { path: 'menu', component: MenuComponent },
-    { path: 'page-state', component: PageStateComponent },
-    { path: 'paginator', component: PaginatorComponent },
-    { path: 'popover', component: PopoverComponent },
-    { path: 'radio', component: RadioComponent },
-    { path: 'scaffold', component: ScaffoldComponent },
-    { path: 'select', component: SelectComponent },
-    { path: 'slider', component: SliderComponent },
-    { path: 'split-view', component: SplitViewComponent },
-    { path: 'stepper', component: StepperComponent },
-    { path: 'switch', component: SwitchComponent },
-    { path: 'tab-bar', component: TabBarComponent },
-    { path: 'table', component: TableComponent },
-    { path: 'text-field', component: TextFieldComponent },
-    { path: 'time-picker', component: TimePickerComponent },
-    { path: 'toast', component: ToastComponent },
-    { path: 'tooltip', component: TooltipComponent },
-    { path: 'view-switcher', component: ViewSwitcherComponent }
+    { path: 'accordion', loadComponent: () => import('./views/components/accordion/accordion.component').then(m => m.AccordionComponent) },
+    { path: 'autocomplete', loadComponent: () => import('./views/components/autocomplete/autocomplete.component').then(m => m.AutocompleteComponent) },
+    { path: 'avatar', loadComponent: () => import('./views/components/avatar/avatar.component').then(m => m.AvatarComponent) },
+    { path: 'banner', loadComponent: () => import('./views/components/banner/banner.component').then(m => m.BannerComponent) },
+    { path: 'bottom-sheet', loadComponent: () => import('./views/components/bottom-sheet/bottom-sheet.component').then(m => m.BottomSheetComponent) },
+    { path: 'button', loadComponent: () => import('./views/components/button/button.component').then(m => m.ButtonComponent) },
+    { path: 'checkbox', loadComponent: () => import('./views/components/checkbox/checkbox.component').then(m => m.CheckboxComponent) },
+    { path: 'chip-field', loadComponent: () => import('./views/components/chip-field/chip-field.component').then(m => m.ChipFieldComponent) },
+    { path: 'chips', loadComponent: () => import('./views/components/chips/chips.component').then(m => m.ChipsComponent) },
+    { path: 'circular-progress', loadComponent: () => import('./views/components/circular-progress/circular-progress.component').then(m => m.CircularProgressComponent) },
+    { path: 'date-picker', loadComponent: () => import('./views/components/date-picker/date-picker.component').then(m => m.DatePickerComponent) },
+    { path: 'date-range-picker', loadComponent: () => import('./views/components/date-range-picker/date-range-picker.component').then(m => m.DateRangePickerComponent) },
+    { path: 'dialog', loadComponent: () => import('./views/components/dialog/dialog.component').then(m => m.DialogComponent) },
+    { path: 'expansion-panel', loadComponent: () => import('./views/components/expansion-panel/expansion-panel.component').then(m => m.ExpansionPanelComponent) },
+    { path: 'floating-action-button', loadComponent: () => import('./views/components/floating-action-button/floating-action-button.component').then(m => m.FloatingActionButtonComponent) },
+    { path: 'icon', loadComponent: () => import('./views/components/icon/icon.component').then(m => m.IconComponent) },
+    { path: 'icon-button', loadComponent: () => import('./views/components/icon-button/icon-button.component').then(m => m.IconButtonComponent) },
+    { path: 'inline-message', loadComponent: () => import('./views/components/inline-message/inline-message.component').then(m => m.InlineMessageComponent) },
+    { path: 'linear-progress', loadComponent: () => import('./views/components/linear-progress/linear-progress.component').then(m => m.LinearProgressComponent) },
+    { path: 'list', loadComponent: () => import('./views/components/list/list.component').then(m => m.ListComponent) },
+    { path: 'menu', loadComponent: () => import('./views/components/menu/menu.component').then(m => m.MenuComponent) },
+    { path: 'page-state', loadComponent: () => import('./views/components/page-state/page-state.component').then(m => m.PageStateComponent) },
+    { path: 'paginator', loadComponent: () => import('./views/components/paginator/paginator.component').then(m => m.PaginatorComponent) },
+    { path: 'popover', loadComponent: () => import('./views/components/popover/popover.component').then(m => m.PopoverComponent) },
+    { path: 'radio', loadComponent: () => import('./views/components/radio/radio.component').then(m => m.RadioComponent) },
+    { path: 'scaffold', loadComponent: () => import('./views/components/scaffold/scaffold.component').then(m => m.ScaffoldComponent) },
+    { path: 'select', loadComponent: () => import('./views/components/select/select.component').then(m => m.SelectComponent) },
+    { path: 'slider', loadComponent: () => import('./views/components/slider/slider.component').then(m => m.SliderComponent) },
+    { path: 'split-view', loadComponent: () => import('./views/components/split-view/split-view.component').then(m => m.SplitViewComponent) },
+    { path: 'stepper', loadComponent: () => import('./views/components/stepper/stepper.component').then(m => m.StepperComponent) },
+    { path: 'switch', loadComponent: () => import('./views/components/switch/switch.component').then(m => m.SwitchComponent) },
+    { path: 'tab-bar', loadComponent: () => import('./views/components/tab-bar/tab-bar.component').then(m => m.TabBarComponent) },
+    { path: 'table', loadComponent: () => import('./views/components/table/table.component').then(m => m.TableComponent) },
+    { path: 'text-field', loadComponent: () => import('./views/components/text-field/text-field.component').then(m => m.TextFieldComponent) },
+    { path: 'time-picker', loadComponent: () => import('./views/components/time-picker/time-picker.component').then(m => m.TimePickerComponent) },
+    { path: 'toast', loadComponent: () => import('./views/components/toast/toast.component').then(m => m.ToastComponent) },
+    { path: 'tooltip', loadComponent: () => import('./views/components/tooltip/tooltip.component').then(m => m.TooltipComponent) },
+    { path: 'view-switcher', loadComponent: () => import('./views/components/view-switcher/view-switcher.component').then(m => m.ViewSwitcherComponent) }
   ]},
   { path: 'example', children: [
-    { path: 'dialog-service', component: DialogServiceExampleComponent },
-    { path: 'expansion-panel', component: ExpansionPanelExamplesComponent },
-    { path: 'reactive-form', component: ReactiveFormExampleComponent },
-    { path: 'table', component: TableExampleComponent },
-    { path: 'toolbar-example', component: ToolbarExampleComponent },
-    { path: 'two-column-grid', component: TwoColumnGridComponent }
+    { path: 'dialog-service', loadComponent: () => import('./views/examples/dialog-service-example/dialog-service-example.component').then(m => m.DialogServiceExampleComponent) },
+    { path: 'expansion-panel', loadComponent: () => import('./views/examples/expansion-panel-examples/expansion-panel-examples.component').then(m => m.ExpansionPanelExamplesComponent) },
+    { path: 'reactive-form', loadComponent: () => import('./views/examples/reactive-form-example/reactive-form-example.component').then(m => m.ReactiveFormExampleComponent) },
+    { path: 'table', loadComponent: () => import('./views/examples/table-example/table-example.component').then(m => m.TableExampleComponent) },
+    { path: 'toolbar-example', loadComponent: () => import('./views/examples/toolbar-example/toolbar-example.component').then(m => m.ToolbarExampleComponent) },
+    { path: 'two-column-grid', loadComponent: () => import('./views/examples/two-column-grid/two-column-grid.component').then(m => m.TwoColumnGridComponent) }
   ]}
 ];
