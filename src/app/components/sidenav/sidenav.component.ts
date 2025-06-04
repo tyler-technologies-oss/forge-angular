@@ -1,8 +1,8 @@
 import { Location, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, inject, input, output, signal, viewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, inject, signal, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
+import { IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
 import { DrawerService } from 'src/app/services/drawer.service';

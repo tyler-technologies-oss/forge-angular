@@ -1,4 +1,4 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ToastService, ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
