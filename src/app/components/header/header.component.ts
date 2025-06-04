@@ -1,10 +1,11 @@
-import { Component, Output, EventEmitter, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { ToastService, ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
 import { tylIconTylerTalkingTLogo } from '@tylertech/tyler-icons/custom';
 import { tylIconBrightness3 } from '@tylertech/tyler-icons/extended';
 import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
+import { DrawerService } from '../../services/drawer.service';
 
 @Component({
     selector: 'app-header',
@@ -13,14 +14,12 @@ import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
 })
 export class HeaderComponent {
   private _toastService = inject(ToastService);
+  private _sidenavService = inject(DrawerService);
 
   private _isDark = false;
   public themeSwitcherIcon: string = tylIconBrightness3.name;
 
-  public readonly showDrawerToggle = input(false);
-
-  @Output()
-  public menuClicked = new EventEmitter<void>();
+  public displayDrawerToggle = this._sidenavService.displayDrawerToggle;
 
   constructor() {
     IconRegistry.define([
@@ -31,7 +30,7 @@ export class HeaderComponent {
   }
 
   public onMenuClicked(): void {
-    this.menuClicked.next();
+    this._sidenavService.toggleDrawer();
   }
 
   public onSearch(evt: CustomEvent<IAppBarSearchInputEventData>): void {

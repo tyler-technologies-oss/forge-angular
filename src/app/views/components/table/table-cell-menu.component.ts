@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { IMenuOption } from '@tylertech/forge';
 import { ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
@@ -10,8 +10,7 @@ import { ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule } from '@tylert
 export class TableCellMenuComponent {
   public readonly iconName = input<string>();
 
-  @Output()
-  public selected = new EventEmitter();
+  public readonly selected = output();
 
   public options: IMenuOption[] = [
     { label: 'Delete', value: 'delete' },
@@ -20,6 +19,6 @@ export class TableCellMenuComponent {
   ];
 
   public onMenuOptionSelected(value: any): void {
-    this.selected.next(value);
+    this.selected.emit(value);
   }
 }

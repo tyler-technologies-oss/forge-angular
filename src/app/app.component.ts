@@ -10,11 +10,4 @@ import { RouterOutlet } from '@angular/router';
     styleUrls: ['./app.component.scss'],
     imports: [ForgeScaffoldModule, HeaderComponent, SidenavComponent, RouterOutlet]
 })
-export class AppComponent {
-  public isDrawerOpen = false;
-  public canCloseDrawer = false;
-
-  public onMenuClicked(): void {
-    this.isDrawerOpen = !this.isDrawerOpen;
-  }
-}
+export class AppComponent { }

@@ -1,5 +1,5 @@
-@if (isSmallViewPort) {
-  <forge-dialog aria-label="Navigation menu" preset="left-sheet" (forge-dialog-close)="closeSidenav()" [open]="open()">
+@if (isSmallViewPort()) {
+  <forge-dialog aria-label="Navigation menu" preset="left-sheet" (forge-dialog-close)="closeDrawer()" [open]="open()">
     <div class="dialog-sidenav">
       <ng-container *ngTemplateOutlet="sidenavContent"></ng-container>
     </div>
@@ -11,7 +11,6 @@
     </aside>
   </forge-drawer>
 }
-
 
 <ng-template #sidenavContent>
   <forge-list navlist>

@@ -1,10 +1,11 @@
 import { Location, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild, inject, input } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject, input, output, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
 import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
+import { DrawerService } from 'src/app/services/drawer.service';
 
 IconRegistry.define([
   tylIconHome,
@@ -26,6 +27,7 @@ export interface IMenuItem {
 export class SidenavComponent implements OnInit {
   private _location = inject(Location);
   private _cd = inject(ChangeDetectorRef);
+  private _drawerService = inject(DrawerService);
 
   public selectedPath: string;
 
@@ -35,12 +37,10 @@ export class SidenavComponent implements OnInit {
   @ViewChild('exampleExpansionPanel', { static: false, read: ElementRef })
   public exampleExpansionPanel: ElementRef<IExpansionPanelComponent>;
 
-  public readonly open = input<boolean>();
+  public open = this._drawerService.open;
   public drawerType: string;
-  public isSmallViewPort: boolean;
 
-  @Output() public onClose = new EventEmitter();
-  @Output() public onModalChange = new EventEmitter<boolean>();
+  public isSmallViewPort = signal(false);
 
   @HostListener('window:resize')
   public onResize(): void {
@@ -103,7 +103,7 @@ export class SidenavComponent implements OnInit {
     router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (this.open()) {
-          this.closeSidenav();
+          this._drawerService.closeDrawer();
         }
       }
     });
@@ -111,29 +111,22 @@ export class SidenavComponent implements OnInit {
 
   public updateViewportSize(): void {
     if (window.innerWidth < 750) {
-      this.isSmallViewPort = true;
-      this.open = false;
+      this._drawerService.closeDrawer();
+      this._drawerService.showDrawerToggle();
+      this.isSmallViewPort.set(true);
     } else {
-      this.isSmallViewPort = false;
+      this._drawerService.hideDrawerToggle();
+      this.isSmallViewPort.set(false);
     }
-    this.onModalChange.emit(this.isSmallViewPort);
   }
 
-  public openSidenav(): void {
-    this.open = true;
-  }
-
-  public closeSidenav(): void {
-    this.open = false;
-    this.onClose.emit();
+  public closeDrawer(): void {
+    this._drawerService.closeDrawer();
   }
 
   public ngOnInit(): void {
     window.requestAnimationFrame(() => {
       this.updateViewportSize();
-      if (!this.open()) {
-        this.onClose.emit();
-      }
     });
   }
 
