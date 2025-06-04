@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { IStepConfiguration, StepperLayoutAlign, StepperLayoutMode } from '@tylertech/forge';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeStepperModule, ForgeStepModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeButtonModule } from '@tylertech/forge-angular';
-import { NgIf, NgFor } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-stepper',
     templateUrl: './stepper.component.html',
-    imports: [DemoCardComponent, ForgeStepperModule, NgIf, ForgeStepModule, NgFor, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeButtonModule]
+    imports: [DemoCardComponent, ForgeStepperModule, ForgeStepModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeButtonModule]
 })
 export class StepperComponent {
   public selectedStepIndex = 2;

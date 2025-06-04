@@ -13,13 +13,13 @@ import { getJournalColumnConfig } from './journal-table-utils';
 import { JournalService } from './journal.service';
 import { IJournal } from './types';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-table-example',
     templateUrl: './table-example.component.html',
     styleUrls: ['./table-example.component.scss'],
-    imports: [DemoCardComponent, ForgeDividerModule, NgIf, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe],
+    imports: [DemoCardComponent, ForgeDividerModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe],
     providers: [JournalService]
 })
 export class TableExampleComponent implements OnInit {

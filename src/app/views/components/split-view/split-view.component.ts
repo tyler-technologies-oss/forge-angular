@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { SplitViewOrientation, SplitViewPanelResizable } from '@tylertech/forge';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
-import { NgFor } from '@angular/common';
+
 import { ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, ForgeSplitViewModule } from '@tylertech/forge-angular';
 import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-split-view',
     templateUrl: './split-view.component.html',
-    imports: [DemoCardComponent, NgFor, ForgeSelectProxyModule, ForgeSelectModule, FormsModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, ForgeSplitViewModule]
+    imports: [DemoCardComponent, ForgeSelectProxyModule, ForgeSelectModule, FormsModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, ForgeSplitViewModule]
 })
 export class SplitViewComponent {
   public panels: {label: string; resizable: SplitViewPanelResizable; open: boolean }[] = [

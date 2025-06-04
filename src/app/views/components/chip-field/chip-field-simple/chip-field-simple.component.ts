@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IChipComponent, IChipDeleteEventData } from '@tylertech/forge';
 import { ForgeChipFieldModule, ForgeChipProxyModule } from '@tylertech/forge-angular';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-chip-field-simple',
     templateUrl: './chip-field-simple.component.html',
     styleUrls: ['./chip-field-simple.component.scss'],
-    imports: [ForgeChipFieldModule, NgFor, ForgeChipProxyModule]
+    imports: [ForgeChipFieldModule, ForgeChipProxyModule]
 })
 export class ChipFieldSimpleComponent {
 

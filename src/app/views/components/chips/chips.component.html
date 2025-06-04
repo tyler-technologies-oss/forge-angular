@@ -81,10 +81,12 @@
       </span>
     </h4>
     <forge-chip-set type="input">
-      <forge-chip *ngFor="let chip of inputChips$ | async" (forge-chip-delete)="onInputChipDeleted(chip)">
-        <forge-icon slot="leading" [name]="chip.icon"></forge-icon>
-        {{chip.text}}
-      </forge-chip>
+      @for (chip of inputChips$ | async; track chip) {
+        <forge-chip (forge-chip-delete)="onInputChipDeleted(chip)">
+          <forge-icon slot="leading" [name]="chip.icon"></forge-icon>
+          {{chip.text}}
+        </forge-chip>
+      }
     </forge-chip-set>
   </div>
 </app-demo-card>

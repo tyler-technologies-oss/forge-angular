@@ -1,4 +1,4 @@
-import { Location, NgIf, NgTemplateOutlet, NgFor } from '@angular/common';
+import { Location, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
@@ -21,7 +21,7 @@ export interface IMenuItem {
     selector: 'app-sidenav',
     styleUrls: ['./sidenav.component.scss'],
     templateUrl: './sidenav.component.html',
-    imports: [NgIf, ForgeDialogModule, NgTemplateOutlet, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, RouterLink, RouterLinkActive, ForgeExpansionPanelModule, ForgeOpenIconModule, NgFor]
+    imports: [ForgeDialogModule, NgTemplateOutlet, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, RouterLink, RouterLinkActive, ForgeExpansionPanelModule, ForgeOpenIconModule]
 })
 export class SidenavComponent implements OnInit {
   public selectedPath: string;

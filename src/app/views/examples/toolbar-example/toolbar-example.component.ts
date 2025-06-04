@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ForgeCardModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeBadgeModule, ForgeLabelValueModule, ForgeButtonModule, ForgeDividerModule, ForgePaginatorModule } from '@tylertech/forge-angular';
-import { NgFor } from '@angular/common';
+
 
 interface IFeedbackData {
   title: string;
@@ -38,7 +38,7 @@ const data: IFeedbackData[] = [
     selector: 'app-toolbar-example',
     templateUrl: './toolbar-example.component.html',
     styleUrls: ['./toolbar-example.component.scss'],
-    imports: [ForgeCardModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeBadgeModule, ForgeLabelValueModule, ForgeButtonModule, NgFor, ForgeDividerModule, ForgePaginatorModule]
+    imports: [ForgeCardModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeBadgeModule, ForgeLabelValueModule, ForgeButtonModule, ForgeDividerModule, ForgePaginatorModule]
 })
 
 export class ToolbarExampleComponent {

@@ -4,9 +4,17 @@
     <forge-tab>Tab 2</forge-tab>
     <forge-tab>Tab 3</forge-tab>
   </forge-tab-bar>
-  <div style="padding: 16px;" [ngSwitch]="selectedTab">
-    <div *ngSwitchCase="0">Content for tab one</div>
-    <div *ngSwitchCase="1">Content for tab two</div>
-    <div *ngSwitchCase="2">Content for tab three</div>
+  <div style="padding: 16px;">
+    @switch (selectedTab) {
+      @case (0) {
+        <div>Content for tab one</div>
+      }
+      @case (1) {
+        <div>Content for tab two</div>
+      }
+      @case (2) {
+        <div>Content for tab three</div>
+      }
+    }
   </div>
 </app-demo-card>

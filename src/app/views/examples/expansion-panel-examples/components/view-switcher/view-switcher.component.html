@@ -3,7 +3,9 @@
 <forge-scaffold>
   <div slot="body-header">
     <forge-tab-bar underline [activeTab]="currentIndex" (forge-tab-bar-change)="tabClicked($event.detail.index)" layout-mode="clustered">
-      <forge-tab *ngFor="let item of listItems; let i = index;">{{ item.label }}</forge-tab>
+      @for (item of listItems; track item; let i = $index) {
+        <forge-tab>{{ item.label }}</forge-tab>
+      }
     </forge-tab-bar>
   </div>
   <div slot="body" style="padding: 32px;">

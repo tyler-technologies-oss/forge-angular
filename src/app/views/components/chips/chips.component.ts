@@ -4,7 +4,7 @@ import { ToastService, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule
 import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons/standard';
 import { BehaviorSubject } from 'rxjs';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
-import { NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 interface IChip {
   text: string;
@@ -22,7 +22,7 @@ const inputChipsSource: IChip[] = [
 @Component({
     selector: 'app-chips',
     templateUrl: './chips.component.html',
-    imports: [DemoCardComponent, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule, NgFor, AsyncPipe]
+    imports: [DemoCardComponent, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule, AsyncPipe]
 })
 export class ChipsComponent {
   public inputChips$ = new BehaviorSubject<IChip[]>([...inputChipsSource]);

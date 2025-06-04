@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ForgeScaffoldModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule, ForgeLabelValueModule, ForgePageStateModule } from '@tylertech/forge-angular';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'ev-view-switcher',
     templateUrl: './view-switcher.component.html',
     styleUrls: ['./view-switcher.component.scss'],
-    imports: [ForgeScaffoldModule, ForgeTabBarModule, NgFor, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule, ForgeLabelValueModule, ForgePageStateModule]
+    imports: [ForgeScaffoldModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule, ForgeLabelValueModule, ForgePageStateModule]
 })
 export class ViewSwitcherDemoComponent implements OnInit {
   @Input()
