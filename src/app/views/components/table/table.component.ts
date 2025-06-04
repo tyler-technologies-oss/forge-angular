@@ -1,4 +1,4 @@
-import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, inject, viewChild } from '@angular/core';
 import {
   ICON_BUTTON_CONSTANTS,
   ICON_CONSTANTS,
@@ -52,11 +52,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   private _appRef = inject(ApplicationRef);
   private _renderer = inject(Renderer2);
 
-  @ViewChild('selectAllTemplate', { read: ElementRef })
-  public selectAllTemplate: ElementRef;
+  public readonly selectAllTemplate = viewChild('selectAllTemplate', { read: ElementRef });
 
-  @ViewChild('selectAllTemplateTable', { read: ElementRef })
-  public selectAllTemplateTable: ElementRef;
+  public readonly selectAllTemplateTable = viewChild('selectAllTemplateTable', { read: ElementRef });
 
   public columnConfigurations: IColumnConfiguration[] = [
     { header: 'Name', property: 'Name', sortable: true, initialSort: true },
@@ -109,7 +107,11 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.selectAllTemplateTable.nativeElement.selectAllTemplate =  () => firstValueFrom(of(this.selectAllTemplate.nativeElement));
+    const selectAllTable = this.selectAllTemplateTable();
+    const selectAll = this.selectAllTemplate();
+    if (selectAllTable && selectAll) {
+      selectAllTable.nativeElement.selectAllTemplate = () => firstValueFrom(of(selectAll.nativeElement));
+    }
   }
 
   public ngOnInit(): void {

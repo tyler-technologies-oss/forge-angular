@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, inject, viewChild } from '@angular/core';
 import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
@@ -26,8 +26,7 @@ export class TableExampleComponent implements OnInit {
   private _journalService = inject(JournalService);
   public dcs = inject(DynamicComponentService);
 
-  @ViewChild('journalTable', {read: ElementRef})
-  public tableRef: ElementRef<ITableComponent>;
+  public readonly tableRef = viewChild('journalTable', { read: ElementRef });
   private _columnConfigurations: IColumnConfiguration[] = getJournalColumnConfig(this);
   public columnConfigs$ = new BehaviorSubject<IColumnConfiguration[]>(this._columnConfigurations);
   public data: IJournal[];
@@ -78,7 +77,7 @@ export class TableExampleComponent implements OnInit {
   }
 
   public clearSelections(): void {
-    this.tableRef.nativeElement.clearSelections();
+    this.tableRef()?.nativeElement.clearSelections();
     this._updateSelections();
   }
 
@@ -109,7 +108,7 @@ export class TableExampleComponent implements OnInit {
   }
 
   private _updateSelections(): void {
-    this.journalSelectionCount = this.tableRef.nativeElement.getSelectedRows().length;
+    this.journalSelectionCount = this.tableRef()?.nativeElement.getSelectedRows().length ?? 0;
   }
 
   private _getAvailableColumnOptions(): IMenuOption[] {

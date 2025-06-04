@@ -1,5 +1,5 @@
 import { Location, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject, input, output, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, inject, input, output, signal, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
@@ -29,17 +29,10 @@ export class SidenavComponent implements OnInit {
   private _cd = inject(ChangeDetectorRef);
   private _drawerService = inject(DrawerService);
 
-  public selectedPath: string;
-
-  @ViewChild('componentExpansionPanel', { static: false, read: ElementRef })
-  public componentExpansionPanel: ElementRef<IExpansionPanelComponent>;
-
-  @ViewChild('exampleExpansionPanel', { static: false, read: ElementRef })
-  public exampleExpansionPanel: ElementRef<IExpansionPanelComponent>;
+  public readonly componentExpansionPanel = viewChild('componentExpansionPanel', { read: ElementRef });
+  public readonly exampleExpansionPanel = viewChild('exampleExpansionPanel', { read: ElementRef });
 
   public open = this._drawerService.open;
-  public drawerType: string;
-
   public isSmallViewPort = signal(false);
 
   @HostListener('window:resize')
@@ -132,14 +125,19 @@ export class SidenavComponent implements OnInit {
 
   public ngAfterViewInit(): void {
     const path = this._location.path() || '/';
-    this.selectedPath = path;
     this._cd.detectChanges();
 
     // Automatically expand a menu item if the active menu item exists within it
     if (path.match(/^\/component\//)) {
-      this.componentExpansionPanel.nativeElement.open = true;
+      const compPanel = this.componentExpansionPanel();
+      if (compPanel) {
+        compPanel.nativeElement.open = true;
+      }
     } else if (path.match(/^\/example\//)) {
-      this.exampleExpansionPanel.nativeElement.open = true;
+      const exPanel = this.exampleExpansionPanel();
+      if (exPanel) {
+        exPanel.nativeElement.open = true;
+      }
     }
   }
 }
