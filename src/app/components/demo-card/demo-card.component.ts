@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ForgeCardModule } from '@tylertech/forge-angular';
 
 @Component({
@@ -10,9 +10,7 @@ import { ForgeCardModule } from '@tylertech/forge-angular';
     imports: [CommonModule, ForgeCardModule]
 })
 export class DemoCardComponent {
-  @Input()
-  public headerText: string;
+  public readonly headerText = input<string>();
 
-  @Input()
-  public fullWidth = false;
+  public readonly fullWidth = input(false);
 }

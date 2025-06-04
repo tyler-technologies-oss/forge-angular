@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 import { IMenuOption } from '@tylertech/forge';
 import { ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
@@ -8,8 +8,7 @@ import { ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule } from '@tylert
     imports: [ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule]
 })
 export class TableCellMenuComponent {
-  @Input()
-  public iconName: string;
+  public readonly iconName = input<string>();
 
   @Output()
   public selected = new EventEmitter();

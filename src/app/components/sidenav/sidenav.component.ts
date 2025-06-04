@@ -1,5 +1,5 @@
 import { Location, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
@@ -35,8 +35,7 @@ export class SidenavComponent implements OnInit {
   @ViewChild('exampleExpansionPanel', { static: false, read: ElementRef })
   public exampleExpansionPanel: ElementRef<IExpansionPanelComponent>;
 
-  @Input()
-  public open: boolean;
+  public readonly open = input<boolean>();
   public drawerType: string;
   public isSmallViewPort: boolean;
 
@@ -103,7 +102,7 @@ export class SidenavComponent implements OnInit {
 
     router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (this.open) {
+        if (this.open()) {
           this.closeSidenav();
         }
       }
@@ -132,7 +131,7 @@ export class SidenavComponent implements OnInit {
   public ngOnInit(): void {
     window.requestAnimationFrame(() => {
       this.updateViewportSize();
-      if (!this.open) {
+      if (!this.open()) {
         this.onClose.emit();
       }
     });

@@ -14,18 +14,18 @@
         <div style="display: flex; justify-content: flex-start;">
           <forge-label-value style="margin-right: 48px;">
             <span slot="label">Address</span>
-            <span slot="value">{{user.address.suite}} {{user.address.street}} <br></span>
-            <span slot="value">{{user.address.city}}, {{user.address.state}} {{user.address.zipcode}}</span>
+            <span slot="value">{{user().address.suite}} {{user().address.street}} <br></span>
+            <span slot="value">{{user().address.city}}, {{user().address.state}} {{user().address.zipcode}}</span>
           </forge-label-value>
 
           <forge-label-value style="margin-right: 48px;">
             <span slot="label">Company</span>
-            <span slot="value">{{user.company.name}}</span>
+            <span slot="value">{{user().company.name}}</span>
           </forge-label-value>
 
           <forge-label-value>
             <span slot="label">Email</span>
-            <span slot="value">{{user.email}}</span>
+            <span slot="value">{{user().email}}</span>
           </forge-label-value>
         </div>
       </forge-view>

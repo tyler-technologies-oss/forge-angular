@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, inject } from '@angular/core';
+import { Component, Output, EventEmitter, inject, input } from '@angular/core';
 import { ToastService, ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
@@ -17,7 +17,7 @@ export class HeaderComponent {
   private _isDark = false;
   public themeSwitcherIcon: string = tylIconBrightness3.name;
 
-  @Input() public showDrawerToggle = false;
+  public readonly showDrawerToggle = input(false);
 
   @Output()
   public menuClicked = new EventEmitter<void>();
