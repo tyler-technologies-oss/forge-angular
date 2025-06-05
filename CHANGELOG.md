@@ -1,3 +1,25 @@
+# v6.0.0 (Thu Jun 05 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Joe Nunnelley ([@JoeNunnelley](https://github.com/JoeNunnelley)), for all your work!
+
+#### 💥 Breaking Change
+
+- Chore/update to ng20 [#88](https://github.com/tyler-technologies-oss/forge-angular/pull/88) ([@Ross-Blakeney](https://github.com/Ross-Blakeney))
+
+#### 🐛 Bug Fix
+
+- Security Code Scanning - configuration files [#81](https://github.com/tyler-technologies-oss/forge-angular/pull/81) ([@JoeNunnelley](https://github.com/JoeNunnelley))
+- Dependency reviewer [#78](https://github.com/tyler-technologies-oss/forge-angular/pull/78) ([@JoeNunnelley](https://github.com/JoeNunnelley))
+
+#### Authors: 2
+
+- [@Ross-Blakeney](https://github.com/Ross-Blakeney)
+- Joe Nunnelley ([@JoeNunnelley](https://github.com/JoeNunnelley))
+
+---
+
 # v5.5.0 (Tue Jun 03 2025)
 
 #### 🚀 Enhancement
