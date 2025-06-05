@@ -2,9 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ToastService, ForgeAppBarProxyModule, ForgeAppBarModule, ForgeAppBarMenuButtonModule, ForgeIconModule, ForgeIconButtonModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { IAppBarSearchInputEventData, IconRegistry } from '@tylertech/forge';
 import { toggleClass } from '@tylertech/forge-core';
-import { tylIconTylerTalkingTLogo } from '@tylertech/tyler-icons/custom';
-import { tylIconBrightness3 } from '@tylertech/tyler-icons/extended';
-import { tylIconWbSunny } from '@tylertech/tyler-icons/standard';
+import { tylIconBrightness3, tylIconTylerTalkingTLogo, tylIconWbSunny } from '@tylertech/tyler-icons';
 import { DrawerService } from '../../services/drawer.service';
 
 @Component({

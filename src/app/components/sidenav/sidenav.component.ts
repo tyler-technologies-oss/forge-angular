@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, inject,
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IconRegistry } from '@tylertech/forge';
-import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
+import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons';
 import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
 import { DrawerService } from 'src/app/services/drawer.service';
 

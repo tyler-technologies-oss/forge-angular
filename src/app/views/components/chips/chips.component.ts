@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { IChipSelectEventData, IconRegistry } from '@tylertech/forge';
 import { ToastService, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
-import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons/standard';
+import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons';
 import { BehaviorSubject } from 'rxjs';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { AsyncPipe } from '@angular/common';

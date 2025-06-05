@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
 import { ToastService, ForgeIconButtonModule, ForgeIconModule, ForgeButtonModule } from '@tylertech/forge-angular';
-import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/tyler-icons/standard';
+import { tylIconCode, tylIconFavorite, tylIconFavoriteBorder } from '@tylertech/tyler-icons';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 
 @Component({

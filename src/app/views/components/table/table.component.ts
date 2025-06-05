@@ -9,7 +9,6 @@ import {
   ITableFilterEventData,
   ITableRowClickEventData,
   ITableSortEventData,
-  IconButtonComponentDelegate,
   IconRegistry,
   SelectComponentDelegate,
   SortDirection,
@@ -17,7 +16,7 @@ import {
   TextFieldComponentDelegate
 } from '@tylertech/forge';
 import { DynamicComponentService, IDynamicComponentRef, ToastService, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
-import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
+import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons';
 import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';

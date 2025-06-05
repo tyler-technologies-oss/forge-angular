@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutocompleteFilterCallback, IOption, IconRegistry } from '@tylertech/forge';
-import { tylIconArrowDropDown } from '@tylertech/tyler-icons/standard';
+import { tylIconArrowDropDown } from '@tylertech/tyler-icons';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeTextFieldModule, ForgeIconModule } from '@tylertech/forge-angular';
 import { FormsModule } from '@angular/forms';

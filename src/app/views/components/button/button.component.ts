@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IconRegistry } from '@tylertech/forge';
-import { tylIconFavorite } from '@tylertech/tyler-icons/standard';
+import { tylIconFavorite } from '@tylertech/tyler-icons';
 import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ForgeButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 

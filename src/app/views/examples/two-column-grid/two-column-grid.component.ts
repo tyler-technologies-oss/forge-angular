@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IMenuOption, IMenuSelectEventData, IconRegistry } from '@tylertech/forge';
-import { tylIconArrowBack, tylIconDelete, tylIconInfoOutline, tylIconMoreVert } from '@tylertech/tyler-icons/standard';
+import { tylIconArrowBack, tylIconDelete, tylIconInfoOutline, tylIconMoreVert } from '@tylertech/tyler-icons';
 import { ForgeCardModule, ForgeToolbarModule, ForgeIconModule, ForgeIconButtonModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeMenuModule, ForgeFilePickerModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({
