@@ -2,18 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgeButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { ButtonRoutingModule } from './button-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ButtonComponent } from './button.component';
 
 @NgModule({
-  declarations: [ButtonComponent],
-  imports: [
-    CommonModule,
-    ButtonRoutingModule,
-    ForgeButtonModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeButtonModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        ButtonComponent
+    ]
 })
 export class ButtonModule {}

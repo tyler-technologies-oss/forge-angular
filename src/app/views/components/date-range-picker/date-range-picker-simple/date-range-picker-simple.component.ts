@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { IDatePickerRange } from '@tylertech/forge';
+import { ForgeDateRangePickerProxyModule, ForgeTextFieldModule, ForgeLabelValueModule, ForgeTooltipModule, ForgeIconModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-date-range-picker-simple',
-  templateUrl: './date-range-picker-simple.component.html',
-  styleUrls: ['./date-range-picker-simple.component.scss']
+    selector: 'app-date-range-picker-simple',
+    templateUrl: './date-range-picker-simple.component.html',
+    styleUrls: ['./date-range-picker-simple.component.scss'],
+    imports: [ForgeDateRangePickerProxyModule, ForgeTextFieldModule, ForgeLabelValueModule, ForgeTooltipModule, ForgeIconModule, ForgeSelectProxyModule, ForgeSelectModule, FormsModule, ForgeOptionModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, JsonPipe]
 })
 export class DateRangePickerSimpleComponent implements OnInit {
 

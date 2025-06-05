@@ -6,16 +6,15 @@
       <forge-checkbox [(ngModel)]="isDeterminate" (change)="onDeterminateChanged()">Determinate</forge-checkbox>
     </div>
 
-    <ng-container *ngIf="isDeterminate">
+    @if (isDeterminate) {
       <div class="with-label">
         <label class="forge-typography--label1">Progress: {{progress}}</label>
         <forge-slider [value]="sliderProgressValue" (forge-slider-input)="progress = $event.detail.value / 100"></forge-slider>
       </div>
-
       <div class="with-label">
         <label class="forge-typography--label1">Buffer: {{buffer}}</label>
         <forge-slider [value]="sliderBufferValue" (forge-slider-input)="buffer = $event.detail.value / 100"></forge-slider>
       </div>
-    </ng-container>
+    }
   </div>
 </app-demo-card>

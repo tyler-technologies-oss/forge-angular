@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { DIALOG_DATA, DialogConfig, DialogRef } from '@tylertech/forge-angular';
+import { Component, inject } from '@angular/core';
+import { DIALOG_DATA, DialogConfig, DialogRef, ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 export interface IConfirmDialogData {
   title: string;
@@ -7,15 +7,21 @@ export interface IConfirmDialogData {
 }
 
 @Component({
-  selector: 'app-confirm-dialog',
-  templateUrl: './confirm-dialog.component.html',
-  styleUrls: ['./confirm-dialog.component.scss']
+    selector: 'app-confirm-dialog',
+    templateUrl: './confirm-dialog.component.html',
+    styleUrls: ['./confirm-dialog.component.scss'],
+    imports: [ForgeScaffoldModule, ForgeToolbarModule, ForgeButtonModule]
 })
 export class ConfirmDialogComponent {
+  private _data = inject<IConfirmDialogData>(DIALOG_DATA);
+  private _dialogRef = inject(DialogRef);
+
   public title: string;
   public message: string;
 
-  constructor(@Inject(DIALOG_DATA) public data: IConfirmDialogData, private _dialogRef: DialogRef) {
+  constructor() {
+    const data = this._data;
+
     this.title = data.title;
     this.message = data.message;
   }

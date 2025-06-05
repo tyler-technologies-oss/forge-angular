@@ -3,20 +3,17 @@ import { CommonModule } from '@angular/common';
 import { defineFloatingActionButtonComponent } from '@tylertech/forge';
 import { ForgeFloatingActionButtonModule, ForgeIconModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { FloatingActionButtonRoutingModule } from './floating-action-button-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { FloatingActionButtonComponent } from './floating-action-button.component';
 
 defineFloatingActionButtonComponent();
 
 @NgModule({
-  declarations: [FloatingActionButtonComponent],
-  imports: [
-    CommonModule,
-    FloatingActionButtonRoutingModule,
-    ForgeFloatingActionButtonModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeFloatingActionButtonModule,
+        DemoCardComponent,
+        FloatingActionButtonComponent
+    ]
 })
 export class FloatingActionButtonModule {}

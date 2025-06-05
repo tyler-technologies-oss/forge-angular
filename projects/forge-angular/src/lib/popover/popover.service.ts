@@ -1,4 +1,4 @@
-import { ApplicationRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgModuleRef, NgZone, Provider, Type, createComponent, createEnvironmentInjector } from '@angular/core';
+import { ApplicationRef, EmbeddedViewRef, EnvironmentInjector, Injectable, NgModuleRef, NgZone, Provider, Type, createComponent, createEnvironmentInjector, inject } from '@angular/core';
 import { IPopoverComponent, definePopoverComponent } from '@tylertech/forge';
 import { PopoverConfig } from './popover-config';
 import { PopoverRef } from './popover-ref';
@@ -13,10 +13,11 @@ export interface IPopoverOptions extends Omit<Partial<IPopoverComponent>, 'attri
   providedIn: 'root'
 })
 export class PopoverService {
-  constructor(
-    private _appRef: ApplicationRef,
-    private _injector: EnvironmentInjector,
-    private _ngZone: NgZone) {
+  private _appRef = inject(ApplicationRef);
+  private _injector = inject(EnvironmentInjector);
+  private _ngZone = inject(NgZone);
+
+  constructor() {
     definePopoverComponent();
   }
 
@@ -77,7 +78,7 @@ export class PopoverService {
         componentRef.destroy();
         sub.unsubscribe();
       });
-  
+
       popoverElement.addEventListener('forge-popover-toggle', () => {
         popoverRef.close();
         componentRef.destroy();

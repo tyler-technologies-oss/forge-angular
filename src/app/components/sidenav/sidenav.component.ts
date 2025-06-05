@@ -1,9 +1,11 @@
-import { Location } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Location, NgTemplateOutlet } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, inject, signal, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router } from '@angular/router';
-import { IExpansionPanelComponent, IListItemSelectEventData, IconRegistry } from '@tylertech/forge';
-import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons/standard';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { IconRegistry } from '@tylertech/forge';
+import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons';
+import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
+import { DrawerService } from 'src/app/services/drawer.service';
 
 IconRegistry.define([
   tylIconHome,
@@ -17,26 +19,21 @@ export interface IMenuItem {
 }
 
 @Component({
-  selector: 'app-sidenav',
-  styleUrls: ['./sidenav.component.scss'],
-  templateUrl: './sidenav.component.html'
+    selector: 'app-sidenav',
+    styleUrls: ['./sidenav.component.scss'],
+    templateUrl: './sidenav.component.html',
+    imports: [ForgeDialogModule, NgTemplateOutlet, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, RouterLink, RouterLinkActive, ForgeExpansionPanelModule, ForgeOpenIconModule]
 })
 export class SidenavComponent implements OnInit {
-  public selectedPath: string;
+  private _location = inject(Location);
+  private _cd = inject(ChangeDetectorRef);
+  private _drawerService = inject(DrawerService);
 
-  @ViewChild('componentExpansionPanel', { static: false, read: ElementRef })
-  public componentExpansionPanel: ElementRef<IExpansionPanelComponent>;
+  public readonly componentExpansionPanel = viewChild('componentExpansionPanel', { read: ElementRef });
+  public readonly exampleExpansionPanel = viewChild('exampleExpansionPanel', { read: ElementRef });
 
-  @ViewChild('exampleExpansionPanel', { static: false, read: ElementRef })
-  public exampleExpansionPanel: ElementRef<IExpansionPanelComponent>;
-
-  @Input()
-  public open: boolean;
-  public drawerType: string;
-  public isSmallViewPort: boolean;
-
-  @Output() public onClose = new EventEmitter();
-  @Output() public onModalChange = new EventEmitter<boolean>();
+  public open = this._drawerService.open;
+  public isSmallViewPort = signal(false);
 
   @HostListener('window:resize')
   public onResize(): void {
@@ -93,11 +90,13 @@ export class SidenavComponent implements OnInit {
     { label: 'Two column layout', value: '/example/two-column-grid' }
   ];
 
-  constructor(router: Router, private _location: Location, private _cd: ChangeDetectorRef) {
+  constructor() {
+    const router = inject(Router);
+
     router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (this.open) {
-          this.closeSidenav();
+        if (this.open()) {
+          this._drawerService.closeDrawer();
         }
       }
     });
@@ -105,42 +104,40 @@ export class SidenavComponent implements OnInit {
 
   public updateViewportSize(): void {
     if (window.innerWidth < 750) {
-      this.isSmallViewPort = true;
-      this.open = false;
+      this._drawerService.closeDrawer();
+      this._drawerService.showDrawerToggle();
+      this.isSmallViewPort.set(true);
     } else {
-      this.isSmallViewPort = false;
+      this._drawerService.hideDrawerToggle();
+      this.isSmallViewPort.set(false);
     }
-    this.onModalChange.emit(this.isSmallViewPort);
   }
 
-  public openSidenav(): void {
-    this.open = true;
-  }
-
-  public closeSidenav(): void {
-    this.open = false;
-    this.onClose.emit();
+  public closeDrawer(): void {
+    this._drawerService.closeDrawer();
   }
 
   public ngOnInit(): void {
     window.requestAnimationFrame(() => {
       this.updateViewportSize();
-      if (!this.open) {
-        this.onClose.emit();
-      }
     });
   }
 
   public ngAfterViewInit(): void {
     const path = this._location.path() || '/';
-    this.selectedPath = path;
     this._cd.detectChanges();
 
     // Automatically expand a menu item if the active menu item exists within it
     if (path.match(/^\/component\//)) {
-      this.componentExpansionPanel.nativeElement.open = true;
+      const compPanel = this.componentExpansionPanel();
+      if (compPanel) {
+        compPanel.nativeElement.open = true;
+      }
     } else if (path.match(/^\/example\//)) {
-      this.exampleExpansionPanel.nativeElement.open = true;
+      const exPanel = this.exampleExpansionPanel();
+      if (exPanel) {
+        exPanel.nativeElement.open = true;
+      }
     }
   }
 }

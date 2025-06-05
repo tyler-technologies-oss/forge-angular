@@ -4,19 +4,15 @@ import { ListComponent } from './list.component';
 
 import { ForgeListItemModule, ForgeListModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { ListRoutingModule } from './list-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 
 @NgModule({
-  declarations: [
-    ListComponent
-  ],
-  imports: [
-    CommonModule,
-    ListRoutingModule,
-    ForgeListModule,
-    ForgeListItemModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeListModule,
+        ForgeListItemModule,
+        DemoCardComponent,
+        ListComponent
+    ]
 })
 export class ListModule { }

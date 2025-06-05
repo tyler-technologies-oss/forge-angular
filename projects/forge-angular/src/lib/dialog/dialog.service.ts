@@ -29,13 +29,14 @@ export interface IDialogServiceShowConfiguration<TModule = unknown> {
   providedIn: 'root'
 })
 export class DialogService {
+  private _appRef = inject(ApplicationRef);
+  private _injector = inject(EnvironmentInjector);
+  private _ngZone = inject(NgZone);
+
   private _openDialogRefs: DialogRef[] = [];
   private _destroyRef: DestroyRef = inject(DestroyRef);
 
-  constructor(
-    private _appRef: ApplicationRef,
-    private _injector: EnvironmentInjector,
-    private _ngZone: NgZone) {
+  constructor() {
     defineDialogComponent();
   }
 

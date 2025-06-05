@@ -6,12 +6,16 @@
         <input type="text" id="input-date-range-picker-01" autocomplete="off" placeholder="mm/dd/yyyy">
         <input type="text" id="input-date-range-picker-02" autocomplete="off" placeholder="mm/dd/yyyy">
         <label for="input-date-range-picker-01">Seven days</label>
-        <div slot="support-text" *ngIf="!dateRangeControl.invalid">
-          Select seven days.
-        </div>
-        <div slot="support-text" *ngIf="dateRangeControl.invalid">
-          Date range must contain exactly 7 days.
-        </div>
+        @if (!dateRangeControl.invalid) {
+          <div slot="support-text">
+            Select seven days.
+          </div>
+        }
+        @if (dateRangeControl.invalid) {
+          <div slot="support-text">
+            Date range must contain exactly 7 days.
+          </div>
+        }
       </forge-text-field>
     </forge-date-range-picker>
     <forge-button variant="raised" [disabled]="demoForm.invalid">Submit</forge-button>

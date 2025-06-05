@@ -3,18 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ForgeRadioModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { RadioRoutingModule } from './radio-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { RadioComponent } from './radio.component';
 
 @NgModule({
-  declarations: [RadioComponent],
-  imports: [
-    CommonModule,
-    RadioRoutingModule,
-    FormsModule,
-    ForgeRadioModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ForgeRadioModule,
+        DemoCardComponent,
+        RadioComponent
+    ]
 })
 export class RadioModule { }

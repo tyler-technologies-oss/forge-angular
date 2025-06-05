@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IChipComponent, IChipDeleteEventData } from '@tylertech/forge';
+import { ForgeChipFieldModule, ForgeChipProxyModule, ForgeButtonModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
+import { JsonPipe } from '@angular/common';
 
 type TokenForm = FormControl<string>;
 
@@ -9,9 +11,10 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-chip-field-simple-reactive-form',
-  templateUrl: './chip-field-simple-reactive-form.component.html',
-  styleUrls: ['./chip-field-simple-reactive-form.component.scss']
+    selector: 'app-chip-field-simple-reactive-form',
+    templateUrl: './chip-field-simple-reactive-form.component.html',
+    styleUrls: ['./chip-field-simple-reactive-form.component.scss'],
+    imports: [FormsModule, ReactiveFormsModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeButtonModule, ForgeCheckboxProxyModule, JsonPipe]
 })
 export class ChipFieldSimpleReactiveFormComponent implements OnInit {
 

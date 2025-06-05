@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTextFieldModule, ForgeLabelValueModule, ForgeDividerModule, ForgeSelectProxyModule, ForgeOptionModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-date-picker',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss']
+    selector: 'app-date-picker',
+    templateUrl: './date-picker.component.html',
+    styleUrls: ['./date-picker.component.scss'],
+    imports: [DemoCardComponent, ForgeDatePickerProxyModule, ForgeDatePickerModule, FormsModule, ForgeTextFieldModule, ForgeLabelValueModule, ForgeDividerModule, ForgeSelectProxyModule, ForgeOptionModule]
 })
 export class DatePickerComponent {
   public tomorrow = new Date(new Date().setHours(24));

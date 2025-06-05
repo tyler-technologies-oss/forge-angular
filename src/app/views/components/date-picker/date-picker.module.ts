@@ -4,27 +4,25 @@ import { FormsModule } from '@angular/forms';
 import { defineDatePickerComponent, defineLabelValueComponent } from '@tylertech/forge';
 import { ForgeDatePickerModule, ForgeDatePickerProxyModule, ForgeDividerModule, ForgeLabelValueModule, ForgeOptionModule, ForgeSelectProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { DatePickerRoutingModule } from './date-picker-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { DatePickerComponent } from './date-picker.component';
 
 defineDatePickerComponent();
 defineLabelValueComponent();
 
 @NgModule({
-  declarations: [DatePickerComponent],
-  imports: [
-    CommonModule,
-    DatePickerRoutingModule,
-    FormsModule,
-    ForgeDatePickerModule,
-    ForgeDatePickerProxyModule,
-    ForgeDividerModule,
-    ForgeLabelValueModule,
-    ForgeOptionModule,
-    ForgeSelectProxyModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ForgeDatePickerModule,
+        ForgeDatePickerProxyModule,
+        ForgeDividerModule,
+        ForgeLabelValueModule,
+        ForgeOptionModule,
+        ForgeSelectProxyModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        DatePickerComponent
+    ]
 })
 export class DatePickerModule { }

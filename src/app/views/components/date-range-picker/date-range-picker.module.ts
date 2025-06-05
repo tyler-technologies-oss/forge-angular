@@ -5,37 +5,31 @@ import { IconRegistry } from '@tylertech/forge';
 import { ForgeButtonModule, ForgeCheckboxModule, ForgeDateRangePickerModule, ForgeDateRangePickerProxyModule, ForgeDividerModule, ForgeIconModule, ForgeLabelValueModule, ForgeOptionModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeTextFieldModule, ForgeTooltipModule } from '@tylertech/forge-angular';
 import { tylIconInfoOutline } from '@tylertech/tyler-icons/standard';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { DateRangePickerReactiveFormComponent } from './date-range-picker-reactive-form/date-range-picker-reactive-form.component';
-import { DateRangePickerRoutingModule } from './date-range-picker-routing.module';
 import { DateRangePickerSimpleComponent } from './date-range-picker-simple/date-range-picker-simple.component';
 import { DateRangePickerComponent } from './date-range-picker.component';
 
 @NgModule({
-  declarations: [
-    DateRangePickerComponent,
-    DateRangePickerSimpleComponent,
-    DateRangePickerReactiveFormComponent
-  ],
-  imports: [
-    CommonModule,
-    DateRangePickerRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeDateRangePickerModule,
-    ForgeDateRangePickerProxyModule,
-    ForgeDividerModule,
-    ForgeLabelValueModule,
-    ForgeOptionModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeTextFieldModule,
-    ForgeTooltipModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeDateRangePickerModule,
+        ForgeDateRangePickerProxyModule,
+        ForgeDividerModule,
+        ForgeLabelValueModule,
+        ForgeOptionModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeTextFieldModule,
+        ForgeTooltipModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        DateRangePickerComponent,
+        DateRangePickerSimpleComponent,
+        DateRangePickerReactiveFormComponent
+    ]
 })
 export class DateRangePickerModule {
   constructor() {

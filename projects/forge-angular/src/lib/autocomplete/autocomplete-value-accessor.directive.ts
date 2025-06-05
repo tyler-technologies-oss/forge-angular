@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AUTOCOMPLETE_CONSTANTS, IAutocompleteComponent, IOption } from '@tylertech/forge';
@@ -10,10 +10,14 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-autocomplete[formControlName],forge-autocomplete[formControl],forge-autocomplete[ngModel]',
-  providers: [AUTOCOMPLETE_VALUE_ACCESSOR]
+    selector: 'forge-autocomplete[formControlName],forge-autocomplete[formControl],forge-autocomplete[ngModel]',
+    providers: [AUTOCOMPLETE_VALUE_ACCESSOR],
+    standalone: false
 })
 export class AutocompleteValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject<ElementRef<IAutocompleteComponent>>(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-autocomplete-change', ['$event'])
   public autocompleteChange(event: CustomEvent): void {
     this.change(event.detail);
@@ -26,9 +30,6 @@ export class AutocompleteValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef<IAutocompleteComponent>, private _renderer: Renderer2) {
-  }
 
   public writeValue(value: any): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);

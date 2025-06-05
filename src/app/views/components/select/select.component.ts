@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { SelectBeforeValueChangeCallback } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html'
+    selector: 'app-select',
+    templateUrl: './select.component.html',
+    imports: [DemoCardComponent, ForgeSelectProxyModule, ForgeSelectModule, FormsModule, ForgeOptionModule]
 })
 export class SelectComponent {
   public selected = 'grains';

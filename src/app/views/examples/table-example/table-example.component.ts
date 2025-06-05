@@ -1,27 +1,32 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, inject, viewChild } from '@angular/core';
 import {
   IColumnConfiguration, IMenuOption,
   IMenuSelectEventData, ITableComponent,
   ITableSelectAllEventData, ITableSelectEventData,
-  IconComponent,
   IconComponentDelegate
 } from '@tylertech/forge';
 import { ItemManager } from '@tylertech/forge-core';
 import { BehaviorSubject } from 'rxjs';
 
-import { DynamicComponentService, IDynamicComponentRef } from '@tylertech/forge-angular';
+import { DynamicComponentService, IDynamicComponentRef, ForgeDividerModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule } from '@tylertech/forge-angular';
 import { getJournalColumnConfig } from './journal-table-utils';
 import { JournalService } from './journal.service';
 import { IJournal } from './types';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-table-example',
-  templateUrl: './table-example.component.html',
-  styleUrls: ['./table-example.component.scss']
+    selector: 'app-table-example',
+    templateUrl: './table-example.component.html',
+    styleUrls: ['./table-example.component.scss'],
+    imports: [DemoCardComponent, ForgeDividerModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeTooltipModule, ForgeButtonModule, ForgeTableModule, ForgePaginatorModule, AsyncPipe],
+    providers: [JournalService]
 })
 export class TableExampleComponent implements OnInit {
-  @ViewChild('journalTable', {read: ElementRef})
-  public tableRef: ElementRef<ITableComponent>;
+  private _journalService = inject(JournalService);
+  public dcs = inject(DynamicComponentService);
+
+  public readonly tableRef = viewChild('journalTable', { read: ElementRef });
   private _columnConfigurations: IColumnConfiguration[] = getJournalColumnConfig(this);
   public columnConfigs$ = new BehaviorSubject<IColumnConfiguration[]>(this._columnConfigurations);
   public data: IJournal[];
@@ -33,8 +38,6 @@ export class TableExampleComponent implements OnInit {
   public availableColumns: IMenuOption[] = [];
   public dynamicComponentCache = new Map<number, IDynamicComponentRef<any>>();
   private _columnSelectionManager = new ItemManager<IColumnConfiguration>();
-
-  constructor(private _journalService: JournalService, public dcs: DynamicComponentService) {}
 
   public ngOnInit(): void {
     this._journalService.getJournals().subscribe(data => {
@@ -74,7 +77,7 @@ export class TableExampleComponent implements OnInit {
   }
 
   public clearSelections(): void {
-    this.tableRef.nativeElement.clearSelections();
+    this.tableRef()?.nativeElement.clearSelections();
     this._updateSelections();
   }
 
@@ -105,7 +108,7 @@ export class TableExampleComponent implements OnInit {
   }
 
   private _updateSelections(): void {
-    this.journalSelectionCount = this.tableRef.nativeElement.getSelectedRows().length;
+    this.journalSelectionCount = this.tableRef()?.nativeElement.getSelectedRows().length ?? 0;
   }
 
   private _getAvailableColumnOptions(): IMenuOption[] {

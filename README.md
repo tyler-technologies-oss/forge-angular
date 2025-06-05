@@ -24,6 +24,7 @@ from its own Angular module to allow for opting in to include only specific comp
 
 | `@tylertech/forge-angular` | Angular             | Forge    |
 | -------------------------- | ------------------- | -------- |
+| `^6.0.0`                   | `>=19.0.0 < 21.0.0` | `^3.8.0` |
 | `^5.0.0`                   | `>=18.0.0 < 20.0.0` | `^3.0.0` |
 | `^4.0.0`                   | `>=17.0.0 < 19.0.0` | `^3.0.0` |
 | `^3.0.0`                   | `>=16.0.0 < 18.0.0` | `^2.0.0` |
@@ -40,3 +41,18 @@ While this library is not _required_ to use Forge with Angular, it is highly rec
    - You can also include this file through the `angular.json` file if desired as well.
 4. To use a Forge component, you will import the Angular module from `@tylertech/forge-angular` for each component you are using. Ex. `ForgeButtonModule`
    - This tells Angular about each Forge component you are using, and allows for strict typing that you wouldn't normally get without this library.
+
+## Setting Up a Release
+
+This repository uses the [`auto`](https://www.npmjs.com/package/auto) npm package to manage releases.
+
+Releases are triggered automatically when a pull request is merged into the `main` branch **and** includes a [semantic versioning label](https://semver.org/)—`major`, `minor`, or `patch`. To **prevent** a release, add the `skip-release` label alongside any semantic version label.
+
+> ⚠️ **Note:** This project supports **current-1** versions. When a `major` label is used, `auto` will automatically create a version branch for the previous major version upon publishing the new release.
+
+### Example: Patch Release Flow
+
+1. Create your pull request.
+2. In the GitHub UI, add the `patch` label to your PR (found in the right-hand sidebar).
+3. Do **not** include the `skip-release` label if you want this PR to trigger a release.
+4. Once the PR is merged into `main`, `auto` will compute the new version and publish the updated package.

@@ -5,8 +5,7 @@ import { ForgeIconModule } from '@tylertech/forge-angular';
 import { tylIconActionLauncher } from '@tylertech/tyler-icons/custom';
 import { tylIcon360, tylIconFace } from '@tylertech/tyler-icons/standard';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { IconRoutingModule } from './icon-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { IconComponent } from './icon.component';
 
 defineIconComponent();
@@ -23,14 +22,11 @@ setTimeout(() => {
   ]);
 }, 3000);
 @NgModule({
-  declarations: [
-    IconComponent
-  ],
-  imports: [
-    CommonModule,
-    IconRoutingModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        IconComponent
+    ]
 })
 export class IconModule { }

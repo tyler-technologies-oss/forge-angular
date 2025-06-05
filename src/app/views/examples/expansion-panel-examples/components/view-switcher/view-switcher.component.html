@@ -3,7 +3,9 @@
 <forge-scaffold>
   <div slot="body-header">
     <forge-tab-bar underline [activeTab]="currentIndex" (forge-tab-bar-change)="tabClicked($event.detail.index)" layout-mode="clustered">
-      <forge-tab *ngFor="let item of listItems; let i = index;">{{ item.label }}</forge-tab>
+      @for (item of listItems; track item; let i = $index) {
+        <forge-tab>{{ item.label }}</forge-tab>
+      }
     </forge-tab-bar>
   </div>
   <div slot="body" style="padding: 32px;">
@@ -12,18 +14,18 @@
         <div style="display: flex; justify-content: flex-start;">
           <forge-label-value style="margin-right: 48px;">
             <span slot="label">Address</span>
-            <span slot="value">{{user.address.suite}} {{user.address.street}} <br></span>
-            <span slot="value">{{user.address.city}}, {{user.address.state}} {{user.address.zipcode}}</span>
+            <span slot="value">{{user().address.suite}} {{user().address.street}} <br></span>
+            <span slot="value">{{user().address.city}}, {{user().address.state}} {{user().address.zipcode}}</span>
           </forge-label-value>
 
           <forge-label-value style="margin-right: 48px;">
             <span slot="label">Company</span>
-            <span slot="value">{{user.company.name}}</span>
+            <span slot="value">{{user().company.name}}</span>
           </forge-label-value>
 
           <forge-label-value>
             <span slot="label">Email</span>
-            <span slot="value">{{user.email}}</span>
+            <span slot="value">{{user().email}}</span>
           </forge-label-value>
         </div>
       </forge-view>

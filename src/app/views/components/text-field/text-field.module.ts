@@ -5,21 +5,18 @@ import { IconRegistry } from '@tylertech/forge';
 import { ForgeIconModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { tylIconEvent } from '@tylertech/tyler-icons/standard';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { TextFieldRoutingModule } from './text-field-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { TextFieldComponent } from './text-field.component';
 
 
 @NgModule({
-  declarations: [TextFieldComponent],
-  imports: [
-    CommonModule,
-    TextFieldRoutingModule,
-    FormsModule,
-    ForgeTextFieldModule,
-    ForgeIconModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        ForgeTextFieldModule,
+        ForgeIconModule,
+        DemoCardComponent,
+        TextFieldComponent
+    ]
 })
 export class TextFieldModule {
   constructor() {

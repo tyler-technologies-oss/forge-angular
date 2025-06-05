@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, ElementRef, TemplateRef, ViewContainerRef, inject } from '@angular/core';
 import { OnDestroy, EmbeddedViewRef } from '@angular/core';
 import { POPOVER_CONSTANTS, OverlayPlacement, PopoverComponent } from '@tylertech/forge';
 
@@ -7,10 +7,14 @@ import { POPOVER_CONSTANTS, OverlayPlacement, PopoverComponent } from '@tylertec
  * from the provided `TemplateRef`.
  */
 @Directive({
-  selector: '[forgePopover]',
-  exportAs: 'forgePopover'
+    selector: '[forgePopover]',
+    exportAs: 'forgePopover',
+    standalone: false
 })
 export class PopoverDirective implements OnDestroy {
+  private _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private _viewContainerRef = inject(ViewContainerRef);
+
   private _popoverElement?: PopoverComponent;
   private _contentRef?: EmbeddedViewRef<any>;
 
@@ -42,9 +46,7 @@ export class PopoverDirective implements OnDestroy {
     return this._popoverElement;
   }
 
-  constructor(
-    private _elementRef: ElementRef<HTMLElement>,
-    private _viewContainerRef: ViewContainerRef) {
+  constructor() {
     this._elementRef.nativeElement.addEventListener(POPOVER_CONSTANTS.events.TOGGLE, () => {
       window.requestAnimationFrame(() => this.close());
     });

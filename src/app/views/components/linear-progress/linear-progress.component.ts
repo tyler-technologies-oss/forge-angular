@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeLinearProgressModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeSliderProxyModule } from '@tylertech/forge-angular';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-linear-progress',
-  styleUrls: ['./linear-progress.component.scss'],
-  templateUrl: './linear-progress.component.html'
+    selector: 'app-linear-progress',
+    styleUrls: ['./linear-progress.component.scss'],
+    templateUrl: './linear-progress.component.html',
+    imports: [DemoCardComponent, ForgeLinearProgressModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, FormsModule, ForgeSliderProxyModule]
 })
 export class LinearProgressComponent {
   public isDeterminate = false;

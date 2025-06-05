@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ITimePickerComponent } from '@tylertech/forge';
@@ -10,10 +10,14 @@ export const TIME_PICKER_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-time-picker[formControlName],forge-time-picker[formControl],forge-time-picker[ngModel]',
-  providers: [TIME_PICKER_VALUE_ACCESSOR]
+    selector: 'forge-time-picker[formControlName],forge-time-picker[formControl],forge-time-picker[ngModel]',
+    providers: [TIME_PICKER_VALUE_ACCESSOR],
+    standalone: false
 })
 export class TimePickerValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject<ElementRef<ITimePickerComponent>>(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-time-picker-change', ['$event'])
   public timePickerChange(event: CustomEvent<string | null>): void {
     this.change(event.detail);
@@ -26,8 +30,6 @@ export class TimePickerValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef<ITimePickerComponent>, private _renderer: Renderer2) {}
 
   public writeValue(value: any): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);

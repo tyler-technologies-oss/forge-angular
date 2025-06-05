@@ -1,14 +1,16 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IAppBarComponent } from '@tylertech/forge';
 
 @Directive({
-  selector: 'forge-app-bar[href]'
+    selector: 'forge-app-bar[href]',
+    standalone: false
 })
 export class AppBarRouterNavigateDirective {
-  private _listener: (evt: CustomEvent<void>) => void = this._onNavigate.bind(this);
+  private _elementRef = inject<ElementRef<IAppBarComponent>>(ElementRef);
+  private _router = inject(Router);
 
-  constructor(private _elementRef: ElementRef<IAppBarComponent>, private _router: Router) {}
+  private _listener: (evt: CustomEvent<void>) => void = this._onNavigate.bind(this);
 
   public ngOnInit(): void {
     this._elementRef.nativeElement.addEventListener('forge-app-bar-navigate' as any, this._listener);

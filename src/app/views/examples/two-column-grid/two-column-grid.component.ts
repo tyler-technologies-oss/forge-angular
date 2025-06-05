@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IMenuOption, IMenuSelectEventData, IconRegistry } from '@tylertech/forge';
-import { tylIconArrowBack, tylIconDelete, tylIconInfoOutline, tylIconMoreVert } from '@tylertech/tyler-icons/standard';
+import { tylIconArrowBack, tylIconDelete, tylIconInfoOutline, tylIconMoreVert } from '@tylertech/tyler-icons';
+import { ForgeCardModule, ForgeToolbarModule, ForgeIconModule, ForgeIconButtonModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeMenuModule, ForgeFilePickerModule, ForgeButtonModule } from '@tylertech/forge-angular';
 
 @Component({
-  selector: 'app-two-column-grid',
-  templateUrl: './two-column-grid.component.html',
-  styleUrls: ['./two-column-grid.component.scss']
+    selector: 'app-two-column-grid',
+    templateUrl: './two-column-grid.component.html',
+    styleUrls: ['./two-column-grid.component.scss'],
+    imports: [ForgeCardModule, ForgeToolbarModule, ForgeIconModule, ForgeIconButtonModule, ForgeScaffoldModule, ForgeTextFieldModule, ForgeMenuModule, ForgeFilePickerModule, ForgeButtonModule]
 })
 export class TwoColumnGridComponent {
   public lastSelectedValue: string;

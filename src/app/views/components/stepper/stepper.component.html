@@ -1,14 +1,17 @@
 <app-demo-card headerText="Stepper">
-  <forge-stepper [steps]="steps" [selectedIndex]="selectedStepIndex" [linear]="linear" [alternative]="alternative" [layoutMode]="layoutMode" [layoutAlign]="layoutAlign" [vertical]="vertical" (forge-step-selected)="onStepChanged($any($event))">
-  </forge-stepper>
+  <forge-stepper [steps]="steps" [selectedIndex]="selectedStepIndex" [linear]="linear" [alternative]="alternative" [layoutMode]="layoutMode" [layoutAlign]="layoutAlign" [vertical]="vertical" (forge-step-selected)="onStepChanged($any($event))" />
 
-<h6>Using NgFor and ngIf</h6>
+  <h6>Using NgFor and ngIf</h6>
   <forge-stepper [alternative]="alternative" [linear]="linear" [layoutMode]="layoutMode" [layoutAlign]="layoutAlign" [selectedIndex]="selectedStepIndex + (toggleStep ? 1 : 0)">
-    <forge-step *ngIf="toggleStep">Toggle Step</forge-step>
-    <forge-step *ngFor="let step of steps">
-      {{step.label}}
-      <span slot="optional">{{step?.optionalLabel}}</span>
-    </forge-step>
+    @if (toggleStep) {
+      <forge-step>Toggle Step</forge-step>
+    }
+    @for (step of steps; track step) {
+      <forge-step>
+        {{step.label}}
+        <span slot="optional">{{step?.optionalLabel}}</span>
+      </forge-step>
+    }
   </forge-stepper>
 
   <div>

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2, StaticProvider, forwardRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, StaticProvider, forwardRef, inject } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IRadioComponent } from '@tylertech/forge';
 
@@ -9,10 +9,14 @@ export const RADIO_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-radio[formControlName],forge-radio[formControl],forge-radio[ngModel]',
-  providers: [RADIO_VALUE_ACCESSOR]
+    selector: 'forge-radio[formControlName],forge-radio[formControl],forge-radio[ngModel]',
+    providers: [RADIO_VALUE_ACCESSOR],
+    standalone: false
 })
 export class RadioValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject<ElementRef<IRadioComponent>>(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('change', ['$event'])
   public switchChange(evt: CustomEvent<void>): void {
     const target = evt.target as IRadioComponent;
@@ -26,8 +30,6 @@ export class RadioValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef<IRadioComponent>, private _renderer: Renderer2) {}
 
   public writeValue(value: string): void {
     const checked = value === this._elementRef.nativeElement.value;

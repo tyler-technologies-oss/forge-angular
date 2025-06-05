@@ -1,13 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
+import { ForgeScaffoldModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule, ForgeLabelValueModule, ForgePageStateModule } from '@tylertech/forge-angular';
+
 
 @Component({
-  selector: 'ev-view-switcher',
-  templateUrl: './view-switcher.component.html',
-  styleUrls: ['./view-switcher.component.scss']
+    selector: 'ev-view-switcher',
+    templateUrl: './view-switcher.component.html',
+    styleUrls: ['./view-switcher.component.scss'],
+    imports: [ForgeScaffoldModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule, ForgeLabelValueModule, ForgePageStateModule]
 })
 export class ViewSwitcherDemoComponent implements OnInit {
-  @Input()
-  public user: any;
+  public readonly user = input<any>();
 
   public currentIndex = 0;
 
@@ -17,7 +19,7 @@ export class ViewSwitcherDemoComponent implements OnInit {
   ];
 
   public ngOnInit(): void {
-    console.log(this.user);
+    console.log(this.user());
   }
 
   public tabClicked(evt: number): void {

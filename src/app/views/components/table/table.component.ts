@@ -1,4 +1,4 @@
-import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, ElementRef, OnInit, Renderer2, inject, viewChild } from '@angular/core';
 import {
   ICON_BUTTON_CONSTANTS,
   ICON_CONSTANTS,
@@ -9,17 +9,18 @@ import {
   ITableFilterEventData,
   ITableRowClickEventData,
   ITableSortEventData,
-  IconButtonComponentDelegate,
   IconRegistry,
   SelectComponentDelegate,
   SortDirection,
   TOOLTIP_CONSTANTS,
   TextFieldComponentDelegate
 } from '@tylertech/forge';
-import { DynamicComponentService, IDynamicComponentRef, ToastService } from '@tylertech/forge-angular';
-import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons/standard';
+import { DynamicComponentService, IDynamicComponentRef, ToastService, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
+import { tylIconChevronRight, tylIconSettings } from '@tylertech/tyler-icons';
 import { BehaviorSubject, firstValueFrom, of } from 'rxjs';
 import { TableCellMenuComponent } from './table-cell-menu.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { AsyncPipe } from '@angular/common';
 
 interface IPlayer {
   [key: string]: any;
@@ -39,16 +40,20 @@ const players: IPlayer[] = [
 ];
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
+    imports: [DemoCardComponent, ForgeTableModule, ForgePaginatorModule, ForgeMenuModule, ForgeIconButtonModule, ForgeIconModule, ForgeCheckboxProxyModule, AsyncPipe]
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  @ViewChild('selectAllTemplate', { read: ElementRef })
-  public selectAllTemplate: ElementRef;
+  private _toastService = inject(ToastService);
+  private _dcs = inject(DynamicComponentService);
+  private _appRef = inject(ApplicationRef);
+  private _renderer = inject(Renderer2);
 
-  @ViewChild('selectAllTemplateTable', { read: ElementRef })
-  public selectAllTemplateTable: ElementRef;
+  public readonly selectAllTemplate = viewChild('selectAllTemplate', { read: ElementRef });
+
+  public readonly selectAllTemplateTable = viewChild('selectAllTemplateTable', { read: ElementRef });
 
   public columnConfigurations: IColumnConfiguration[] = [
     { header: 'Name', property: 'Name', sortable: true, initialSort: true },
@@ -93,7 +98,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     { label: 'Action 3', value: 'action3' }
   ];
 
-  constructor(private _toastService: ToastService, private _dcs: DynamicComponentService, private _appRef: ApplicationRef, private _renderer: Renderer2) {
+  constructor() {
     IconRegistry.define([
       tylIconChevronRight,
       tylIconSettings
@@ -101,7 +106,11 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.selectAllTemplateTable.nativeElement.selectAllTemplate =  () => firstValueFrom(of(this.selectAllTemplate.nativeElement));
+    const selectAllTable = this.selectAllTemplateTable();
+    const selectAll = this.selectAllTemplate();
+    if (selectAllTable && selectAll) {
+      selectAllTable.nativeElement.selectAllTemplate = () => firstValueFrom(of(selectAll.nativeElement));
+    }
   }
 
   public ngOnInit(): void {

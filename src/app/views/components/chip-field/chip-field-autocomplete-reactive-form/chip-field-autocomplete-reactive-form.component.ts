@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteFilterCallback, IChipComponent, IChipDeleteEventData, IOption } from '@tylertech/forge';
+import { ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeIconModule, ForgeButtonModule, ForgeCheckboxProxyModule } from '@tylertech/forge-angular';
+import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-chip-field-autocomplete-reactive-form',
-  templateUrl: './chip-field-autocomplete-reactive-form.component.html',
-  styleUrls: ['./chip-field-autocomplete-reactive-form.component.scss']
+    selector: 'app-chip-field-autocomplete-reactive-form',
+    templateUrl: './chip-field-autocomplete-reactive-form.component.html',
+    styleUrls: ['./chip-field-autocomplete-reactive-form.component.scss'],
+    imports: [FormsModule, ReactiveFormsModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeChipFieldModule, ForgeChipProxyModule, ForgeIconModule, ForgeButtonModule, ForgeCheckboxProxyModule, JsonPipe]
 })
 export class ChipFieldAutocompleteReactiveFormComponent implements OnInit {
 

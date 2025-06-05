@@ -1,6 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, viewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IAutocompleteComponent, IOption } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeTextFieldModule, ForgeSwitchProxyModule, ForgeSwitchModule, ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeRadioGroupModule, ForgeRadioProxyModule, ForgeRadioModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeSliderProxyModule, ForgeSliderModule, ForgeChipSetModule, ForgeChipProxyModule, ForgeChipModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule } from '@tylertech/forge-angular';
+import { JsonPipe } from '@angular/common';
 
 interface DemoForm {
   firstName: FormControl<string>;
@@ -19,13 +22,13 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './reactive-form-example.component.html',
-  styleUrls: ['./reactive-form-example.component.scss']
+    selector: 'app-form',
+    templateUrl: './reactive-form-example.component.html',
+    styleUrls: ['./reactive-form-example.component.scss'],
+    imports: [DemoCardComponent, FormsModule, ReactiveFormsModule, ForgeTextFieldModule, ForgeSwitchProxyModule, ForgeSwitchModule, ForgeDatePickerProxyModule, ForgeDatePickerModule, ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeRadioGroupModule, ForgeRadioProxyModule, ForgeRadioModule, ForgeAutocompleteProxyModule, ForgeAutocompleteModule, ForgeSelectProxyModule, ForgeSelectModule, ForgeOptionModule, ForgeSliderProxyModule, ForgeSliderModule, ForgeChipSetModule, ForgeChipProxyModule, ForgeChipModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeButtonModule, JsonPipe]
 })
 export class ReactiveFormExampleComponent implements OnInit {
-  @ViewChild('stateAutocomplete', { static: true, read: ElementRef })
-  public stateAutocomplete: ElementRef;
+  public readonly stateAutocomplete = viewChild('stateAutocomplete', { read: ElementRef });
 
   public exampleForm: FormGroup<DemoForm>;
   public shirtQuantityControl: FormControl<number>;
@@ -51,7 +54,10 @@ export class ReactiveFormExampleComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    (this.stateAutocomplete.nativeElement as IAutocompleteComponent).filter = filter => this._onFilterStates(filter);
+    const stateAutocompleteRef = this.stateAutocomplete();
+    if (stateAutocompleteRef) {
+      (stateAutocompleteRef.nativeElement as IAutocompleteComponent).filter = filter => this._onFilterStates(filter);
+    }
   }
 
   private _onFilterStates(filter: string): IOption[] {

@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IChipComponent, IChipSelectEventData } from '@tylertech/forge';
@@ -10,10 +10,14 @@ export const CHIP_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-chip[value][formControlName],forge-chip[value][formControl],forge-chip[value][ngModel]',
-  providers: [CHIP_VALUE_ACCESSOR]
+    selector: 'forge-chip[value][formControlName],forge-chip[value][formControl],forge-chip[value][ngModel]',
+    providers: [CHIP_VALUE_ACCESSOR],
+    standalone: false
 })
 export class ChipValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject<ElementRef<IChipComponent>>(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-chip-select', ['$event'])
   public chipSelect(event: CustomEvent<IChipSelectEventData>): void {
     this.change(event.detail.value);
@@ -26,8 +30,6 @@ export class ChipValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef<IChipComponent>, private _renderer: Renderer2) {}
 
   public writeValue(value: any): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'selected', this._elementRef.nativeElement.value === value);

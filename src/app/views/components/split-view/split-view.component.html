@@ -1,8 +1,10 @@
 <app-demo-card headerText="Split View">
   <forge-split-view style="height: 300px" [orientation]="orientation" [allowClose]="allowClose" [autoClose]="autoClose" [autoCloseThreshold]="autoCloseThreshold" [disabled]="disabled">
-    <forge-split-view-panel *ngFor="let panel of panels" [resizable]="panel.resizable" [open]="panel.open" (forge-split-view-panel-did-close)="panel.open = false">
-      <div>{{ panel.label }}</div>
-    </forge-split-view-panel>
+    @for (panel of panels; track panel) {
+      <forge-split-view-panel [resizable]="panel.resizable" [open]="panel.open" (forge-split-view-panel-did-close)="panel.open = false">
+        <div>{{ panel.label }}</div>
+      </forge-split-view-panel>
+    }
   </forge-split-view>
 
   <div>
@@ -24,13 +26,15 @@
     <forge-button (click)="addPanel()">Add Panel</forge-button>
     <forge-button (click)="removePanel()">Remove Panel</forge-button>
   </div>
-  <fieldset *ngFor="let panel of panels; index as i">
-    <legend>{{ panel.label }}</legend>
-    <forge-select id="splitViewPanelResizable{{ i }}" label="Resizable" [(ngModel)]="panel.resizable">
-      <forge-option value="start">Start</forge-option>
-      <forge-option value="end">End</forge-option>
-      <forge-option value="off">Off</forge-option>
-    </forge-select>
-    <forge-checkbox [(ngModel)]="panel.open">Open</forge-checkbox>
-  </fieldset>
+  @for (panel of panels; track panel; let i = $index) {
+    <fieldset>
+      <legend>{{ panel.label }}</legend>
+      <forge-select id="splitViewPanelResizable{{ i }}" label="Resizable" [(ngModel)]="panel.resizable">
+        <forge-option value="start">Start</forge-option>
+        <forge-option value="end">End</forge-option>
+        <forge-option value="off">Off</forge-option>
+      </forge-select>
+      <forge-checkbox [(ngModel)]="panel.open">Open</forge-checkbox>
+    </fieldset>
+  }
 </app-demo-card>

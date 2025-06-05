@@ -1,8 +1,8 @@
 <forge-app-bar title-text="Tyler Forge™ Angular Adapter" href="/" (forge-app-bar-search-input)="onSearch($event)">
-  @if (showDrawerToggle) {
-    <forge-app-bar-menu-button slot="start" (click)="onMenuClicked()"></forge-app-bar-menu-button>
+  @if (displayDrawerToggle()) {
+    <forge-app-bar-menu-button slot="start" (click)="onMenuClicked()" />
   }
-  <forge-icon slot="logo" name="tyler_talking_t_logo"></forge-icon>
+  <forge-icon slot="logo" name="tyler_talking_t_logo" />
   <div slot="end">
     <forge-icon-button (click)="toggleTheme()">
       <forge-icon [name]="themeSwitcherIcon"></forge-icon>

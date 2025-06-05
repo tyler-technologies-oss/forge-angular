@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -9,10 +9,14 @@ export const BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR: StaticProvider = {
 };
 
 @Directive({
-  selector: 'forge-button-toggle-group[formControlName],forge-button-toggle-group[formControl],forge-button-toggle-group[ngModel]',
-  providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR]
+    selector: 'forge-button-toggle-group[formControlName],forge-button-toggle-group[formControl],forge-button-toggle-group[ngModel]',
+    providers: [BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR],
+    standalone: false
 })
 export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
+  private _elementRef = inject(ElementRef);
+  private _renderer = inject(Renderer2);
+
   @HostListener('forge-button-toggle-group-change', ['$event'])
   public buttonToggleGroupChange(event: CustomEvent): void {
     this.change(event.detail);
@@ -25,8 +29,6 @@ export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
 
   public onChange = (_: any): void => {};
   public onTouched = (): void => {};
-
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {}
 
   public writeValue(value: any): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);

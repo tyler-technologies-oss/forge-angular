@@ -1,23 +1,8 @@
 import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import {
-  defineAppBarComponent,
-  defineAppBarMenuButtonComponent,
-  defineAppBarSearchComponent,
-  defineButtonComponent,
-  defineCardComponent,
-  defineCheckboxComponent,
-  defineDrawerComponent,
-  defineExpansionPanelComponent,
-  defineIconButtonComponent,
-  defineIconComponent,
-  defineListComponent,
-  defineOpenIconComponent,
-  defineScaffoldComponent,
-  defineTextFieldComponent
-} from '@tylertech/forge';
-import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { getAppConfig } from './app/app.config';
 
 // Uncomment to test global configuration
 // window.TylerForgeGlobalConfiguration = {
@@ -26,24 +11,9 @@ import { environment } from './environments/environment';
 //   }
 // };
 
-defineScaffoldComponent();
-defineAppBarComponent();
-defineAppBarMenuButtonComponent();
-defineAppBarSearchComponent();
-defineIconComponent();
-defineCardComponent();
-defineDrawerComponent();
-defineListComponent();
-defineOpenIconComponent();
-defineIconButtonComponent();
-defineButtonComponent();
-defineCheckboxComponent();
-defineTextFieldComponent();
-defineExpansionPanelComponent();
-
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+const appConfig = getAppConfig();
+bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));

@@ -4,23 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { ForgeButtonModule, ForgeCheckboxModule, ForgeSelectModule, ForgeSelectProxyModule} from '@tylertech/forge-angular';
 import { ForgeSplitViewModule, ForgeSplitViewPanelModule } from 'projects/forge-angular/src/public-api';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { StepperRoutingModule } from './split-view-routing.module';
-import { SplitViewComponent } from './split-view.component';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 
 @NgModule({
-  declarations: [SplitViewComponent],
-  imports: [
-    CommonModule,
-    StepperRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeSplitViewModule,
-    ForgeSplitViewPanelModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeSplitViewModule,
+        ForgeSplitViewPanelModule,
+        DemoCardComponent
+    ]
 })
 export class SplitViewModule {}

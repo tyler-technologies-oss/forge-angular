@@ -4,25 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { defineToastComponent } from '@tylertech/forge';
 import { ForgeButtonModule, ForgeCheckboxModule, ForgeSelectModule, ForgeSelectProxyModule, ForgeSliderProxyModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 
-import { DemoCardComponent } from '../../../shared/components/demo-card/demo-card.component';
-import { ToastRoutingModule } from './toast-routing.module';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
 import { ToastComponent } from './toast.component';
 
 defineToastComponent();
 
 @NgModule({
-  declarations: [ToastComponent],
-  imports: [
-    CommonModule,
-    ToastRoutingModule,
-    FormsModule,
-    ForgeButtonModule,
-    ForgeCheckboxModule,
-    ForgeSelectModule,
-    ForgeSelectProxyModule,
-    ForgeSliderProxyModule,
-    ForgeTextFieldModule,
-    DemoCardComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ForgeButtonModule,
+        ForgeCheckboxModule,
+        ForgeSelectModule,
+        ForgeSelectProxyModule,
+        ForgeSliderProxyModule,
+        ForgeTextFieldModule,
+        DemoCardComponent,
+        ToastComponent
+    ]
 })
 export class ToastModule {}

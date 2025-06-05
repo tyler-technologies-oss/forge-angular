@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { mergeDateWithTime } from '@tylertech/forge';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeTimePickerProxyModule, ForgeTimePickerModule, ForgeTextFieldModule, ForgeDatePickerProxyModule, ForgeDatePickerModule } from '@tylertech/forge-angular';
 
 interface DemoForm {
   time: FormControl<string | null>;
@@ -9,9 +11,10 @@ interface DemoForm {
 }
 
 @Component({
-  selector: 'app-time-picker',
-  templateUrl: './time-picker.component.html',
-  styleUrls: ['./time-picker.component.scss']
+    selector: 'app-time-picker',
+    templateUrl: './time-picker.component.html',
+    styleUrls: ['./time-picker.component.scss'],
+    imports: [DemoCardComponent, ForgeTimePickerProxyModule, ForgeTimePickerModule, FormsModule, ForgeTextFieldModule, ReactiveFormsModule, ForgeDatePickerProxyModule, ForgeDatePickerModule]
 })
 export class TimePickerComponent {
   public time = '23:40';

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IChipSelectEventData, IconRegistry } from '@tylertech/forge';
-import { ToastService } from '@tylertech/forge-angular';
-import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons/standard';
+import { ToastService, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule } from '@tylertech/forge-angular';
+import { tylIconAlarm, tylIconBookmark, tylIconDirections, tylIconEvent, tylIconFace, tylIconPlace, tylIconRefresh } from '@tylertech/tyler-icons';
 import { BehaviorSubject } from 'rxjs';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { AsyncPipe } from '@angular/common';
 
 interface IChip {
   text: string;
@@ -18,13 +20,16 @@ const inputChipsSource: IChip[] = [
 ];
 
 @Component({
-  selector: 'app-chips',
-  templateUrl: './chips.component.html'
+    selector: 'app-chips',
+    templateUrl: './chips.component.html',
+    imports: [DemoCardComponent, ForgeChipSetModule, ForgeChipProxyModule, ForgeIconModule, ForgeIconButtonModule, AsyncPipe]
 })
 export class ChipsComponent {
+  private _toastService = inject(ToastService);
+
   public inputChips$ = new BehaviorSubject<IChip[]>([...inputChipsSource]);
 
-  constructor(private _toastService: ToastService) {
+  constructor() {
     IconRegistry.define([
       tylIconAlarm,
       tylIconBookmark,

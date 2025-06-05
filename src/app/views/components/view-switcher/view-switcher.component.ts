@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoCardComponent } from '../../../components/demo-card/demo-card.component';
+import { ForgeButtonModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule } from '@tylertech/forge-angular';
+
 
 @Component({
-  selector: 'app-view-switcher',
-  templateUrl: './view-switcher.component.html',
-  styleUrls: ['./view-switcher.component.scss']
+    selector: 'app-view-switcher',
+    templateUrl: './view-switcher.component.html',
+    styleUrls: ['./view-switcher.component.scss'],
+    imports: [DemoCardComponent, ForgeButtonModule, ForgeTabBarModule, ForgeTabModule, ForgeViewSwitcherModule, ForgeViewModule]
 })
 export class ViewSwitcherComponent implements OnInit {
   public tabs: string[] = [];
@@ -25,7 +29,7 @@ export class ViewSwitcherComponent implements OnInit {
   public onRemoveView(index: number): void {
     this.tabs.splice(index, 1);
     this.views.splice(index, 1);
-    
+
     if (index > this.tabs.length - 1) {
       index = this.tabs.length - 1;
     }
