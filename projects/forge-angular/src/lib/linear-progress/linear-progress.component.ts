@@ -4,15 +4,14 @@ import { LinearProgressComponent as LinearProgressComponentCustomElement, define
 
 /**  */
 @Component({
-    selector: 'forge-linear-progress',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-linear-progress',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class LinearProgressComponent {
 	protected elementRef = inject<ElementRef<LinearProgressComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-linear-progress element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -62,9 +61,8 @@ export class LinearProgressComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineLinearProgressComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

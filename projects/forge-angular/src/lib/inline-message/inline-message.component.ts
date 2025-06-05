@@ -4,15 +4,14 @@ import { InlineMessageComponent as InlineMessageComponentCustomElement, defineIn
 
 /**  */
 @Component({
-    selector: 'forge-inline-message',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-inline-message',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class InlineMessageComponent {
 	protected elementRef = inject<ElementRef<InlineMessageComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-inline-message element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -29,9 +28,8 @@ export class InlineMessageComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineInlineMessageComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

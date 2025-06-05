@@ -4,15 +4,14 @@ import { FocusIndicatorComponent as FocusIndicatorComponentCustomElement, define
 
 /**  */
 @Component({
-    selector: 'forge-focus-indicator',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-focus-indicator',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class FocusIndicatorComponent {
 	protected elementRef = inject<ElementRef<FocusIndicatorComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-focus-indicator element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -94,11 +93,9 @@ export class FocusIndicatorComponent {
 		return this.nativeElement.focusMode;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineFocusIndicatorComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

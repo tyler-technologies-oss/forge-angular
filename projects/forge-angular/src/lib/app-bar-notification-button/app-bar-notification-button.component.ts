@@ -4,10 +4,10 @@ import { AppBarNotificationButtonComponent as AppBarNotificationButtonComponentC
 
 /**  */
 @Component({
-    selector: 'forge-app-bar-notification-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-app-bar-notification-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AppBarNotificationButtonComponent {
 	protected elementRef = inject<ElementRef<AppBarNotificationButtonComponentCustomElement>>(ElementRef);
@@ -72,9 +72,8 @@ export class AppBarNotificationButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAppBarNotificationButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

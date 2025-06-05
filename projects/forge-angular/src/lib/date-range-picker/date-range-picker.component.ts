@@ -4,15 +4,14 @@ import { DateRangePickerComponent as DateRangePickerComponentCustomElement, defi
 
 /**  */
 @Component({
-    selector: 'forge-date-range-picker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-date-range-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class DateRangePickerComponent {
 	protected elementRef = inject<ElementRef<DateRangePickerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-date-range-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -293,9 +292,8 @@ export class DateRangePickerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineDateRangePickerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

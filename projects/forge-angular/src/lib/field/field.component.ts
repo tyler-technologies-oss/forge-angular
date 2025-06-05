@@ -4,15 +4,14 @@ import { FieldComponent as FieldComponentCustomElement, defineFieldComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-field',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-field',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class FieldComponent {
 	protected elementRef = inject<ElementRef<FieldComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-field element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -232,9 +231,8 @@ export class FieldComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineFieldComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

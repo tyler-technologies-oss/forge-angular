@@ -4,15 +4,14 @@ import { SliderComponent as SliderComponentCustomElement, defineSliderComponent 
 
 /**  */
 @Component({
-    selector: 'forge-slider',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-slider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SliderComponent {
 	protected elementRef = inject<ElementRef<SliderComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-slider element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -215,11 +214,9 @@ export class SliderComponent {
 		return this.nativeElement.readonly;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSliderComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

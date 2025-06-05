@@ -4,15 +4,14 @@ import { StepperComponent as StepperComponentCustomElement, defineStepperCompone
 
 /**  */
 @Component({
-    selector: 'forge-stepper',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-stepper',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class StepperComponent {
 	protected elementRef = inject<ElementRef<StepperComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-stepper element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -106,9 +105,8 @@ export class StepperComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineStepperComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

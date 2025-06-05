@@ -4,10 +4,10 @@ import { AppBarComponent as AppBarComponentCustomElement, defineAppBarComponent 
 
 /**  */
 @Component({
-    selector: 'forge-app-bar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-app-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AppBarComponent {
 	protected elementRef = inject<ElementRef<AppBarComponentCustomElement>>(ElementRef);
@@ -83,9 +83,8 @@ export class AppBarComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAppBarComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

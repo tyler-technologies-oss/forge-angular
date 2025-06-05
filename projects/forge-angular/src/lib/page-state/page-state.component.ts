@@ -4,10 +4,10 @@ import { PageStateComponent as PageStateComponentCustomElement, definePageStateC
 
 /**  */
 @Component({
-    selector: 'forge-page-state',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-page-state',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class PageStateComponent {
 	protected elementRef = inject<ElementRef<PageStateComponentCustomElement>>(ElementRef);
@@ -17,9 +17,8 @@ export class PageStateComponent {
 	public readonly nativeElement = this.elementRef.nativeElement;
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		definePageStateComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

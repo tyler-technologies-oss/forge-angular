@@ -4,15 +4,14 @@ import { SplitViewComponent as SplitViewComponentCustomElement, defineSplitViewC
 
 /**  */
 @Component({
-    selector: 'forge-split-view',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-split-view',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SplitViewComponent {
 	protected elementRef = inject<ElementRef<SplitViewComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-split-view element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -93,9 +92,8 @@ export class SplitViewComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSplitViewComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

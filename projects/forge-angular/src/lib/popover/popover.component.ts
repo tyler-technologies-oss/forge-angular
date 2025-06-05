@@ -4,15 +4,14 @@ import { PopoverComponent as PopoverComponentCustomElement, definePopoverCompone
 
 /**  */
 @Component({
-    selector: 'forge-popover',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-popover',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class PopoverComponent {
 	protected elementRef = inject<ElementRef<PopoverComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-popover element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -285,11 +284,9 @@ export class PopoverComponent {
 		return this.zone.runOutsideAngular(() => this.nativeElement.position(...args));
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		definePopoverComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

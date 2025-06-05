@@ -4,15 +4,14 @@ import { ScaffoldComponent as ScaffoldComponentCustomElement, defineScaffoldComp
 
 /**  */
 @Component({
-    selector: 'forge-scaffold',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-scaffold',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ScaffoldComponent {
 	protected elementRef = inject<ElementRef<ScaffoldComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-scaffold element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -29,9 +28,8 @@ export class ScaffoldComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineScaffoldComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

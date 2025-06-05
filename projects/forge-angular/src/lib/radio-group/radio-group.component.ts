@@ -4,15 +4,14 @@ import { RadioGroupComponent as RadioGroupComponentCustomElement, defineRadioGro
 
 /**  */
 @Component({
-    selector: 'forge-radio-group',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-radio-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class RadioGroupComponent {
 	protected elementRef = inject<ElementRef<RadioGroupComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-radio-group element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -29,9 +28,8 @@ export class RadioGroupComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineRadioGroupComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

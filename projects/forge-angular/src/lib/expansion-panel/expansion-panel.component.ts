@@ -4,15 +4,14 @@ import { ExpansionPanelComponent as ExpansionPanelComponentCustomElement, define
 
 /**  */
 @Component({
-    selector: 'forge-expansion-panel',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-expansion-panel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ExpansionPanelComponent {
 	protected elementRef = inject<ElementRef<ExpansionPanelComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-expansion-panel element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -78,9 +77,8 @@ export class ExpansionPanelComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineExpansionPanelComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,15 +4,14 @@ import { StackComponent as StackComponentCustomElement, defineStackComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-stack',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-stack',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class StackComponent {
 	protected elementRef = inject<ElementRef<StackComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-stack element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -84,9 +83,8 @@ export class StackComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineStackComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

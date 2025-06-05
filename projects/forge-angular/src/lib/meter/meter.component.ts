@@ -4,15 +4,14 @@ import { MeterComponent as MeterComponentCustomElement, defineMeterComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-meter',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-meter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class MeterComponent {
 	protected elementRef = inject<ElementRef<MeterComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-meter element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -180,9 +179,8 @@ export class MeterComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineMeterComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

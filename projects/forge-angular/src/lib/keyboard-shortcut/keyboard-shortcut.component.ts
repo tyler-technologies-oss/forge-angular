@@ -4,15 +4,14 @@ import { KeyboardShortcutComponent as KeyboardShortcutComponentCustomElement, de
 
 /**  */
 @Component({
-    selector: 'forge-keyboard-shortcut',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-keyboard-shortcut',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class KeyboardShortcutComponent {
 	protected elementRef = inject<ElementRef<KeyboardShortcutComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-keyboard-shortcut element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -127,11 +126,9 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.activateCallback;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineKeyboardShortcutComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

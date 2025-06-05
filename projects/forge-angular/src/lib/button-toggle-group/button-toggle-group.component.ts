@@ -4,10 +4,10 @@ import { ButtonToggleGroupComponent as ButtonToggleGroupComponentCustomElement, 
 
 /**  */
 @Component({
-    selector: 'forge-button-toggle-group',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-button-toggle-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ButtonToggleGroupComponent {
 	protected elementRef = inject<ElementRef<ButtonToggleGroupComponentCustomElement>>(ElementRef);
@@ -168,8 +168,8 @@ export class ButtonToggleGroupComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
 		defineButtonToggleGroupComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

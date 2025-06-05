@@ -4,15 +4,14 @@ import { FilePickerComponent as FilePickerComponentCustomElement, defineFilePick
 
 /**  */
 @Component({
-    selector: 'forge-file-picker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-file-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class FilePickerComponent {
 	protected elementRef = inject<ElementRef<FilePickerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-file-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -95,9 +94,8 @@ export class FilePickerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineFilePickerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

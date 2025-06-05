@@ -4,15 +4,14 @@ import { DrawerComponent as DrawerComponentCustomElement, defineDrawerComponent 
 
 /**  */
 @Component({
-    selector: 'forge-drawer',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-drawer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class DrawerComponent {
 	protected elementRef = inject<ElementRef<DrawerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-drawer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -40,9 +39,8 @@ export class DrawerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineDrawerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,15 +4,14 @@ import { TooltipComponent as TooltipComponentCustomElement, defineTooltipCompone
 
 /**  */
 @Component({
-    selector: 'forge-tooltip',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-tooltip',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class TooltipComponent {
 	protected elementRef = inject<ElementRef<TooltipComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-tooltip element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -171,11 +170,9 @@ export class TooltipComponent {
 		return this.nativeElement.triggerType;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineTooltipComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

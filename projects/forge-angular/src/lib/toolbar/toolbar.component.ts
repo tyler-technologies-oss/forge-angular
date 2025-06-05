@@ -4,15 +4,14 @@ import { ToolbarComponent as ToolbarComponentCustomElement, defineToolbarCompone
 
 /**  */
 @Component({
-    selector: 'forge-toolbar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-toolbar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ToolbarComponent {
 	protected elementRef = inject<ElementRef<ToolbarComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-toolbar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -29,9 +28,8 @@ export class ToolbarComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineToolbarComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

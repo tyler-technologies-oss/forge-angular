@@ -4,15 +4,14 @@ import { TableComponent as TableComponentCustomElement, defineTableComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-table',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-table',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class TableComponent {
 	protected elementRef = inject<ElementRef<TableComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-table element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -329,9 +328,8 @@ export class TableComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineTableComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

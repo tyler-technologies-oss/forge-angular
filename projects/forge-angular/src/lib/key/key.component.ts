@@ -4,10 +4,10 @@ import { KeyComponent as KeyComponentCustomElement, defineKeyComponent } from '@
 
 /**  */
 @Component({
-    selector: 'forge-key',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-key',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class KeyComponent {
 	protected elementRef = inject<ElementRef<KeyComponentCustomElement>>(ElementRef);
@@ -17,9 +17,8 @@ export class KeyComponent {
 	public readonly nativeElement = this.elementRef.nativeElement;
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineKeyComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

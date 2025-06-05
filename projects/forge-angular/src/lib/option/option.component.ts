@@ -4,15 +4,14 @@ import { OptionComponent as OptionComponentCustomElement, defineOptionComponent 
 
 /**  */
 @Component({
-    selector: 'forge-option',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-option',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class OptionComponent {
 	protected elementRef = inject<ElementRef<OptionComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-option element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -205,9 +204,8 @@ export class OptionComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineOptionComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

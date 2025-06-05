@@ -4,15 +4,14 @@ import { DatePickerComponent as DatePickerComponentCustomElement, defineDatePick
 
 /**  */
 @Component({
-    selector: 'forge-date-picker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-date-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class DatePickerComponent {
 	protected elementRef = inject<ElementRef<DatePickerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-date-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -271,9 +270,8 @@ export class DatePickerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineDatePickerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

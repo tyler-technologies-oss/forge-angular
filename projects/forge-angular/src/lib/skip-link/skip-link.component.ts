@@ -4,15 +4,14 @@ import { SkipLinkComponent as SkipLinkComponentCustomElement, defineSkipLinkComp
 
 /**  */
 @Component({
-    selector: 'forge-skip-link',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-skip-link',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SkipLinkComponent {
 	protected elementRef = inject<ElementRef<SkipLinkComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-skip-link element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -84,9 +83,8 @@ export class SkipLinkComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSkipLinkComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

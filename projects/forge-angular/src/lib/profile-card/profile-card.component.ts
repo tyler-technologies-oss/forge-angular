@@ -4,15 +4,14 @@ import { ProfileCardComponent as ProfileCardComponentCustomElement, defineProfil
 
 /**  */
 @Component({
-    selector: 'forge-profile-card',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-profile-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ProfileCardComponent {
 	protected elementRef = inject<ElementRef<ProfileCardComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-profile-card element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -133,9 +132,8 @@ export class ProfileCardComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineProfileCardComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

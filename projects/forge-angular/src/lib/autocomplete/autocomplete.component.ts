@@ -4,10 +4,10 @@ import { AutocompleteComponent as AutocompleteComponentCustomElement, defineAuto
 
 /**  */
 @Component({
-    selector: 'forge-autocomplete',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-autocomplete',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AutocompleteComponent {
 	protected elementRef = inject<ElementRef<AutocompleteComponentCustomElement>>(ElementRef);
@@ -106,7 +106,7 @@ export class AutocompleteComponent {
 
 	/**
 	 * Gets/sets the filter text.
-	 *
+	 * 
 	 * Setting the filter text only applies when allowUnmatched is enabled.
 	 */
 	@Input()
@@ -373,9 +373,8 @@ export class AutocompleteComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAutocompleteComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

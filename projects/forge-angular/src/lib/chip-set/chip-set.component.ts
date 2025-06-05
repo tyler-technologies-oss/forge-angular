@@ -4,10 +4,10 @@ import { ChipSetComponent as ChipSetComponentCustomElement, defineChipSetCompone
 
 /**  */
 @Component({
-    selector: 'forge-chip-set',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-chip-set',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ChipSetComponent {
 	protected elementRef = inject<ElementRef<ChipSetComponentCustomElement>>(ElementRef);
@@ -83,9 +83,8 @@ export class ChipSetComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineChipSetComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

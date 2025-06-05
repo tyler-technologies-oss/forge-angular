@@ -4,15 +4,14 @@ import { MiniDrawerComponent as MiniDrawerComponentCustomElement, defineMiniDraw
 
 /**  */
 @Component({
-    selector: 'forge-mini-drawer',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-mini-drawer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class MiniDrawerComponent {
 	protected elementRef = inject<ElementRef<MiniDrawerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-mini-drawer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -51,9 +50,8 @@ export class MiniDrawerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineMiniDrawerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,10 +4,10 @@ import { AvatarComponent as AvatarComponentCustomElement, defineAvatarComponent 
 
 /**  */
 @Component({
-    selector: 'forge-avatar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-avatar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AvatarComponent {
 	protected elementRef = inject<ElementRef<AvatarComponentCustomElement>>(ElementRef);
@@ -50,9 +50,8 @@ export class AvatarComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAvatarComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

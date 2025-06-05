@@ -4,15 +4,14 @@ import { SplitButtonComponent as SplitButtonComponentCustomElement, defineSplitB
 
 /**  */
 @Component({
-    selector: 'forge-split-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-split-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SplitButtonComponent {
 	protected elementRef = inject<ElementRef<SplitButtonComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-split-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -73,9 +72,8 @@ export class SplitButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSplitButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

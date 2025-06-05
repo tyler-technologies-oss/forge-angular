@@ -4,15 +4,14 @@ import { OptionGroupComponent as OptionGroupComponentCustomElement, defineOption
 
 /**  */
 @Component({
-    selector: 'forge-option-group',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-option-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class OptionGroupComponent {
 	protected elementRef = inject<ElementRef<OptionGroupComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-option-group element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -73,9 +72,8 @@ export class OptionGroupComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineOptionGroupComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

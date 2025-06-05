@@ -4,15 +4,14 @@ import { SelectComponent as SelectComponentCustomElement, defineSelectComponent 
 
 /**  */
 @Component({
-    selector: 'forge-select',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-select',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SelectComponent {
 	protected elementRef = inject<ElementRef<SelectComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-select element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -451,11 +450,9 @@ export class SelectComponent {
 		return this.zone.runOutsideAngular(() => this.nativeElement.floatLabelWithoutAnimation(...args));
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSelectComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

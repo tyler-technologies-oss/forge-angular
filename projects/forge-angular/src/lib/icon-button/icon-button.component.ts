@@ -4,15 +4,14 @@ import { IconButtonComponent as IconButtonComponentCustomElement, defineIconButt
 
 /**  */
 @Component({
-    selector: 'forge-icon-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-icon-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class IconButtonComponent {
 	protected elementRef = inject<ElementRef<IconButtonComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-icon-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -171,9 +170,8 @@ export class IconButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineIconButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

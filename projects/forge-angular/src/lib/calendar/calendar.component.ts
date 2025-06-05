@@ -4,10 +4,10 @@ import { CalendarComponent as CalendarComponentCustomElement, defineCalendarComp
 
 /**  */
 @Component({
-    selector: 'forge-calendar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-calendar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class CalendarComponent {
 	protected elementRef = inject<ElementRef<CalendarComponentCustomElement>>(ElementRef);
@@ -452,9 +452,8 @@ export class CalendarComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineCalendarComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

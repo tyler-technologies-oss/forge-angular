@@ -4,10 +4,10 @@ import { AppBarProfileButtonComponent as AppBarProfileButtonComponentCustomEleme
 
 /**  */
 @Component({
-    selector: 'forge-app-bar-profile-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-app-bar-profile-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AppBarProfileButtonComponent {
 	protected elementRef = inject<ElementRef<AppBarProfileButtonComponentCustomElement>>(ElementRef);
@@ -154,9 +154,8 @@ export class AppBarProfileButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAppBarProfileButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

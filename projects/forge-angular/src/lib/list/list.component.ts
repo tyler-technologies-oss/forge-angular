@@ -4,15 +4,14 @@ import { ListComponent as ListComponentCustomElement, defineListComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-list',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ListComponent {
 	protected elementRef = inject<ElementRef<ListComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-list element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -94,11 +93,9 @@ export class ListComponent {
 		return this.nativeElement.noninteractive;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineListComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,23 +4,21 @@ import { SkeletonComponent as SkeletonComponentCustomElement, defineSkeletonComp
 
 /**  */
 @Component({
-    selector: 'forge-skeleton',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-skeleton',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SkeletonComponent {
 	protected elementRef = inject<ElementRef<SkeletonComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
 
-
 	/** The forge-skeleton element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSkeletonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

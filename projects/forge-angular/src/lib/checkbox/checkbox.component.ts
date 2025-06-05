@@ -4,10 +4,10 @@ import { CheckboxComponent as CheckboxComponentCustomElement, defineCheckboxComp
 
 /**  */
 @Component({
-    selector: 'forge-checkbox',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-checkbox',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class CheckboxComponent {
 	protected elementRef = inject<ElementRef<CheckboxComponentCustomElement>>(ElementRef);
@@ -121,9 +121,8 @@ export class CheckboxComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineCheckboxComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

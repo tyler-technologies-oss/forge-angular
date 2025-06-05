@@ -4,10 +4,10 @@ import { CircularProgressComponent as CircularProgressComponentCustomElement, de
 
 /**  */
 @Component({
-    selector: 'forge-circular-progress',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-circular-progress',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class CircularProgressComponent {
 	protected elementRef = inject<ElementRef<CircularProgressComponentCustomElement>>(ElementRef);
@@ -61,9 +61,8 @@ export class CircularProgressComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineCircularProgressComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

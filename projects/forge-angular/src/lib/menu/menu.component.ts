@@ -4,15 +4,14 @@ import { MenuComponent as MenuComponentCustomElement, defineMenuComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-menu',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class MenuComponent {
 	protected elementRef = inject<ElementRef<MenuComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-menu element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -322,9 +321,8 @@ export class MenuComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineMenuComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

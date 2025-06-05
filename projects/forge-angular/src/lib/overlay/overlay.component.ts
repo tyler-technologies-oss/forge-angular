@@ -4,15 +4,14 @@ import { OverlayComponent as OverlayComponentCustomElement, defineOverlayCompone
 
 /**  */
 @Component({
-    selector: 'forge-overlay',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-overlay',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class OverlayComponent {
 	protected elementRef = inject<ElementRef<OverlayComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-overlay element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -210,9 +209,8 @@ export class OverlayComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineOverlayComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

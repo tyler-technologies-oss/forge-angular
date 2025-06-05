@@ -4,15 +4,14 @@ import { ToastComponent as ToastComponentCustomElement, defineToastComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-toast',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-toast',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ToastComponent {
 	protected elementRef = inject<ElementRef<ToastComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-toast element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -105,9 +104,8 @@ export class ToastComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineToastComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

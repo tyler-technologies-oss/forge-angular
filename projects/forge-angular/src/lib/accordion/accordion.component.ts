@@ -4,10 +4,10 @@ import { AccordionComponent as AccordionComponentCustomElement, defineAccordionC
 
 /**  */
 @Component({
-    selector: 'forge-accordion',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AccordionComponent {
 	protected elementRef = inject<ElementRef<AccordionComponentCustomElement>>(ElementRef);
@@ -31,9 +31,8 @@ export class AccordionComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAccordionComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

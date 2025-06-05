@@ -4,15 +4,14 @@ import { ListItemComponent as ListItemComponentCustomElement, defineListItemComp
 
 /**  */
 @Component({
-    selector: 'forge-list-item',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-list-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ListItemComponent {
 	protected elementRef = inject<ElementRef<ListItemComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-list-item element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -128,9 +127,8 @@ export class ListItemComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineListItemComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,15 +4,14 @@ import { TabBarComponent as TabBarComponentCustomElement, defineTabBarComponent 
 
 /**  */
 @Component({
-    selector: 'forge-tab-bar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-tab-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class TabBarComponent {
 	protected elementRef = inject<ElementRef<TabBarComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-tab-bar element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -117,9 +116,8 @@ export class TabBarComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineTabBarComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

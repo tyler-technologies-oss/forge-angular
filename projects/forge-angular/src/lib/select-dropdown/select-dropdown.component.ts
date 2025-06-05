@@ -4,15 +4,14 @@ import { SelectDropdownComponent as SelectDropdownComponentCustomElement, define
 
 /**  */
 @Component({
-    selector: 'forge-select-dropdown',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-select-dropdown',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SelectDropdownComponent {
 	protected elementRef = inject<ElementRef<SelectDropdownComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-select-dropdown element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -316,9 +315,8 @@ export class SelectDropdownComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSelectDropdownComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

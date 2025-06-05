@@ -4,10 +4,10 @@ import { ButtonAreaComponent as ButtonAreaComponentCustomElement, defineButtonAr
 
 /**  */
 @Component({
-    selector: 'forge-button-area',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-button-area',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ButtonAreaComponent {
 	protected elementRef = inject<ElementRef<ButtonAreaComponentCustomElement>>(ElementRef);
@@ -28,9 +28,8 @@ export class ButtonAreaComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineButtonAreaComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

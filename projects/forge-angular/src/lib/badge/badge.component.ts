@@ -4,10 +4,10 @@ import { BadgeComponent as BadgeComponentCustomElement, defineBadgeComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-badge',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-badge',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class BadgeComponent {
 	protected elementRef = inject<ElementRef<BadgeComponentCustomElement>>(ElementRef);
@@ -61,9 +61,8 @@ export class BadgeComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineBadgeComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

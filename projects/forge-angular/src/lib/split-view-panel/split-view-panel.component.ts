@@ -4,15 +4,14 @@ import { SplitViewPanelComponent as SplitViewPanelComponentCustomElement, define
 
 /**  */
 @Component({
-    selector: 'forge-split-view-panel',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-split-view-panel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SplitViewPanelComponent {
 	protected elementRef = inject<ElementRef<SplitViewPanelComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-split-view-panel element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -151,9 +150,8 @@ export class SplitViewPanelComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSplitViewPanelComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

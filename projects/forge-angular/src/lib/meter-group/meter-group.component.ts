@@ -4,15 +4,14 @@ import { MeterGroupComponent as MeterGroupComponentCustomElement, defineMeterGro
 
 /**  */
 @Component({
-    selector: 'forge-meter-group',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-meter-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class MeterGroupComponent {
 	protected elementRef = inject<ElementRef<MeterGroupComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-meter-group element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -95,9 +94,8 @@ export class MeterGroupComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineMeterGroupComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

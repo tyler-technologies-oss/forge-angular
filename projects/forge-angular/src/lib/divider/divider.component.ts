@@ -4,15 +4,14 @@ import { DividerComponent as DividerComponentCustomElement, defineDividerCompone
 
 /**  */
 @Component({
-    selector: 'forge-divider',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-divider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class DividerComponent {
 	protected elementRef = inject<ElementRef<DividerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-divider element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -29,9 +28,8 @@ export class DividerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineDividerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

@@ -4,15 +4,14 @@ import { IconComponent as IconComponentCustomElement, defineIconComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-icon',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class IconComponent {
 	protected elementRef = inject<ElementRef<IconComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-icon element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -111,9 +110,8 @@ export class IconComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineIconComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

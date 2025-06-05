@@ -4,10 +4,10 @@ import { BannerComponent as BannerComponentCustomElement, defineBannerComponent 
 
 /**  */
 @Component({
-    selector: 'forge-banner',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-banner',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class BannerComponent {
 	protected elementRef = inject<ElementRef<BannerComponentCustomElement>>(ElementRef);
@@ -61,9 +61,8 @@ export class BannerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineBannerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

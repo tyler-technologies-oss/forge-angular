@@ -4,15 +4,14 @@ import { StateLayerComponent as StateLayerComponentCustomElement, defineStateLay
 
 /**  */
 @Component({
-    selector: 'forge-state-layer',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-state-layer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class StateLayerComponent {
 	protected elementRef = inject<ElementRef<StateLayerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-state-layer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -52,7 +51,7 @@ export class StateLayerComponent {
 
 	/**
 	 * Triggers the animation to run.
-	 *
+	 * 
 	 * Note: If coordinates are not provided, the transition will originate from the center of the target element.
 	 */
 	public playAnimation(...args: Parameters<StateLayerComponentCustomElement['playAnimation']>): ReturnType<StateLayerComponentCustomElement['playAnimation']> {
@@ -60,9 +59,8 @@ export class StateLayerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineStateLayerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

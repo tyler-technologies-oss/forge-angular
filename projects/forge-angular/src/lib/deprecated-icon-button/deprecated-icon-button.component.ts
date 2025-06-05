@@ -4,15 +4,14 @@ import { DeprecatedIconButtonComponent as DeprecatedIconButtonComponentCustomEle
 
 /**  */
 @Component({
-    selector: 'forge-deprecated-icon-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-deprecated-icon-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class DeprecatedIconButtonComponent {
 	protected elementRef = inject<ElementRef<DeprecatedIconButtonComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-deprecated-icon-button element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -67,9 +66,8 @@ export class DeprecatedIconButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineDeprecatedIconButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

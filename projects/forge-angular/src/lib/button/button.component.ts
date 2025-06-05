@@ -4,10 +4,10 @@ import { ButtonComponent as ButtonComponentCustomElement, defineButtonComponent 
 
 /**  */
 @Component({
-    selector: 'forge-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ButtonComponent {
 	protected elementRef = inject<ElementRef<ButtonComponentCustomElement>>(ElementRef);
@@ -137,9 +137,8 @@ export class ButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

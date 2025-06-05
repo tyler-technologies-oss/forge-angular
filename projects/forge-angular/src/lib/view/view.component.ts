@@ -4,23 +4,21 @@ import { ViewComponent as ViewComponentCustomElement, defineViewComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-view',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-view',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ViewComponent {
 	protected elementRef = inject<ElementRef<ViewComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
 
-
 	/** The forge-view element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineViewComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

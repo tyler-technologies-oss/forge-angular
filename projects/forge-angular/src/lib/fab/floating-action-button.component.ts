@@ -4,15 +4,14 @@ import { FloatingActionButtonComponent as FloatingActionButtonComponentCustomEle
 
 /**  */
 @Component({
-    selector: 'forge-fab',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-fab',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class FloatingActionButtonComponent {
 	protected elementRef = inject<ElementRef<FloatingActionButtonComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-fab element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -127,9 +126,8 @@ export class FloatingActionButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineFloatingActionButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

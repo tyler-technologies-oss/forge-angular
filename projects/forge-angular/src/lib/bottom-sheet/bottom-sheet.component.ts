@@ -4,10 +4,10 @@ import { BottomSheetComponent as BottomSheetComponentCustomElement, defineBottom
 
 /**  */
 @Component({
-    selector: 'forge-bottom-sheet',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-bottom-sheet',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class BottomSheetComponent {
 	protected elementRef = inject<ElementRef<BottomSheetComponentCustomElement>>(ElementRef);
@@ -61,9 +61,8 @@ export class BottomSheetComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineBottomSheetComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

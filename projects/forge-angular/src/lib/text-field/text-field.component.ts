@@ -4,15 +4,14 @@ import { TextFieldComponent as TextFieldComponentCustomElement, defineTextFieldC
 
 /**  */
 @Component({
-    selector: 'forge-text-field',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-text-field',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class TextFieldComponent {
 	protected elementRef = inject<ElementRef<TextFieldComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-text-field element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -204,9 +203,8 @@ export class TextFieldComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineTextFieldComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

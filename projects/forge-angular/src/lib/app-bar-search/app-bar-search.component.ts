@@ -4,10 +4,10 @@ import { AppBarSearchComponent as AppBarSearchComponentCustomElement, defineAppB
 
 /**  */
 @Component({
-    selector: 'forge-app-bar-search',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-app-bar-search',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AppBarSearchComponent {
 	protected elementRef = inject<ElementRef<AppBarSearchComponentCustomElement>>(ElementRef);
@@ -50,9 +50,8 @@ export class AppBarSearchComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAppBarSearchComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

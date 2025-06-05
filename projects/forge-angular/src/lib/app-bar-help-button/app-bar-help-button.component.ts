@@ -4,10 +4,10 @@ import { AppBarHelpButtonComponent as AppBarHelpButtonComponentCustomElement, de
 
 /**  */
 @Component({
-    selector: 'forge-app-bar-help-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-app-bar-help-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class AppBarHelpButtonComponent {
 	protected elementRef = inject<ElementRef<AppBarHelpButtonComponentCustomElement>>(ElementRef);
@@ -39,9 +39,8 @@ export class AppBarHelpButtonComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineAppBarHelpButtonComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

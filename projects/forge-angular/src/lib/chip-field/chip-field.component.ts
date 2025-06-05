@@ -4,10 +4,10 @@ import { ChipFieldComponent as ChipFieldComponentCustomElement, defineChipFieldC
 
 /**  */
 @Component({
-    selector: 'forge-chip-field',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-chip-field',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ChipFieldComponent {
 	protected elementRef = inject<ElementRef<ChipFieldComponentCustomElement>>(ElementRef);
@@ -208,9 +208,8 @@ export class ChipFieldComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineChipFieldComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

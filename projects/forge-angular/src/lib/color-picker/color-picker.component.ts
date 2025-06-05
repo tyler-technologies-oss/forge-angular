@@ -4,15 +4,14 @@ import { ColorPickerComponent as ColorPickerComponentCustomElement, defineColorP
 
 /**  */
 @Component({
-    selector: 'forge-color-picker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-color-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ColorPickerComponent {
 	protected elementRef = inject<ElementRef<ColorPickerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-color-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -83,11 +82,9 @@ export class ColorPickerComponent {
 		return this.nativeElement.debounceChangeEvent;
 	}
 
-	/** Inserted by Angular inject() migration for backwards compatibility */
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineColorPickerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

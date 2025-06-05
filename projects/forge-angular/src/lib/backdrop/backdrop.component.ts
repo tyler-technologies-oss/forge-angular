@@ -4,10 +4,10 @@ import { BackdropComponent as BackdropComponentCustomElement, defineBackdropComp
 
 /**  */
 @Component({
-    selector: 'forge-backdrop',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-backdrop',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class BackdropComponent {
 	protected elementRef = inject<ElementRef<BackdropComponentCustomElement>>(ElementRef);
@@ -59,9 +59,8 @@ export class BackdropComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineBackdropComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

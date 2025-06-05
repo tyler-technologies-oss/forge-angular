@@ -4,15 +4,14 @@ import { ViewSwitcherComponent as ViewSwitcherComponentCustomElement, defineView
 
 /**  */
 @Component({
-    selector: 'forge-view-switcher',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-view-switcher',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ViewSwitcherComponent {
 	protected elementRef = inject<ElementRef<ViewSwitcherComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-view-switcher element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -60,9 +59,8 @@ export class ViewSwitcherComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineViewSwitcherComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

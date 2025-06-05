@@ -4,15 +4,14 @@ import { TimePickerComponent as TimePickerComponentCustomElement, defineTimePick
 
 /**  */
 @Component({
-    selector: 'forge-time-picker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-time-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class TimePickerComponent {
 	protected elementRef = inject<ElementRef<TimePickerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-time-picker element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -293,9 +292,8 @@ export class TimePickerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineTimePickerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

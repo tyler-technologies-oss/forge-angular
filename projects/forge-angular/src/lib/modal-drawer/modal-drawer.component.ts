@@ -4,15 +4,14 @@ import { ModalDrawerComponent as ModalDrawerComponentCustomElement, defineModalD
 
 /**  */
 @Component({
-    selector: 'forge-modal-drawer',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-modal-drawer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class ModalDrawerComponent {
 	protected elementRef = inject<ElementRef<ModalDrawerComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-modal-drawer element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -40,9 +39,8 @@ export class ModalDrawerComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineModalDrawerComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

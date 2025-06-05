@@ -4,15 +4,14 @@ import { SwitchComponent as SwitchComponentCustomElement, defineSwitchComponent 
 
 /**  */
 @Component({
-    selector: 'forge-switch',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-switch',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class SwitchComponent {
 	protected elementRef = inject<ElementRef<SwitchComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-switch element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -155,9 +154,8 @@ export class SwitchComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineSwitchComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

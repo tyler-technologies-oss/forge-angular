@@ -4,15 +4,14 @@ import { PaginatorComponent as PaginatorComponentCustomElement, definePaginatorC
 
 /**  */
 @Component({
-    selector: 'forge-paginator',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-paginator',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class PaginatorComponent {
 	protected elementRef = inject<ElementRef<PaginatorComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-paginator element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -144,9 +143,8 @@ export class PaginatorComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		definePaginatorComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

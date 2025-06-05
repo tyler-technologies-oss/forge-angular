@@ -4,15 +4,14 @@ import { RadioComponent as RadioComponentCustomElement, defineRadioComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-radio',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-radio',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class RadioComponent {
 	protected elementRef = inject<ElementRef<RadioComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-radio element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -106,9 +105,8 @@ export class RadioComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineRadioComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

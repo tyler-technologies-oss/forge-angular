@@ -4,15 +4,14 @@ import { StepComponent as StepComponentCustomElement, defineStepComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-step',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-step',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class StepComponent {
 	protected elementRef = inject<ElementRef<StepComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-step element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -128,9 +127,8 @@ export class StepComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineStepComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

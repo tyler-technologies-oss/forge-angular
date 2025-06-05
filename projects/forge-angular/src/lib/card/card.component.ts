@@ -4,10 +4,10 @@ import { CardComponent as CardComponentCustomElement, defineCardComponent } from
 
 /**  */
 @Component({
-    selector: 'forge-card',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class CardComponent {
 	protected elementRef = inject<ElementRef<CardComponentCustomElement>>(ElementRef);
@@ -28,9 +28,8 @@ export class CardComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineCardComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }

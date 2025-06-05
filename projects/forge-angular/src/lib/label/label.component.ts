@@ -4,15 +4,14 @@ import { LabelComponent as LabelComponentCustomElement, defineLabelComponent } f
 
 /**  */
 @Component({
-    selector: 'forge-label',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: '<ng-content />',
-    standalone: false
+  selector: 'forge-label',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  standalone: false
 })
 export class LabelComponent {
 	protected elementRef = inject<ElementRef<LabelComponentCustomElement>>(ElementRef);
 	protected zone = inject(NgZone);
-
 
 	/** The forge-label element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
@@ -89,9 +88,8 @@ export class LabelComponent {
 	}
 
 	constructor() {
-		const changeDetectorRef = inject(ChangeDetectorRef);
-
 		defineLabelComponent();
+		const changeDetectorRef = inject(ChangeDetectorRef);
 		changeDetectorRef.detach();
 	}
 }
