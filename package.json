@@ -43,7 +43,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@tylertech-eslint/eslint-plugin": "^1.0.12",
-    "@tylertech/forge-schematics": "^1.3.1",
+    "@tylertech/forge-schematics": "^2.0.0",
     "@types/jasmine": "^5.1.8",
     "@types/node": "^22.15.29",
     "auto": "^11.3.0",
