@@ -104,6 +104,17 @@ export class PopoverComponent {
 		return this.nativeElement.preset;
 	}
 
+	/** Enforces that this popover should be the only one open with the same unique value. */
+	@Input()
+	public set distinct(value: PopoverComponentCustomElement['distinct']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.distinct = value;
+		});
+	}
+	public get distinct(): PopoverComponentCustomElement['distinct'] {
+		return this.nativeElement.distinct;
+	}
+
 	/** A readonly reference to the internal `<forge-overlay>` element instance. */
 	public get overlay(): PopoverComponentCustomElement['overlay'] {
 		return this.nativeElement.overlay;
