@@ -60,7 +60,7 @@ export class IconComponent {
 		return this.nativeElement.external;
 	}
 
-	/** The type of icon to load externally. Possible values: "standard" (default), "extended", "custom". */
+	/** **(Deprecated)** The type of icon to load externally. Possible values: "all" (default), "standard", "extended", "custom". */
 	@Input()
 	public set externalType(value: IconComponentCustomElement['externalType']) {
 		this.zone.runOutsideAngular(() => {
