@@ -1,3 +1,15 @@
+# v6.1.1 (Mon Jun 16 2025)
+
+#### 🐛 Bug Fix
+
+- fix: add the root lib module back and re-export it [#91](https://github.com/tyler-technologies-oss/forge-angular/pull/91) ([@Ross-Blakeney](https://github.com/Ross-Blakeney))
+
+#### Authors: 1
+
+- [@Ross-Blakeney](https://github.com/Ross-Blakeney)
+
+---
+
 # v6.1.0 (Mon Jun 09 2025)
 
 #### 🚀 Enhancement
