@@ -90,4 +90,4 @@ export * from './lib/tooltip';
 export * from './lib/view';
 export * from './lib/view-switcher';
 
-
+export * from './lib/forge.module';
