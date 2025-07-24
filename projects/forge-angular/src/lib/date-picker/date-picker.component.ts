@@ -126,6 +126,17 @@ export class DatePickerComponent {
 		return this.nativeElement.showMaskFormat;
 	}
 
+	/** The date format to use for the date picker. */
+	@Input()
+	public set dateFormat(value: DatePickerComponentCustomElement['dateFormat']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dateFormat = value;
+		});
+	}
+	public get dateFormat(): DatePickerComponentCustomElement['dateFormat'] {
+		return this.nativeElement.dateFormat;
+	}
+
 	/** The type for the `value` property and `forge-date-picker-change` event. */
 	@Input()
 	public set valueMode(value: DatePickerComponentCustomElement['valueMode']) {
@@ -135,6 +146,17 @@ export class DatePickerComponent {
 	}
 	public get valueMode(): DatePickerComponentCustomElement['valueMode'] {
 		return this.nativeElement.valueMode;
+	}
+
+	/** The shortcuts to use for the date picker. Can be an object with key-value pairs where the key is the shortcut name and the value is a function that returns a `Date` object. */
+	@Input()
+	public set shortcuts(value: DatePickerComponentCustomElement['shortcuts']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.shortcuts = value;
+		});
+	}
+	public get shortcuts(): DatePickerComponentCustomElement['shortcuts'] {
+		return this.nativeElement.shortcuts;
 	}
 
 	/** Whether the native input will be notified of value changes via the `input` and `change` events. */
