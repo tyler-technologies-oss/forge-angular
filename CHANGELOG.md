@@ -1,3 +1,24 @@
+# v6.2.0 (Thu Jul 24 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Josh Shackelford ([@tyler-josh](https://github.com/tyler-josh)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(date-picker): regenerate proxies for new `dateFormat` property [#94](https://github.com/tyler-technologies-oss/forge-angular/pull/94) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### 🐛 Bug Fix
+
+- fix: update dependencies to resolve security vulnerabilities [#93](https://github.com/tyler-technologies-oss/forge-angular/pull/93) ([@tyler-josh](https://github.com/tyler-josh))
+
+#### Authors: 2
+
+- Josh Shackelford ([@tyler-josh](https://github.com/tyler-josh))
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v6.1.1 (Mon Jun 16 2025)
 
 #### 🐛 Bug Fix
