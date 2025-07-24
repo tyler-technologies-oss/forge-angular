@@ -280,6 +280,28 @@ export class DateRangePickerComponent {
 		return this.nativeElement.locale;
 	}
 
+	/** The date format to use for the date picker. */
+	@Input()
+	public set dateFormat(value: DateRangePickerComponentCustomElement['dateFormat']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.dateFormat = value;
+		});
+	}
+	public get dateFormat(): DateRangePickerComponentCustomElement['dateFormat'] {
+		return this.nativeElement.dateFormat;
+	}
+
+	/** The shortcuts to use for the date picker. Can be an object with key-value pairs where the key is the shortcut name and the value is a function that returns a `Date` object. */
+	@Input()
+	public set shortcuts(value: DateRangePickerComponentCustomElement['shortcuts']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.shortcuts = value;
+		});
+	}
+	public get shortcuts(): DateRangePickerComponentCustomElement['shortcuts'] {
+		return this.nativeElement.shortcuts;
+	}
+
 	/** Customized strings to display in the calendar dropdown UI. */
 	@Input()
 	public set calendarText(value: DateRangePickerComponentCustomElement['calendarText']) {
