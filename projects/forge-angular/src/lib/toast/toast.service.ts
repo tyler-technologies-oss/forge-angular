@@ -17,9 +17,11 @@ export interface IToastRef {
   providedIn: 'root'
 })
 export class ToastService {
-  constructor(private _appRef: ApplicationRef, private _injector: EnvironmentInjector) {
+  static {
     defineToastComponent();
   }
+
+  constructor(private _appRef: ApplicationRef, private _injector: EnvironmentInjector) {}
 
   /**
    * Creates and renders a toast component.
