@@ -17,12 +17,12 @@ export interface IToastRef {
   providedIn: 'root'
 })
 export class ToastService {
-  private _appRef = inject(ApplicationRef);
-  private _injector = inject(EnvironmentInjector);
-
-  constructor() {
+  static {
     defineToastComponent();
   }
+
+  private _appRef = inject(ApplicationRef);
+  private _injector = inject(EnvironmentInjector);
 
   /**
    * Creates and renders a toast component.
@@ -34,6 +34,7 @@ export class ToastService {
     let toastElement: IToastComponent;
     let environmentInjector: EnvironmentInjector | undefined;
     let componentRef: ComponentRef<any> | undefined;
+    let abortController: AbortController | undefined;
 
     const messageText = typeof configOrMessage === 'string' ? configOrMessage : configOrMessage.message;
     if (typeof messageText === 'string') {
@@ -47,8 +48,10 @@ export class ToastService {
       const element = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
       toastElement = ToastComponent.present({ element, ...config });
 
-      toastElement.addEventListener(TOAST_CONSTANTS.events.CLOSE, () => {
-        environmentInjector?.destroy();
+      abortController = new AbortController();
+      toastElement.addEventListener(TOAST_CONSTANTS.events.CLOSE, () => environmentInjector?.destroy(), {
+        once: true,
+        signal: abortController.signal
       });
     } else {
       throw new Error('Either a component or a message must be provided.');
@@ -61,9 +64,10 @@ export class ToastService {
     return {
       nativeElement: toastElement,
       close: async () => {
+        abortController?.abort();
+        await toastElement.hide();
         environmentInjector?.destroy();
         componentRef?.destroy();
-        await toastElement.hide();
         toastElement.remove();
       }
     };
