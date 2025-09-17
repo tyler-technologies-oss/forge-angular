@@ -1,3 +1,20 @@
+# v5.5.1 (Wed Sep 17 2025)
+
+#### 🐛 Bug Fix
+
+- fix(ToastService): static block init [#98](https://github.com/tyler-technologies-oss/forge-angular/pull/98) ([@DRiFTy17](https://github.com/DRiFTy17))
+- fix(toast): fix injector cleanup logic [#97](https://github.com/tyler-technologies-oss/forge-angular/pull/97) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### ⚠️ Pushed to `main`
+
+- chore: fix release workflow branch name ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v5.5.0 (Tue Jun 03 2025)
 
 #### 🚀 Enhancement
