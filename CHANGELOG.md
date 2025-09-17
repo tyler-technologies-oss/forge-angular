@@ -1,3 +1,15 @@
+# v6.2.1 (Wed Sep 17 2025)
+
+#### 🐛 Bug Fix
+
+- fix(toast): fix injector cleanup logic [#96](https://github.com/tyler-technologies-oss/forge-angular/pull/96) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v6.2.0 (Thu Jul 24 2025)
 
 :tada: This release contains work from a new contributor! :tada:
