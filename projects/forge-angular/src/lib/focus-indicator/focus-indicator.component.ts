@@ -82,7 +82,7 @@ export class FocusIndicatorComponent {
 		return this.nativeElement.allowFocus;
 	}
 
-	/** The focus mode to use. */
+	/** The focus mode to use. Valid values are `focusin` (default) and `focus`. */
 	@Input()
 	public set focusMode(value: FocusIndicatorComponentCustomElement['focusMode']) {
 		this.zone.runOutsideAngular(() => {

@@ -49,6 +49,28 @@ export class SelectComponent {
 		return this.nativeElement.readonly;
 	}
 
+	/** Gets/sets whether to show the select all option when in multiple mode. */
+	@Input({ transform: booleanAttribute })
+	public set showSelectAll(value: SelectComponentCustomElement['showSelectAll']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.showSelectAll = value;
+		});
+	}
+	public get showSelectAll(): SelectComponentCustomElement['showSelectAll'] {
+		return this.nativeElement.showSelectAll;
+	}
+
+	/** Gets/sets the label for the select all option. */
+	@Input()
+	public set selectAllLabel(value: SelectComponentCustomElement['selectAllLabel']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.selectAllLabel = value;
+		});
+	}
+	public get selectAllLabel(): SelectComponentCustomElement['selectAllLabel'] {
+		return this.nativeElement.selectAllLabel;
+	}
+
 	/** Whether the label floats above the field. */
 	@Input({ transform: booleanAttribute })
 	public set floatLabel(value: SelectComponentCustomElement['floatLabel']) {
