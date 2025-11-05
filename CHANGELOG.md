@@ -1,3 +1,15 @@
+# v6.3.0 (Wed Nov 05 2025)
+
+#### 🚀 Enhancement
+
+- feat: update to forge 3.12.0 [#100](https://github.com/tyler-technologies-oss/forge-angular/pull/100) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v6.2.1 (Wed Sep 17 2025)
 
 #### 🐛 Bug Fix
