@@ -153,6 +153,22 @@ export class MenuComponent {
 		return this.nativeElement.popupElement;
 	}
 
+	/**
+	 * Gets/sets the ID of the element to use as the popup anchor for positioning.
+	 * When null or empty, the target element (button) is used for both interaction and positioning.
+	 * This is useful for cases like forge-list-item > button where the menu should be
+	 * attached to the button for listeners but positioned relative to the list item.
+	 */
+	@Input()
+	public set popupTarget(value: MenuComponentCustomElement['popupTarget']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.popupTarget = value;
+		});
+	}
+	public get popupTarget(): MenuComponentCustomElement['popupTarget'] {
+		return this.nativeElement.popupTarget;
+	}
+
 	/** Gets/sets the list of classes to apply to the popup element. */
 	@Input()
 	public set popupClasses(value: MenuComponentCustomElement['popupClasses']) {

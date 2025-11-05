@@ -142,6 +142,46 @@ export class PaginatorComponent {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
 	}
 
+	/** Navigates to the first page. */
+	public goToFirstPage(...args: Parameters<PaginatorComponentCustomElement['goToFirstPage']>): ReturnType<PaginatorComponentCustomElement['goToFirstPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.goToFirstPage(...args));
+	}
+
+	/** Navigates to the previous page. */
+	public goToPreviousPage(...args: Parameters<PaginatorComponentCustomElement['goToPreviousPage']>): ReturnType<PaginatorComponentCustomElement['goToPreviousPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.goToPreviousPage(...args));
+	}
+
+	/** Navigates to the next page. */
+	public goToNextPage(...args: Parameters<PaginatorComponentCustomElement['goToNextPage']>): ReturnType<PaginatorComponentCustomElement['goToNextPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.goToNextPage(...args));
+	}
+
+	/** Navigates to the last page. */
+	public goToLastPage(...args: Parameters<PaginatorComponentCustomElement['goToLastPage']>): ReturnType<PaginatorComponentCustomElement['goToLastPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.goToLastPage(...args));
+	}
+
+	/** Checks if navigation to the first page is possible. */
+	public canGoToFirstPage(...args: Parameters<PaginatorComponentCustomElement['canGoToFirstPage']>): ReturnType<PaginatorComponentCustomElement['canGoToFirstPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.canGoToFirstPage(...args));
+	}
+
+	/** Checks if navigation to the previous page is possible. */
+	public canGoToPreviousPage(...args: Parameters<PaginatorComponentCustomElement['canGoToPreviousPage']>): ReturnType<PaginatorComponentCustomElement['canGoToPreviousPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.canGoToPreviousPage(...args));
+	}
+
+	/** Checks if navigation to the next page is possible. */
+	public canGoToNextPage(...args: Parameters<PaginatorComponentCustomElement['canGoToNextPage']>): ReturnType<PaginatorComponentCustomElement['canGoToNextPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.canGoToNextPage(...args));
+	}
+
+	/** Checks if navigation to the last page is possible. */
+	public canGoToLastPage(...args: Parameters<PaginatorComponentCustomElement['canGoToLastPage']>): ReturnType<PaginatorComponentCustomElement['canGoToLastPage']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.canGoToLastPage(...args));
+	}
+
 	constructor() {
 		definePaginatorComponent();
 		const changeDetectorRef = inject(ChangeDetectorRef);

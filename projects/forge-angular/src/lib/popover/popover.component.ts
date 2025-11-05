@@ -115,6 +115,17 @@ export class PopoverComponent {
 		return this.nativeElement.distinct;
 	}
 
+	/** Controls whether the popover manages accessibility attributes on the anchor element. */
+	@Input()
+	public set anchorAccessibility(value: PopoverComponentCustomElement['anchorAccessibility']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.anchorAccessibility = value;
+		});
+	}
+	public get anchorAccessibility(): PopoverComponentCustomElement['anchorAccessibility'] {
+		return this.nativeElement.anchorAccessibility;
+	}
+
 	/** A readonly reference to the internal `<forge-overlay>` element instance. */
 	public get overlay(): PopoverComponentCustomElement['overlay'] {
 		return this.nativeElement.overlay;

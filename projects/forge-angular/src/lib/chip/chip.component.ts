@@ -137,6 +137,17 @@ export class ChipComponent {
 		return this.nativeElement.rel;
 	}
 
+	/** The custom aria-label for the remove button. */
+	@Input()
+	public set removeButtonLabel(value: ChipComponentCustomElement['removeButtonLabel']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.removeButtonLabel = value;
+		});
+	}
+	public get removeButtonLabel(): ChipComponentCustomElement['removeButtonLabel'] {
+		return this.nativeElement.removeButtonLabel;
+	}
+
 
 	public focus(...args: Parameters<ChipComponentCustomElement['focus']>): ReturnType<ChipComponentCustomElement['focus']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
