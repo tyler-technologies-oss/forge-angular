@@ -1,3 +1,16 @@
+# v7.0.0 (Thu Nov 20 2025)
+
+#### 💥 Breaking Change
+
+- chore(undo): revert version change in the lib's package.json [#103](https://github.com/tyler-technologies-oss/forge-angular/pull/103) ([@Ross-Blakeney](https://github.com/Ross-Blakeney))
+- chore(deps): ng21 support [#102](https://github.com/tyler-technologies-oss/forge-angular/pull/102) ([@Ross-Blakeney](https://github.com/Ross-Blakeney))
+
+#### Authors: 1
+
+- [@Ross-Blakeney](https://github.com/Ross-Blakeney)
+
+---
+
 # v6.3.0 (Wed Nov 05 2025)
 
 #### 🚀 Enhancement
