@@ -1,58 +1,51 @@
-# Forge Angular
+# Forge Angular Demo Application
 
-An Angular adapter library for the Tyler Forge™ Web Components library.
+This repository contains the `@tylertech/forge-angular` library and a demo application showcasing its usage.
 
-## Problem
+## About
 
-Web Components, more specifically custom elements are not compatible with Angular by default. This requires us to use `CUSTOM_ELEMENTS_SCHEMA` within
-our Angular modules to tell Angular not to throw errors when it comes across an HTML element that it doesn't recognize. The problem with this is that
-we lose some type safety and useful error messages with these elements as we're developing.
+This demo application demonstrates how to use the Tyler Forge™ Web Components with Angular through the `@tylertech/forge-angular` adapter library. It serves as both a reference implementation and a testing ground for the library components.
 
-### Solution
+## Getting Started
 
-The purpose of this library is to make using Forge Web Components in Angular a seamless experience. It provides `ControlValueAccessor` directives
-to enable usage of constructs like `formControlName`, `formControl`, and `ngModel`, as well as auto-generated proxy (wrapper) components for
-every `<forge-*>` element in the Forge component library.
+### Prerequisites
 
-To elaborate on the proxy components, these are Angular components that target the element names for every Forge custom HTML element. This allows Angular
-to provide strict type safety for properties and events as well as intelligent code completion and useful error messages. Each component is exported
-from its own Angular module to allow for opting in to include only specific components that your Angular application is using.
+- Node.js (latest LTS version recommended)
+- npm or yarn
 
-> This enables developers to be able to remove their usage of `CUSTOM_ELEMENTS_SCHEMA` when using Forge.
+### Installation
 
-## Version Compatibility
+```bash
+npm install
+```
 
-| `@tylertech/forge-angular` | Angular             | Forge    |
-| -------------------------- | ------------------- | -------- |
-| `^6.0.0`                   | `>=19.0.0 < 21.0.0` | `^3.8.0` |
-| `^5.0.0`                   | `>=18.0.0 < 20.0.0` | `^3.0.0` |
-| `^4.0.0`                   | `>=17.0.0 < 19.0.0` | `^3.0.0` |
-| `^3.0.0`                   | `>=16.0.0 < 18.0.0` | `^2.0.0` |
-| `^2.0.0`                   | `>=13.3.0 < 16.0.0` | `^2.0.0` |
+### Running the Demo
 
-## Getting started
+```bash
+npm start
+```
 
-While this library is not _required_ to use Forge with Angular, it is highly recommended. Follow these steps to get started:
+This will build the library and start the development server. The demo application will open automatically in your browser.
 
-1. Install the latest version of Forge components: `npm install @tylertech/forge`
-   - This is the library that contains the framework-agnostic Web Components.
-2. Install the latest version of this Forge Angular adapter library using the version compatibility table above: `npm install @tylertech/forge-angular`
-3. Reference the Forge global stylesheet in your `styles.scss` file: `@use '@tylertech/forge/dist/forge.css';`
-   - You can also include this file through the `angular.json` file if desired as well.
-4. To use a Forge component, you will import the Angular module from `@tylertech/forge-angular` for each component you are using. Ex. `ForgeButtonModule`
-   - This tells Angular about each Forge component you are using, and allows for strict typing that you wouldn't normally get without this library.
+## Project Structure
 
-## Setting Up a Release
+- `projects/forge-angular/` - The `@tylertech/forge-angular` library source code
+- `src/` - Demo application source code
+- `dist/` - Build output (generated)
 
-This repository uses the [`auto`](https://www.npmjs.com/package/auto) npm package to manage releases.
+## Using the Library
 
-Releases are triggered automatically when a pull request is merged into the `main` branch **and** includes a [semantic versioning label](https://semver.org/)—`major`, `minor`, or `patch`. To **prevent** a release, add the `skip-release` label alongside any semantic version label.
+For detailed information on using `@tylertech/forge-angular` in your own projects, see the [library README](./projects/forge-angular/README.md).
 
-> ⚠️ **Note:** This project supports **current-1** versions. When a `major` label is used, `auto` will automatically create a version branch for the previous major version upon publishing the new release.
+## Contributing
 
-### Example: Patch Release Flow
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
 
-1. Create your pull request.
-2. In the GitHub UI, add the `patch` label to your PR (found in the right-hand sidebar).
-3. Do **not** include the `skip-release` label if you want this PR to trigger a release.
-4. Once the PR is merged into `main`, `auto` will compute the new version and publish the updated package.
+- Development setup
+- Building and testing
+- Release process
+- Commit message guidelines
+
+## License
+
+This project is licensed under the Apache License 2.0. See the repository for details.
