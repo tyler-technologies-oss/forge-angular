@@ -1,16 +1,16 @@
 {
   "name": "@tylertech/forge-angular",
-  "version": "0.0.0",
+  "version": "7.0.0",
   "description": "Forge components adapter library for Angular",
   "repository": "tyler-technologies-oss/forge-angular",
   "author": "Tyler Technologies, Inc.",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/common": ">=19.0.0 < 21.0.0",
-    "@angular/core": ">=19.0.0 < 21.0.0",
-    "@tylertech/forge": "^3.12.0"
+    "@angular/common": ">=20.0.0 < 22.0.0",
+    "@angular/core": ">=20.0.0 < 22.0.0",
+    "@tylertech/forge": "^3.12.1"
   },
   "dependencies": {
-    "tslib": "^2.6.3"
+    "tslib": "^2.8.1"
   }
 }
