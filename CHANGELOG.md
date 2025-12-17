@@ -1,3 +1,15 @@
+# v7.1.0 (Wed Dec 17 2025)
+
+#### 🚀 Enhancement
+
+- feat: update to forge 3.13.1 [#108](https://github.com/tyler-technologies-oss/forge-angular/pull/108) ([@MikeMatusz](https://github.com/MikeMatusz))
+
+#### Authors: 1
+
+- Mike Matuszak ([@MikeMatusz](https://github.com/MikeMatusz))
+
+---
+
 # v7.0.0 (Thu Nov 20 2025)
 
 #### 💥 Breaking Change
