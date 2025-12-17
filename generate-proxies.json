@@ -21,6 +21,7 @@
         "forge-split-view": ["forge-split-view-panel"],
         "forge-stepper": ["forge-step"],
         "forge-tab-bar": ["forge-tab"],
+        "forge-tree": ["forge-tree-item"],
         "forge-view-switcher": ["forge-view"]
     }
 }

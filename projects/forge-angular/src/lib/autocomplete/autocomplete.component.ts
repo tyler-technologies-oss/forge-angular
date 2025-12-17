@@ -82,6 +82,17 @@ export class AutocompleteComponent {
 		return this.nativeElement.filterFocusFirst;
 	}
 
+	/** Determines whether the first available option should be selected automatically when blurring mid-filter. */
+	@Input({ transform: booleanAttribute })
+	public set selectFirstOptionOnBlur(value: AutocompleteComponentCustomElement['selectFirstOptionOnBlur']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.selectFirstOptionOnBlur = value;
+		});
+	}
+	public get selectFirstOptionOnBlur(): AutocompleteComponentCustomElement['selectFirstOptionOnBlur'] {
+		return this.nativeElement.selectFirstOptionOnBlur;
+	}
+
 	/** Controls whether unmatched text entered by the user will stay visible an option in the dropdown is not found. */
 	@Input({ transform: booleanAttribute })
 	public set allowUnmatched(value: AutocompleteComponentCustomElement['allowUnmatched']) {

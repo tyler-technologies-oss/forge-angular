@@ -49,7 +49,7 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.animationType;
 	}
 
-	/** The id of the element that the expansion panel should be toggled by. */
+	/** The id of the button that the expansion panel should be toggled by. */
 	@Input()
 	public set trigger(value: ExpansionPanelComponentCustomElement['trigger']) {
 		this.zone.runOutsideAngular(() => {
@@ -60,7 +60,7 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.trigger;
 	}
 
-	/** The element that the expansion panel should be toggled by. */
+	/** The button that the expansion panel should be toggled by. */
 	@Input()
 	public set triggerElement(value: ExpansionPanelComponentCustomElement['triggerElement']) {
 		this.zone.runOutsideAngular(() => {
@@ -69,6 +69,28 @@ export class ExpansionPanelComponent {
 	}
 	public get triggerElement(): ExpansionPanelComponentCustomElement['triggerElement'] {
 		return this.nativeElement.triggerElement;
+	}
+
+	/** The id of the `<forge-open-icon>` that the expansion panel should toggle. */
+	@Input()
+	public set openIcon(value: ExpansionPanelComponentCustomElement['openIcon']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.openIcon = value;
+		});
+	}
+	public get openIcon(): ExpansionPanelComponentCustomElement['openIcon'] {
+		return this.nativeElement.openIcon;
+	}
+
+	/** The `<forge-open-icon>` that the expansion panel should toggle. */
+	@Input()
+	public set openIconElement(value: ExpansionPanelComponentCustomElement['openIconElement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.openIconElement = value;
+		});
+	}
+	public get openIconElement(): ExpansionPanelComponentCustomElement['openIconElement'] {
+		return this.nativeElement.openIconElement;
 	}
 
 	/** Toggles the open state of the panel. */

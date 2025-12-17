@@ -85,6 +85,7 @@ import { ForgeToolbarModule } from './toolbar';
 import { ForgeTooltipModule } from './tooltip';
 import { ForgeViewModule } from './view';
 import { ForgeViewSwitcherModule } from './view-switcher';
+import { ForgeTreeModule } from './tree';
 
 @NgModule({
   exports: [
@@ -171,6 +172,7 @@ import { ForgeViewSwitcherModule } from './view-switcher';
     ForgeToastModule,
     ForgeToolbarModule,
     ForgeTooltipModule,
+    ForgeTreeModule,
     ForgeViewModule,
     ForgeViewSwitcherModule
   ]
