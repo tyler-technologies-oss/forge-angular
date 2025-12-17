@@ -87,6 +87,8 @@ export * from './lib/time-picker';
 export * from './lib/toast';
 export * from './lib/toolbar';
 export * from './lib/tooltip';
+export * from './lib/tree';
+export * from './lib/tree-item';
 export * from './lib/view';
 export * from './lib/view-switcher';
 
