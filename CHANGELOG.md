@@ -1,3 +1,19 @@
+# v7.2.0 (Fri Feb 20 2026)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Eli Ganem ([@eliganemtyler](https://github.com/eliganemtyler)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat(dialog): add directive options [#117](https://github.com/tyler-technologies-oss/forge-angular/pull/117) ([@eliganemtyler](https://github.com/eliganemtyler))
+
+#### Authors: 1
+
+- Eli Ganem ([@eliganemtyler](https://github.com/eliganemtyler))
+
+---
+
 # v7.1.0 (Wed Dec 17 2025)
 
 #### 🚀 Enhancement
