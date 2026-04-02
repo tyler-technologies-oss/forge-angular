@@ -93,7 +93,18 @@ export class ExpansionPanelComponent {
 		return this.nativeElement.openIconElement;
 	}
 
-	/** Toggles the open state of the panel. */
+	/** The expansion panel's name. Expansion panels that share the same name form an accordion group where only one panel may be open at a time. */
+	@Input()
+	public set name(value: ExpansionPanelComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): ExpansionPanelComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+
 	public toggle(...args: Parameters<ExpansionPanelComponentCustomElement['toggle']>): ReturnType<ExpansionPanelComponentCustomElement['toggle']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.toggle(...args));
 	}

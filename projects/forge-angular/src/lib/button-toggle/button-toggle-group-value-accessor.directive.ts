@@ -1,6 +1,7 @@
 import { Directive, Renderer2, ElementRef, forwardRef, HostListener, inject } from '@angular/core';
 import { StaticProvider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { task } from '@tylertech/forge';
 
 export const BUTTON_TOGGLE_GROUP_VALUE_ACCESSOR: StaticProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -18,7 +19,11 @@ export class ButtonToggleGroupValueAccessor implements ControlValueAccessor {
   private _renderer = inject(Renderer2);
 
   @HostListener('forge-button-toggle-group-change', ['$event'])
-  public buttonToggleGroupChange(event: CustomEvent): void {
+  public async buttonToggleGroupChange(event: CustomEvent): Promise<void> {
+    await task(); // Wait for bubbling to complete
+    if (event.defaultPrevented) {
+      return;
+    }
     this.change(event.detail);
   }
 

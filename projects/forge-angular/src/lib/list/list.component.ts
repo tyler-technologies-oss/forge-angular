@@ -93,6 +93,17 @@ export class ListComponent {
 		return this.nativeElement.noninteractive;
 	}
 
+	/** Whether the list displays items in multiple columns using a responsive grid layout. */
+	@Input({ transform: booleanAttribute })
+	public set multicolumn(value: ListComponentCustomElement['multicolumn']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.multicolumn = value;
+		});
+	}
+	public get multicolumn(): ListComponentCustomElement['multicolumn'] {
+		return this.nativeElement.multicolumn;
+	}
+
 	constructor() {
 		defineListComponent();
 		const changeDetectorRef = inject(ChangeDetectorRef);

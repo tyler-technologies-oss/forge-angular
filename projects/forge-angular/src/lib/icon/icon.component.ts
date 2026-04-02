@@ -38,7 +38,7 @@ export class IconComponent {
 		return this.nativeElement.src;
 	}
 
-	/** Controls whether the icon will be loaded dynamically when it comes into view. False by default. */
+	/** Controls whether the icon will be loaded dynamically when it comes into view. */
 	@Input({ transform: booleanAttribute })
 	public set lazy(value: IconComponentCustomElement['lazy']) {
 		this.zone.runOutsideAngular(() => {
@@ -104,7 +104,7 @@ export class IconComponent {
 		return this.nativeElement.theme;
 	}
 
-	/** Forces a reload of the icon. */
+
 	public layout(...args: Parameters<IconComponentCustomElement['layout']>): ReturnType<IconComponentCustomElement['layout']> {
 		return this.zone.runOutsideAngular(() => this.nativeElement.layout(...args));
 	}

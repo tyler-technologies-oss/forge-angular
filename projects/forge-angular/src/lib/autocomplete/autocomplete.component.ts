@@ -206,6 +206,28 @@ export class AutocompleteComponent {
 		return this.nativeElement.beforeValueChange;
 	}
 
+	/** Gets/sets the message displayed when the filter returns no results. */
+	@Input()
+	public set emptyMessage(value: AutocompleteComponentCustomElement['emptyMessage']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.emptyMessage = value;
+		});
+	}
+	public get emptyMessage(): AutocompleteComponentCustomElement['emptyMessage'] {
+		return this.nativeElement.emptyMessage;
+	}
+
+	/** Sets the callback to build custom empty state content when the filter returns no results. */
+	@Input()
+	public set emptyStateBuilder(value: AutocompleteComponentCustomElement['emptyStateBuilder']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.emptyStateBuilder = value;
+		});
+	}
+	public get emptyStateBuilder(): AutocompleteComponentCustomElement['emptyStateBuilder'] {
+		return this.nativeElement.emptyStateBuilder;
+	}
+
 	/** Gets/sets the list of classes to apply to the popup element. */
 	@Input()
 	public set popupClasses(value: AutocompleteComponentCustomElement['popupClasses']) {
