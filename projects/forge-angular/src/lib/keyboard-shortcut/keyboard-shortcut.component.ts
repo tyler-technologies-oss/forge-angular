@@ -27,7 +27,7 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.key;
 	}
 
-	/** Alias for key. */
+	/** Alias for `key`. */
 	@Input()
 	public set keyBinding(value: KeyboardShortcutComponentCustomElement['keyBinding']) {
 		this.zone.runOutsideAngular(() => {
@@ -71,7 +71,7 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.allowWhileTyping;
 	}
 
-	/** Gets/sets whether to prevent default on keyboard events */
+	/** Gets/sets whether to prevent default on keyboard events. */
 	@Input({ transform: booleanAttribute })
 	public set preventDefault(value: KeyboardShortcutComponentCustomElement['preventDefault']) {
 		this.zone.runOutsideAngular(() => {
@@ -82,7 +82,7 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.preventDefault;
 	}
 
-	/** Gets/sets whether to use capturing on keyboard events */
+	/** Gets/sets whether to use capturing on keyboard events. */
 	@Input({ transform: booleanAttribute })
 	public set capture(value: KeyboardShortcutComponentCustomElement['capture']) {
 		this.zone.runOutsideAngular(() => {
@@ -115,7 +115,7 @@ export class KeyboardShortcutComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** Gets/sets whether the activation callback. */
+	/** Gets/sets the activation callback. */
 	@Input()
 	public set activateCallback(value: KeyboardShortcutComponentCustomElement['activateCallback']) {
 		this.zone.runOutsideAngular(() => {

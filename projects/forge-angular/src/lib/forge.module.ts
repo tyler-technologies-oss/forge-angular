@@ -62,6 +62,7 @@ import { ForgeProfileCardModule } from './profile-card';
 import { ForgeRadioModule } from './radio';
 import { ForgeRadioGroupModule } from './radio-group';
 import { ForgeScaffoldModule } from './scaffold';
+import { ForgeSecretModule } from './secret';
 import { ForgeSelectModule } from './select';
 import { ForgeSelectDropdownModule } from './select-dropdown';
 import { ForgeSkeletonModule } from './skeleton';
@@ -151,6 +152,7 @@ import { ForgeTreeModule } from './tree';
     ForgeRadioModule,
     ForgeRadioGroupModule,
     ForgeScaffoldModule,
+    ForgeSecretModule,
     ForgeSelectModule,
     ForgeSelectDropdownModule,
     ForgeSkeletonModule,

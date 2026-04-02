@@ -159,6 +159,17 @@ export class TableComponent {
 		return this.nativeElement.wrapContent;
 	}
 
+	/** Controls whether to render a table footer. */
+	@Input({ transform: booleanAttribute })
+	public set includeFooter(value: TableComponentCustomElement['includeFooter']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.includeFooter = value;
+		});
+	}
+	public get includeFooter(): TableComponentCustomElement['includeFooter'] {
+		return this.nativeElement.includeFooter;
+	}
+
 	/** Controls whether the columns are resizable or not. */
 	@Input({ transform: booleanAttribute })
 	public set resizable(value: TableComponentCustomElement['resizable']) {

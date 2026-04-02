@@ -16,7 +16,7 @@ export class ButtonAreaComponent {
 	/** The forge-button-area element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** Sets whether the button area and slotted button are disabled. Setting this on one will also set it on the other. */
+	/** Controls whether the component and associated button element are disabled. This has no effect when the button area is used with an anchor element. */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: ButtonAreaComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -25,6 +25,28 @@ export class ButtonAreaComponent {
 	}
 	public get disabled(): ButtonAreaComponentCustomElement['disabled'] {
 		return this.nativeElement.disabled;
+	}
+
+	/** The ID of a button or anchor element to use for semantics and functionality. */
+	@Input()
+	public set target(value: ButtonAreaComponentCustomElement['target']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.target = value;
+		});
+	}
+	public get target(): ButtonAreaComponentCustomElement['target'] {
+		return this.nativeElement.target;
+	}
+
+	/** A button or anchor element instance to use for semantics and functionality. */
+	@Input()
+	public set targetElement(value: ButtonAreaComponentCustomElement['targetElement']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.targetElement = value;
+		});
+	}
+	public get targetElement(): ButtonAreaComponentCustomElement['targetElement'] {
+		return this.nativeElement.targetElement;
 	}
 
 	constructor() {

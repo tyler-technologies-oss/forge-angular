@@ -66,6 +66,7 @@ export * from './lib/profile-card';
 export * from './lib/radio-group';
 export * from './lib/radio';
 export * from './lib/scaffold';
+export * from './lib/secret';
 export * from './lib/select';
 export * from './lib/select-dropdown';
 export * from './lib/skeleton';
