@@ -1,3 +1,15 @@
+# v7.3.0 (Thu Apr 02 2026)
+
+#### 🚀 Enhancement
+
+- feat: update to Forge 3.14.0 [#120](https://github.com/tyler-technologies-oss/forge-angular/pull/120) ([@DRiFTy17](https://github.com/DRiFTy17))
+
+#### Authors: 1
+
+- Kieran Nichols ([@DRiFTy17](https://github.com/DRiFTy17))
+
+---
+
 # v7.2.0 (Fri Feb 20 2026)
 
 :tada: This release contains work from a new contributor! :tada:
