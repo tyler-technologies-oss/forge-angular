@@ -2,7 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -10,8 +9,8 @@
     "noImplicitOverride": true,
     "paths": {
       "@tylertech/forge-angular": [
-        "dist/forge-angular/forge-angular",
-        "dist/forge-angular"
+        "./dist/forge-angular/forge-angular",
+        "./dist/forge-angular"
       ]
     },
     "noPropertyAccessFromIndexSignature": true,

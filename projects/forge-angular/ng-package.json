@@ -3,5 +3,9 @@
   "dest": "../../dist/forge-angular",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "./schematics/package.json",
+    "./schematics/migrations/migration.json"
+  ]
 }
