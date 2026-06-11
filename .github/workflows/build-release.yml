@@ -45,7 +45,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "25"
 
       - name: Install
         id: install
@@ -95,6 +95,7 @@ jobs:
     if: ${{ needs.wf-config.outputs.is-release == 'false' && needs.wf-config.outputs.build-files-changed == 'true' }}
     with:
       BUILD_ENABLED: ${{ needs.wf-config.outputs.build-files-changed == 'true' }}
+      NODE_VERSION: 25
     secrets:
       NPM_TOKEN: ${{ secrets.FORGE_NPM_TOKEN }}
 
@@ -105,6 +106,7 @@ jobs:
     if: ${{ needs.wf-config.outputs.is-release == 'true' }}
     with:
       PRODUCTION_RELEASE: true
+      NODE_VERSION: 25
     secrets:
       GITHUB_APP_ID: ${{ secrets.FORGE_AUTOBOT_ID }}
       GITHUB_APP_KEY: ${{ secrets.FORGE_AUTOBOT_SECRET }}
