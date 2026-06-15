@@ -19,11 +19,11 @@ interface TargetLike {
 }
 
 /**
- * Migration for @tylertech/forge-angular v8 (Angular 22).
+ * Migration for @tylertech/forge-angular v8.
  *
  * `DynamicComponentService.create()` no longer accepts a `ComponentFactory` as its first argument,
- * nor an `NgModuleRef` as its fourth argument — both rely on Angular's `ComponentFactory`/
- * `ComponentFactoryResolver` APIs, which were removed in Angular 22. Its signature is now:
+ * nor an `NgModuleRef` as its fourth argument — both rely on Angular's deprecated `ComponentFactory`/
+ * `ComponentFactoryResolver` APIs (removed in Angular 22). Its signature is now:
  *
  *   create<T>(component: Type<T>, target?: ViewContainerRef | HTMLElement, injector?: Injector)
  *
