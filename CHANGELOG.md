@@ -1,3 +1,23 @@
+# v8.0.0 (Mon Jul 06 2026)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Sriram Danturthi ([@sriramasdanturthi](https://github.com/sriramasdanturthi))
+
+:heart: Sriram Danturthi ([@SriramaDanturthi](https://github.com/SriramaDanturthi))
+
+#### 💥 Breaking Change
+
+- feat!: update to Angular 22 [#121](https://github.com/tyler-technologies-oss/forge-angular/pull/121) ([@sriramasdanturthi](https://github.com/sriramasdanturthi))
+
+#### Authors: 1
+
+- Sriram Danturthi ([@sriramasdanturthi](https://github.com/sriramasdanturthi))
+
+---
+
 # v7.3.0 (Thu Apr 02 2026)
 
 #### 🚀 Enhancement
