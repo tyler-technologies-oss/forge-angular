@@ -1,4 +1,4 @@
-import { Compiler, Component, Injector, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BottomSheetService, IBottomSheetOptions, ToastService, ForgeButtonModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -14,8 +14,6 @@ import { FormsModule } from '@angular/forms';
 export class BottomSheetComponent {
   private _bottomSheetService = inject(BottomSheetService);
   private _toastService = inject(ToastService);
-  private _compiler = inject(Compiler);
-  private _injector = inject(Injector);
 
   public persistent = false;
   public fullscreen = false;
@@ -66,11 +64,8 @@ export class BottomSheetComponent {
       }
     } else {
       // lazyload
-      const { LazyBottomSheetModule } = await import('./lazy/lazy-bottom-sheet.module');
-      const moduleFactory = await this._compiler.compileModuleAsync(LazyBottomSheetModule);
-      const moduleRef = moduleFactory.create(this._injector);
-      const componentFactory = moduleRef.instance.resolveComponent();
-      const bottomSheetRef = this._bottomSheetService.show(componentFactory.componentType, bottomSheetOptions, bottomSheetConfig);
+      const { LazyBottomSheetComponent } = await import('./lazy/lazy-bottom-sheet.component');
+      const bottomSheetRef = this._bottomSheetService.show(LazyBottomSheetComponent, bottomSheetOptions, bottomSheetConfig);
       console.log('Native Forge bottomSheet instance', bottomSheetRef.nativeElement);
       console.log('[BottomSheetRef] Angular componentInstance', bottomSheetRef.componentInstance);
       bottomSheetRef.afterClosed.pipe(take(1)).subscribe(result => {

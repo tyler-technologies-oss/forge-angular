@@ -1,5 +1,7 @@
+@use 'sass:meta';
+
 ::ng-deep {
-  @import '@tylertech/forge/dist/table/forge-table';
+  @include meta.load-css('@tylertech/forge/dist/table/forge-table');
 }
 
 .table-header {

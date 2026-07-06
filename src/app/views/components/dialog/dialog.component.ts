@@ -1,4 +1,4 @@
-import { Component, Compiler, Injector, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DialogService, ToastService, IDialogOptions, ForgeButtonModule, ForgeDialogModule, ForgeScaffoldModule, ForgeToolbarModule, ForgeCheckboxProxyModule, ForgeCheckboxModule, ForgeTextFieldModule } from '@tylertech/forge-angular';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -15,8 +15,6 @@ import { FormsModule } from '@angular/forms';
 export class DialogComponent {
   private _dialogService = inject(DialogService);
   private _toastService = inject(ToastService);
-  private _compiler = inject(Compiler);
-  private _injector = inject(Injector);
 
   public nonmodal = false;
   public persistent = false;
@@ -58,11 +56,8 @@ export class DialogComponent {
       }
     } else {
       // lazyload
-      const { LazyLoadedModule } = await import('./lazyLoadedDialog/lazyLoadedDialog.module');
-      const moduleFactory = await this._compiler.compileModuleAsync(LazyLoadedModule);
-      const moduleRef = moduleFactory.create(this._injector);
-      const componentFactory = moduleRef.instance.resolveComponent();
-      const dialogRef = this._dialogService.open(componentFactory.componentType, { options, config: { data }});
+      const { LazyLoadedDialogComponent } = await import('./lazyLoadedDialog/lazyLoadedDialog.component');
+      const dialogRef = this._dialogService.open(LazyLoadedDialogComponent, { options, config: { data }});
       console.log('Native Forge dialog instance', dialogRef.nativeElement);
       console.log('[DialogRef] Angular componentInstance', dialogRef.componentInstance);
       dialogRef.afterClosed.pipe(take(1)).subscribe(result => {

@@ -5,7 +5,7 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { IconRegistry } from '@tylertech/forge';
 import { tylIconHome, tylIconSettings, tylIconSettingsInputComponent } from '@tylertech/tyler-icons';
 import { ForgeDialogModule, ForgeDrawerModule, ForgeListModule, ForgeListItemModule, ForgeIconModule, ForgeExpansionPanelModule, ForgeOpenIconModule } from '@tylertech/forge-angular';
-import { DrawerService } from 'src/app/services/drawer.service';
+import { DrawerService } from '../../services/drawer.service';
 
 IconRegistry.define([
   tylIconHome,
