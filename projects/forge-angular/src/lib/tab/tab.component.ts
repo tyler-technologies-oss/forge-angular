@@ -16,7 +16,21 @@ export class TabComponent {
 	/** The forge-tab element. */
 	public readonly nativeElement = this.elementRef.nativeElement;
 
-	/** The disabled state of the tab. Should not be set if using the disabled property on `forge-tab-bar`. */
+	/** The name of the tab used for indexing and identication. */
+	@Input()
+	public set name(value: TabComponentCustomElement['name']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.name = value;
+		});
+	}
+	public get name(): TabComponentCustomElement['name'] {
+		return this.nativeElement.name;
+	}
+
+	/**
+	 * The disabled state of the tab. Disabled tabs remain focusable but are not interactive. Should
+	 * not be set if using the disabled property on `forge-tab-bar`.
+	 */
 	@Input({ transform: booleanAttribute })
 	public set disabled(value: TabComponentCustomElement['disabled']) {
 		this.zone.runOutsideAngular(() => {
@@ -27,8 +41,19 @@ export class TabComponent {
 		return this.nativeElement.disabled;
 	}
 
-	/** The selected state of the tab. */
+	/** Whether the tab is the current active tab within its parent tab bar. */
 	@Input({ transform: booleanAttribute })
+	public set active(value: TabComponentCustomElement['active']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.active = value;
+		});
+	}
+	public get active(): TabComponentCustomElement['active'] {
+		return this.nativeElement.active;
+	}
+
+	/** The selected state of the tab. */
+	@Input()
 	public set selected(value: TabComponentCustomElement['selected']) {
 		this.zone.runOutsideAngular(() => {
 			this.nativeElement.selected = value;
@@ -82,9 +107,20 @@ export class TabComponent {
 		return this.nativeElement.inverted;
 	}
 
+	/** Controls whether the tab can be closed with the delete key. */
+	@Input({ transform: booleanAttribute })
+	public set closable(value: TabComponentCustomElement['closable']) {
+		this.zone.runOutsideAngular(() => {
+			this.nativeElement.closable = value;
+		});
+	}
+	public get closable(): TabComponentCustomElement['closable'] {
+		return this.nativeElement.closable;
+	}
 
-	public focus(...args: Parameters<TabComponentCustomElement['focus']>): ReturnType<TabComponentCustomElement['focus']> {
-		return this.zone.runOutsideAngular(() => this.nativeElement.focus(...args));
+
+	public activate(...args: Parameters<TabComponentCustomElement['activate']>): ReturnType<TabComponentCustomElement['activate']> {
+		return this.zone.runOutsideAngular(() => this.nativeElement.activate(...args));
 	}
 
 	constructor() {
