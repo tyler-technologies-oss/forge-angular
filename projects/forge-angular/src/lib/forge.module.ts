@@ -87,6 +87,10 @@ import { ForgeTooltipModule } from './tooltip';
 import { ForgeViewModule } from './view';
 import { ForgeViewSwitcherModule } from './view-switcher';
 import { ForgeTreeModule } from './tree';
+import { ForgeTabPanelModule } from './tab-panel/tab-panel.module';
+import { ForgeTimelineModule } from './timeline/timeline.module';
+import { ForgeTimelineBreakModule } from './timeline-break/timeline-break.module';
+import { ForgeTimelineItemModule } from './timeline-item/timeline-item.module';
 
 @NgModule({
   exports: [
@@ -168,15 +172,19 @@ import { ForgeTreeModule } from './tree';
     ForgeSwitchModule,
     ForgeTabModule,
     ForgeTabBarModule,
+    ForgeTabPanelModule,
     ForgeTableModule,
     ForgeTextFieldModule,
+    ForgeTimelineBreakModule,
+    ForgeTimelineItemModule,
+    ForgeTimelineModule,
     ForgeTimePickerModule,
     ForgeToastModule,
     ForgeToolbarModule,
     ForgeTooltipModule,
     ForgeTreeModule,
     ForgeViewModule,
-    ForgeViewSwitcherModule
-  ]
+    ForgeViewSwitcherModule,
+  ],
 })
 export class ForgeModule {}

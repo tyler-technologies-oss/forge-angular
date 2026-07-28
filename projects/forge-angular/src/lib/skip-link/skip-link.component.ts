@@ -60,7 +60,7 @@ export class SkipLinkComponent {
 		return this.nativeElement.persistent;
 	}
 
-	/** Whether or not the skip link renders within its container. */
+	/** Whether or not the skip link is positioned within its container. */
 	@Input({ transform: booleanAttribute })
 	public set inline(value: SkipLinkComponentCustomElement['inline']) {
 		this.zone.runOutsideAngular(() => {
