@@ -1,3 +1,15 @@
+# v9.1.0 (Tue Jul 28 2026)
+
+#### 🚀 Enhancement
+
+- feat: update to Forge 3.15.2 [#124](https://github.com/tyler-technologies-oss/forge-angular/pull/124) ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+#### Authors: 1
+
+- Sam Richardson ([@samrichardsontylertech](https://github.com/samrichardsontylertech))
+
+---
+
 # v8.0.0 (Mon Jul 06 2026)
 
 :tada: This release contains work from new contributors! :tada:
